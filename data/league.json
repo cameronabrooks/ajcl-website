@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795563725873,
+  "generatedAt": 1795563799070,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -3254,7 +3254,29 @@
       "roles": [
         "player"
       ],
-      "rank": "Ruby"
+      "rank": "Ruby",
+      "gamertag": "Pizz",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.66",
+            "kpm": "12.9",
+            "maps": 30
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "CHP",
+              "kd": "0.66",
+              "kpm": "12.9",
+              "maps": 30
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "2elite",
