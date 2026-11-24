@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795554112159,
+  "generatedAt": 1795554412120,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2185,8 +2185,8 @@
         "kd": "1.09",
         "winPct": "61%",
         "maps": "31",
-        "avgKills": "21.7",
-        "plusMinus": "+55",
+        "avgKills": null,
+        "plusMinus": null,
         "streak": "L2"
       },
       "season": "Season X",
@@ -2196,10 +2196,10 @@
           "kd": "1.09",
           "winPct": "61%",
           "maps": "31",
-          "avgKills": "21.7",
-          "plusMinus": "+55",
+          "avgKills": null,
+          "plusMinus": null,
           "streak": "L2",
-          "at": 1795552510836
+          "at": 1795554119534
         }
       ]
     },
@@ -2230,7 +2230,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552517629
+          "at": 1795554130132
         }
       ]
     },
@@ -2262,7 +2262,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": "L1",
-          "at": 1795552530130
+          "at": 1795554140128
         }
       ]
     },
@@ -2293,7 +2293,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552538637
+          "at": 1795554148138
         }
       ]
     },
@@ -2326,7 +2326,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": "W1",
-          "at": 1795552547833
+          "at": 1795554157838
         }
       ]
     },
@@ -2358,7 +2358,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": "L1",
-          "at": 1795552557036
+          "at": 1795554167445
         }
       ]
     },
@@ -2390,7 +2390,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": "W8",
-          "at": 1795552566430
+          "at": 1795554197184
         }
       ]
     },
@@ -2422,7 +2422,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": "L2",
-          "at": 1795552575933
+          "at": 1795554219846
         }
       ]
     },
