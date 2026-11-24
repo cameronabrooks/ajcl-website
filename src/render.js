@@ -89,6 +89,7 @@ function layout({ title, active, body, c, script = '', page = '' }) {
     ['/schedule/', 'Schedule', 'schedule'],
     ['/standings/', 'Standings', 'standings'],
     ['/teams/', 'Teams', 'teams'],
+    ['/players/', 'Players', 'players'],
     ['/stats/', 'Stats', 'stats'],
     ['/join/', 'Join', 'join'],
   ].map(([href, label, key]) => `<a href="${u(href)}"${key === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
@@ -443,6 +444,63 @@ function authPage(c) {
 }
 
 const ROLE_LABELS = { gm: 'General Manager', coach: 'Coach', player: 'Player', nonPlaying: 'Non-Playing' };
+
+// Searchable list of every rostered player. Filtering is client-side; the search
+// listener is delegated so it survives live.js re-rendering <main>.
+function playersPage(league, c) {
+  const list = [...league.players].sort((a, b) => a.name.localeCompare(b.name));
+  const items = list.map(p => {
+    const t = p.teamObj;
+    const search = [p.name, p.gamertag, t.name, t.abbr, t.division, ...(p.roles || []).map(r => ROLE_LABELS[r] || r)].filter(Boolean).join(' ').toLowerCase();
+    const best = (p.games || []).map(g => g.game).join(' · ');
+    return `<a class="player-row" href="${u(`/players/${p.slug}/`)}" data-search="${esc(search)}">
+      ${crest(t, 'sm')}
+      <span class="pr-main"><strong>${esc(p.name)}</strong><span class="muted">${esc(t.name)} · ${esc((p.roles || []).map(r => ROLE_LABELS[r] || r).join(', '))}</span></span>
+      ${best ? `<span class="pr-games muted">${esc(best)}</span>` : ''}
+      ${p.kd ? `<span class="kd" title="${esc(c.season || 'Season')} K/D">${esc(p.kd)} K/D</span>` : ''}
+    </a>`;
+  }).join('');
+  const script = `<script>
+(function () {
+  var q = '';
+  function apply() {
+    var shown = 0;
+    document.querySelectorAll('.player-row').forEach(function (row) {
+      var hit = !q || row.dataset.search.indexOf(q) !== -1;
+      row.hidden = !hit; if (hit) shown++;
+    });
+    var none = document.querySelector('[data-no-results]');
+    if (none) none.hidden = shown !== 0;
+    var count = document.querySelector('[data-result-count]');
+    if (count) count.textContent = shown + (shown === 1 ? ' player' : ' players');
+  }
+  document.addEventListener('input', function (e) {
+    if (!e.target.matches('[data-player-search]')) return;
+    q = e.target.value.trim().toLowerCase();
+    history.replaceState(null, '', q ? '#' + encodeURIComponent(q) : location.pathname);
+    apply();
+  });
+  // Re-apply after a live update re-renders the list.
+  document.addEventListener('ajcl:league', function () {
+    setTimeout(function () { var i = document.querySelector('[data-player-search]'); if (i) i.value = q; apply(); }, 0);
+  });
+  q = decodeURIComponent(location.hash.slice(1) || '').toLowerCase();
+  var input = document.querySelector('[data-player-search]');
+  if (input) { input.value = q; if (!q) input.focus(); }
+  apply();
+})();
+</script>`;
+  const body = pageHead(c.season || 'Players', 'Players', 'Search every player on an AJCL roster.') + `
+<section class="wrap section">
+  <div class="search-bar">
+    <input type="search" class="search-input" data-player-search placeholder="Search by name, gamertag or team…" aria-label="Search players" autocomplete="off">
+    <span class="muted" data-result-count>${list.length} players</span>
+  </div>
+  <div class="player-list">${items}</div>
+  <p class="muted" data-no-results hidden>No players match that search.</p>
+</section>`;
+  return layout({ title: 'Players', active: 'players', body, c, script, page: 'players' });
+}
 const COD_STATS_LEAGUE = 'https://cod-stats.com/amateur-leagues/average-joes-cod-league';
 
 // Player profile: team, role, this season's K/D, stats per game with a season
@@ -547,7 +605,7 @@ function playerPage(league, player, c) {
     <div class="match-list">${teamGames.map(m => matchCard(m, { showDivision: false })).join('')}</div>
   </div>
 </section>`;
-  return layout({ title: player.name, active: 'teams', body, c, script, page: `player:${player.slug}` });
+  return layout({ title: player.name, active: 'players', body, c, script, page: `player:${player.slug}` });
 }
 
 function notFound(c) {
@@ -555,4 +613,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, home, teamsPage, teamPage, playerPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, home, teamsPage, teamPage, playerPage, playersPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };

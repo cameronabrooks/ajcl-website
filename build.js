@@ -74,6 +74,7 @@ window.AJCL = (function () {
   write('standings/index.html', renderPage(render, league, content, 'standings'));
   write('teams/index.html', renderPage(render, league, content, 'teams'));
   for (const team of league.teams) write(`teams/${team.slug}/index.html`, renderPage(render, league, content, `team:${team.slug}`));
+  write('players/index.html', renderPage(render, league, content, 'players'));
   for (const player of league.players) write(`players/${player.slug}/index.html`, renderPage(render, league, content, `player:${player.slug}`));
   write('join/index.html', renderPage(render, league, content, 'join'));
   write('stats/index.html', render.statsPage(league, content));
