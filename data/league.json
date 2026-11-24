@@ -1,7 +1,8 @@
 {
-  "generatedAt": 1795544186501,
+  "generatedAt": 1795545671218,
   "version": 1,
   "rostersLive": true,
+  "discordClientId": "1515789275961098291",
   "weeks": [
     1,
     2,
@@ -911,5 +912,500 @@
       "result": null,
       "deadline": 1800507599000
     }
-  ]
+  ],
+  "members": {
+    "4623064ecf744333f6f7": {
+      "team": "atl",
+      "name": "ATL | Xerxes",
+      "roles": [
+        "player"
+      ]
+    },
+    "e5bff57d28cd2185c135": {
+      "team": "atl",
+      "name": "ATL | BBLZaaZaa",
+      "roles": [
+        "player",
+        "gm",
+        "coach"
+      ]
+    },
+    "c1fd90bf17d65a2f054c": {
+      "team": "atl",
+      "name": "ATL | Reddaza",
+      "roles": [
+        "player"
+      ]
+    },
+    "663def3148f4cbbb5268": {
+      "team": "atl",
+      "name": "ATL | Speiddyy",
+      "roles": [
+        "player"
+      ]
+    },
+    "3d5c8de87dd16ef32d6c": {
+      "team": "car",
+      "name": "CAR | Lil'Ceezars",
+      "roles": [
+        "player",
+        "gm",
+        "coach"
+      ]
+    },
+    "4569722f38e61fb3b813": {
+      "team": "car",
+      "name": "CAR | Ny",
+      "roles": [
+        "player"
+      ]
+    },
+    "5bf7b0bb722756d62fd0": {
+      "team": "car",
+      "name": "CAR | Zuko",
+      "roles": [
+        "player"
+      ]
+    },
+    "62d8fb2a2a45e5404fe2": {
+      "team": "car",
+      "name": "CAR | 007 Quay",
+      "roles": [
+        "player"
+      ]
+    },
+    "56c8e1ef5dfbfd83acb8": {
+      "team": "syr",
+      "name": "SYR | butchiehof",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "8e3cfea2d2f5ec7336e3": {
+      "team": "syr",
+      "name": "SYR | Crouse",
+      "roles": [
+        "player"
+      ]
+    },
+    "498e3024effcd57afd25": {
+      "team": "syr",
+      "name": "SYR | Loyal",
+      "roles": [
+        "player"
+      ]
+    },
+    "2157bbb040dac182dbb8": {
+      "team": "syr",
+      "name": "SYR | nitsua",
+      "roles": [
+        "player"
+      ]
+    },
+    "cb9bd71b4a3db6ac4413": {
+      "team": "syr",
+      "name": "COACH | Delusions",
+      "roles": [
+        "coach"
+      ]
+    },
+    "e8e8bc689b0fb48c6697": {
+      "team": "sln",
+      "name": "SLN | Lux",
+      "roles": [
+        "player"
+      ]
+    },
+    "16245870b83997b1d170": {
+      "team": "sln",
+      "name": "SLN | Primo",
+      "roles": [
+        "player"
+      ]
+    },
+    "c1d4bdcefc4ffa3e9d78": {
+      "team": "sln",
+      "name": "SLN | Spyder",
+      "roles": [
+        "player"
+      ]
+    },
+    "5b42ab7101f0e0ff3dab": {
+      "team": "sln",
+      "name": "SLN | Kjay",
+      "roles": [
+        "player"
+      ]
+    },
+    "fd50f20e29e80d8c3ee7": {
+      "team": "sln",
+      "name": "SLN | K1lla",
+      "roles": [
+        "gm"
+      ]
+    },
+    "e0a63810ce200ce74ee6": {
+      "team": "sfs",
+      "name": "SFS | MoonerTheAlcoholic",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "3b09accb39af5a511f14": {
+      "team": "sfs",
+      "name": "SFS | vis",
+      "roles": [
+        "player"
+      ]
+    },
+    "7a032ce1c7e486aff293": {
+      "team": "sfs",
+      "name": "SFS | ilikefeet",
+      "roles": [
+        "player"
+      ]
+    },
+    "b185e31c44d952e14490": {
+      "team": "sfs",
+      "name": "SFS | Lakas",
+      "roles": [
+        "player"
+      ]
+    },
+    "3d0ef410f719125d2a0f": {
+      "team": "ccc",
+      "name": "CCC | BamBam",
+      "roles": [
+        "player"
+      ]
+    },
+    "94f75c6749a0e0519d21": {
+      "team": "ccc",
+      "name": "CCC | Venom",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "54bf4a99ce7b4e726eb6": {
+      "team": "ccc",
+      "name": "CCC | Crazed",
+      "roles": [
+        "player"
+      ]
+    },
+    "ffd5ab606f8755b6e355": {
+      "team": "ccc",
+      "name": "CCC | Freaky",
+      "roles": [
+        "player"
+      ]
+    },
+    "6a5c63a901b429734107": {
+      "team": "tor",
+      "name": "TOR | Luke",
+      "roles": [
+        "player"
+      ]
+    },
+    "b3fefabc6c639ab6b885": {
+      "team": "tor",
+      "name": "TOR | Zylixz",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "3aad8d4d163311f30e8e": {
+      "team": "tor",
+      "name": "TOR | Hunna",
+      "roles": [
+        "player"
+      ]
+    },
+    "8973811321d65bf3b673": {
+      "team": "tor",
+      "name": "TOR | BrooksySZN",
+      "roles": [
+        "player"
+      ]
+    },
+    "098559cba8bcdce2e2eb": {
+      "team": "hal",
+      "name": "HAL | Bis",
+      "roles": [
+        "player"
+      ]
+    },
+    "ec9967a409beb6e09f13": {
+      "team": "hal",
+      "name": "HAL | g-ter",
+      "roles": [
+        "player"
+      ]
+    },
+    "e63655325df0bd70629d": {
+      "team": "hal",
+      "name": "HAL | RynoRH",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "35a3b495990ec34156e6": {
+      "team": "hal",
+      "name": "HAL | MoistQuackers",
+      "roles": [
+        "player"
+      ]
+    },
+    "6eba674a89096a099f7d": {
+      "team": "ros",
+      "name": "ROS | Owes Every1 Taco Bell Plu",
+      "roles": [
+        "player"
+      ]
+    },
+    "487171bde66caaf9a017": {
+      "team": "ros",
+      "name": "MFIC | Inspire",
+      "roles": [
+        "player"
+      ]
+    },
+    "4a0001b12d145e369b77": {
+      "team": "ros",
+      "name": "ROS | BooshDaGoat",
+      "roles": [
+        "player"
+      ]
+    },
+    "456afdd22adc0c988950": {
+      "team": "ros",
+      "name": "ROS | ⛧ Ƒëﾑr ツ",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "025feda6b6afba4a90b0": {
+      "team": "mrd",
+      "name": "MRD | 🧛🏼OverlordAlucard 🧛🏼",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "3731c247df3bd0a6625e": {
+      "team": "mrd",
+      "name": "MRD | Bruce",
+      "roles": [
+        "player"
+      ]
+    },
+    "2e8bed8819a76c2afc08": {
+      "team": "mrd",
+      "name": "MRD | JAYDREAMZ",
+      "roles": [
+        "player"
+      ]
+    },
+    "dd84ea797e0c80a9f20c": {
+      "team": "mrd",
+      "name": "MRD | ZEUS",
+      "roles": [
+        "player"
+      ]
+    },
+    "bcbccee7f2319dbe79c8": {
+      "team": "mrd",
+      "name": "COACH | Chrollo",
+      "roles": [
+        "coach"
+      ]
+    },
+    "05602de9aea222d1753e": {
+      "team": "lex",
+      "name": "COMISH | Cam",
+      "roles": [
+        "player"
+      ]
+    },
+    "74d3c710b3f08eb50078": {
+      "team": "lex",
+      "name": "LEX | Palsy",
+      "roles": [
+        "player"
+      ]
+    },
+    "019f75e43ef6125bb0b1": {
+      "team": "lex",
+      "name": "LEX | Kib",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "f4294a759be3d312000b": {
+      "team": "lex",
+      "name": "LEX | Bandit",
+      "roles": [
+        "player"
+      ]
+    },
+    "53a50678dbe66a4491de": {
+      "team": "nor",
+      "name": "NOR | Divi",
+      "roles": [
+        "player"
+      ]
+    },
+    "c3d683d275a73cb633f0": {
+      "team": "nor",
+      "name": "NOR | Fly Tendencies",
+      "roles": [
+        "player"
+      ]
+    },
+    "a93d644f8a3489d5cba0": {
+      "team": "nor",
+      "name": "NOR | Tanji",
+      "roles": [
+        "player"
+      ]
+    },
+    "f76158dbfc25c120b50b": {
+      "team": "nor",
+      "name": "NOR | Leisure",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "c434afac690b53b89c3f": {
+      "team": "kck",
+      "name": "KCK | Sac",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "5ccc1b9b1c54bdee1b77": {
+      "team": "kck",
+      "name": "KCK | cbass",
+      "roles": [
+        "player"
+      ]
+    },
+    "41d5302bd81a48bee21d": {
+      "team": "kck",
+      "name": "KCK | Rogue",
+      "roles": [
+        "player"
+      ]
+    },
+    "a2a68018498db6357f09": {
+      "team": "kck",
+      "name": "COMISH | MaRsH313",
+      "roles": [
+        "player"
+      ]
+    },
+    "e4801d6539e91745f8fb": {
+      "team": "kck",
+      "name": "Bgolden",
+      "roles": [
+        "coach"
+      ]
+    },
+    "f792d0a1a59ee39e8741": {
+      "team": "pit",
+      "name": "PIT | 2elite",
+      "roles": [
+        "player"
+      ]
+    },
+    "484f010b69343c22efe4": {
+      "team": "pit",
+      "name": "PIT | Brimington",
+      "roles": [
+        "player"
+      ]
+    },
+    "00e5776d8ebd67070622": {
+      "team": "pit",
+      "name": "MFIC | Ranked Incorrectly",
+      "roles": [
+        "player"
+      ]
+    },
+    "ebf90d2adcdf2e9d4091": {
+      "team": "pit",
+      "name": "PIT | Twizz",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "c3efec830c56393e5d6b": {
+      "team": "mis",
+      "name": "MIS | Kentucky",
+      "roles": [
+        "player"
+      ]
+    },
+    "d917fafee7d5e1d39edf": {
+      "team": "mis",
+      "name": "MIS | ImAkaii",
+      "roles": [
+        "player"
+      ]
+    },
+    "b1bdf118360ab3670cd5": {
+      "team": "mis",
+      "name": "MIS | Racist Guy Marv",
+      "roles": [
+        "player"
+      ]
+    },
+    "42aa69d5aa2d0882d849": {
+      "team": "mis",
+      "name": "MIS | shooter",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "1e795f51e1222c271558": {
+      "team": "omh",
+      "name": "OMH | unholy draco",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    "d4e3fbcdccb230412ebd": {
+      "team": "omh",
+      "name": "OMH | Revert",
+      "roles": [
+        "player"
+      ]
+    },
+    "fb185ee08814ed68a4a9": {
+      "team": "omh",
+      "name": "OMH | Gutta",
+      "roles": [
+        "player"
+      ]
+    },
+    "dd16af1b1141a43c70d7": {
+      "team": "omh",
+      "name": "OMH | SlayFS",
+      "roles": [
+        "player"
+      ]
+    }
+  }
 }
