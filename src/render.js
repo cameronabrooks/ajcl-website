@@ -268,13 +268,13 @@ function teamPage(league, team, c) {
   if (!team.roster) {
     rosterHtml = '<p class="muted">Roster coming soon.</p>';
   } else {
-    // K/D from cod-stats.com (only for players who linked a gamertag with /linkgamertag).
-    const kd = team.roster.kd || {};
+    // No K/D badges on rosters: the only per-player K/D available is a career total
+    // from earlier seasons, which would read as a current-season number here.
     const links = team.roster.links || {};
     const nameHtml = n => links[n]
       ? `<a class="member-name" href="${u(`/players/${links[n]}/`)}">${esc(n)}</a>`
       : `<span class="member-name">${esc(n)}</span>`;
-    const member = n => `<li data-member="${esc(n)}">${nameHtml(n)}${kd[n] ? `<span class="kd" title="K/D (cod-stats.com)">${esc(kd[n])} K/D</span>` : ''}</li>`;
+    const member = n => `<li data-member="${esc(n)}">${nameHtml(n)}</li>`;
     const group = (label, names) => names.length ? `<div class="roster-group"><h4>${label}</h4><ul>${names.map(member).join('')}</ul></div>` : '';
     rosterHtml = (group('General Manager', team.roster.gms) + group('Coach', team.roster.coaches) +
       group('Players', team.roster.players) + group('Non-Playing', team.roster.nonPlaying)) ||
@@ -454,19 +454,14 @@ function playerPage(league, player, c) {
   const st = player.stats;
   const tile = (label, value, cls = '') => `<div class="stat-tile${cls}"><strong>${value == null ? '–' : esc(value)}</strong><span>${label}</span></div>`;
   const signCls = v => (v == null ? '' : String(v).startsWith('-') ? ' neg' : /^\+?[1-9]/.test(String(v)) ? ' pos' : '');
-  const history = (player.seasons || []).length ? `
-    <h3 class="sub">Season history</h3>
-    <div class="panel table-wrap"><table class="standings season-table">
-      <thead><tr><th class="left">Season</th><th>K/D</th><th>Win %</th><th>Maps</th><th>Avg kills</th><th>+/-</th></tr></thead>
-      <tbody>${player.seasons.map(s => `<tr>
-        <td class="left"><strong>${esc(s.season)}</strong>${s.season === player.season ? ' <span class="pill pill-live">Current</span>' : ''}</td>
-        <td>${esc(s.kd ?? '–')}</td><td>${esc(s.winPct ?? '–')}</td><td>${esc(s.maps ?? '–')}</td>
-        <td>${esc(s.avgKills ?? '–')}</td><td class="${signCls(s.plusMinus).trim()}">${esc(s.plusMinus ?? '–')}</td>
-      </tr>`).join('')}</tbody>
-    </table></div>` : '';
+  // These are overall AJCL totals from the player's public cod-stats profile (all
+  // previous seasons combined), never SZN X numbers. Older bot data labelled them
+  // "Season X"; that label and any per-season history are deliberately ignored.
+  // Per-season numbers live on the Stats page (cod-stats season embeds).
+  const history = '';
 
   const stats = profileUrl && st ? `
-    <div class="section-head"><h2 class="panel-title">${esc(player.season || 'AJCL career')}</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a></div>
+    <div class="section-head"><h2 class="panel-title">AJCL career</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a></div>
     <div class="stat-grid">
       ${tile('K/D', st.kd, ' stat-main')}
       ${tile('Win %', st.winPct)}
@@ -489,7 +484,6 @@ function playerPage(league, player, c) {
     <p class="eyebrow"><span class="div-tag div-${team.division.toLowerCase()}">${esc(team.division)}</span></p>
     <h1>${esc(player.name)}</h1>
     <div class="team-stats">
-      <div><strong>${player.kd ? esc(player.kd) : '–'}</strong><span>K/D</span></div>
       <div><strong class="player-team"><a href="${teamHref(team)}">${esc(team.abbr)}</a></strong><span>${esc(team.name)}</span></div>
       <div><strong class="player-role">${esc(roles)}</strong><span>Role</span></div>
     </div>
