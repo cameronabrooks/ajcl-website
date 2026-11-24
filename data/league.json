@@ -1,7 +1,7 @@
 {
-  "generatedAt": 1795543169181,
+  "generatedAt": 1795544186501,
   "version": 1,
-  "rostersLive": false,
+  "rostersLive": true,
   "weeks": [
     1,
     2,
@@ -40,112 +40,314 @@
       "name": "Atlanta Firebirds",
       "abbr": "ATL",
       "division": "Premier",
-      "roster": null
+      "roster": {
+        "gms": [
+          "ATL | BBLZaaZaa"
+        ],
+        "coaches": [],
+        "players": [
+          "ATL | BBLZaaZaa",
+          "ATL | Reddaza",
+          "ATL | Speiddyy",
+          "ATL | Xerxes"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "car",
       "name": "Carolina Carnage",
       "abbr": "CAR",
       "division": "Premier",
-      "roster": null
+      "roster": {
+        "gms": [
+          "CAR | Lil'Ceezars"
+        ],
+        "coaches": [],
+        "players": [
+          "CAR | 007 Quay",
+          "CAR | Lil'Ceezars",
+          "CAR | Ny",
+          "CAR | Zuko"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "syr",
       "name": "Syracuse Armadillos",
       "abbr": "SYR",
       "division": "Premier",
-      "roster": null
+      "roster": {
+        "gms": [
+          "SYR | butchiehof"
+        ],
+        "coaches": [
+          "COACH | Delusions"
+        ],
+        "players": [
+          "SYR | butchiehof",
+          "SYR | Crouse",
+          "SYR | Loyal",
+          "SYR | nitsua"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "sln",
       "name": "St. Louis Nightstalkers",
       "abbr": "SLN",
       "division": "Premier",
-      "roster": null
+      "roster": {
+        "gms": [
+          "SLN | K1lla"
+        ],
+        "coaches": [],
+        "players": [
+          "SLN | Kjay",
+          "SLN | Lux",
+          "SLN | Primo",
+          "SLN | Spyder"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "sfs",
       "name": "Santa Fe Scorpions",
       "abbr": "SFS",
       "division": "Premier",
-      "roster": null
+      "roster": {
+        "gms": [
+          "SFS | MoonerTheAlcoholic"
+        ],
+        "coaches": [],
+        "players": [
+          "SFS | ilikefeet",
+          "SFS | Lakas",
+          "SFS | MoonerTheAlcoholic",
+          "SFS | vis"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "ccc",
       "name": "Calgary Cobra Chickens",
       "abbr": "CCC",
       "division": "Premier",
-      "roster": null
+      "roster": {
+        "gms": [
+          "CCC | Venom"
+        ],
+        "coaches": [],
+        "players": [
+          "CCC | BamBam",
+          "CCC | Crazed",
+          "CCC | Freaky",
+          "CCC | Venom"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "tor",
       "name": "Toronto Blue Dragons",
       "abbr": "TOR",
       "division": "Premier",
-      "roster": null
+      "roster": {
+        "gms": [
+          "TOR | Zylixz"
+        ],
+        "coaches": [],
+        "players": [
+          "TOR | BrooksySZN",
+          "TOR | Hunna",
+          "TOR | Luke",
+          "TOR | Zylixz"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "hal",
       "name": "Halifax Ospreys",
       "abbr": "HAL",
       "division": "Premier",
-      "roster": null
+      "roster": {
+        "gms": [
+          "HAL | RynoRH"
+        ],
+        "coaches": [],
+        "players": [
+          "HAL | Bis",
+          "HAL | g-ter",
+          "HAL | MoistQuackers",
+          "HAL | RynoRH"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "ros",
       "name": "Roswell Aliens",
       "abbr": "ROS",
       "division": "Academy",
-      "roster": null
+      "roster": {
+        "gms": [
+          "ROS | ⛧ Ƒëﾑr ツ"
+        ],
+        "coaches": [],
+        "players": [
+          "MFIC | Inspire",
+          "ROS | ⛧ Ƒëﾑr ツ",
+          "ROS | BooshDaGoat",
+          "ROS | Owes Every1 Taco Bell Plu"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "mrd",
       "name": "Montreal Red Dragons",
       "abbr": "MRD",
       "division": "Academy",
-      "roster": null
+      "roster": {
+        "gms": [
+          "MRD | 🧛🏼OverlordAlucard 🧛🏼"
+        ],
+        "coaches": [
+          "COACH | Chrollo"
+        ],
+        "players": [
+          "MRD | 🧛🏼OverlordAlucard 🧛🏼",
+          "MRD | Bruce",
+          "MRD | JAYDREAMZ",
+          "MRD | ZEUS"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "lex",
       "name": "Lexington Majestic",
       "abbr": "LEX",
       "division": "Academy",
-      "roster": null
+      "roster": {
+        "gms": [
+          "LEX | Kib"
+        ],
+        "coaches": [],
+        "players": [
+          "COMISH | Cam",
+          "LEX | Bandit",
+          "LEX | Kib",
+          "LEX | Palsy"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "nor",
       "name": "New Orleans Reapers",
       "abbr": "NOR",
       "division": "Academy",
-      "roster": null
+      "roster": {
+        "gms": [
+          "NOR | Leisure"
+        ],
+        "coaches": [
+          "CAR | Lil'Ceezars"
+        ],
+        "players": [
+          "NOR | Divi",
+          "NOR | Fly Tendencies",
+          "NOR | Leisure",
+          "NOR | Tanji"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "kck",
       "name": "Kansas City Kings",
       "abbr": "KCK",
       "division": "Academy",
-      "roster": null
+      "roster": {
+        "gms": [
+          "KCK | Sac"
+        ],
+        "coaches": [
+          "Bgolden"
+        ],
+        "players": [
+          "COMISH | MaRsH313",
+          "KCK | cbass",
+          "KCK | Rogue",
+          "KCK | Sac"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "pit",
       "name": "Pittsburgh Nocturnal",
       "abbr": "PIT",
       "division": "Academy",
-      "roster": null
+      "roster": {
+        "gms": [
+          "PIT | Twizz"
+        ],
+        "coaches": [],
+        "players": [
+          "MFIC | Ranked Incorrectly",
+          "PIT | 2elite",
+          "PIT | Brimington",
+          "PIT | Twizz"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "mis",
       "name": "Michigan Samurai",
       "abbr": "MIS",
       "division": "Academy",
-      "roster": null
+      "roster": {
+        "gms": [
+          "MIS | shooter"
+        ],
+        "coaches": [],
+        "players": [
+          "MIS | ImAkaii",
+          "MIS | Kentucky",
+          "MIS | Racist Guy Marv",
+          "MIS | shooter"
+        ],
+        "nonPlaying": []
+      }
     },
     {
       "slug": "omh",
       "name": "Omaha Bandits",
       "abbr": "OMH",
       "division": "Academy",
-      "roster": null
+      "roster": {
+        "gms": [
+          "OMH | unholy draco"
+        ],
+        "coaches": [
+          "ATL | BBLZaaZaa"
+        ],
+        "players": [
+          "OMH | Gutta",
+          "OMH | Revert",
+          "OMH | SlayFS",
+          "OMH | unholy draco"
+        ],
+        "nonPlaying": []
+      }
     }
   ],
   "matches": [
@@ -174,8 +376,8 @@
       "division": "Premier",
       "home": "sln",
       "away": "tor",
-      "status": "unscheduled",
-      "time": null,
+      "status": "scheduled",
+      "time": 1795912200000,
       "result": null,
       "deadline": 1796273999000
     },
@@ -204,8 +406,8 @@
       "division": "Academy",
       "home": "mrd",
       "away": "kck",
-      "status": "unscheduled",
-      "time": null,
+      "status": "scheduled",
+      "time": 1795576500000,
       "result": null,
       "deadline": 1796273999000
     },
