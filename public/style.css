@@ -462,3 +462,10 @@ html:not(.js) .player-layout .season-tabs, html:not(.js) .player-layout .game-ta
 .settings-card dd.on { color: var(--win); }
 .settings-card dd.off { color: var(--muted); font-weight: 500; }
 html:not(.js) .settings .game-tabs { display: none; }
+
+/* Header: menu shrinks/scrolls instead of pushing buttons off-screen */
+.nav { min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { white-space: nowrap; flex: none; }
+.topbar-inner > .btn, .account { flex: none; }
+@media (max-width: 1300px) { .nav { gap: 0; } .nav a { padding: 8px 8px 5px; font-size: 17px; } }
