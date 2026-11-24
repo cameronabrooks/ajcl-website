@@ -86,7 +86,7 @@ function layout({ title, active, body, c, script = '' }) {
 <link rel="icon" href="${u('/ajcl-logo.png')}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${u('/style.css')}?v=${CSS_VERSION}">
 <link rel="expect" href="#page-end" blocking="render">
 ${TRANSITION_SCRIPT}

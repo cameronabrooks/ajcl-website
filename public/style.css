@@ -14,8 +14,8 @@
   --win: #5fd38d;
   --loss: #ff6b6b;
   --radius: 10px;
-  --heading: 'Oswald', 'Arial Narrow', sans-serif;
-  --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --heading: 'Teko', 'Oswald', 'Arial Narrow', sans-serif;
+  --body: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -223,3 +223,29 @@ h2.sub { font-size: 20px; margin: 28px 0 14px; }
 .div-panel h3.sub { font-size: 18px; margin: 18px 0 12px; }
 .schedule .tabs-row { margin-bottom: 4px; }
 html:not(.js) .schedule .tabs { display: none; }
+
+/* Teko runs small and sits slightly low; size it up and nudge it to center
+   in buttons, tabs and labels. */
+h1, h2, h3, h4 { line-height: 1; letter-spacing: .03em; }
+.nav a { font-size: 19px; padding: 8px 14px 5px; }
+.btn { font-size: 19px; padding: 10px 20px 7px; }
+.btn-sm { font-size: 17px; padding: 7px 14px 4px; }
+.tab { font-size: 18px; padding: 7px 14px 4px; }
+.tab-sm { font-size: 16px; padding: 5px 12px 2px; }
+.eyebrow { font-size: 16px; letter-spacing: .14em; }
+.div-tag { font-size: 15px; padding: 3px 8px 1px; }
+.standings th { font-size: 15px; }
+.brand strong { font-size: 26px; }
+.section-head h2 { font-size: 34px; }
+.panel-title { font-size: 24px; }
+.team-card h3 { font-size: 21px; }
+.stats-strip strong, .team-stats strong { font-size: 40px; }
+.mc-score { font-size: 28px; }
+.step-num { font-size: 22px; padding-top: 3px; }
+.step h3 { font-size: 22px; }
+.format h3 { font-size: 20px; }
+.roster-group h4, .pool h4 { font-size: 16px; }
+.week-label { font-size: 30px; }
+@media (max-width: 720px) { .nav a { font-size: 17px; padding: 6px 10px 3px; } }
+.mc-meta { flex-wrap: wrap; row-gap: 6px; }
+.mc-meta > * { white-space: nowrap; }
