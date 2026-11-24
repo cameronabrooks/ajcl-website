@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795562601475,
+  "generatedAt": 1795563003542,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -307,13 +307,13 @@
         "nonPlaying": [],
         "ranks": {
           "⛧ Ƒëﾑr ツ": "Ruby",
-          "Owes Every1 Taco Bell Plu": "Amber",
           "Inspire": "Amber",
+          "Owes Every1 Taco Bell Plu": "Amber",
           "BooshDaGoat": "Ruby"
         },
         "links": {
-          "Owes Every1 Taco Bell Plu": "owes-every1-taco-bell-plu",
           "Inspire": "inspire",
+          "Owes Every1 Taco Bell Plu": "owes-every1-taco-bell-plu",
           "BooshDaGoat": "booshdagoat",
           "⛧ Ƒëﾑr ツ": "e-r"
         }
@@ -440,15 +440,15 @@
         "nonPlaying": [],
         "ranks": {
           "Sac": "Ruby",
+          "MaRsH313": "Ruby",
           "cbass": "Amber",
-          "Rogue": "Amber",
-          "MaRsH313": "Ruby"
+          "Rogue": "Amber"
         },
         "links": {
+          "MaRsH313": "marsh313",
           "Sac": "sac",
           "cbass": "cbass",
           "Rogue": "rogue",
-          "MaRsH313": "marsh313",
           "Bgolden": "bgolden"
         }
       }
@@ -1401,16 +1401,16 @@
         "player"
       ]
     },
-    "6eba674a89096a099f7d": {
+    "487171bde66caaf9a017": {
       "team": "ros",
-      "name": "Owes Every1 Taco Bell Plu",
+      "name": "Inspire",
       "roles": [
         "player"
       ]
     },
-    "487171bde66caaf9a017": {
+    "6eba674a89096a099f7d": {
       "team": "ros",
-      "name": "Inspire",
+      "name": "Owes Every1 Taco Bell Plu",
       "roles": [
         "player"
       ]
@@ -1524,6 +1524,13 @@
         "gm"
       ]
     },
+    "a2a68018498db6357f09": {
+      "team": "kck",
+      "name": "MaRsH313",
+      "roles": [
+        "player"
+      ]
+    },
     "c434afac690b53b89c3f": {
       "team": "kck",
       "name": "Sac",
@@ -1542,13 +1549,6 @@
     "41d5302bd81a48bee21d": {
       "team": "kck",
       "name": "Rogue",
-      "roles": [
-        "player"
-      ]
-    },
-    "a2a68018498db6357f09": {
-      "team": "kck",
-      "name": "MaRsH313",
       "roles": [
         "player"
       ]
@@ -2543,37 +2543,6 @@
       ]
     },
     {
-      "slug": "owes-every1-taco-bell-plu",
-      "name": "Owes Every1 Taco Bell Plu",
-      "team": "ros",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amber",
-      "gamertag": "DinnerTime",
-      "gamertagSource": "linked",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.46",
-            "kpm": "22.3",
-            "maps": 3
-          },
-          "seasons": [
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "SYR",
-              "kd": "1.46",
-              "kpm": "22.3",
-              "maps": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
       "slug": "inspire",
       "name": "Inspire",
       "team": "ros",
@@ -2599,6 +2568,37 @@
               "kd": "0.75",
               "kpm": "13.9",
               "maps": 29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "owes-every1-taco-bell-plu",
+      "name": "Owes Every1 Taco Bell Plu",
+      "team": "ros",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amber",
+      "gamertag": "DinnerTime",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.46",
+            "kpm": "22.3",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR",
+              "kd": "1.46",
+              "kpm": "22.3",
+              "maps": 3
             }
           ]
         }
@@ -3083,6 +3083,45 @@
       ]
     },
     {
+      "slug": "marsh313",
+      "name": "MaRsH313",
+      "team": "kck",
+      "roles": [
+        "player"
+      ],
+      "rank": "Ruby",
+      "gamertag": "MaRsH313",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.96",
+            "kpm": "21.3",
+            "maps": 44
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "CAR",
+              "kd": "1.01",
+              "kpm": "22.1",
+              "maps": 36
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "NOR",
+              "kd": "0.76",
+              "kpm": "17.5",
+              "maps": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "sac",
       "name": "Sac",
       "team": "kck",
@@ -3169,45 +3208,6 @@
         "player"
       ],
       "rank": "Amber"
-    },
-    {
-      "slug": "marsh313",
-      "name": "MaRsH313",
-      "team": "kck",
-      "roles": [
-        "player"
-      ],
-      "rank": "Ruby",
-      "gamertag": "MaRsH313",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.96",
-            "kpm": "21.3",
-            "maps": 44
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "CAR",
-              "kd": "1.01",
-              "kpm": "22.1",
-              "maps": 36
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "NOR",
-              "kd": "0.76",
-              "kpm": "17.5",
-              "maps": 8
-            }
-          ]
-        }
-      ]
     },
     {
       "slug": "bgolden",
