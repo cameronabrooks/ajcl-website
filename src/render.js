@@ -92,6 +92,7 @@ function layout({ title, active, body, c, script = '', page = '' }) {
     ['/players/', 'Players', 'players'],
     ['/draft/', 'Draft', 'draft'],
     ['/stats/', 'Stats', 'stats'],
+    ['/settings/', 'Settings', 'settings'],
     ['/join/', 'Join', 'join'],
   ].map(([href, label, key]) => `<a href="${u(href)}"${key === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
   const discord = c.discordInvite
@@ -338,7 +339,7 @@ ${hasPowerRankings(league) ? `
 <section class="wrap section">
   <div class="section-head"><h2>Power Rankings</h2><a href="${u('/power-rankings/')}">Full power rankings →</a></div>
   <div class="two-col">
-    ${['Premier', 'Academy'].filter(d => league.powerRankings[d]).map(d => `<div class="panel"><h3 class="panel-title div-${d.toLowerCase()}-text">${d}</h3>${powerTable(league, d, { top: 3 })}</div>`).join('')}
+    ${['Premier', 'Academy'].filter(d => league.powerRankings[d]).map(d => `<div class="panel"><h3 class="panel-title div-${d.toLowerCase()}-text">${d}</h3>${powerTable(league, d)}</div>`).join('')}
   </div>
 </section>` : ''}
 
@@ -473,6 +474,51 @@ function schedulePage(league, c) {
   ${panels}
 </section>`;
   return layout({ title: 'Schedule', active: 'schedule', body, c, script, page: 'schedule' });
+}
+
+// Competitive settings (content.json -> competitiveSettings) + map pool (bot's ajcl_modes).
+// Tabs per mode (#hardpoint / #search-destroy / #hijack); without JS all show.
+function settingsPage(league, c) {
+  const modes = (c.competitiveSettings && c.competitiveSettings.modes) || [];
+  const pool = league.mapPool || {};
+  const poolFor = mode => pool[mode] || pool[Object.keys(pool).find(k => keyOf(k) === keyOf(mode))] || [];
+  const tabs = modes.map(m => `<a class="tab" href="#${keyOf(m.mode)}" data-mode-tab="${keyOf(m.mode)}">${esc(m.mode)}</a>`).join('');
+  const panels = modes.map(m => `<div class="mode-panel" data-mode="${keyOf(m.mode)}">
+    <h2 class="sub">${esc(m.mode)}</h2>
+    ${poolFor(m.mode).length ? `<div class="panel mode-maps"><h4>Map pool</h4><div class="map-chips">${poolFor(m.mode).map(x => `<span class="map-chip">${esc(x)}</span>`).join('')}</div></div>` : ''}
+    <div class="settings-grid">${m.sections.map(s => `<div class="panel settings-card">
+      <h4>${esc(s.name)}</h4>
+      <dl>${s.settings.map(x => `<div><dt>${esc(x.name)}</dt><dd class="${/^on$/i.test(x.value) ? 'on' : /^off$/i.test(x.value) ? 'off' : ''}">${esc(x.value)}</dd></div>`).join('')}</dl>
+    </div>`).join('')}</div>
+  </div>`).join('');
+  const poolSummary = Object.keys(pool).length ? `
+  <div class="pool-grid">${Object.entries(pool).map(([mode, maps]) => `<div class="panel">
+    <h4>${esc(mode)}</h4><div class="map-chips">${maps.map(x => `<span class="map-chip">${esc(x)}</span>`).join('')}</div>
+  </div>`).join('')}</div>` : '';
+  const script = modes.length > 1 ? `<script>
+(function () {
+  function apply() {
+    var keys = [].map.call(document.querySelectorAll('[data-mode-tab]'), function (t) { return t.dataset.modeTab; });
+    var cur = keys.indexOf(location.hash.slice(1)) >= 0 ? location.hash.slice(1) : keys[0];
+    document.querySelectorAll('[data-mode]').forEach(function (p) { p.hidden = p.dataset.mode !== cur; });
+    document.querySelectorAll('[data-mode-tab]').forEach(function (t) { t.classList.toggle('active', t.dataset.modeTab === cur); });
+  }
+  document.documentElement.classList.add('js');
+  addEventListener('hashchange', apply);
+  apply();
+})();
+</script>` : '';
+  const body = pageHead(c.season || 'Settings', 'Competitive Settings', 'The map pool and private match settings used for every AJCL series.') + `
+<section class="wrap section">
+  <h2 class="panel-title">Map pool</h2>
+  ${poolSummary || '<p class="muted">Map pool coming soon.</p>'}
+</section>
+<section class="wrap section settings">
+  <h2 class="panel-title">Game settings</h2>
+  ${modes.length > 1 ? `<div class="tabs game-tabs">${tabs}</div>` : ''}
+  ${panels || '<p class="muted">Settings coming soon.</p>'}
+</section>`;
+  return layout({ title: 'Competitive Settings', active: 'settings', body, c, script, page: 'settings' });
 }
 
 // ---- Power rankings (from the bot's /powerrankings votes: 5/3/1 points) ----
@@ -808,4 +854,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, matchId, matchPage, powerRankingsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, matchId, matchPage, powerRankingsPage, settingsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };

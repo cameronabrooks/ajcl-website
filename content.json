@@ -444,5 +444,683 @@
         ]
       }
     ]
+  },
+  "competitiveSettings": {
+    "modes": [
+      {
+        "mode": "Hardpoint",
+        "sections": [
+          {
+            "name": "Game",
+            "settings": [
+              {
+                "name": "Time Limit",
+                "value": "5 minutes"
+              },
+              {
+                "name": "Score Limit",
+                "value": "250 points"
+              },
+              {
+                "name": "Match Start Time",
+                "value": "30 seconds"
+              },
+              {
+                "name": "Skip Infil Sequence",
+                "value": "On"
+              },
+              {
+                "name": "Allow Input Swap",
+                "value": "Off"
+              },
+              {
+                "name": "Spawn Bot on Death",
+                "value": "Off"
+              },
+              {
+                "name": "Allow Callout Pings",
+                "value": "Off"
+              },
+              {
+                "name": "Normalize Latency",
+                "value": "Off"
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "settings": [
+              {
+                "name": "Points per Kill",
+                "value": "0 points"
+              },
+              {
+                "name": "Points per Death",
+                "value": "0 points"
+              },
+              {
+                "name": "Headshot Kill Bonus",
+                "value": "0 points"
+              },
+              {
+                "name": "Spawn Protection Time",
+                "value": "Off"
+              },
+              {
+                "name": "Zone Capture Time",
+                "value": "Instant"
+              },
+              {
+                "name": "Zone Lifetime",
+                "value": "1 minute"
+              },
+              {
+                "name": "First Zone Activation Delay",
+                "value": "Off"
+              },
+              {
+                "name": "Next Zone Reveal Time",
+                "value": "10 seconds"
+              },
+              {
+                "name": "Random Zone Order",
+                "value": "Off"
+              },
+              {
+                "name": "Additive Score",
+                "value": "Off"
+              },
+              {
+                "name": "Pause Time on Zone Capture",
+                "value": "On"
+              },
+              {
+                "name": "Capture Team Spawn Delay",
+                "value": "3 seconds"
+              }
+            ]
+          },
+          {
+            "name": "Player",
+            "settings": [
+              {
+                "name": "Number of Lives",
+                "value": "Unlimited"
+              },
+              {
+                "name": "Max Health",
+                "value": "Default (100)"
+              },
+              {
+                "name": "Health Regeneration",
+                "value": "Default"
+              },
+              {
+                "name": "Enable Armor",
+                "value": "Off"
+              },
+              {
+                "name": "Weapon Mounting",
+                "value": "Off"
+              },
+              {
+                "name": "Last Stand",
+                "value": "Off"
+              }
+            ]
+          },
+          {
+            "name": "Team",
+            "settings": [
+              {
+                "name": "Spectating",
+                "value": "Player View"
+              },
+              {
+                "name": "Killcam",
+                "value": "On"
+              },
+              {
+                "name": "Enable Minimap",
+                "value": "On"
+              },
+              {
+                "name": "Weapon Fire on Compass",
+                "value": "Off"
+              },
+              {
+                "name": "Respawn Delay",
+                "value": "2.5 seconds"
+              },
+              {
+                "name": "Wave Spawn Delay",
+                "value": "Off"
+              },
+              {
+                "name": "Suicide Spawn Delay",
+                "value": "1 second"
+              },
+              {
+                "name": "Force Respawn",
+                "value": "On"
+              },
+              {
+                "name": "Team Assignment",
+                "value": "On"
+              },
+              {
+                "name": "Friendly Fire",
+                "value": "Punish (5 kills)"
+              }
+            ]
+          },
+          {
+            "name": "Gameplay",
+            "settings": [
+              {
+                "name": "Care Package Drops",
+                "value": "Off"
+              },
+              {
+                "name": "Spawn Camera",
+                "value": "Off"
+              },
+              {
+                "name": "Hardcore Mode",
+                "value": "Off"
+              },
+              {
+                "name": "Ammo Magazines on Spawn",
+                "value": "3"
+              },
+              {
+                "name": "Headshots Only",
+                "value": "Off"
+              },
+              {
+                "name": "Health Steal",
+                "value": "Off"
+              },
+              {
+                "name": "Cranked Timer",
+                "value": "Off"
+              },
+              {
+                "name": "Enable Field Upgrades",
+                "value": "On"
+              },
+              {
+                "name": "Enable Perks",
+                "value": "On"
+              },
+              {
+                "name": "Enable Killstreaks",
+                "value": "On"
+              },
+              {
+                "name": "Equipment Delay",
+                "value": "Off"
+              },
+              {
+                "name": "Equipment Protection",
+                "value": "Off"
+              },
+              {
+                "name": "Battle Chatter",
+                "value": "Off"
+              },
+              {
+                "name": "Announcer Dialogue",
+                "value": "On"
+              },
+              {
+                "name": "Tactical Sprint",
+                "value": "On"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mode": "Search & Destroy",
+        "sections": [
+          {
+            "name": "Game",
+            "settings": [
+              {
+                "name": "Round Time Limit",
+                "value": "1m 30s"
+              },
+              {
+                "name": "Round Win Limit",
+                "value": "6 rounds"
+              },
+              {
+                "name": "Round Switch",
+                "value": "Every round"
+              },
+              {
+                "name": "Win by 2 Rounds",
+                "value": "Off"
+              },
+              {
+                "name": "Match Start Time",
+                "value": "30 seconds"
+              },
+              {
+                "name": "Round Start Time",
+                "value": "10 seconds"
+              },
+              {
+                "name": "Skip Infil Sequence",
+                "value": "Off"
+              },
+              {
+                "name": "Allow Input Swap",
+                "value": "Off"
+              },
+              {
+                "name": "Spawn Bot on Death",
+                "value": "Off"
+              },
+              {
+                "name": "Normalize Latency",
+                "value": "Off"
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "settings": [
+              {
+                "name": "Bomb Timer",
+                "value": "45 seconds"
+              },
+              {
+                "name": "Plant Time",
+                "value": "5 seconds"
+              },
+              {
+                "name": "Defuse Time",
+                "value": "7.5 seconds"
+              },
+              {
+                "name": "Multi Bomb",
+                "value": "Off"
+              },
+              {
+                "name": "Silent Plant/Defuse",
+                "value": "On"
+              },
+              {
+                "name": "Persistent Plant/Defuse Progress",
+                "value": "Off"
+              }
+            ]
+          },
+          {
+            "name": "Player",
+            "settings": [
+              {
+                "name": "Number of Lives",
+                "value": "Unlimited"
+              },
+              {
+                "name": "Max Health",
+                "value": "Default (100)"
+              },
+              {
+                "name": "Health Regeneration",
+                "value": "Default"
+              },
+              {
+                "name": "Enable Armor",
+                "value": "Off"
+              },
+              {
+                "name": "Weapon Mounting",
+                "value": "Off"
+              },
+              {
+                "name": "Last Stand",
+                "value": "Off"
+              }
+            ]
+          },
+          {
+            "name": "Team",
+            "settings": [
+              {
+                "name": "Spectating",
+                "value": "Player View"
+              },
+              {
+                "name": "Killcam",
+                "value": "On"
+              },
+              {
+                "name": "Enable Minimap",
+                "value": "On"
+              },
+              {
+                "name": "Weapon Fire on Compass",
+                "value": "Off"
+              },
+              {
+                "name": "Team Assignment",
+                "value": "On"
+              },
+              {
+                "name": "Friendly Fire",
+                "value": "Punish (5 kills)"
+              }
+            ]
+          },
+          {
+            "name": "Gameplay",
+            "settings": [
+              {
+                "name": "Care Package Drops",
+                "value": "Off"
+              },
+              {
+                "name": "Spawn Camera",
+                "value": "Off"
+              },
+              {
+                "name": "Hardcore Mode",
+                "value": "Off"
+              },
+              {
+                "name": "Ammo Magazines on Spawn",
+                "value": "3"
+              },
+              {
+                "name": "Headshots Only",
+                "value": "Off"
+              },
+              {
+                "name": "Health Steal",
+                "value": "Off"
+              },
+              {
+                "name": "Cranked Timer",
+                "value": "Off"
+              },
+              {
+                "name": "Enable Field Upgrades",
+                "value": "On"
+              },
+              {
+                "name": "Enable Perks",
+                "value": "On"
+              },
+              {
+                "name": "Enable Killstreaks",
+                "value": "On"
+              },
+              {
+                "name": "Equipment Delay",
+                "value": "Off"
+              },
+              {
+                "name": "Equipment Protection",
+                "value": "Off"
+              },
+              {
+                "name": "Battle Chatter",
+                "value": "Off"
+              },
+              {
+                "name": "Announcer Dialogue",
+                "value": "On"
+              },
+              {
+                "name": "Tactical Sprint",
+                "value": "On"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mode": "Hijack",
+        "sections": [
+          {
+            "name": "Game",
+            "settings": [
+              {
+                "name": "Time Limit",
+                "value": "4 minutes"
+              },
+              {
+                "name": "Score Limit",
+                "value": "150 points"
+              },
+              {
+                "name": "Match Start Time",
+                "value": "30 seconds"
+              },
+              {
+                "name": "Skip Infil Sequence",
+                "value": "On"
+              },
+              {
+                "name": "Allow Input Swap",
+                "value": "Off"
+              },
+              {
+                "name": "Spawn Bot on Death",
+                "value": "Off"
+              },
+              {
+                "name": "Allow Callout Pings",
+                "value": "Off"
+              },
+              {
+                "name": "Normalize Latency",
+                "value": "Off"
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "settings": [
+              {
+                "name": "Points per Kill",
+                "value": "0 points"
+              },
+              {
+                "name": "Points per Death",
+                "value": "0 points"
+              },
+              {
+                "name": "Spawn Protection Time",
+                "value": "Off"
+              },
+              {
+                "name": "Planted Timer",
+                "value": "30 seconds"
+              },
+              {
+                "name": "Deactivate Timer",
+                "value": "3 seconds"
+              },
+              {
+                "name": "Score per Tick",
+                "value": "1 point"
+              },
+              {
+                "name": "Throw Planter Score",
+                "value": "15 points"
+              },
+              {
+                "name": "Carry Planted Score",
+                "value": "30 points"
+              },
+              {
+                "name": "Upload Complete Score",
+                "value": "0 points"
+              },
+              {
+                "name": "Spike Respawn Time",
+                "value": "12 seconds"
+              },
+              {
+                "name": "Shot Clock Time",
+                "value": "45 seconds"
+              },
+              {
+                "name": "Enemy Carrier Ping Time",
+                "value": "1.25 seconds"
+              },
+              {
+                "name": "Spike Locked Respawn Delay",
+                "value": "2.5 seconds"
+              }
+            ]
+          },
+          {
+            "name": "Player",
+            "settings": [
+              {
+                "name": "Number of Lives",
+                "value": "Unlimited"
+              },
+              {
+                "name": "Max Health",
+                "value": "Default (100)"
+              },
+              {
+                "name": "Health Regeneration",
+                "value": "Default"
+              },
+              {
+                "name": "Enable Armor",
+                "value": "Off"
+              },
+              {
+                "name": "Weapon Mounting",
+                "value": "Off"
+              },
+              {
+                "name": "Last Stand",
+                "value": "Off"
+              }
+            ]
+          },
+          {
+            "name": "Team",
+            "settings": [
+              {
+                "name": "Spectating",
+                "value": "Player View"
+              },
+              {
+                "name": "Killcam",
+                "value": "On"
+              },
+              {
+                "name": "Enable Minimap",
+                "value": "On"
+              },
+              {
+                "name": "Weapon Fire on Compass",
+                "value": "Off"
+              },
+              {
+                "name": "Respawn Delay",
+                "value": "4 seconds"
+              },
+              {
+                "name": "Wave Spawn Delay",
+                "value": "Off"
+              },
+              {
+                "name": "Suicide Spawn Delay",
+                "value": "1 second"
+              },
+              {
+                "name": "Force Respawn",
+                "value": "On"
+              },
+              {
+                "name": "Team Assignment",
+                "value": "On"
+              },
+              {
+                "name": "Friendly Fire",
+                "value": "Punish (5 kills)"
+              }
+            ]
+          },
+          {
+            "name": "Gameplay",
+            "settings": [
+              {
+                "name": "Care Package Drops",
+                "value": "Off"
+              },
+              {
+                "name": "Spawn Camera",
+                "value": "Off"
+              },
+              {
+                "name": "Hardcore Mode",
+                "value": "Off"
+              },
+              {
+                "name": "Ammo Magazines on Spawn",
+                "value": "3"
+              },
+              {
+                "name": "Headshots Only",
+                "value": "Off"
+              },
+              {
+                "name": "Health Steal",
+                "value": "Off"
+              },
+              {
+                "name": "Cranked Timer",
+                "value": "Off"
+              },
+              {
+                "name": "Enable Field Upgrades",
+                "value": "On"
+              },
+              {
+                "name": "Enable Perks",
+                "value": "On"
+              },
+              {
+                "name": "Enable Killstreaks",
+                "value": "On"
+              },
+              {
+                "name": "Equipment Delay",
+                "value": "Off"
+              },
+              {
+                "name": "Equipment Protection",
+                "value": "Off"
+              },
+              {
+                "name": "Battle Chatter",
+                "value": "Off"
+              },
+              {
+                "name": "Announcer Dialogue",
+                "value": "On"
+              },
+              {
+                "name": "Tactical Sprint",
+                "value": "On"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }
