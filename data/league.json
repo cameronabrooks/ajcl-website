@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795561741388,
+  "generatedAt": 1795562601475,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -635,6 +635,20 @@
       "caster": {
         "name": "nitsua",
         "stream": "https://www.twitch.tv/nitsuafps"
+      },
+      "picksBans": {
+        "teamA": "mrd",
+        "teamB": "kck",
+        "inProgress": true,
+        "actions": [
+          {
+            "mode": "hardpoint",
+            "action": "ban",
+            "team": "mrd",
+            "slot": null,
+            "map": "Rooftops"
+          }
+        ]
       }
     },
     {
