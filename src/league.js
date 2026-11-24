@@ -26,8 +26,9 @@ function hydrate(raw, hasLogo) {
   }
   // Player profiles (published by the bot); link each to its team object.
   const players = (raw.players || [])
-    .filter(p => bySlug[p.team])
-    .map(p => ({ ...p, teamObj: bySlug[p.team] }));
+    // Current players need their team; former players (past seasons only) have none.
+    .filter(p => bySlug[p.team] || p.former)
+    .map(p => ({ ...p, teamObj: bySlug[p.team] || null }));
 
   return { ...raw, teams, matches, standings, players };
 }

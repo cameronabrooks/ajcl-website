@@ -689,18 +689,24 @@ function draftPage(league, c) {
 // Searchable list of every rostered player. Filtering is client-side; the search
 // listener is delegated so it survives live.js re-rendering <main>.
 function playersPage(league, c) {
-  const list = [...league.players].sort((a, b) => a.name.localeCompare(b.name));
-  const items = list.map(p => {
+  const byName = (a, b) => a.name.localeCompare(b.name);
+  const current = league.players.filter(p => !p.former).sort(byName);
+  const former = league.players.filter(p => p.former).sort(byName);
+  const row = p => {
     const t = p.teamObj;
-    const search = [p.name, p.gamertag, t.name, t.abbr, t.division, ...(p.roles || []).map(r => ROLE_LABELS[r] || r)].filter(Boolean).join(' ').toLowerCase();
+    const roleText = (p.roles || []).map(r => ROLE_LABELS[r] || r).join(', ');
+    const sub = t ? `${t.name} · ${roleText}` : `Former player${p.lastTeam ? ` · last played for ${p.lastTeam}` : ''}`;
+    const search = [p.name, p.gamertag, ...(p.aliases || []), t && t.name, t && t.abbr, t && t.division, p.lastTeam, p.former ? 'former' : '', roleText].filter(Boolean).join(' ').toLowerCase();
     const best = (p.games || []).map(g => g.game).join(' · ');
-    return `<a class="player-row" href="${u(`/players/${p.slug}/`)}" data-search="${esc(search)}">
-      ${crest(t, 'sm')}
-      <span class="pr-main"><strong>${esc(p.name)}</strong><span class="muted">${esc(t.name)} · ${esc((p.roles || []).map(r => ROLE_LABELS[r] || r).join(', '))}</span></span>
+    return `<a class="player-row${p.former ? ' is-former' : ''}" href="${u(`/players/${p.slug}/`)}" data-search="${esc(search)}">
+      ${t ? crest(t, 'sm') : `<span class="crest crest-sm crest-fallback" aria-hidden="true">${esc(p.lastTeam || '—')}</span>`}
+      <span class="pr-main"><strong>${esc(p.name)}</strong><span class="muted">${esc(sub)}</span></span>
       ${best ? `<span class="pr-games muted">${esc(best)}</span>` : ''}
       ${p.kd ? `<span class="kd" title="${esc(c.season || 'Season')} K/D">${esc(p.kd)} K/D</span>` : ''}
     </a>`;
-  }).join('');
+  };
+  const list = [...current, ...former];
+  const items = current.map(row).join('') + (former.length ? `<h3 class="sub player-list-head" data-former-head>Former players</h3>${former.map(row).join('')}` : '');
   const script = `<script>
 (function () {
   var q = '';
@@ -712,6 +718,8 @@ function playersPage(league, c) {
     });
     var none = document.querySelector('[data-no-results]');
     if (none) none.hidden = shown !== 0;
+    var fh = document.querySelector('[data-former-head]');
+    if (fh) fh.hidden = !document.querySelector('.player-row.is-former:not([hidden])');
     var count = document.querySelector('[data-result-count]');
     if (count) count.textContent = shown + (shown === 1 ? ' player' : ' players');
   }
@@ -731,7 +739,7 @@ function playersPage(league, c) {
   apply();
 })();
 </script>`;
-  const body = pageHead(c.season || 'Players', 'Players', 'Search every player on an AJCL roster.') + `
+  const body = pageHead(c.season || 'Players', 'Players', 'Search every AJCL player: current rosters and everyone who played in past seasons.') + `
 <section class="wrap section">
   <div class="search-bar">
     <input type="search" class="search-input" data-player-search placeholder="Search by name, gamertag or team…" aria-label="Search players" autocomplete="off">
@@ -750,7 +758,8 @@ const COD_STATS_LEAGUE = 'https://cod-stats.com/amateur-leagues/average-joes-cod
 function playerPage(league, player, c) {
   const team = player.teamObj;
   const roles = player.roles.map(r => ROLE_LABELS[r] || r).join(' · ');
-  const teamGames = league.matches.filter(m => m.home.slug === team.slug || m.away.slug === team.slug);
+  // Former players (past seasons only) have no current team or schedule.
+  const teamGames = team ? league.matches.filter(m => m.home.slug === team.slug || m.away.slug === team.slug) : [];
   const profileUrl = player.gamertag ? `${COD_STATS_LEAGUE}/player/${encodeURIComponent(player.gamertag)}` : null;
   // One tab per game listed on the Stats page (content.json statsGames), in that
   // order, even if the player has no games in it yet; plus any extra game in their data.
@@ -826,8 +835,7 @@ function playerPage(league, player, c) {
 })();
 </script>` : '';
 
-  const body = `
-<section class="pagehead team-head"><div class="wrap team-head-inner">
+  const head = team ? `
   <a href="${teamHref(team)}" aria-label="${esc(team.name)}">${crest(team, 'xl')}</a>
   <div>
     <p class="eyebrow"><span class="div-tag div-${team.division.toLowerCase()}">${esc(team.division)}</span></p>
@@ -837,14 +845,25 @@ function playerPage(league, player, c) {
       <div><strong class="player-team"><a href="${teamHref(team)}">${esc(team.abbr)}</a></strong><span>${esc(team.name)}</span></div>
       <div><strong class="player-role">${esc(roles)}</strong><span>Role</span></div>
     </div>
-  </div>
-</div></section>
-<section class="wrap section player-layout">
-  <div>${stats}</div>
+  </div>` : `
+  <span class="crest crest-xl crest-fallback" aria-hidden="true">${esc(player.lastTeam || '—')}</span>
   <div>
+    <p class="eyebrow"><span class="pill">Former player</span></p>
+    <h1>${esc(player.name)}</h1>
+    <div class="team-stats">
+      ${player.lastTeam ? `<div><strong>${esc(player.lastTeam)}</strong><span>Last team</span></div>` : ''}
+      <div><strong>${(player.games || []).reduce((n, g) => n + g.seasons.length, 0)}</strong><span>Seasons played</span></div>
+    </div>
+  </div>`;
+  const body = `
+<section class="pagehead team-head"><div class="wrap team-head-inner">${head}
+</div></section>
+<section class="wrap section ${team ? 'player-layout' : 'player-solo'}">
+  <div>${stats}</div>
+  ${team ? `<div>
     <h2 class="panel-title">${esc(team.name)} schedule</h2>
     <div class="match-list">${teamGames.map(m => matchCard(m, { showDivision: false })).join('')}</div>
-  </div>
+  </div>` : ''}
 </section>`;
   return layout({ title: player.name, active: 'players', body, c, script, page: `player:${player.slug}` });
 }

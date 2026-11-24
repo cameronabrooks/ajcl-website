@@ -469,3 +469,11 @@ html:not(.js) .settings .game-tabs { display: none; }
 .nav a { white-space: nowrap; flex: none; }
 .topbar-inner > .btn, .account { flex: none; }
 @media (max-width: 1300px) { .nav { gap: 0; } .nav a { padding: 8px 8px 5px; font-size: 17px; } }
+
+/* Former players */
+.player-list-head { grid-column: 1 / -1; margin: 18px 0 2px; color: var(--muted); }
+.player-list-head[hidden] { display: none; }
+.player-row.is-former { opacity: .85; }
+.player-solo { max-width: 860px; }
+.player-solo .stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 700px) { .player-solo .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
