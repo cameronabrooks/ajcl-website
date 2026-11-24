@@ -420,3 +420,8 @@ html:not(.js) .player-layout .season-tabs, html:not(.js) .player-layout .game-ta
 .mp-caster h3 { font-size: 24px; margin: 4px 0 12px; }
 @media (max-width: 900px) { .mp-layout { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .mp-teams { gap: 8px; } .mp-team strong { font-size: 18px; } .mp-score { font-size: 44px; } .mp-bans { grid-template-columns: 1fr; } .mp-team .crest-xl { width: 72px; height: 72px; } }
+
+/* Header: keep the brand tidy with the longer menu */
+.brand { flex: none; }
+.brand small { white-space: nowrap; }
+@media (max-width: 1150px) { .brand small { display: none; } .nav a { padding: 8px 10px 5px; } }
