@@ -437,10 +437,34 @@ function playerPage(league, player, c) {
   const games = league.matches.filter(m => m.home.slug === team.slug || m.away.slug === team.slug);
   const profileUrl = player.gamertag ? `${COD_STATS_LEAGUE}/player/${encodeURIComponent(player.gamertag)}` : null;
 
-  const stats = profileUrl ? `
-    <div class="section-head"><h2 class="panel-title">Stats</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">Open on cod-stats ↗</a></div>
-    <p class="muted stats-note">All seasons for <strong>${esc(player.gamertag)}</strong>, live from cod-stats.com.${player.gamertagSource === 'name' ? ' Matched by Discord name. Wrong player? Link the right gamertag in Discord with <strong>/linkgamertag</strong>.' : ''}</p>
-    <div class="panel stats-embed player-stats"><iframe src="${esc(profileUrl)}" title="${esc(player.name)} stats on cod-stats.com" loading="lazy"></iframe></div>` : `
+  const st = player.stats;
+  const tile = (label, value, cls = '') => `<div class="stat-tile${cls}"><strong>${value == null ? '–' : esc(value)}</strong><span>${label}</span></div>`;
+  const signCls = v => (v == null ? '' : String(v).startsWith('-') ? ' neg' : /^\+?[1-9]/.test(String(v)) ? ' pos' : '');
+  const history = (player.seasons || []).length ? `
+    <h3 class="sub">Season history</h3>
+    <div class="panel table-wrap"><table class="standings season-table">
+      <thead><tr><th class="left">Season</th><th>K/D</th><th>Win %</th><th>Maps</th><th>Avg kills</th><th>+/-</th></tr></thead>
+      <tbody>${player.seasons.map(s => `<tr>
+        <td class="left"><strong>${esc(s.season)}</strong>${s.season === player.season ? ' <span class="pill pill-live">Current</span>' : ''}</td>
+        <td>${esc(s.kd ?? '–')}</td><td>${esc(s.winPct ?? '–')}</td><td>${esc(s.maps ?? '–')}</td>
+        <td>${esc(s.avgKills ?? '–')}</td><td class="${signCls(s.plusMinus).trim()}">${esc(s.plusMinus ?? '–')}</td>
+      </tr>`).join('')}</tbody>
+    </table></div>` : '';
+
+  const stats = profileUrl && st ? `
+    <div class="section-head"><h2 class="panel-title">${esc(player.season || 'Stats')}</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a></div>
+    <div class="stat-grid">
+      ${tile('K/D', st.kd, ' stat-main')}
+      ${tile('Win %', st.winPct)}
+      ${tile('Maps played', st.maps)}
+      ${tile('Avg kills / map', st.avgKills)}
+      ${tile('Plus / minus', st.plusMinus, signCls(st.plusMinus))}
+      ${tile('Streak', st.streak, st.streak && /^W/i.test(st.streak) ? ' pos' : st.streak && /^L/i.test(st.streak) ? ' neg' : '')}
+    </div>
+    <p class="muted stats-note">Stats for <strong>${esc(player.gamertag)}</strong> from cod-stats.com, updated every 30 minutes.${player.gamertagSource === 'name' ? ' Matched by Discord name. Wrong player? Link the right gamertag in Discord with <strong>/linkgamertag</strong>.' : ''}</p>
+    ${history}` : profileUrl ? `
+    <div class="section-head"><h2 class="panel-title">Stats</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a></div>
+    <div class="panel"><p class="muted" style="margin:0">Stats for <strong>${esc(player.gamertag)}</strong> are on their way: they'll appear here after the next update from cod-stats.com.</p></div>` : `
     <h2 class="panel-title">Stats</h2>
     <div class="panel"><p class="muted" style="margin:0">We couldn't find ${esc(player.name)} on cod-stats.com yet. If their gamertag is different from their Discord name, they can link it in the AJCL Discord with <strong>/linkgamertag</strong>, and their stats from every season will show up here.</p></div>`;
 

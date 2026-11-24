@@ -305,3 +305,18 @@ html:not(.js) .stats .tabs { display: none; }
 .player-team a:hover { color: var(--gold-2); }
 .team-stats strong.player-role { font-size: 22px; padding-top: 4px; }
 @media (max-width: 900px) { .player-layout { grid-template-columns: 1fr; } .player-stats iframe { height: 1100px; } }
+
+/* Native player stats */
+.stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.stat-tile { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.stat-tile strong { font: 600 40px/1 var(--heading); letter-spacing: .02em; }
+.stat-tile span { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.stat-tile.stat-main { border-color: rgba(244,181,44,.45); background: linear-gradient(145deg, rgba(244,181,44,.12), var(--panel)); }
+.stat-tile.stat-main strong { color: var(--gold); }
+.stat-tile.pos strong { color: var(--win); }
+.stat-tile.neg strong { color: var(--loss); }
+.player-layout .stats-note { margin: 14px 0 0; }
+.season-table td, .season-table th { white-space: nowrap; }
+.season-table .pill { margin-left: 6px; vertical-align: middle; }
+@media (max-width: 560px) { .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stat-tile strong { font-size: 32px; } }
+.player-layout h3.sub { margin: 26px 0 12px; font-size: 20px; }
