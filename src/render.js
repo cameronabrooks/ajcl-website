@@ -268,13 +268,15 @@ function teamPage(league, team, c) {
   if (!team.roster) {
     rosterHtml = '<p class="muted">Roster coming soon.</p>';
   } else {
-    // No K/D badges on rosters: the only per-player K/D available is a career total
-    // from earlier seasons, which would read as a current-season number here.
+    // K/D badge = current season (SZN X) only, from the cod-stats season embeds.
+    // No badge until a player has played this season.
+    const kd = team.roster.kd || {};
+    const seasonLabel = c.season || 'this season';
     const links = team.roster.links || {};
     const nameHtml = n => links[n]
       ? `<a class="member-name" href="${u(`/players/${links[n]}/`)}">${esc(n)}</a>`
       : `<span class="member-name">${esc(n)}</span>`;
-    const member = n => `<li data-member="${esc(n)}">${nameHtml(n)}</li>`;
+    const member = n => `<li data-member="${esc(n)}">${nameHtml(n)}${kd[n] ? `<span class="kd" title="${esc(seasonLabel)} K/D (cod-stats.com)">${esc(kd[n])} K/D</span>` : ''}</li>`;
     const group = (label, names) => names.length ? `<div class="roster-group"><h4>${label}</h4><ul>${names.map(member).join('')}</ul></div>` : '';
     rosterHtml = (group('General Manager', team.roster.gms) + group('Coach', team.roster.coaches) +
       group('Players', team.roster.players) + group('Non-Playing', team.roster.nonPlaying)) ||
@@ -443,39 +445,87 @@ function authPage(c) {
 const ROLE_LABELS = { gm: 'General Manager', coach: 'Coach', player: 'Player', nonPlaying: 'Non-Playing' };
 const COD_STATS_LEAGUE = 'https://cod-stats.com/amateur-leagues/average-joes-cod-league';
 
-// Player profile: team, role, K/D, the team's schedule, and the player's own
-// cod-stats.com profile (every season they've played) when they've linked a gamertag.
+// Player profile: team, role, this season's K/D, stats per game with a season
+// filter (from the cod-stats season embeds), and the team's schedule.
+// player.games = [{ game, total: { kd, kpm, maps }, seasons: [{ name, current, team, kd, kpm, maps }] }]
 function playerPage(league, player, c) {
   const team = player.teamObj;
   const roles = player.roles.map(r => ROLE_LABELS[r] || r).join(' · ');
-  const games = league.matches.filter(m => m.home.slug === team.slug || m.away.slug === team.slug);
+  const teamGames = league.matches.filter(m => m.home.slug === team.slug || m.away.slug === team.slug);
   const profileUrl = player.gamertag ? `${COD_STATS_LEAGUE}/player/${encodeURIComponent(player.gamertag)}` : null;
+  // One tab per game listed on the Stats page (content.json statsGames), in that
+  // order, even if the player has no games in it yet; plus any extra game in their data.
+  const mine = Object.fromEntries((player.games || []).filter(g => g.seasons && g.seasons.length).map(g => [g.game, g]));
+  const order = [...(c.statsGames || []).map(g => g.game), ...Object.keys(mine)].filter((g, i, a) => a.indexOf(g) === i);
+  const statGames = Object.keys(mine).length ? order.map(g => mine[g] || { game: g, seasons: [] }) : [];
 
-  const st = player.stats;
-  const tile = (label, value, cls = '') => `<div class="stat-tile${cls}"><strong>${value == null ? '–' : esc(value)}</strong><span>${label}</span></div>`;
-  const signCls = v => (v == null ? '' : String(v).startsWith('-') ? ' neg' : /^\+?[1-9]/.test(String(v)) ? ' pos' : '');
-  // These are overall AJCL totals from the player's public cod-stats profile (all
-  // previous seasons combined), never SZN X numbers. Older bot data labelled them
-  // "Season X"; that label and any per-season history are deliberately ignored.
-  // Per-season numbers live on the Stats page (cod-stats season embeds).
-  const history = '';
+  const tile = (label, value, cls = '') => `<div class="stat-tile${cls}"><strong>${value == null || value === '' ? '–' : esc(value)}</strong><span>${label}</span></div>`;
+  const grid = (s, extra) => `<div class="stat-grid">
+      ${tile('K/D', s && s.kd, ' stat-main')}
+      ${tile('Kills / map', s && s.kpm)}
+      ${tile('Maps played', s && s.maps)}
+      ${extra}
+    </div>`;
 
-  const stats = profileUrl && st ? `
-    <div class="section-head"><h2 class="panel-title">AJCL career</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a></div>
-    <div class="stat-grid">
-      ${tile('K/D', st.kd, ' stat-main')}
-      ${tile('Win %', st.winPct)}
-      ${tile('Maps played', st.maps)}
-      ${tile('Avg kills / map', st.avgKills)}
-      ${tile('Plus / minus', st.plusMinus, signCls(st.plusMinus))}
-      ${tile('Streak', st.streak, st.streak && /^W/i.test(st.streak) ? ' pos' : st.streak && /^L/i.test(st.streak) ? ' neg' : '')}
-    </div>
-    <p class="muted stats-note">Overall AJCL stats for <strong>${esc(player.gamertag)}</strong> across all seasons, from cod-stats.com (updated every 30 minutes).${player.gamertagSource === 'name' ? ' Matched by Discord name. Wrong player? Link the right gamertag in Discord with <strong>/linkgamertag</strong>.' : ''}</p>
-    ${history}` : profileUrl ? `
-    <div class="section-head"><h2 class="panel-title">Stats</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a></div>
-    <div class="panel"><p class="muted" style="margin:0">Stats for <strong>${esc(player.gamertag)}</strong> are on their way: they'll appear here after the next update from cod-stats.com.</p></div>` : `
+  const matchNote = player.gamertagSource === 'name'
+    ? ' Matched by Discord name. Wrong player? Link the right gamertag in Discord with <strong>/linkgamertag</strong>.' : '';
+
+  let stats;
+  if (statGames.length) {
+    const gameTabs = statGames.map(g => `<a class="tab" href="#${keyOf(g.game)}" data-pgame-tab="${keyOf(g.game)}"${g.seasons.length ? ' data-has' : ''}>${esc(g.game)}</a>`).join('');
+    const panels = statGames.map(g => {
+      const gk = keyOf(g.game);
+      if (!g.seasons.length) {
+        return `<div class="pgame-panel" data-pgame="${gk}">
+      <div class="panel" style="margin-top:14px"><p class="muted" style="margin:0">No ${esc(g.game)} games played yet${(c.statsGames || []).some(x => x.game === g.game && x.seasons.some(s => /szn x/i.test(s.name))) ? ` — ${esc(c.season || 'this season')} stats will show here once games are played` : ''}.</p></div>
+    </div>`;
+      }
+      const options = [{ key: 'all', label: 'All seasons' }, ...g.seasons.map(s => ({ key: keyOf(s.name), label: s.name }))];
+      return `<div class="pgame-panel" data-pgame="${gk}">
+      <div class="tabs season-tabs">${options.map(o => `<a class="tab tab-sm" href="#${gk}/${o.key}" data-pseason-tab="${gk}/${o.key}">${esc(o.label)}</a>`).join('')}</div>
+      <div class="pseason-panel" data-pseason="${gk}/all">
+        <h3 class="sub">${esc(g.game)} · All seasons</h3>
+        ${grid(g.total, tile('Seasons played', g.seasons.length))}
+      </div>
+      ${g.seasons.map(s => `<div class="pseason-panel" data-pseason="${gk}/${keyOf(s.name)}">
+        <h3 class="sub">${esc(g.game)} · ${esc(s.name)}${s.current ? ' <span class="pill pill-live">Current</span>' : ''}</h3>
+        ${grid(s, tile('Team', s.team))}
+      </div>`).join('')}
+    </div>`;
+    }).join('');
+    stats = `
+    <div class="section-head"><h2 class="panel-title">Stats</h2>${profileUrl ? `<a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a>` : ''}</div>
+    <div class="tabs game-tabs">${gameTabs}</div>
+    ${panels}
+    <p class="muted stats-note">Stats for <strong>${esc(player.gamertag)}</strong> from each season's cod-stats.com player table.${matchNote}</p>`;
+  } else {
+    stats = `
     <h2 class="panel-title">Stats</h2>
-    <div class="panel"><p class="muted" style="margin:0">We couldn't find ${esc(player.name)} on cod-stats.com yet. If their gamertag is different from their Discord name, they can link it in the AJCL Discord with <strong>/linkgamertag</strong>, and their stats from every season will show up here.</p></div>`;
+    <div class="panel"><p class="muted" style="margin:0">No AJCL stats found for ${esc(player.name)} on cod-stats.com yet. If they've played before under a different name, they can link their gamertag in the AJCL Discord with <strong>/linkgamertag</strong>.</p></div>`;
+  }
+
+  // Game tabs + season filter. Hash keeps it linkable (#bo7/season-9-premier);
+  // delegated so it keeps working after live.js re-renders the page.
+  const script = statGames.length ? `<script>
+(function () {
+  function apply() {
+    var games = [].map.call(document.querySelectorAll('[data-pgame-tab]'), function (t) { return t.dataset.pgameTab; });
+    if (!games.length) return;
+    var parts = location.hash.slice(1).split('/');
+    var firstWithStats = document.querySelector('[data-pgame-tab][data-has]');
+    var game = games.indexOf(parts[0]) >= 0 ? parts[0] : (firstWithStats ? firstWithStats.dataset.pgameTab : games[0]);
+    var opts = [].map.call(document.querySelectorAll('[data-pgame="' + game + '"] [data-pseason-tab]'), function (t) { return t.dataset.pseasonTab; });
+    var season = opts.indexOf(game + '/' + parts[1]) >= 0 ? game + '/' + parts[1] : game + '/all';
+    document.querySelectorAll('[data-pgame]').forEach(function (p) { p.hidden = p.dataset.pgame !== game; });
+    document.querySelectorAll('[data-pgame-tab]').forEach(function (t) { t.classList.toggle('active', t.dataset.pgameTab === game); });
+    document.querySelectorAll('[data-pseason]').forEach(function (p) { p.hidden = p.dataset.pseason !== season; });
+    document.querySelectorAll('[data-pseason-tab]').forEach(function (t) { t.classList.toggle('active', t.dataset.pseasonTab === season); });
+  }
+  document.documentElement.classList.add('js');
+  addEventListener('hashchange', apply);
+  apply();
+})();
+</script>` : '';
 
   const body = `
 <section class="pagehead team-head"><div class="wrap team-head-inner">
@@ -484,6 +534,7 @@ function playerPage(league, player, c) {
     <p class="eyebrow"><span class="div-tag div-${team.division.toLowerCase()}">${esc(team.division)}</span></p>
     <h1>${esc(player.name)}</h1>
     <div class="team-stats">
+      <div><strong>${player.kd ? esc(player.kd) : '–'}</strong><span>${esc(c.season || 'Season')} K/D</span></div>
       <div><strong class="player-team"><a href="${teamHref(team)}">${esc(team.abbr)}</a></strong><span>${esc(team.name)}</span></div>
       <div><strong class="player-role">${esc(roles)}</strong><span>Role</span></div>
     </div>
@@ -493,10 +544,10 @@ function playerPage(league, player, c) {
   <div>${stats}</div>
   <div>
     <h2 class="panel-title">${esc(team.name)} schedule</h2>
-    <div class="match-list">${games.map(m => matchCard(m, { showDivision: false })).join('')}</div>
+    <div class="match-list">${teamGames.map(m => matchCard(m, { showDivision: false })).join('')}</div>
   </div>
 </section>`;
-  return layout({ title: player.name, active: 'teams', body, c, page: `player:${player.slug}` });
+  return layout({ title: player.name, active: 'teams', body, c, script, page: `player:${player.slug}` });
 }
 
 function notFound(c) {
