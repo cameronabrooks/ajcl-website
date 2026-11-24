@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795546694132,
+  "generatedAt": 1795551159182,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -52,7 +52,13 @@
           "ATL | Speiddyy",
           "ATL | Xerxes"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "ATL | Xerxes": "atl-xerxes",
+          "ATL | BBLZaaZaa": "atl-bblzaazaa",
+          "ATL | Reddaza": "atl-reddaza",
+          "ATL | Speiddyy": "atl-speiddyy"
+        }
       }
     },
     {
@@ -71,7 +77,13 @@
           "CAR | Ny",
           "CAR | Zuko"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "CAR | Lil'Ceezars": "car-lil-ceezars",
+          "CAR | Ny": "car-ny",
+          "CAR | Zuko": "car-zuko",
+          "CAR | 007 Quay": "car-007-quay"
+        }
       }
     },
     {
@@ -92,7 +104,14 @@
           "SYR | Loyal",
           "SYR | nitsua"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "SYR | butchiehof": "syr-butchiehof",
+          "SYR | Crouse": "syr-crouse",
+          "SYR | Loyal": "syr-loyal",
+          "SYR | nitsua": "syr-nitsua",
+          "COACH | Delusions": "coach-delusions"
+        }
       }
     },
     {
@@ -111,7 +130,14 @@
           "SLN | Primo",
           "SLN | Spyder"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "SLN | Lux": "sln-lux",
+          "SLN | Primo": "sln-primo",
+          "SLN | Spyder": "sln-spyder",
+          "SLN | Kjay": "sln-kjay",
+          "SLN | K1lla": "sln-k1lla"
+        }
       }
     },
     {
@@ -130,7 +156,13 @@
           "SFS | MoonerTheAlcoholic",
           "SFS | vis"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "SFS | MoonerTheAlcoholic": "sfs-moonerthealcoholic",
+          "SFS | vis": "sfs-vis",
+          "SFS | ilikefeet": "sfs-ilikefeet",
+          "SFS | Lakas": "sfs-lakas"
+        }
       }
     },
     {
@@ -149,7 +181,13 @@
           "CCC | Freaky",
           "CCC | Venom"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "CCC | BamBam": "ccc-bambam",
+          "CCC | Venom": "ccc-venom",
+          "CCC | Crazed": "ccc-crazed",
+          "CCC | Freaky": "ccc-freaky"
+        }
       }
     },
     {
@@ -168,7 +206,13 @@
           "TOR | Luke",
           "TOR | Zylixz"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "TOR | BrooksySZN": "tor-brooksyszn",
+          "TOR | Luke": "tor-luke",
+          "TOR | Zylixz": "tor-zylixz",
+          "TOR | Hunna": "tor-hunna"
+        }
       }
     },
     {
@@ -187,7 +231,13 @@
           "HAL | MoistQuackers",
           "HAL | RynoRH"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "HAL | Bis": "hal-bis",
+          "HAL | g-ter": "hal-g-ter",
+          "HAL | RynoRH": "hal-rynorh",
+          "HAL | MoistQuackers": "hal-moistquackers"
+        }
       }
     },
     {
@@ -206,7 +256,13 @@
           "ROS | BooshDaGoat",
           "ROS | Owes Every1 Taco Bell Plu"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "ROS | Owes Every1 Taco Bell Plu": "ros-owes-every1-taco-bell-plu",
+          "MFIC | Inspire": "mfic-inspire",
+          "ROS | BooshDaGoat": "ros-booshdagoat",
+          "ROS | ⛧ Ƒëﾑr ツ": "ros-e-r"
+        }
       }
     },
     {
@@ -227,7 +283,14 @@
           "MRD | JAYDREAMZ",
           "MRD | ZEUS"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "MRD | 🧛🏼OverlordAlucard 🧛🏼": "mrd-overlordalucard",
+          "MRD | Bruce": "mrd-bruce",
+          "MRD | JAYDREAMZ": "mrd-jaydreamz",
+          "MRD | ZEUS": "mrd-zeus",
+          "COACH | Chrollo": "coach-chrollo"
+        }
       }
     },
     {
@@ -246,7 +309,13 @@
           "LEX | Kib",
           "LEX | Palsy"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "COMISH | Cam": "comish-cam",
+          "LEX | Palsy": "lex-palsy",
+          "LEX | Kib": "lex-kib",
+          "LEX | Bandit": "lex-bandit"
+        }
       }
     },
     {
@@ -267,7 +336,14 @@
           "NOR | Leisure",
           "NOR | Tanji"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "NOR | Divi": "nor-divi",
+          "NOR | Fly Tendencies": "nor-fly-tendencies",
+          "NOR | Tanji": "nor-tanji",
+          "NOR | Leisure": "nor-leisure",
+          "CAR | Lil'Ceezars": "car-lil-ceezars"
+        }
       }
     },
     {
@@ -288,7 +364,14 @@
           "KCK | Rogue",
           "KCK | Sac"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "KCK | Sac": "kck-sac",
+          "KCK | cbass": "kck-cbass",
+          "KCK | Rogue": "kck-rogue",
+          "COMISH | MaRsH313": "comish-marsh313",
+          "Bgolden": "bgolden"
+        }
       }
     },
     {
@@ -307,7 +390,13 @@
           "PIT | Brimington",
           "PIT | Twizz"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "PIT | 2elite": "pit-2elite",
+          "PIT | Brimington": "pit-brimington",
+          "MFIC | Ranked Incorrectly": "mfic-ranked-incorrectly",
+          "PIT | Twizz": "pit-twizz"
+        }
       }
     },
     {
@@ -326,7 +415,13 @@
           "MIS | Racist Guy Marv",
           "MIS | shooter"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "MIS | Kentucky": "mis-kentucky",
+          "MIS | ImAkaii": "mis-imakaii",
+          "MIS | Racist Guy Marv": "mis-racist-guy-marv",
+          "MIS | shooter": "mis-shooter"
+        }
       }
     },
     {
@@ -347,7 +442,14 @@
           "OMH | SlayFS",
           "OMH | unholy draco"
         ],
-        "nonPlaying": []
+        "nonPlaying": [],
+        "links": {
+          "OMH | unholy draco": "omh-unholy-draco",
+          "OMH | Revert": "omh-revert",
+          "OMH | Gutta": "omh-gutta",
+          "OMH | SlayFS": "omh-slayfs",
+          "ATL | BBLZaaZaa": "atl-bblzaazaa"
+        }
       }
     }
   ],
@@ -1407,5 +1509,568 @@
         "player"
       ]
     }
-  }
+  },
+  "players": [
+    {
+      "slug": "atl-xerxes",
+      "name": "ATL | Xerxes",
+      "team": "atl",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "atl-bblzaazaa",
+      "name": "ATL | BBLZaaZaa",
+      "team": "atl",
+      "roles": [
+        "player",
+        "gm",
+        "coach"
+      ]
+    },
+    {
+      "slug": "atl-reddaza",
+      "name": "ATL | Reddaza",
+      "team": "atl",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "atl-speiddyy",
+      "name": "ATL | Speiddyy",
+      "team": "atl",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "car-lil-ceezars",
+      "name": "CAR | Lil'Ceezars",
+      "team": "car",
+      "roles": [
+        "player",
+        "gm",
+        "coach"
+      ]
+    },
+    {
+      "slug": "car-ny",
+      "name": "CAR | Ny",
+      "team": "car",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "car-zuko",
+      "name": "CAR | Zuko",
+      "team": "car",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "car-007-quay",
+      "name": "CAR | 007 Quay",
+      "team": "car",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "syr-butchiehof",
+      "name": "SYR | butchiehof",
+      "team": "syr",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "syr-crouse",
+      "name": "SYR | Crouse",
+      "team": "syr",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "syr-loyal",
+      "name": "SYR | Loyal",
+      "team": "syr",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "syr-nitsua",
+      "name": "SYR | nitsua",
+      "team": "syr",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "coach-delusions",
+      "name": "COACH | Delusions",
+      "team": "syr",
+      "roles": [
+        "coach"
+      ]
+    },
+    {
+      "slug": "sln-lux",
+      "name": "SLN | Lux",
+      "team": "sln",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "sln-primo",
+      "name": "SLN | Primo",
+      "team": "sln",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "sln-spyder",
+      "name": "SLN | Spyder",
+      "team": "sln",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "sln-kjay",
+      "name": "SLN | Kjay",
+      "team": "sln",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "sln-k1lla",
+      "name": "SLN | K1lla",
+      "team": "sln",
+      "roles": [
+        "gm"
+      ]
+    },
+    {
+      "slug": "sfs-moonerthealcoholic",
+      "name": "SFS | MoonerTheAlcoholic",
+      "team": "sfs",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "sfs-vis",
+      "name": "SFS | vis",
+      "team": "sfs",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "sfs-ilikefeet",
+      "name": "SFS | ilikefeet",
+      "team": "sfs",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "sfs-lakas",
+      "name": "SFS | Lakas",
+      "team": "sfs",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "ccc-bambam",
+      "name": "CCC | BamBam",
+      "team": "ccc",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "ccc-venom",
+      "name": "CCC | Venom",
+      "team": "ccc",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "ccc-crazed",
+      "name": "CCC | Crazed",
+      "team": "ccc",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "ccc-freaky",
+      "name": "CCC | Freaky",
+      "team": "ccc",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "tor-brooksyszn",
+      "name": "TOR | BrooksySZN",
+      "team": "tor",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "tor-luke",
+      "name": "TOR | Luke",
+      "team": "tor",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "tor-zylixz",
+      "name": "TOR | Zylixz",
+      "team": "tor",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "tor-hunna",
+      "name": "TOR | Hunna",
+      "team": "tor",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "hal-bis",
+      "name": "HAL | Bis",
+      "team": "hal",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "hal-g-ter",
+      "name": "HAL | g-ter",
+      "team": "hal",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "hal-rynorh",
+      "name": "HAL | RynoRH",
+      "team": "hal",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "hal-moistquackers",
+      "name": "HAL | MoistQuackers",
+      "team": "hal",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "ros-owes-every1-taco-bell-plu",
+      "name": "ROS | Owes Every1 Taco Bell Plu",
+      "team": "ros",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "mfic-inspire",
+      "name": "MFIC | Inspire",
+      "team": "ros",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "ros-booshdagoat",
+      "name": "ROS | BooshDaGoat",
+      "team": "ros",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "ros-e-r",
+      "name": "ROS | ⛧ Ƒëﾑr ツ",
+      "team": "ros",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "mrd-overlordalucard",
+      "name": "MRD | 🧛🏼OverlordAlucard 🧛🏼",
+      "team": "mrd",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "mrd-bruce",
+      "name": "MRD | Bruce",
+      "team": "mrd",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "mrd-jaydreamz",
+      "name": "MRD | JAYDREAMZ",
+      "team": "mrd",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "mrd-zeus",
+      "name": "MRD | ZEUS",
+      "team": "mrd",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "coach-chrollo",
+      "name": "COACH | Chrollo",
+      "team": "mrd",
+      "roles": [
+        "coach"
+      ]
+    },
+    {
+      "slug": "comish-cam",
+      "name": "COMISH | Cam",
+      "team": "lex",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "lex-palsy",
+      "name": "LEX | Palsy",
+      "team": "lex",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "lex-kib",
+      "name": "LEX | Kib",
+      "team": "lex",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "lex-bandit",
+      "name": "LEX | Bandit",
+      "team": "lex",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "nor-divi",
+      "name": "NOR | Divi",
+      "team": "nor",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "nor-fly-tendencies",
+      "name": "NOR | Fly Tendencies",
+      "team": "nor",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "nor-tanji",
+      "name": "NOR | Tanji",
+      "team": "nor",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "nor-leisure",
+      "name": "NOR | Leisure",
+      "team": "nor",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "kck-sac",
+      "name": "KCK | Sac",
+      "team": "kck",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "kck-cbass",
+      "name": "KCK | cbass",
+      "team": "kck",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "kck-rogue",
+      "name": "KCK | Rogue",
+      "team": "kck",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "comish-marsh313",
+      "name": "COMISH | MaRsH313",
+      "team": "kck",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "bgolden",
+      "name": "Bgolden",
+      "team": "kck",
+      "roles": [
+        "coach"
+      ]
+    },
+    {
+      "slug": "pit-2elite",
+      "name": "PIT | 2elite",
+      "team": "pit",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "pit-brimington",
+      "name": "PIT | Brimington",
+      "team": "pit",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "mfic-ranked-incorrectly",
+      "name": "MFIC | Ranked Incorrectly",
+      "team": "pit",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "pit-twizz",
+      "name": "PIT | Twizz",
+      "team": "pit",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "mis-kentucky",
+      "name": "MIS | Kentucky",
+      "team": "mis",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "mis-imakaii",
+      "name": "MIS | ImAkaii",
+      "team": "mis",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "mis-racist-guy-marv",
+      "name": "MIS | Racist Guy Marv",
+      "team": "mis",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "mis-shooter",
+      "name": "MIS | shooter",
+      "team": "mis",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "omh-unholy-draco",
+      "name": "OMH | unholy draco",
+      "team": "omh",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
+    {
+      "slug": "omh-revert",
+      "name": "OMH | Revert",
+      "team": "omh",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "omh-gutta",
+      "name": "OMH | Gutta",
+      "team": "omh",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "omh-slayfs",
+      "name": "OMH | SlayFS",
+      "team": "omh",
+      "roles": [
+        "player"
+      ]
+    }
+  ]
 }
