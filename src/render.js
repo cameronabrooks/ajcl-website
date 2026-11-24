@@ -4,9 +4,11 @@
 
 let BASE = '';
 let CSS_VERSION = '1';
-function configure({ base = '', cssVersion = '1' } = {}) {
+let DISCORD_CLIENT_ID = '';
+function configure({ base = '', cssVersion = '1', discordClientId = '' } = {}) {
   BASE = base.replace(/\/+$/, '');
   CSS_VERSION = cssVersion;
+  DISCORD_CLIENT_ID = discordClientId || '';
 }
 const u = p => BASE + p;
 
@@ -71,6 +73,7 @@ function layout({ title, active, body, c, script = '' }) {
     ['/schedule/', 'Schedule', 'schedule'],
     ['/standings/', 'Standings', 'standings'],
     ['/teams/', 'Teams', 'teams'],
+    ['/stats/', 'Stats', 'stats'],
     ['/join/', 'Join', 'join'],
   ].map(([href, label, key]) => `<a href="${u(href)}"${key === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
   const discord = c.discordInvite
@@ -89,6 +92,8 @@ function layout({ title, active, body, c, script = '' }) {
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${u('/style.css')}?v=${CSS_VERSION}">
 <link rel="expect" href="#page-end" blocking="render">
+<meta name="ajcl-base" content="${esc(BASE)}">
+<meta name="ajcl-discord-client" content="${esc(DISCORD_CLIENT_ID)}">
 ${TRANSITION_SCRIPT}
 </head>
 <body>
@@ -97,6 +102,7 @@ ${TRANSITION_SCRIPT}
     <a class="brand" href="${u('/')}"><img src="${u('/ajcl-logo.png')}" alt=""><span><strong>AJCL</strong><small>Average Joe's CoD League</small></span></a>
     <nav class="nav">${nav}</nav>
     ${discord}
+    <div class="account" data-account></div>
   </div>
 </header>
 <main>${body}<span id="page-end"></span></main>
@@ -107,6 +113,7 @@ ${TRANSITION_SCRIPT}
   </div>
 </footer>
 ${script}
+<script src="${u('/account.js')}?v=${CSS_VERSION}" defer></script>
 </body>
 </html>`;
 }
@@ -130,7 +137,7 @@ function matchCard(m, { showDivision = true } = {}) {
   if (m.status === 'final') status = `<span class="pill pill-final">Final${r?.forfeit ? ' · FF' : ''}</span>`;
   else if (m.status === 'scheduled') status = `<span class="pill pill-live">${timeTag(m.time)}</span>`;
   else status = `<span class="pill">Awaiting time</span>`;
-  return `<article class="match">
+  return `<article class="match" data-teams="${esc(m.home.slug)} ${esc(m.away.slug)}">
     <div class="mc-meta">${showDivision ? `<span class="div-tag div-${m.division.toLowerCase()}">${esc(m.division)}</span>` : ''}<span class="muted">Week ${m.week}</span>${status}</div>
     ${side(m.home, r?.homeMaps, r?.winner === m.home.slug)}
     ${side(m.away, r?.awayMaps, r?.winner === m.away.slug)}
@@ -140,7 +147,7 @@ function matchCard(m, { showDivision = true } = {}) {
 function standingsTable(rows, { compact = false } = {}) {
   return `<div class="table-wrap"><table class="standings">
   <thead><tr><th>#</th><th class="left">Team</th><th>W-L</th>${compact ? '' : '<th>Maps</th>'}<th>Diff</th></tr></thead>
-  <tbody>${rows.map((r, i) => `<tr>
+  <tbody>${rows.map((r, i) => `<tr data-team="${esc(r.team.slug)}">
     <td class="rank">${i + 1}</td>
     <td class="left"><a class="team-cell" href="${teamHref(r.team)}">${crest(r.team, 'xs')}<span>${esc(r.team.name)}</span></a></td>
     <td><strong>${r.w}-${r.l}</strong></td>
@@ -218,7 +225,7 @@ function teamsPage(league, c) {
     const rec = Object.fromEntries(league.standings[d].map(r => [r.team.slug, r]));
     return `<div class="div-block">
       <div class="section-head"><h2 class="div-${d.toLowerCase()}-text">${d} Division</h2><span class="muted">${teams.length} teams</span></div>
-      <div class="team-grid">${teams.map(t => `<a class="team-card" href="${teamHref(t)}">
+      <div class="team-grid">${teams.map(t => `<a class="team-card" data-team="${esc(t.slug)}" href="${teamHref(t)}">
         ${crest(t, 'lg', true)}
         <h3>${esc(t.name)}</h3>
         <p class="muted">${rec[t.slug].w}-${rec[t.slug].l} · Diff ${rec[t.slug].diff > 0 ? '+' : ''}${rec[t.slug].diff}</p>
@@ -239,7 +246,7 @@ function teamPage(league, team, c) {
   if (!team.roster) {
     rosterHtml = '<p class="muted">Roster coming soon.</p>';
   } else {
-    const group = (label, names) => names.length ? `<div class="roster-group"><h4>${label}</h4><ul>${names.map(n => `<li>${esc(n)}</li>`).join('')}</ul></div>` : '';
+    const group = (label, names) => names.length ? `<div class="roster-group"><h4>${label}</h4><ul>${names.map(n => `<li data-member="${esc(n)}">${esc(n)}</li>`).join('')}</ul></div>` : '';
     rosterHtml = (group('General Manager', team.roster.gms) + group('Coach', team.roster.coaches) +
       group('Players', team.roster.players) + group('Non-Playing', team.roster.nonPlaying)) ||
       '<p class="muted">No players rostered yet.</p>';
@@ -352,9 +359,27 @@ function joinPage(league, c) {
   return layout({ title: 'Join', active: 'join', body, c });
 }
 
+function statsPage(league, c) {
+  const src = c.statsEmbedUrl || 'https://cod-stats.com/embed/average-joes-cod-league/players';
+  const body = pageHead(c.season || 'Stat Leaders', 'Player Stats', 'Season stats for every AJCL player, powered by cod-stats.com.') + `
+<section class="wrap section">
+  <div class="panel stats-embed">
+    <iframe src="${esc(src)}" title="Average Joe's CoD League player stats" loading="lazy"></iframe>
+  </div>
+</section>`;
+  return layout({ title: 'Stats', active: 'stats', body, c });
+}
+
+// Discord sends people back here after login (OAuth2 implicit grant).
+// account.js finishes the login, then returns them to the page they came from.
+function authPage(c) {
+  const body = pageHead('Discord', 'Connecting your account…', '') + `<section class="wrap section"><p class="muted" data-auth-status>One moment…</p></section>`;
+  return layout({ title: 'Connecting', active: '', body, c });
+}
+
 function notFound(c) {
   const body = pageHead('404', 'Page not found', "That page doesn't exist.") + `<section class="wrap section"><a class="btn btn-gold" href="${u('/')}">Back home</a></section>`;
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, home, teamsPage, teamPage, schedulePage, standingsPage, joinPage, notFound };
+module.exports = { configure, home, teamsPage, teamPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };

@@ -14,7 +14,7 @@ Don't edit `data/league.json` by hand: the bot overwrites it.
 
 | What | Where |
 | --- | --- |
-| League text, join steps, format, Discord invite, rulebook link | `content.json` |
+| League text, join steps, format, Discord invite, rulebook link, stats embed URL | `content.json` |
 | Colors, fonts, layout | `public/style.css` |
 | Page templates | `src/render.js` |
 | AJCL logo | `public/ajcl-logo.png` |
@@ -29,3 +29,18 @@ npm run dev
 ```
 
 Opens at http://localhost:3000 and rebuilds whenever you save a file. No dependencies needed, just Node 18+.
+
+## Log in with Discord
+
+Visitors can log in with Discord (`identify` scope only) to see their name and avatar in
+the top bar, their team highlighted across the site, and a "You" tag on their roster.
+It runs entirely in the browser (`public/account.js`, OAuth2 implicit grant); the token is
+used once and discarded. Teams are matched with `members.json`, which the bot fills with
+salted hashes of Discord IDs, never raw IDs.
+
+The Discord application must allow these redirect URLs (Developer Portal → OAuth2 → Redirects):
+
+- `https://cameronabrooks.github.io/ajcl-website/auth/`
+- `http://localhost:3000/auth/` (local preview)
+
+If you add a custom domain, add `https://<your-domain>/auth/` too.

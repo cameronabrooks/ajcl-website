@@ -52,10 +52,15 @@ function write(rel, html) {
 function build() {
   const league = hydrate(readJson('data/league.json'));
   const content = readJson('content.json');
-  const css = fs.readFileSync(path.join(PUBLIC, 'style.css'));
+  // Cache-busting tag covering the stylesheet and the account script.
+  const assetHash = crypto.createHash('sha1')
+    .update(fs.readFileSync(path.join(PUBLIC, 'style.css')))
+    .update(fs.readFileSync(path.join(PUBLIC, 'account.js')));
   render.configure({
     base: process.env.SITE_BASE || '',
-    cssVersion: crypto.createHash('sha1').update(css).digest('hex').slice(0, 8),
+    cssVersion: assetHash.digest('hex').slice(0, 8),
+    // Public OAuth2 client ID for "Log in with Discord" (the bot publishes it).
+    discordClientId: process.env.DISCORD_CLIENT_ID || league.discordClientId || content.discordClientId || '',
   });
 
   fs.rmSync(DIST, { recursive: true, force: true });
@@ -67,7 +72,14 @@ function build() {
   write('teams/index.html', render.teamsPage(league, content));
   for (const team of league.teams) write(`teams/${team.slug}/index.html`, render.teamPage(league, team, content));
   write('join/index.html', render.joinPage(league, content));
+  write('stats/index.html', render.statsPage(league, content));
+  write('auth/index.html', render.authPage(content));
   write('404.html', render.notFound(content));
+  // Hashed member -> team index used after "Log in with Discord" (no raw Discord IDs).
+  fs.writeFileSync(path.join(DIST, 'members.json'), JSON.stringify({
+    teams: Object.fromEntries(league.teams.map(t => [t.slug, t.name])),
+    members: league.members || {},
+  }));
   fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
 
   console.log(`Built ${league.teams.length} teams, ${league.matches.length} matches -> dist/ (data from ${league.generatedAt ? new Date(league.generatedAt).toISOString() : 'unknown'})`);

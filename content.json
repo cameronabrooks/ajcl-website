@@ -4,17 +4,45 @@
   "tagline": "Competitive Call of Duty for the rest of us.",
   "about": "Average Joe's CoD League (AJCL) is a draft-based Call of Duty league built for everyday players. Every season, GMs draft their rosters, teams battle through a regular season in two divisions, and the best squads fight it out in the playoffs. Everything — scheduling, results, rosters — runs through our Discord.",
   "joinSteps": [
-    { "title": "Join the Discord", "body": "Everything in AJCL happens in our Discord server: sign-ups, the draft, scheduling and match reporting." },
-    { "title": "Link your gamertag & sign up", "body": "Grab your roles, link your gamertag, and sign up for the upcoming season's draft pool when registration opens." },
-    { "title": "Get drafted", "body": "GMs draft their rosters live in Discord. Free agents can still be signed during the season." },
-    { "title": "Want to do more?", "body": "GM, staff and caster applications are open in the Discord applications channel." }
+    {
+      "title": "Join the Discord",
+      "body": "Everything in AJCL happens in our Discord server: sign-ups, the draft, scheduling and match reporting."
+    },
+    {
+      "title": "Link your gamertag & sign up",
+      "body": "Grab your roles, link your gamertag, and sign up for the upcoming season's draft pool when registration opens."
+    },
+    {
+      "title": "Get drafted",
+      "body": "GMs draft their rosters live in Discord. Free agents can still be signed during the season."
+    },
+    {
+      "title": "Want to do more?",
+      "body": "GM, staff and caster applications are open in the Discord applications channel."
+    }
   ],
   "format": [
-    { "title": "Two divisions", "body": "Premier and Academy, eight teams each, running a seven-week regular season." },
-    { "title": "Weekly scheduling", "body": "GMs propose and confirm a match time in their match channel by Wednesday 11:59 PM ET. Unconfirmed matches are auto-scheduled for Sunday, 7–10 PM ET." },
-    { "title": "Picks & bans", "body": "Maps and sides are decided through the bot's picks & bans before every series." },
-    { "title": "Game modes", "body": "Series rotate through Hardpoint, Search & Destroy and Hijack." },
-    { "title": "Standings", "body": "Ranked by series wins, then map differential." }
+    {
+      "title": "Two divisions",
+      "body": "Premier and Academy, eight teams each, running a seven-week regular season."
+    },
+    {
+      "title": "Weekly scheduling",
+      "body": "GMs propose and confirm a match time in their match channel by Wednesday 11:59 PM ET. Unconfirmed matches are auto-scheduled for Sunday, 7–10 PM ET."
+    },
+    {
+      "title": "Picks & bans",
+      "body": "Maps and sides are decided through the bot's picks & bans before every series."
+    },
+    {
+      "title": "Game modes",
+      "body": "Series rotate through Hardpoint, Search & Destroy and Hijack."
+    },
+    {
+      "title": "Standings",
+      "body": "Ranked by series wins, then map differential."
+    }
   ],
-  "rulebookUrl": ""
+  "rulebookUrl": "",
+  "statsEmbedUrl": "https://cod-stats.com/embed/average-joes-cod-league/players"
 }
