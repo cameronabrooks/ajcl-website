@@ -439,10 +439,10 @@ function playerPage(league, player, c) {
 
   const stats = profileUrl ? `
     <div class="section-head"><h2 class="panel-title">Stats</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">Open on cod-stats ↗</a></div>
-    <p class="muted stats-note">All seasons for <strong>${esc(player.gamertag)}</strong>, live from cod-stats.com.</p>
+    <p class="muted stats-note">All seasons for <strong>${esc(player.gamertag)}</strong>, live from cod-stats.com.${player.gamertagSource === 'name' ? ' Matched by Discord name. Wrong player? Link the right gamertag in Discord with <strong>/linkgamertag</strong>.' : ''}</p>
     <div class="panel stats-embed player-stats"><iframe src="${esc(profileUrl)}" title="${esc(player.name)} stats on cod-stats.com" loading="lazy"></iframe></div>` : `
     <h2 class="panel-title">Stats</h2>
-    <div class="panel"><p class="muted" style="margin:0">${esc(player.name)} hasn't linked a cod-stats.com gamertag yet. Players can link theirs in the AJCL Discord with <strong>/linkgamertag</strong>, and their stats from every season will show up here.</p></div>`;
+    <div class="panel"><p class="muted" style="margin:0">We couldn't find ${esc(player.name)} on cod-stats.com yet. If their gamertag is different from their Discord name, they can link it in the AJCL Discord with <strong>/linkgamertag</strong>, and their stats from every season will show up here.</p></div>`;
 
   const body = `
 <section class="pagehead team-head"><div class="wrap team-head-inner">
