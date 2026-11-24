@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795552612120,
+  "generatedAt": 1795552651829,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -266,6 +266,12 @@
           "HAL | RynoRH"
         ],
         "nonPlaying": [],
+        "kd": {
+          "HAL | RynoRH": "0.00",
+          "HAL | Bis": "1.08",
+          "HAL | g-ter": "0.00",
+          "HAL | MoistQuackers": "1.07"
+        },
         "links": {
           "HAL | Bis": "hal-bis",
           "HAL | g-ter": "hal-g-ter",
@@ -2474,6 +2480,30 @@
       "team": "hal",
       "roles": [
         "player"
+      ],
+      "gamertag": "Bis",
+      "gamertagSource": "name",
+      "kd": "1.08",
+      "stats": {
+        "kd": "1.08",
+        "winPct": "51%",
+        "maps": "41",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": "L1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "1.08",
+          "winPct": "51%",
+          "maps": "41",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": "L1",
+          "at": 1795552612631
+        }
       ]
     },
     {
@@ -2482,6 +2512,30 @@
       "team": "hal",
       "roles": [
         "player"
+      ],
+      "gamertag": "g-ter",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552622093
+        }
       ]
     },
     {
@@ -2491,6 +2545,30 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "RynoRH",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552631528
+        }
       ]
     },
     {
@@ -2499,6 +2577,30 @@
       "team": "hal",
       "roles": [
         "player"
+      ],
+      "gamertag": "MoistQuackers",
+      "gamertagSource": "name",
+      "kd": "1.07",
+      "stats": {
+        "kd": "1.07",
+        "winPct": "65%",
+        "maps": "37",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": "L1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "1.07",
+          "winPct": "65%",
+          "maps": "37",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": "L1",
+          "at": 1795552640031
+        }
       ]
     },
     {
