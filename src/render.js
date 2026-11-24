@@ -388,32 +388,46 @@ function joinPage(league, c) {
   return layout({ title: 'Join', active: 'join', body, c, page: 'join' });
 }
 
-// One cod-stats.com embed per division (content.json -> statsEmbeds), shown as tabs.
-// Hash keeps it linkable (#premier / #academy); without JS both show.
+// cod-stats.com player-stats embeds, grouped by game then season
+// (content.json -> statsGames: [{ game: "MW4", seasons: [{ name, url }] }]).
+// Game tabs on top, season tabs below; only the shown embed loads (lazy iframes).
+// Hash keeps it linkable, e.g. #bo7/season-9-premier. Without JS everything shows.
+const keyOf = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 function statsPage(league, c) {
-  const embeds = (c.statsEmbeds || []).filter(e => e && e.url);
-  const tabs = embeds.map(e => `<a class="tab" href="#${esc(e.division.toLowerCase())}" data-stats-tab="${esc(e.division.toLowerCase())}">${esc(e.division)}</a>`).join('');
-  const panels = embeds.map(e => `<div class="stats-panel" data-stats-panel="${esc(e.division.toLowerCase())}">
-    <h2 class="sub div-${esc(e.division.toLowerCase())}-text">${esc(e.division)}</h2>
-    <div class="panel stats-embed"><iframe src="${esc(e.url)}" title="AJCL ${esc(e.division)} player stats" loading="lazy"></iframe></div>
+  const games = (c.statsGames || [])
+    .map(g => ({ ...g, key: keyOf(g.game), seasons: (g.seasons || []).filter(s => s && s.url).map(s => ({ ...s, key: keyOf(s.name) })) }))
+    .filter(g => g.seasons.length);
+
+  const gameTabs = games.map(g => `<a class="tab" href="#${g.key}" data-game-tab="${g.key}">${esc(g.game)}</a>`).join('');
+  const panels = games.map(g => `<div class="game-panel" data-game="${g.key}">
+    <div class="tabs season-tabs">${g.seasons.map(s => `<a class="tab tab-sm" href="#${g.key}/${s.key}" data-season-tab="${g.key}/${s.key}">${esc(s.name)}</a>`).join('')}</div>
+    ${g.seasons.map(s => `<div class="stats-panel" data-season="${g.key}/${s.key}">
+      <h2 class="sub">${esc(g.game)} · ${esc(s.name)}</h2>
+      <div class="panel stats-embed"><iframe src="${esc(s.url)}" title="AJCL ${esc(g.game)} ${esc(s.name)} player stats" loading="lazy"></iframe></div>
+    </div>`).join('')}
   </div>`).join('');
-  const script = embeds.length > 1 ? `<script>
+
+  const script = games.length ? `<script>
 (function () {
   function apply() {
-    var keys = [].map.call(document.querySelectorAll('[data-stats-tab]'), function (t) { return t.dataset.statsTab; });
-    var want = location.hash.slice(1);
-    var cur = keys.indexOf(want) >= 0 ? want : keys[0];
-    document.querySelectorAll('[data-stats-panel]').forEach(function (p) { p.hidden = p.dataset.statsPanel !== cur; });
-    document.querySelectorAll('[data-stats-tab]').forEach(function (t) { t.classList.toggle('active', t.dataset.statsTab === cur); });
+    var games = [].map.call(document.querySelectorAll('[data-game-tab]'), function (t) { return t.dataset.gameTab; });
+    var parts = location.hash.slice(1).split('/');
+    var game = games.indexOf(parts[0]) >= 0 ? parts[0] : games[0];
+    var seasons = [].map.call(document.querySelectorAll('[data-game="' + game + '"] [data-season-tab]'), function (t) { return t.dataset.seasonTab; });
+    var season = seasons.indexOf(game + '/' + parts[1]) >= 0 ? game + '/' + parts[1] : seasons[0];
+    document.querySelectorAll('[data-game]').forEach(function (p) { p.hidden = p.dataset.game !== game; });
+    document.querySelectorAll('[data-game-tab]').forEach(function (t) { t.classList.toggle('active', t.dataset.gameTab === game); });
+    document.querySelectorAll('[data-season]').forEach(function (p) { p.hidden = p.dataset.season !== season; });
+    document.querySelectorAll('[data-season-tab]').forEach(function (t) { t.classList.toggle('active', t.dataset.seasonTab === season); });
   }
   document.documentElement.classList.add('js');
   addEventListener('hashchange', apply);
   apply();
 })();
 </script>` : '';
-  const body = pageHead(c.season || 'Stat Leaders', 'Player Stats', 'Season stats for every AJCL player, powered by cod-stats.com.') + `
+  const body = pageHead(c.season || 'Stat Leaders', 'Player Stats', 'Player stats for every AJCL season, by game, powered by cod-stats.com.') + `
 <section class="wrap section stats">
-  ${embeds.length > 1 ? `<div class="tabs">${tabs}</div>` : ''}
+  ${games.length > 1 ? `<div class="tabs game-tabs">${gameTabs}</div>` : ''}
   ${panels || '<p class="muted">Stats are coming soon.</p>'}
 </section>`;
   return layout({ title: 'Stats', active: 'stats', body, c, script });

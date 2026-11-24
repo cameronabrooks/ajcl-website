@@ -14,7 +14,7 @@ Don't edit `data/league.json` by hand: the bot overwrites it.
 
 | What | Where |
 | --- | --- |
-| League text, join steps, format, Discord invite, rulebook link, stats embeds (one per division) | `content.json` |
+| League text, join steps, format, Discord invite, rulebook link, stats embeds by game and season (`statsGames`) | `content.json` |
 | Colors, fonts, layout | `public/style.css` |
 | Page templates | `src/render.js` |
 | AJCL logo | `public/ajcl-logo.png` |

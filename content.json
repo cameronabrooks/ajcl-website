@@ -44,16 +44,42 @@
     }
   ],
   "rulebookUrl": "",
-  "statsEmbeds": [
+  "liveUrl": "https://ajcl-live.ajcl-live.workers.dev",
+  "siteUrl": "https://averagejoescodleague.com",
+  "statsGames": [
     {
-      "division": "Premier",
-      "url": "https://cod-stats.com/embed/average-joes-cod-league/players?season=bfc0d165-5353-4d6b-b28c-cb67b425af98"
+      "game": "MW4",
+      "seasons": [
+        {
+          "name": "SZN X Premier",
+          "url": "https://cod-stats.com/embed/average-joes-cod-league/players?season=fb6cee8c-7207-4ed4-af66-3e9356a2c7bb"
+        },
+        {
+          "name": "SZN X Academy",
+          "url": "https://cod-stats.com/embed/average-joes-cod-league/players?season=bfc0d165-5353-4d6b-b28c-cb67b425af98"
+        }
+      ]
     },
     {
-      "division": "Academy",
-      "url": "https://cod-stats.com/embed/average-joes-cod-league/players?season=fb6cee8c-7207-4ed4-af66-3e9356a2c7bb"
+      "game": "BO7",
+      "seasons": [
+        {
+          "name": "Season 9 Premier",
+          "url": "https://cod-stats.com/embed/average-joes-cod-league/players?season=017f2a8b-6565-44dd-b39a-004f80bd58e2"
+        },
+        {
+          "name": "Season 9 Academy",
+          "url": "https://cod-stats.com/embed/average-joes-cod-league/players?season=27a34fd1-d761-4527-87af-ba3246bbd46d"
+        },
+        {
+          "name": "Premier Mini SZN",
+          "url": "https://cod-stats.com/embed/average-joes-cod-league/players?season=71fcca67-c91c-4c34-b221-3f269bdef28b"
+        },
+        {
+          "name": "Academy Mini SZN",
+          "url": "https://cod-stats.com/embed/average-joes-cod-league/players?season=23493002-a782-4ed6-b6d6-6e4a104391c8"
+        }
+      ]
     }
-  ],
-  "liveUrl": "https://ajcl-live.ajcl-live.workers.dev",
-  "siteUrl": "https://averagejoescodleague.com"
+  ]
 }
