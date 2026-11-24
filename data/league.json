@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795557557218,
+  "generatedAt": 1795557970267,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2486,6 +2486,44 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "ChristianDaBos",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.86",
+            "kpm": "17.6",
+            "maps": 30
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "MRD / KNX",
+              "kd": "0.77",
+              "kpm": "17.2",
+              "maps": 17
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "IMK / SFS",
+              "kd": "0.96",
+              "kpm": "17.3",
+              "maps": 9
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "MRD",
+              "kd": "1.11",
+              "kpm": "19.8",
+              "maps": 4
+            }
+          ]
+        }
       ]
     },
     {
