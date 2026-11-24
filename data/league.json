@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795555003794,
+  "generatedAt": 1795555026999,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1517,6 +1517,36 @@
       "team": "atl",
       "roles": [
         "player"
+      ],
+      "gamertag": "Xerxes",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.92",
+            "kpm": "19.3",
+            "maps": 42
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "PIT / SLN",
+              "kd": "0.93",
+              "kpm": "19.8",
+              "maps": 29
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "CAR / SLN",
+              "kd": "0.88",
+              "kpm": "18.2",
+              "maps": 13
+            }
+          ]
+        }
       ]
     },
     {
@@ -1586,6 +1616,28 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "butchiehof",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.90",
+            "kpm": "17.1",
+            "maps": 12
+          },
+          "seasons": [
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "IMK / SFS",
+              "kd": "0.90",
+              "kpm": "17.1",
+              "maps": 12
+            }
+          ]
+        }
       ]
     },
     {
@@ -1602,6 +1654,28 @@
       "team": "syr",
       "roles": [
         "player"
+      ],
+      "gamertag": "Loyal",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.25",
+            "kpm": "23.4",
+            "maps": 28
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "NOR",
+              "kd": "1.25",
+              "kpm": "23.4",
+              "maps": 28
+            }
+          ]
+        }
       ]
     },
     {
@@ -1610,6 +1684,36 @@
       "team": "syr",
       "roles": [
         "player"
+      ],
+      "gamertag": "nitsua",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.27",
+            "kpm": "23.7",
+            "maps": 38
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.31",
+              "kpm": "23.6",
+              "maps": 29
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.16",
+              "kpm": "24.0",
+              "maps": 9
+            }
+          ]
+        }
       ]
     },
     {
@@ -1618,6 +1722,36 @@
       "team": "syr",
       "roles": [
         "coach"
+      ],
+      "gamertag": "Delusions",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.29",
+            "kpm": "22.8",
+            "maps": 13
+          },
+          "seasons": [
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SLN",
+              "kd": "0.94",
+              "kpm": "17.7",
+              "maps": 6
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR",
+              "kd": "1.62",
+              "kpm": "27.1",
+              "maps": 7
+            }
+          ]
+        }
       ]
     },
     {
@@ -1634,6 +1768,36 @@
       "team": "sln",
       "roles": [
         "player"
+      ],
+      "gamertag": "Primo",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.32",
+            "kpm": "25.2",
+            "maps": 43
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "MAN",
+              "kd": "1.34",
+              "kpm": "25.4",
+              "maps": 39
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "MAN",
+              "kd": "1.15",
+              "kpm": "22.8",
+              "maps": 4
+            }
+          ]
+        }
       ]
     },
     {
@@ -1675,6 +1839,36 @@
       "team": "sfs",
       "roles": [
         "player"
+      ],
+      "gamertag": "vis",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.09",
+            "kpm": "21.7",
+            "maps": 31
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "NOR",
+              "kd": "1.11",
+              "kpm": "21.8",
+              "maps": 28
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "HAL",
+              "kd": "0.92",
+              "kpm": "20.3",
+              "maps": 3
+            }
+          ]
+        }
       ]
     },
     {
@@ -1691,6 +1885,28 @@
       "team": "sfs",
       "roles": [
         "player"
+      ],
+      "gamertag": "Lakas",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.14",
+            "kpm": "20.1",
+            "maps": 33
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "STS",
+              "kd": "1.14",
+              "kpm": "20.1",
+              "maps": 33
+            }
+          ]
+        }
       ]
     },
     {
@@ -1708,6 +1924,28 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Venom",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.23",
+            "kpm": "22.3",
+            "maps": 22
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "VAN",
+              "kd": "1.23",
+              "kpm": "22.3",
+              "maps": 22
+            }
+          ]
+        }
       ]
     },
     {
@@ -1716,6 +1954,28 @@
       "team": "ccc",
       "roles": [
         "player"
+      ],
+      "gamertag": "Crazed",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.02",
+            "kpm": "20.6",
+            "maps": 20
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "KNX",
+              "kd": "1.02",
+              "kpm": "20.6",
+              "maps": 20
+            }
+          ]
+        }
       ]
     },
     {
@@ -1724,6 +1984,36 @@
       "team": "ccc",
       "roles": [
         "player"
+      ],
+      "gamertag": "Freaky",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.16",
+            "kpm": "20.6",
+            "maps": 29
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "ATL / SLN",
+              "kd": "1.11",
+              "kpm": "19.8",
+              "maps": 21
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SFS",
+              "kd": "1.28",
+              "kpm": "22.6",
+              "maps": 8
+            }
+          ]
+        }
       ]
     },
     {
@@ -1732,6 +2022,28 @@
       "team": "tor",
       "roles": [
         "player"
+      ],
+      "gamertag": "BrooksySZN",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.96",
+            "kpm": "20.0",
+            "maps": 8
+          },
+          "seasons": [
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "IMK / SPS",
+              "kd": "0.96",
+              "kpm": "20.0",
+              "maps": 8
+            }
+          ]
+        }
       ]
     },
     {
@@ -1749,6 +2061,28 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Zylixz",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.72",
+            "kpm": "14.0",
+            "maps": 11
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "KNX / MIS",
+              "kd": "0.72",
+              "kpm": "14.0",
+              "maps": 11
+            }
+          ]
+        }
       ]
     },
     {
@@ -1765,6 +2099,36 @@
       "team": "hal",
       "roles": [
         "player"
+      ],
+      "gamertag": "Bis",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.07",
+            "kpm": "19.2",
+            "maps": 41
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SFS / TOR",
+              "kd": "1.10",
+              "kpm": "19.5",
+              "maps": 36
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SLN",
+              "kd": "0.88",
+              "kpm": "17.0",
+              "maps": 5
+            }
+          ]
+        }
       ]
     },
     {
@@ -1790,6 +2154,28 @@
       "team": "hal",
       "roles": [
         "player"
+      ],
+      "gamertag": "MoistQuackers",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.07",
+            "kpm": "21.1",
+            "maps": 37
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SFS",
+              "kd": "1.07",
+              "kpm": "21.1",
+              "maps": 37
+            }
+          ]
+        }
       ]
     },
     {
@@ -1840,6 +2226,36 @@
       "team": "mrd",
       "roles": [
         "player"
+      ],
+      "gamertag": "Bruce",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.94",
+            "kpm": "20.9",
+            "maps": 11
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "MRD",
+              "kd": "0.77",
+              "kpm": "20.8",
+              "maps": 4
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "KCK",
+              "kd": "1.07",
+              "kpm": "20.9",
+              "maps": 7
+            }
+          ]
+        }
       ]
     },
     {
@@ -1848,6 +2264,36 @@
       "team": "mrd",
       "roles": [
         "player"
+      ],
+      "gamertag": "JAYDREAMZ",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.05",
+            "kpm": "20.9",
+            "maps": 52
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "MAN / KCK / BOS / WAS",
+              "kd": "1.05",
+              "kpm": "21.4",
+              "maps": 46
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR / PIT",
+              "kd": "1.08",
+              "kpm": "16.8",
+              "maps": 6
+            }
+          ]
+        }
       ]
     },
     {
@@ -1856,6 +2302,36 @@
       "team": "mrd",
       "roles": [
         "player"
+      ],
+      "gamertag": "ZEUS",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.92",
+            "kpm": "16.8",
+            "maps": 35
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "BOS",
+              "kd": "0.96",
+              "kpm": "17.3",
+              "maps": 32
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "MRD",
+              "kd": "0.54",
+              "kpm": "11.0",
+              "maps": 3
+            }
+          ]
+        }
       ]
     },
     {
@@ -1874,7 +2350,43 @@
         "player"
       ],
       "gamertag": "Cam",
-      "gamertagSource": "linked"
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.90",
+            "kpm": "17.9",
+            "maps": 45
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SFS / MIS",
+              "kd": "0.81",
+              "kpm": "16.8",
+              "maps": 36
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "IMK",
+              "kd": "0.94",
+              "kpm": "16.8",
+              "maps": 5
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR",
+              "kd": "1.74",
+              "kpm": "29.5",
+              "maps": 4
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "lex-palsy",
@@ -1891,6 +2403,36 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Kib",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.71",
+            "kpm": "16.7",
+            "maps": 16
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "STS",
+              "kd": "0.51",
+              "kpm": "11.2",
+              "maps": 5
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "DEL / MAN / MRD",
+              "kd": "0.79",
+              "kpm": "19.2",
+              "maps": 11
+            }
+          ]
+        }
       ]
     },
     {
@@ -1932,6 +2474,36 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Leisure",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.02",
+            "kpm": "20.7",
+            "maps": 26
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "AUS",
+              "kd": "1.10",
+              "kpm": "21.5",
+              "maps": 19
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "PIT",
+              "kd": "0.84",
+              "kpm": "18.6",
+              "maps": 7
+            }
+          ]
+        }
       ]
     },
     {
@@ -1941,6 +2513,36 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Sac",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.99",
+            "kpm": "18.5",
+            "maps": 37
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "KCK",
+              "kd": "0.98",
+              "kpm": "18.8",
+              "maps": 34
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "KCK",
+              "kd": "1.15",
+              "kpm": "15.7",
+              "maps": 3
+            }
+          ]
+        }
       ]
     },
     {
@@ -1965,6 +2567,36 @@
       "team": "kck",
       "roles": [
         "player"
+      ],
+      "gamertag": "MaRsH313",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.96",
+            "kpm": "21.3",
+            "maps": 44
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "CAR",
+              "kd": "1.01",
+              "kpm": "22.1",
+              "maps": 36
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "NOR",
+              "kd": "0.76",
+              "kpm": "17.5",
+              "maps": 8
+            }
+          ]
+        }
       ]
     },
     {
@@ -2006,6 +2638,36 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Twizz",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.92",
+            "kpm": "15.2",
+            "maps": 19
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "STS",
+              "kd": "0.80",
+              "kpm": "12.9",
+              "maps": 15
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "MAN",
+              "kd": "1.35",
+              "kpm": "24.0",
+              "maps": 4
+            }
+          ]
+        }
       ]
     },
     {
@@ -2014,6 +2676,36 @@
       "team": "mis",
       "roles": [
         "player"
+      ],
+      "gamertag": "Kentucky",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.20",
+            "kpm": "20.1",
+            "maps": 42
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "BOS / CAR",
+              "kd": "1.23",
+              "kpm": "20.4",
+              "maps": 34
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "LEX",
+              "kd": "1.06",
+              "kpm": "18.9",
+              "maps": 8
+            }
+          ]
+        }
       ]
     },
     {
@@ -2072,6 +2764,36 @@
       "team": "omh",
       "roles": [
         "player"
+      ],
+      "gamertag": "SlayFS",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.16",
+            "kpm": "23.8",
+            "maps": 39
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "KCK",
+              "kd": "1.19",
+              "kpm": "24.3",
+              "maps": 35
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "DEL",
+              "kd": "0.90",
+              "kpm": "19.5",
+              "maps": 4
+            }
+          ]
+        }
       ]
     }
   ]
