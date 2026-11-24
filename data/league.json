@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795559954480,
+  "generatedAt": 1795560290926,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2534,7 +2534,29 @@
       "roles": [
         "player"
       ],
-      "rank": "Amber"
+      "rank": "Amber",
+      "gamertag": "DinnerTime",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.46",
+            "kpm": "22.3",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR",
+              "kd": "1.46",
+              "kpm": "22.3",
+              "maps": 3
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "inspire",
