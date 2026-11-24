@@ -38,6 +38,15 @@ function crest(team, size = 'md', morph = false) {
 
 const teamHref = team => u(`/teams/${team.slug}/`);
 
+// Always use HTTPS on the real site. Over http:// the browser disables the APIs
+// Discord login needs, and Discord rejects the http:// return address. Runs first
+// in <head>, before anything renders. Local previews (localhost) are left alone.
+const HTTPS_SCRIPT = `<script>
+if (location.protocol === 'http:' && !/^(localhost|127\\.0\\.0\\.1|\\[::1\\])$/.test(location.hostname)) {
+  location.replace('https:' + location.href.slice(5));
+}
+</script>`;
+
 // Cross-document view transitions: give only the navigated team's crest a shared
 // name on both the outgoing and incoming page, so it alone morphs and everything
 // else moves together with the page.
@@ -88,6 +97,7 @@ function layout({ title, active, body, c, script = '', page = '' }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+${HTTPS_SCRIPT}
 <title>${esc(title ? `${title} · AJCL` : "Average Joe's CoD League")}</title>
 <meta name="description" content="${esc(c.tagline || '')}">
 <link rel="icon" href="${u('/ajcl-logo.png')}">
