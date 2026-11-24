@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795553812151,
+  "generatedAt": 1795554112159,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -114,6 +114,7 @@
         ],
         "nonPlaying": [],
         "kd": {
+          "SYR | butchiehof": "0.90",
           "SYR | Crouse": "0.00",
           "SYR | Loyal": "1.25",
           "SYR | nitsua": "1.27"
@@ -1600,8 +1601,8 @@
         "kd": "0.92",
         "winPct": "62%",
         "maps": "42",
-        "avgKills": null,
-        "plusMinus": null,
+        "avgKills": "19.3",
+        "plusMinus": "-75",
         "streak": "W2"
       },
       "season": "Season X",
@@ -1611,10 +1612,10 @@
           "kd": "0.92",
           "winPct": "62%",
           "maps": "42",
-          "avgKills": null,
-          "plusMinus": null,
+          "avgKills": "19.3",
+          "plusMinus": "-75",
           "streak": "W2",
-          "at": 1795552170728
+          "at": 1795553963127
         }
       ]
     },
@@ -1647,7 +1648,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552179227
+          "at": 1795553969732
         }
       ]
     },
@@ -1679,7 +1680,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552189132
+          "at": 1795553976441
         }
       ]
     },
@@ -1711,7 +1712,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552198028
+          "at": 1795553983228
         }
       ]
     },
@@ -1744,7 +1745,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552206572
+          "at": 1795553989927
         }
       ]
     },
@@ -1775,7 +1776,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552216573
+          "at": 1795553996536
         }
       ]
     },
@@ -1807,7 +1808,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552252878
+          "at": 1795554003628
         }
       ]
     },
@@ -1817,6 +1818,29 @@
       "team": "car",
       "roles": [
         "player"
+      ],
+      "gamertag": "007 Quay",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795554016528
+        }
       ]
     },
     {
@@ -1826,6 +1850,30 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "butchiehof",
+      "gamertagSource": "name",
+      "kd": "0.90",
+      "stats": {
+        "kd": "0.90",
+        "winPct": "42%",
+        "maps": "12",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": "L1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.90",
+          "winPct": "42%",
+          "maps": "12",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": "L1",
+          "at": 1795554026334
+        }
       ]
     },
     {
@@ -1856,7 +1904,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552388690
+          "at": 1795554035743
         }
       ]
     },
@@ -1874,8 +1922,8 @@
         "kd": "1.25",
         "winPct": "68%",
         "maps": "28",
-        "avgKills": "23.4",
-        "plusMinus": "+131",
+        "avgKills": null,
+        "plusMinus": null,
         "streak": "L1"
       },
       "season": "Season X",
@@ -1885,10 +1933,10 @@
           "kd": "1.25",
           "winPct": "68%",
           "maps": "28",
-          "avgKills": "23.4",
-          "plusMinus": "+131",
+          "avgKills": null,
+          "plusMinus": null,
           "streak": "L1",
-          "at": 1795552399712
+          "at": 1795554044536
         }
       ]
     },
@@ -1906,8 +1954,8 @@
         "kd": "1.27",
         "winPct": "74%",
         "maps": "38",
-        "avgKills": "23.7",
-        "plusMinus": "+192",
+        "avgKills": null,
+        "plusMinus": null,
         "streak": "W7"
       },
       "season": "Season X",
@@ -1917,10 +1965,10 @@
           "kd": "1.27",
           "winPct": "74%",
           "maps": "38",
-          "avgKills": "23.7",
-          "plusMinus": "+192",
+          "avgKills": null,
+          "plusMinus": null,
           "streak": "W7",
-          "at": 1795552412050
+          "at": 1795554054032
         }
       ]
     },
@@ -1959,7 +2007,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552426100
+          "at": 1795554062137
         }
       ]
     },
@@ -1977,8 +2025,8 @@
         "kd": "1.32",
         "winPct": "77%",
         "maps": "43",
-        "avgKills": "25.2",
-        "plusMinus": "+261",
+        "avgKills": null,
+        "plusMinus": null,
         "streak": "W1"
       },
       "season": "Season X",
@@ -1988,10 +2036,10 @@
           "kd": "1.32",
           "winPct": "77%",
           "maps": "43",
-          "avgKills": "25.2",
-          "plusMinus": "+261",
+          "avgKills": null,
+          "plusMinus": null,
           "streak": "W1",
-          "at": 1795552447558
+          "at": 1795554073747
         }
       ]
     },
@@ -2023,7 +2071,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552467890
+          "at": 1795554083840
         }
       ]
     },
@@ -2055,7 +2103,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552486979
+          "at": 1795554092638
         }
       ]
     },
@@ -2087,7 +2135,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552496434
+          "at": 1795554101935
         }
       ]
     },
@@ -2119,7 +2167,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552503437
+          "at": 1795554110236
         }
       ]
     },
@@ -3506,7 +3554,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552125533
+          "at": 1795553926739
         }
       ]
     },
@@ -3539,7 +3587,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552134431
+          "at": 1795553933758
         }
       ]
     },
@@ -3571,7 +3619,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552143733
+          "at": 1795553940634
         }
       ]
     },
@@ -3603,7 +3651,7 @@
           "avgKills": null,
           "plusMinus": null,
           "streak": null,
-          "at": 1795552152645
+          "at": 1795553947629
         }
       ]
     },
@@ -3621,8 +3669,8 @@
         "kd": "1.16",
         "winPct": "41%",
         "maps": "39",
-        "avgKills": null,
-        "plusMinus": null,
+        "avgKills": "23.8",
+        "plusMinus": "+127",
         "streak": "W1"
       },
       "season": "Season X",
@@ -3632,10 +3680,10 @@
           "kd": "1.16",
           "winPct": "41%",
           "maps": "39",
-          "avgKills": null,
-          "plusMinus": null,
+          "avgKills": "23.8",
+          "plusMinus": "+127",
           "streak": "W1",
-          "at": 1795552162028
+          "at": 1795553955229
         }
       ]
     }
