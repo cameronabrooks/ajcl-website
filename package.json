@@ -1,0 +1,11 @@
+{
+  "name": "ajcl-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Average Joe's CoD League website. Data is pushed automatically by the AJCL bot.",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node serve.js"
+  },
+  "engines": { "node": ">=18" }
+}

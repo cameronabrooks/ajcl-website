@@ -1,0 +1,713 @@
+{
+  "generatedAt": 1795543169181,
+  "version": 1,
+  "rostersLive": false,
+  "weeks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "mapPool": {
+    "Hardpoint": [
+      "Lotus",
+      "Lithium",
+      "Munition",
+      "Reactor U92",
+      "Rooftops",
+      "Sentry"
+    ],
+    "Search & Destroy": [
+      "Coal",
+      "Lotus",
+      "Munition",
+      "Reactor U92",
+      "Rooftops",
+      "Silkworm"
+    ],
+    "Hijack": [
+      "Lotus",
+      "Lithium",
+      "Munition"
+    ]
+  },
+  "teams": [
+    {
+      "slug": "atl",
+      "name": "Atlanta Firebirds",
+      "abbr": "ATL",
+      "division": "Premier",
+      "roster": null
+    },
+    {
+      "slug": "car",
+      "name": "Carolina Carnage",
+      "abbr": "CAR",
+      "division": "Premier",
+      "roster": null
+    },
+    {
+      "slug": "syr",
+      "name": "Syracuse Armadillos",
+      "abbr": "SYR",
+      "division": "Premier",
+      "roster": null
+    },
+    {
+      "slug": "sln",
+      "name": "St. Louis Nightstalkers",
+      "abbr": "SLN",
+      "division": "Premier",
+      "roster": null
+    },
+    {
+      "slug": "sfs",
+      "name": "Santa Fe Scorpions",
+      "abbr": "SFS",
+      "division": "Premier",
+      "roster": null
+    },
+    {
+      "slug": "ccc",
+      "name": "Calgary Cobra Chickens",
+      "abbr": "CCC",
+      "division": "Premier",
+      "roster": null
+    },
+    {
+      "slug": "tor",
+      "name": "Toronto Blue Dragons",
+      "abbr": "TOR",
+      "division": "Premier",
+      "roster": null
+    },
+    {
+      "slug": "hal",
+      "name": "Halifax Ospreys",
+      "abbr": "HAL",
+      "division": "Premier",
+      "roster": null
+    },
+    {
+      "slug": "ros",
+      "name": "Roswell Aliens",
+      "abbr": "ROS",
+      "division": "Academy",
+      "roster": null
+    },
+    {
+      "slug": "mrd",
+      "name": "Montreal Red Dragons",
+      "abbr": "MRD",
+      "division": "Academy",
+      "roster": null
+    },
+    {
+      "slug": "lex",
+      "name": "Lexington Majestic",
+      "abbr": "LEX",
+      "division": "Academy",
+      "roster": null
+    },
+    {
+      "slug": "nor",
+      "name": "New Orleans Reapers",
+      "abbr": "NOR",
+      "division": "Academy",
+      "roster": null
+    },
+    {
+      "slug": "kck",
+      "name": "Kansas City Kings",
+      "abbr": "KCK",
+      "division": "Academy",
+      "roster": null
+    },
+    {
+      "slug": "pit",
+      "name": "Pittsburgh Nocturnal",
+      "abbr": "PIT",
+      "division": "Academy",
+      "roster": null
+    },
+    {
+      "slug": "mis",
+      "name": "Michigan Samurai",
+      "abbr": "MIS",
+      "division": "Academy",
+      "roster": null
+    },
+    {
+      "slug": "omh",
+      "name": "Omaha Bandits",
+      "abbr": "OMH",
+      "division": "Academy",
+      "roster": null
+    }
+  ],
+  "matches": [
+    {
+      "week": 1,
+      "division": "Premier",
+      "home": "atl",
+      "away": "sfs",
+      "status": "unscheduled",
+      "time": null,
+      "result": null,
+      "deadline": 1796273999000
+    },
+    {
+      "week": 1,
+      "division": "Premier",
+      "home": "car",
+      "away": "hal",
+      "status": "unscheduled",
+      "time": null,
+      "result": null,
+      "deadline": 1796273999000
+    },
+    {
+      "week": 1,
+      "division": "Premier",
+      "home": "sln",
+      "away": "tor",
+      "status": "unscheduled",
+      "time": null,
+      "result": null,
+      "deadline": 1796273999000
+    },
+    {
+      "week": 1,
+      "division": "Premier",
+      "home": "ccc",
+      "away": "syr",
+      "status": "unscheduled",
+      "time": null,
+      "result": null,
+      "deadline": 1796273999000
+    },
+    {
+      "week": 1,
+      "division": "Academy",
+      "home": "ros",
+      "away": "mis",
+      "status": "unscheduled",
+      "time": null,
+      "result": null,
+      "deadline": 1796273999000
+    },
+    {
+      "week": 1,
+      "division": "Academy",
+      "home": "mrd",
+      "away": "kck",
+      "status": "unscheduled",
+      "time": null,
+      "result": null,
+      "deadline": 1796273999000
+    },
+    {
+      "week": 1,
+      "division": "Academy",
+      "home": "lex",
+      "away": "omh",
+      "status": "unscheduled",
+      "time": null,
+      "result": null,
+      "deadline": 1796273999000
+    },
+    {
+      "week": 1,
+      "division": "Academy",
+      "home": "pit",
+      "away": "nor",
+      "status": "unscheduled",
+      "time": null,
+      "result": null,
+      "deadline": 1796273999000
+    },
+    {
+      "week": 2,
+      "division": "Premier",
+      "home": "syr",
+      "away": "atl",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1796878799000
+    },
+    {
+      "week": 2,
+      "division": "Premier",
+      "home": "sfs",
+      "away": "car",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1796878799000
+    },
+    {
+      "week": 2,
+      "division": "Premier",
+      "home": "tor",
+      "away": "ccc",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1796878799000
+    },
+    {
+      "week": 2,
+      "division": "Premier",
+      "home": "hal",
+      "away": "sln",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1796878799000
+    },
+    {
+      "week": 2,
+      "division": "Academy",
+      "home": "nor",
+      "away": "ros",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1796878799000
+    },
+    {
+      "week": 2,
+      "division": "Academy",
+      "home": "kck",
+      "away": "lex",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1796878799000
+    },
+    {
+      "week": 2,
+      "division": "Academy",
+      "home": "mis",
+      "away": "mrd",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1796878799000
+    },
+    {
+      "week": 2,
+      "division": "Academy",
+      "home": "omh",
+      "away": "pit",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1796878799000
+    },
+    {
+      "week": 3,
+      "division": "Premier",
+      "home": "atl",
+      "away": "car",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1797483599000
+    },
+    {
+      "week": 3,
+      "division": "Premier",
+      "home": "syr",
+      "away": "tor",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1797483599000
+    },
+    {
+      "week": 3,
+      "division": "Premier",
+      "home": "sln",
+      "away": "sfs",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1797483599000
+    },
+    {
+      "week": 3,
+      "division": "Premier",
+      "home": "ccc",
+      "away": "hal",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1797483599000
+    },
+    {
+      "week": 3,
+      "division": "Academy",
+      "home": "ros",
+      "away": "omh",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1797483599000
+    },
+    {
+      "week": 3,
+      "division": "Academy",
+      "home": "mrd",
+      "away": "lex",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1797483599000
+    },
+    {
+      "week": 3,
+      "division": "Academy",
+      "home": "pit",
+      "away": "kck",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1797483599000
+    },
+    {
+      "week": 3,
+      "division": "Academy",
+      "home": "mis",
+      "away": "nor",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1797483599000
+    },
+    {
+      "week": 4,
+      "division": "Premier",
+      "home": "car",
+      "away": "sln",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1798693199000
+    },
+    {
+      "week": 4,
+      "division": "Premier",
+      "home": "sfs",
+      "away": "ccc",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1798693199000
+    },
+    {
+      "week": 4,
+      "division": "Premier",
+      "home": "tor",
+      "away": "atl",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1798693199000
+    },
+    {
+      "week": 4,
+      "division": "Premier",
+      "home": "hal",
+      "away": "syr",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1798693199000
+    },
+    {
+      "week": 4,
+      "division": "Academy",
+      "home": "lex",
+      "away": "pit",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1798693199000
+    },
+    {
+      "week": 4,
+      "division": "Academy",
+      "home": "nor",
+      "away": "mrd",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1798693199000
+    },
+    {
+      "week": 4,
+      "division": "Academy",
+      "home": "kck",
+      "away": "ros",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1798693199000
+    },
+    {
+      "week": 4,
+      "division": "Academy",
+      "home": "omh",
+      "away": "mis",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1798693199000
+    },
+    {
+      "week": 5,
+      "division": "Premier",
+      "home": "atl",
+      "away": "sln",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799297999000
+    },
+    {
+      "week": 5,
+      "division": "Premier",
+      "home": "syr",
+      "away": "sfs",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799297999000
+    },
+    {
+      "week": 5,
+      "division": "Premier",
+      "home": "ccc",
+      "away": "car",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799297999000
+    },
+    {
+      "week": 5,
+      "division": "Premier",
+      "home": "tor",
+      "away": "hal",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799297999000
+    },
+    {
+      "week": 5,
+      "division": "Academy",
+      "home": "ros",
+      "away": "lex",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799297999000
+    },
+    {
+      "week": 5,
+      "division": "Academy",
+      "home": "mrd",
+      "away": "pit",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799297999000
+    },
+    {
+      "week": 5,
+      "division": "Academy",
+      "home": "nor",
+      "away": "omh",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799297999000
+    },
+    {
+      "week": 5,
+      "division": "Academy",
+      "home": "mis",
+      "away": "kck",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799297999000
+    },
+    {
+      "week": 6,
+      "division": "Premier",
+      "home": "car",
+      "away": "syr",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799902799000
+    },
+    {
+      "week": 6,
+      "division": "Premier",
+      "home": "sln",
+      "away": "ccc",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799902799000
+    },
+    {
+      "week": 6,
+      "division": "Premier",
+      "home": "sfs",
+      "away": "tor",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799902799000
+    },
+    {
+      "week": 6,
+      "division": "Premier",
+      "home": "hal",
+      "away": "atl",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799902799000
+    },
+    {
+      "week": 6,
+      "division": "Academy",
+      "home": "lex",
+      "away": "mis",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799902799000
+    },
+    {
+      "week": 6,
+      "division": "Academy",
+      "home": "kck",
+      "away": "nor",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799902799000
+    },
+    {
+      "week": 6,
+      "division": "Academy",
+      "home": "pit",
+      "away": "ros",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799902799000
+    },
+    {
+      "week": 6,
+      "division": "Academy",
+      "home": "omh",
+      "away": "mrd",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1799902799000
+    },
+    {
+      "week": 7,
+      "division": "Premier",
+      "home": "atl",
+      "away": "ccc",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1800507599000
+    },
+    {
+      "week": 7,
+      "division": "Premier",
+      "home": "syr",
+      "away": "sln",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1800507599000
+    },
+    {
+      "week": 7,
+      "division": "Premier",
+      "home": "tor",
+      "away": "car",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1800507599000
+    },
+    {
+      "week": 7,
+      "division": "Premier",
+      "home": "hal",
+      "away": "sfs",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1800507599000
+    },
+    {
+      "week": 7,
+      "division": "Academy",
+      "home": "mrd",
+      "away": "ros",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1800507599000
+    },
+    {
+      "week": 7,
+      "division": "Academy",
+      "home": "nor",
+      "away": "lex",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1800507599000
+    },
+    {
+      "week": 7,
+      "division": "Academy",
+      "home": "mis",
+      "away": "pit",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1800507599000
+    },
+    {
+      "week": 7,
+      "division": "Academy",
+      "home": "omh",
+      "away": "kck",
+      "status": "upcoming",
+      "time": null,
+      "result": null,
+      "deadline": 1800507599000
+    }
+  ]
+}
