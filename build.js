@@ -43,6 +43,8 @@ function build() {
     // Public OAuth2 client ID for "Log in with Discord" (the bot publishes it).
     discordClientId: process.env.DISCORD_CLIENT_ID || league.discordClientId || content.discordClientId || '',
     liveUrl: process.env.LIVE_URL ?? content.liveUrl ?? '',
+    // Official address; Discord login always returns here (must be registered in Discord).
+    siteUrl: process.env.SITE_URL ?? content.siteUrl ?? '',
     dataVersion: raw.generatedAt || 0,
   };
 

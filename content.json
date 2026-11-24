@@ -54,5 +54,6 @@
       "url": "https://cod-stats.com/embed/average-joes-cod-league/players?season=fb6cee8c-7207-4ed4-af66-3e9356a2c7bb"
     }
   ],
-  "liveUrl": "https://ajcl-live.ajcl-live.workers.dev"
+  "liveUrl": "https://ajcl-live.ajcl-live.workers.dev",
+  "siteUrl": "https://averagejoescodleague.com"
 }

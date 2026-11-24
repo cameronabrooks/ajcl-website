@@ -7,7 +7,8 @@ let CSS_VERSION = '1';
 let DISCORD_CLIENT_ID = '';
 let LIVE_URL = '';
 let DATA_VERSION = 0;
-function configure({ base = '', cssVersion = '1', discordClientId = '', liveUrl = '', dataVersion = 0 } = {}) {
+function configure({ base = '', cssVersion = '1', discordClientId = '', liveUrl = '', dataVersion = 0, siteUrl = '' } = {}) {
+  SITE_URL = (siteUrl || '').replace(/\/+$/, '');
   LIVE_URL = (liveUrl || '').replace(/\/+$/, '');
   DATA_VERSION = dataVersion || 0;
   BASE = base.replace(/\/+$/, '');
@@ -41,11 +42,13 @@ const teamHref = team => u(`/teams/${team.slug}/`);
 // Always use HTTPS on the real site. Over http:// the browser disables the APIs
 // Discord login needs, and Discord rejects the http:// return address. Runs first
 // in <head>, before anything renders. Local previews (localhost) are left alone.
+// (account.js also sends Discord the official https address, see content.json siteUrl.)
 const HTTPS_SCRIPT = `<script>
 if (location.protocol === 'http:' && !/^(localhost|127\\.0\\.0\\.1|\\[::1\\])$/.test(location.hostname)) {
   location.replace('https:' + location.href.slice(5));
 }
 </script>`;
+let SITE_URL = '';
 
 // Cross-document view transitions: give only the navigated team's crest a shared
 // name on both the outgoing and incoming page, so it alone morphs and everything
@@ -109,6 +112,7 @@ ${HTTPS_SCRIPT}
 <meta name="ajcl-base" content="${esc(BASE)}">
 <meta name="ajcl-discord-client" content="${esc(DISCORD_CLIENT_ID)}">
 <meta name="ajcl-live-url" content="${esc(LIVE_URL)}">
+<meta name="ajcl-site-url" content="${esc(SITE_URL)}">
 <meta name="ajcl-data-version" content="${DATA_VERSION}">
 ${TRANSITION_SCRIPT}
 </head>

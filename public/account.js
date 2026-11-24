@@ -10,7 +10,13 @@
   var BASE = meta('ajcl-base');
   var CLIENT_ID = meta('ajcl-discord-client');
   var slot = document.querySelector('[data-account]');
-  var redirectUri = location.origin + BASE + '/auth/';
+  // Discord only accepts exact, pre-registered return addresses, so use the one
+  // official address rather than wherever this page happens to be loaded from
+  // (an old cached copy, http://, www., the github.io link...). Local previews keep
+  // their own address (http://localhost:3000/auth/ is registered too).
+  var LOCAL = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  var SITE = (meta('ajcl-site-url') || 'https://averagejoescodleague.com').replace(/\/+$/, '');
+  var redirectUri = LOCAL ? location.origin + BASE + '/auth/' : SITE + '/auth/';
 
   function getUser() { try { return JSON.parse(localStorage.getItem(STORE)); } catch (e) { return null; } }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -21,6 +27,12 @@
   }
 
   function login() {
+    // Start from the official address so the security check (stored per-address)
+    // matches when Discord sends the visitor back.
+    if (!LOCAL && location.origin !== SITE) {
+      location.href = SITE + location.pathname.replace(/^\/ajcl-website/, '') + location.search;
+      return;
+    }
     var state = Array.from(crypto.getRandomValues(new Uint8Array(16))).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
     sessionStorage.setItem('ajcl_oauth_state', state);
     sessionStorage.setItem('ajcl_return', location.pathname + location.search + location.hash);
