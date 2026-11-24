@@ -42,6 +42,10 @@ function renderPage(render, league, content, page) {
   if (page === 'draft') return render.draftPage(league, content);
   if (page === 'stats') return render.statsPage(league, content);
   if (page === 'join') return render.joinPage(league, content);
+  if (page && page.startsWith('match:')) {
+    const m = league.matches.find(x => render.matchId(x) === page.slice(6));
+    return m ? render.matchPage(league, m, content) : null;
+  }
   if (page && page.startsWith('player:')) {
     const player = league.players.find(p => p.slug === page.slice(7));
     return player ? render.playerPage(league, player, content) : null;

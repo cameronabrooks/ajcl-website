@@ -136,6 +136,26 @@ ${TRANSITION_SCRIPT}
 </footer>
 ${script}
 <script src="${u('/account.js')}?v=${CSS_VERSION}" defer></script>
+<script>
+// LIVE NOW: a scheduled match (no result yet) is live from its start time for up to 4h.
+(function () {
+  function mark() {
+    var now = Date.now();
+    document.querySelectorAll('[data-start]').forEach(function (el) {
+      var start = Number(el.getAttribute('data-start'));
+      var live = start && now >= start && now < start + ${LIVE_WINDOW_MS};
+      if (live && !el.classList.contains('pill-now')) {
+        el.classList.add('pill-now');
+        el.innerHTML = '<span class="live-dot"></span>LIVE NOW';
+        var card = el.closest('.match'); if (card) card.classList.add('is-live');
+      }
+    });
+  }
+  mark();
+  setInterval(mark, 30000);
+  document.addEventListener('ajcl:league', function () { setTimeout(mark, 0); });
+})();
+</script>
 ${page && LIVE_URL ? `<script src="${u('/app.js')}?v=${CSS_VERSION}" defer></script>
 <script src="${u('/live.js')}?v=${CSS_VERSION}" defer></script>` : ''}
 </body>
@@ -150,6 +170,23 @@ function pageHead(eyebrow, title, sub) {
 </div></section>`;
 }
 
+// Rank role badge (Obsidian, Kyanite, Amethyst, Amber, Ruby, Emerald).
+const rankTag = r => `<span class="tier tier-${esc(String(r).toLowerCase())}" title="Rank">${esc(r)}</span>`;
+
+// Stable id/URL for a match: /matches/w1-atl-sfs/
+const matchId = m => `w${m.week}-${m.home.slug}-${m.away.slug}`;
+const matchHref = m => u(`/matches/${matchId(m)}/`);
+// A scheduled match counts as live from its start time until a result is
+// reported (capped at 4 hours). LIVE_SCRIPT re-checks this in the browser.
+const LIVE_WINDOW_MS = 4 * 60 * 60 * 1000;
+
+function statusPill(m) {
+  const r = m.result;
+  if (m.status === 'final') return `<span class="pill pill-final">Final${r?.forfeit ? ' · FF' : ''}</span>`;
+  if (m.status === 'scheduled') return `<span class="pill pill-live" data-start="${m.time}">${timeTag(m.time)}</span>`;
+  return `<span class="pill">Awaiting time</span>`;
+}
+
 function matchCard(m, { showDivision = true } = {}) {
   const r = m.result;
   const side = (team, maps, won) => `
@@ -157,15 +194,82 @@ function matchCard(m, { showDivision = true } = {}) {
       ${crest(team, 'sm')}<span class="mc-name">${esc(team.name)}</span>
       ${r ? `<span class="mc-score">${maps}</span>` : ''}
     </a>`;
-  let status;
-  if (m.status === 'final') status = `<span class="pill pill-final">Final${r?.forfeit ? ' · FF' : ''}</span>`;
-  else if (m.status === 'scheduled') status = `<span class="pill pill-live">${timeTag(m.time)}</span>`;
-  else status = `<span class="pill">Awaiting time</span>`;
   return `<article class="match" data-teams="${esc(m.home.slug)} ${esc(m.away.slug)}">
-    <div class="mc-meta">${showDivision ? `<span class="div-tag div-${m.division.toLowerCase()}">${esc(m.division)}</span>` : ''}<span class="muted">Week ${m.week}</span>${status}</div>
+    <a class="mc-link" href="${matchHref(m)}" aria-label="${esc(m.home.name)} vs ${esc(m.away.name)}: match details"></a>
+    <div class="mc-meta">${showDivision ? `<span class="div-tag div-${m.division.toLowerCase()}">${esc(m.division)}</span>` : ''}<span class="muted">Week ${m.week}</span>${statusPill(m)}</div>
     ${side(m.home, r?.homeMaps, r?.winner === m.home.slug)}
     ${side(m.away, r?.awayMaps, r?.winner === m.away.slug)}
   </article>`;
+}
+
+const MODE_LABELS = { hardpoint: 'Hardpoint', search_and_destroy: 'Search & Destroy', hijack: 'Hijack' };
+
+// Match page: teams + score, time / LIVE status, caster, and picks & bans.
+function matchPage(league, m, c) {
+  const r = m.result;
+  const bySlug = Object.fromEntries(league.teams.map(t => [t.slug, t]));
+  const teamName = slug => (bySlug[slug] ? bySlug[slug].name : slug);
+  const side = (team, maps, won) => `
+    <a class="mp-team${r ? (won ? ' won' : ' lost') : ''}" href="${teamHref(team)}">
+      ${crest(team, 'xl')}
+      <strong>${esc(team.name)}</strong>
+      <span class="muted">${esc(team.division)}</span>
+    </a>`;
+  const center = r
+    ? `<div class="mp-score"><span class="${r.winner === m.home.slug ? 'won' : ''}">${r.homeMaps}</span><span class="muted">–</span><span class="${r.winner === m.away.slug ? 'won' : ''}">${r.awayMaps}</span></div>`
+    : `<div class="mp-vs">VS</div>`;
+
+  // Caster
+  const caster = m.caster ? `
+    <div class="panel mp-caster">
+      <p class="eyebrow">Casting</p>
+      <h3>${esc(m.caster.name)}</h3>
+      ${m.caster.stream ? `<a class="btn btn-gold btn-sm" href="${esc(m.caster.stream)}" target="_blank" rel="noopener">Watch the stream ↗</a>` : '<p class="muted">Stream link coming soon.</p>'}
+    </div>` : `
+    <div class="panel mp-caster"><p class="eyebrow">Casting</p><p class="muted" style="margin:0">No caster yet.</p></div>`;
+
+  // Picks & bans
+  let pb = '';
+  if (m.picksBans) {
+    const p = m.picksBans;
+    const picks = p.actions.filter(a => a.action === 'pick').sort((a, b) => (a.slot || 0) - (b.slot || 0));
+    const bans = team => p.actions.filter(a => a.action === 'ban' && a.team === team);
+    const label = slug => (slug === p.teamA ? 'Team A' : slug === p.teamB ? 'Team B' : '');
+    pb = `
+    <h2 class="panel-title">Picks &amp; bans${p.inProgress ? ' <span class="pill pill-live">In progress</span>' : ''}</h2>
+    <div class="panel mp-maps">
+      <ol class="mapset">${picks.map(a => `<li>
+        <span class="map-slot">Map ${a.slot || '?'}</span>
+        <span class="map-name"><strong>${esc(a.map)}</strong><span class="muted">${esc(MODE_LABELS[a.mode] || a.mode)}</span></span>
+        <span class="map-by muted">${a.team ? `${esc(teamName(a.team))} pick` : 'Decider'}</span>
+      </li>`).join('') || '<li class="muted">No maps picked yet.</li>'}</ol>
+    </div>
+    <div class="mp-bans">${[p.teamA, p.teamB].map(t => `<div class="panel">
+      <h4>${esc(teamName(t))} bans <span class="muted">(${label(t)})</span></h4>
+      <ul>${bans(t).map(a => `<li><span>${esc(a.map)}</span><span class="muted">${esc(MODE_LABELS[a.mode] || a.mode)}</span></li>`).join('') || '<li class="muted">None yet</li>'}</ul>
+    </div>`).join('')}</div>`;
+  } else {
+    pb = `
+    <h2 class="panel-title">Picks &amp; bans</h2>
+    <div class="panel"><p class="muted" style="margin:0">Maps will show here once the GMs finish picks &amp; bans.</p></div>`;
+  }
+
+  const when = m.status === 'scheduled' ? timeTag(m.time) : m.status === 'final' ? 'Final' : 'Time not set yet';
+  const body = `
+<section class="pagehead mp-head"><div class="wrap">
+  <p class="eyebrow"><span class="div-tag div-${m.division.toLowerCase()}">${esc(m.division)}</span> Week ${m.week} · ${statusPill(m)}</p>
+  <div class="mp-teams">
+    ${side(m.home, r?.homeMaps, r?.winner === m.home.slug)}
+    ${center}
+    ${side(m.away, r?.awayMaps, r?.winner === m.away.slug)}
+  </div>
+  <p class="mp-when muted">${when}${r?.forfeit ? ' · Forfeit' : ''}</p>
+</div></section>
+<section class="wrap section mp-layout">
+  <div>${pb}</div>
+  <div>${caster}</div>
+</section>`;
+  return layout({ title: `${m.home.abbr} vs ${m.away.abbr}`, active: 'schedule', body, c, page: `match:${matchId(m)}` });
 }
 
 function standingsTable(rows, { compact = false } = {}) {
@@ -278,7 +382,8 @@ function teamPage(league, team, c) {
     const nameHtml = n => links[n]
       ? `<a class="member-name" href="${u(`/players/${links[n]}/`)}">${esc(n)}</a>`
       : `<span class="member-name">${esc(n)}</span>`;
-    const member = n => `<li data-member="${esc(n)}">${nameHtml(n)}${kd[n] ? `<span class="kd" title="${esc(seasonLabel)} K/D (cod-stats.com)">${esc(kd[n])} K/D</span>` : ''}</li>`;
+    const ranks = team.roster.ranks || {};
+    const member = n => `<li data-member="${esc(n)}">${nameHtml(n)}${ranks[n] ? rankTag(ranks[n]) : ''}${kd[n] ? `<span class="kd" title="${esc(seasonLabel)} K/D (cod-stats.com)">${esc(kd[n])} K/D</span>` : ''}</li>`;
     const group = (label, names) => names.length ? `<div class="roster-group"><h4>${label}</h4><ul>${names.map(member).join('')}</ul></div>` : '';
     rosterHtml = (group('General Manager', team.roster.gms) + group('Coach', team.roster.coaches) +
       group('Players', team.roster.players) + group('Non-Playing', team.roster.nonPlaying)) ||
@@ -633,7 +738,7 @@ function playerPage(league, player, c) {
   <a href="${teamHref(team)}" aria-label="${esc(team.name)}">${crest(team, 'xl')}</a>
   <div>
     <p class="eyebrow"><span class="div-tag div-${team.division.toLowerCase()}">${esc(team.division)}</span></p>
-    <h1>${esc(player.name)}</h1>
+    <h1>${esc(player.name)}${player.rank ? ` ${rankTag(player.rank)}` : ''}</h1>
     <div class="team-stats">
       <div><strong>${player.kd ? esc(player.kd) : '–'}</strong><span>${esc(c.season || 'Season')} K/D</span></div>
       <div><strong class="player-team"><a href="${teamHref(team)}">${esc(team.abbr)}</a></strong><span>${esc(team.name)}</span></div>
@@ -656,4 +761,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, matchId, matchPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
