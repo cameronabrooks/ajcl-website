@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795551772101,
+  "generatedAt": 1795552012120,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -257,6 +257,9 @@
           "ROS | Owes Every1 Taco Bell Plu"
         ],
         "nonPlaying": [],
+        "kd": {
+          "MFIC | Inspire": "0.00"
+        },
         "links": {
           "ROS | Owes Every1 Taco Bell Plu": "ros-owes-every1-taco-bell-plu",
           "MFIC | Inspire": "mfic-inspire",
@@ -284,6 +287,11 @@
           "MRD | ZEUS"
         ],
         "nonPlaying": [],
+        "kd": {
+          "MRD | Bruce": "0.93",
+          "MRD | JAYDREAMZ": "1.06",
+          "MRD | ZEUS": "0.92"
+        },
         "links": {
           "MRD | 🧛🏼OverlordAlucard 🧛🏼": "mrd-overlordalucard",
           "MRD | Bruce": "mrd-bruce",
@@ -310,6 +318,10 @@
           "LEX | Palsy"
         ],
         "nonPlaying": [],
+        "kd": {
+          "LEX | Kib": "0.71",
+          "LEX | Palsy": "0.00"
+        },
         "links": {
           "COMISH | Cam": "comish-cam",
           "LEX | Palsy": "lex-palsy",
@@ -1798,6 +1810,29 @@
       "team": "ros",
       "roles": [
         "player"
+      ],
+      "gamertag": "Owes Every1 Taco Bell Plu",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795551842442
+        }
       ]
     },
     {
@@ -1806,6 +1841,30 @@
       "team": "ros",
       "roles": [
         "player"
+      ],
+      "gamertag": "Inspire",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795551851450
+        }
       ]
     },
     {
@@ -1814,6 +1873,29 @@
       "team": "ros",
       "roles": [
         "player"
+      ],
+      "gamertag": "BooshDaGoat",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795551859540
+        }
       ]
     },
     {
@@ -1823,6 +1905,29 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "⛧ Ƒëﾑr ツ",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795551868129
+        }
       ]
     },
     {
@@ -1832,6 +1937,29 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "🧛🏼OverlordAlucard 🧛🏼",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795551876431
+        }
       ]
     },
     {
@@ -1840,6 +1968,30 @@
       "team": "mrd",
       "roles": [
         "player"
+      ],
+      "gamertag": "Bruce",
+      "gamertagSource": "name",
+      "kd": "0.93",
+      "stats": {
+        "kd": "0.93",
+        "winPct": "45%",
+        "maps": "11",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": "L1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.93",
+          "winPct": "45%",
+          "maps": "11",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": "L1",
+          "at": 1795551885237
+        }
       ]
     },
     {
@@ -1848,6 +2000,30 @@
       "team": "mrd",
       "roles": [
         "player"
+      ],
+      "gamertag": "JAYDREAMZ",
+      "gamertagSource": "name",
+      "kd": "1.06",
+      "stats": {
+        "kd": "1.06",
+        "winPct": "60%",
+        "maps": "52",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": "W1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "1.06",
+          "winPct": "60%",
+          "maps": "52",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": "W1",
+          "at": 1795551894133
+        }
       ]
     },
     {
@@ -1856,6 +2032,30 @@
       "team": "mrd",
       "roles": [
         "player"
+      ],
+      "gamertag": "ZEUS",
+      "gamertagSource": "name",
+      "kd": "0.92",
+      "stats": {
+        "kd": "0.92",
+        "winPct": "51%",
+        "maps": "35",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": "L1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.92",
+          "winPct": "51%",
+          "maps": "35",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": "L1",
+          "at": 1795551903635
+        }
       ]
     },
     {
@@ -1882,6 +2082,30 @@
       "team": "lex",
       "roles": [
         "player"
+      ],
+      "gamertag": "Palsy",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795551966501
+        }
       ]
     },
     {
@@ -1891,6 +2115,30 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Kib",
+      "gamertagSource": "name",
+      "kd": "0.71",
+      "stats": {
+        "kd": "0.71",
+        "winPct": "25%",
+        "maps": "16",
+        "avgKills": "16.7",
+        "plusMinus": "-108",
+        "streak": "L4"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.71",
+          "winPct": "25%",
+          "maps": "16",
+          "avgKills": "16.7",
+          "plusMinus": "-108",
+          "streak": "L4",
+          "at": 1795551977563
+        }
       ]
     },
     {
@@ -1899,6 +2147,29 @@
       "team": "lex",
       "roles": [
         "player"
+      ],
+      "gamertag": "Bandit",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795551991354
+        }
       ]
     },
     {
