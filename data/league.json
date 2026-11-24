@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795557281641,
+  "generatedAt": 1795557464669,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1706,6 +1706,28 @@
       "team": "syr",
       "roles": [
         "player"
+      ],
+      "gamertag": "ExubeTurtle85",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.10",
+            "kpm": "22.4",
+            "maps": 11
+          },
+          "seasons": [
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.10",
+              "kpm": "22.4",
+              "maps": 11
+            }
+          ]
+        }
       ]
     },
     {
