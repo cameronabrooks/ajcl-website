@@ -56,8 +56,10 @@
       slot.querySelector('[data-login]').addEventListener('click', login);
       return;
     }
+    var profileLink = entry && entry.profile
+      ? '<a href="' + BASE + '/players/' + esc(entry.profile) + '/">My Profile →</a>' : '';
     var teamLine = entry
-      ? '<p class="acct-team">' + esc(teamName || entry.team.toUpperCase()) + ' · ' + esc(roleLabel(entry.roles)) + '</p><a href="' + BASE + '/teams/' + esc(entry.team) + '/">My Team →</a>'
+      ? '<p class="acct-team">' + esc(teamName || entry.team.toUpperCase()) + ' · ' + esc(roleLabel(entry.roles)) + '</p>' + profileLink + '<a href="' + BASE + '/teams/' + esc(entry.team) + '/">My Team →</a>'
       : '<p class="acct-team muted">Not on a team roster</p>';
     slot.innerHTML =
       '<button type="button" class="acct-btn" aria-haspopup="true" aria-expanded="false" data-acct-toggle>' +
@@ -113,7 +115,9 @@
   }
 
   function applyIndex(user, idx) {
-    var entry = idx && idx.members && idx.members[user.hash];
+    var found = idx && idx.members && idx.members[user.hash];
+    // Attach the visitor's player page slug ("team|name" -> slug) for "My Profile".
+    var entry = found ? Object.assign({}, found, { profile: idx.profiles && idx.profiles[found.team + '|' + found.name] }) : null;
     document.querySelectorAll('.is-mine, .is-me').forEach(function (el) { el.classList.remove('is-mine', 'is-me'); });
     render(user, entry, entry && idx.teams && idx.teams[entry.team]);
     if (entry) highlight(entry);
@@ -130,7 +134,9 @@
       var raw = e.detail || {};
       var teams = {};
       (raw.teams || []).forEach(function (t) { teams[t.slug] = t.name; });
-      applyIndex(user, { teams: teams, members: raw.members || {} });
+      var profiles = {};
+      (raw.players || []).forEach(function (p) { profiles[p.team + '|' + p.name] = p.slug; });
+      applyIndex(user, { teams: teams, members: raw.members || {}, profiles: profiles });
     });
   }
 

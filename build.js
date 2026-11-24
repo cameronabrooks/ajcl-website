@@ -83,6 +83,8 @@ window.AJCL = (function () {
   fs.writeFileSync(path.join(DIST, 'members.json'), JSON.stringify({
     teams: Object.fromEntries(league.teams.map(t => [t.slug, t.name])),
     members: league.members || {},
+    // "team|display name" -> player page slug, for the account menu's "My Profile".
+    profiles: Object.fromEntries((league.players || []).map(p => [`${p.team}|${p.name}`, p.slug])),
   }));
   fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
 
