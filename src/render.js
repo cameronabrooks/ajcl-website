@@ -359,15 +359,35 @@ function joinPage(league, c) {
   return layout({ title: 'Join', active: 'join', body, c });
 }
 
+// One cod-stats.com embed per division (content.json -> statsEmbeds), shown as tabs.
+// Hash keeps it linkable (#premier / #academy); without JS both show.
 function statsPage(league, c) {
-  const src = c.statsEmbedUrl || 'https://cod-stats.com/embed/average-joes-cod-league/players';
+  const embeds = (c.statsEmbeds || []).filter(e => e && e.url);
+  const tabs = embeds.map(e => `<a class="tab" href="#${esc(e.division.toLowerCase())}" data-stats-tab="${esc(e.division.toLowerCase())}">${esc(e.division)}</a>`).join('');
+  const panels = embeds.map(e => `<div class="stats-panel" data-stats-panel="${esc(e.division.toLowerCase())}">
+    <h2 class="sub div-${esc(e.division.toLowerCase())}-text">${esc(e.division)}</h2>
+    <div class="panel stats-embed"><iframe src="${esc(e.url)}" title="AJCL ${esc(e.division)} player stats" loading="lazy"></iframe></div>
+  </div>`).join('');
+  const script = embeds.length > 1 ? `<script>
+(function () {
+  function apply() {
+    var keys = [].map.call(document.querySelectorAll('[data-stats-tab]'), function (t) { return t.dataset.statsTab; });
+    var want = location.hash.slice(1);
+    var cur = keys.indexOf(want) >= 0 ? want : keys[0];
+    document.querySelectorAll('[data-stats-panel]').forEach(function (p) { p.hidden = p.dataset.statsPanel !== cur; });
+    document.querySelectorAll('[data-stats-tab]').forEach(function (t) { t.classList.toggle('active', t.dataset.statsTab === cur); });
+  }
+  document.documentElement.classList.add('js');
+  addEventListener('hashchange', apply);
+  apply();
+})();
+</script>` : '';
   const body = pageHead(c.season || 'Stat Leaders', 'Player Stats', 'Season stats for every AJCL player, powered by cod-stats.com.') + `
-<section class="wrap section">
-  <div class="panel stats-embed">
-    <iframe src="${esc(src)}" title="Average Joe's CoD League player stats" loading="lazy"></iframe>
-  </div>
+<section class="wrap section stats">
+  ${embeds.length > 1 ? `<div class="tabs">${tabs}</div>` : ''}
+  ${panels || '<p class="muted">Stats are coming soon.</p>'}
 </section>`;
-  return layout({ title: 'Stats', active: 'stats', body, c });
+  return layout({ title: 'Stats', active: 'stats', body, c, script });
 }
 
 // Discord sends people back here after login (OAuth2 implicit grant).
