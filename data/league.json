@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795557464669,
+  "generatedAt": 1795557557218,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1613,6 +1613,28 @@
         "player",
         "gm",
         "coach"
+      ],
+      "gamertag": "ceez",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.32",
+            "kpm": "28.2",
+            "maps": 15
+          },
+          "seasons": [
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "CAR",
+              "kd": "1.32",
+              "kpm": "28.2",
+              "maps": 15
+            }
+          ]
+        }
       ]
     },
     {
