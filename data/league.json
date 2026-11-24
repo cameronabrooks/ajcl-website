@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795555026999,
+  "generatedAt": 1795556656356,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -43,21 +43,21 @@
       "division": "Premier",
       "roster": {
         "gms": [
-          "ATL | BBLZaaZaa"
+          "xxflexdogxx"
         ],
         "coaches": [],
         "players": [
-          "ATL | BBLZaaZaa",
-          "ATL | Reddaza",
-          "ATL | Speiddyy",
-          "ATL | Xerxes"
+          "datboibebearded",
+          "reddaza",
+          "speiddyycod",
+          "xxflexdogxx"
         ],
         "nonPlaying": [],
         "links": {
-          "ATL | Xerxes": "atl-xerxes",
-          "ATL | BBLZaaZaa": "atl-bblzaazaa",
-          "ATL | Reddaza": "atl-reddaza",
-          "ATL | Speiddyy": "atl-speiddyy"
+          "datboibebearded": "datboibebearded",
+          "xxflexdogxx": "xxflexdogxx",
+          "reddaza": "reddaza",
+          "speiddyycod": "speiddyycod"
         }
       }
     },
@@ -68,21 +68,21 @@
       "division": "Premier",
       "roster": {
         "gms": [
-          "CAR | Lil'Ceezars"
+          "snoweyer."
         ],
         "coaches": [],
         "players": [
-          "CAR | 007 Quay",
-          "CAR | Lil'Ceezars",
-          "CAR | Ny",
-          "CAR | Zuko"
+          ".quaza",
+          "nova091028",
+          "ny.ski",
+          "snoweyer."
         ],
         "nonPlaying": [],
         "links": {
-          "CAR | Lil'Ceezars": "car-lil-ceezars",
-          "CAR | Ny": "car-ny",
-          "CAR | Zuko": "car-zuko",
-          "CAR | 007 Quay": "car-007-quay"
+          "snoweyer.": "snoweyer",
+          "ny.ski": "ny-ski",
+          "nova091028": "nova091028",
+          ".quaza": "quaza"
         }
       }
     },
@@ -93,24 +93,24 @@
       "division": "Premier",
       "roster": {
         "gms": [
-          "SYR | butchiehof"
+          "butchiehof"
         ],
         "coaches": [
-          "COACH | Delusions"
+          "delusions949598"
         ],
         "players": [
-          "SYR | butchiehof",
-          "SYR | Crouse",
-          "SYR | Loyal",
-          "SYR | nitsua"
+          "butchiehof",
+          "crousemissle",
+          "loyaltotheroyal",
+          "nitsuaaaa_"
         ],
         "nonPlaying": [],
         "links": {
-          "SYR | butchiehof": "syr-butchiehof",
-          "SYR | Crouse": "syr-crouse",
-          "SYR | Loyal": "syr-loyal",
-          "SYR | nitsua": "syr-nitsua",
-          "COACH | Delusions": "coach-delusions"
+          "butchiehof": "butchiehof",
+          "crousemissle": "crousemissle",
+          "loyaltotheroyal": "loyaltotheroyal",
+          "nitsuaaaa_": "nitsuaaaa",
+          "delusions949598": "delusions949598"
         }
       }
     },
@@ -121,22 +121,22 @@
       "division": "Premier",
       "roster": {
         "gms": [
-          "SLN | K1lla"
+          "k1llagh0st"
         ],
         "coaches": [],
         "players": [
-          "SLN | Kjay",
-          "SLN | Lux",
-          "SLN | Primo",
-          "SLN | Spyder"
+          "3lux.",
+          "kjay_1",
+          "primoabie",
+          "spyder_r1"
         ],
         "nonPlaying": [],
         "links": {
-          "SLN | Lux": "sln-lux",
-          "SLN | Primo": "sln-primo",
-          "SLN | Spyder": "sln-spyder",
-          "SLN | Kjay": "sln-kjay",
-          "SLN | K1lla": "sln-k1lla"
+          "3lux.": "3lux",
+          "primoabie": "primoabie",
+          "spyder_r1": "spyder-r1",
+          "kjay_1": "kjay-1",
+          "k1llagh0st": "k1llagh0st"
         }
       }
     },
@@ -147,21 +147,21 @@
       "division": "Premier",
       "roster": {
         "gms": [
-          "SFS | MoonerTheAlcoholic"
+          "2themooner"
         ],
         "coaches": [],
         "players": [
-          "SFS | ilikefeet",
-          "SFS | Lakas",
-          "SFS | MoonerTheAlcoholic",
-          "SFS | vis"
+          "2themooner",
+          "8visionaryy",
+          "lakasombodee",
+          "singletonjw11"
         ],
         "nonPlaying": [],
         "links": {
-          "SFS | MoonerTheAlcoholic": "sfs-moonerthealcoholic",
-          "SFS | vis": "sfs-vis",
-          "SFS | ilikefeet": "sfs-ilikefeet",
-          "SFS | Lakas": "sfs-lakas"
+          "2themooner": "2themooner",
+          "8visionaryy": "8visionaryy",
+          "singletonjw11": "singletonjw11",
+          "lakasombodee": "lakasombodee"
         }
       }
     },
@@ -172,21 +172,21 @@
       "division": "Premier",
       "roster": {
         "gms": [
-          "CCC | Venom"
+          ".venomizer"
         ],
         "coaches": [],
         "players": [
-          "CCC | BamBam",
-          "CCC | Crazed",
-          "CCC | Freaky",
-          "CCC | Venom"
+          ".venomizer",
+          "crazed99",
+          "freaky.him",
+          "stevenriosjr."
         ],
         "nonPlaying": [],
         "links": {
-          "CCC | BamBam": "ccc-bambam",
-          "CCC | Venom": "ccc-venom",
-          "CCC | Crazed": "ccc-crazed",
-          "CCC | Freaky": "ccc-freaky"
+          "stevenriosjr.": "stevenriosjr",
+          ".venomizer": "venomizer",
+          "crazed99": "crazed99",
+          "freaky.him": "freaky-him"
         }
       }
     },
@@ -197,21 +197,21 @@
       "division": "Premier",
       "roster": {
         "gms": [
-          "TOR | Zylixz"
+          "nosajj__"
         ],
         "coaches": [],
         "players": [
-          "TOR | BrooksySZN",
-          "TOR | Hunna",
-          "TOR | Luke",
-          "TOR | Zylixz"
+          "brooksy1717",
+          "nosajj__",
+          "pinkyszn",
+          "sonarkx"
         ],
         "nonPlaying": [],
         "links": {
-          "TOR | BrooksySZN": "tor-brooksyszn",
-          "TOR | Luke": "tor-luke",
-          "TOR | Zylixz": "tor-zylixz",
-          "TOR | Hunna": "tor-hunna"
+          "brooksy1717": "brooksy1717",
+          "sonarkx": "sonarkx",
+          "nosajj__": "nosajj",
+          "pinkyszn": "pinkyszn"
         }
       }
     },
@@ -222,21 +222,21 @@
       "division": "Premier",
       "roster": {
         "gms": [
-          "HAL | RynoRH"
+          "rynorh"
         ],
         "coaches": [],
         "players": [
-          "HAL | Bis",
-          "HAL | g-ter",
-          "HAL | MoistQuackers",
-          "HAL | RynoRH"
+          ".gter",
+          "bis00",
+          "moistquackers",
+          "rynorh"
         ],
         "nonPlaying": [],
         "links": {
-          "HAL | Bis": "hal-bis",
-          "HAL | g-ter": "hal-g-ter",
-          "HAL | RynoRH": "hal-rynorh",
-          "HAL | MoistQuackers": "hal-moistquackers"
+          "bis00": "bis00",
+          ".gter": "gter",
+          "rynorh": "rynorh",
+          "moistquackers": "moistquackers"
         }
       }
     },
@@ -247,21 +247,21 @@
       "division": "Academy",
       "roster": {
         "gms": [
-          "ROS | ⛧ Ƒëﾑr ツ"
+          "ii_noxiious_ii"
         ],
         "coaches": [],
         "players": [
-          "MFIC | Inspire",
-          "ROS | ⛧ Ƒëﾑr ツ",
-          "ROS | BooshDaGoat",
-          "ROS | Owes Every1 Taco Bell Plu"
+          "boosh253",
+          "ii_noxiious_ii",
+          "inspire023",
+          "tpne.999"
         ],
         "nonPlaying": [],
         "links": {
-          "ROS | Owes Every1 Taco Bell Plu": "ros-owes-every1-taco-bell-plu",
-          "MFIC | Inspire": "mfic-inspire",
-          "ROS | BooshDaGoat": "ros-booshdagoat",
-          "ROS | ⛧ Ƒëﾑr ツ": "ros-e-r"
+          "tpne.999": "tpne-999",
+          "inspire023": "inspire023",
+          "boosh253": "boosh253",
+          "ii_noxiious_ii": "ii-noxiious-ii"
         }
       }
     },
@@ -272,24 +272,24 @@
       "division": "Academy",
       "roster": {
         "gms": [
-          "MRD | 🧛🏼OverlordAlucard 🧛🏼"
+          "christian_da_bos"
         ],
         "coaches": [
-          "COACH | Chrollo"
+          "chrollo666"
         ],
         "players": [
-          "MRD | 🧛🏼OverlordAlucard 🧛🏼",
-          "MRD | Bruce",
-          "MRD | JAYDREAMZ",
-          "MRD | ZEUS"
+          ".wonders",
+          "christian_da_bos",
+          "jaydream_",
+          "kaos2627"
         ],
         "nonPlaying": [],
         "links": {
-          "MRD | 🧛🏼OverlordAlucard 🧛🏼": "mrd-overlordalucard",
-          "MRD | Bruce": "mrd-bruce",
-          "MRD | JAYDREAMZ": "mrd-jaydreamz",
-          "MRD | ZEUS": "mrd-zeus",
-          "COACH | Chrollo": "coach-chrollo"
+          "christian_da_bos": "christian-da-bos",
+          ".wonders": "wonders",
+          "jaydream_": "jaydream",
+          "kaos2627": "kaos2627",
+          "chrollo666": "chrollo666"
         }
       }
     },
@@ -300,21 +300,21 @@
       "division": "Academy",
       "roster": {
         "gms": [
-          "LEX | Kib"
+          "kib1514"
         ],
         "coaches": [],
         "players": [
-          "COMISH | Cam",
-          "LEX | Bandit",
-          "LEX | Kib",
-          "LEX | Palsy"
+          ".cambr",
+          "bandit_of_chaos",
+          "kib1514",
+          "palsymh"
         ],
         "nonPlaying": [],
         "links": {
-          "COMISH | Cam": "comish-cam",
-          "LEX | Palsy": "lex-palsy",
-          "LEX | Kib": "lex-kib",
-          "LEX | Bandit": "lex-bandit"
+          ".cambr": "cambr",
+          "palsymh": "palsymh",
+          "kib1514": "kib1514",
+          "bandit_of_chaos": "bandit-of-chaos"
         }
       }
     },
@@ -325,24 +325,24 @@
       "division": "Academy",
       "roster": {
         "gms": [
-          "NOR | Leisure"
+          "lei5ur3"
         ],
         "coaches": [
-          "CAR | Lil'Ceezars"
+          "snoweyer."
         ],
         "players": [
-          "NOR | Divi",
-          "NOR | Fly Tendencies",
-          "NOR | Leisure",
-          "NOR | Tanji"
+          "flytendencies95",
+          "jayedee98",
+          "lei5ur3",
+          "tanji2hotti"
         ],
         "nonPlaying": [],
         "links": {
-          "NOR | Divi": "nor-divi",
-          "NOR | Fly Tendencies": "nor-fly-tendencies",
-          "NOR | Tanji": "nor-tanji",
-          "NOR | Leisure": "nor-leisure",
-          "CAR | Lil'Ceezars": "car-lil-ceezars"
+          "jayedee98": "jayedee98",
+          "flytendencies95": "flytendencies95",
+          "tanji2hotti": "tanji2hotti",
+          "lei5ur3": "lei5ur3",
+          "snoweyer.": "snoweyer"
         }
       }
     },
@@ -353,24 +353,24 @@
       "division": "Academy",
       "roster": {
         "gms": [
-          "KCK | Sac"
+          "bigsac9"
         ],
         "coaches": [
-          "Bgolden"
+          "bgolden83"
         ],
         "players": [
-          "COMISH | MaRsH313",
-          "KCK | cbass",
-          "KCK | Rogue",
-          "KCK | Sac"
+          "bigsac9",
+          "cbbasss",
+          "marsh313",
+          "rogue713."
         ],
         "nonPlaying": [],
         "links": {
-          "KCK | Sac": "kck-sac",
-          "KCK | cbass": "kck-cbass",
-          "KCK | Rogue": "kck-rogue",
-          "COMISH | MaRsH313": "comish-marsh313",
-          "Bgolden": "bgolden"
+          "bigsac9": "bigsac9",
+          "cbbasss": "cbbasss",
+          "rogue713.": "rogue713",
+          "marsh313": "marsh313",
+          "bgolden83": "bgolden83"
         }
       }
     },
@@ -381,21 +381,21 @@
       "division": "Academy",
       "roster": {
         "gms": [
-          "PIT | Twizz"
+          "skillztwizz"
         ],
         "coaches": [],
         "players": [
-          "MFIC | Ranked Incorrectly",
-          "PIT | 2elite",
-          "PIT | Brimington",
-          "PIT | Twizz"
+          ".2elite",
+          "garronbrimmer",
+          "pizz",
+          "skillztwizz"
         ],
         "nonPlaying": [],
         "links": {
-          "PIT | 2elite": "pit-2elite",
-          "PIT | Brimington": "pit-brimington",
-          "MFIC | Ranked Incorrectly": "mfic-ranked-incorrectly",
-          "PIT | Twizz": "pit-twizz"
+          ".2elite": "2elite",
+          "garronbrimmer": "garronbrimmer",
+          "pizz": "pizz",
+          "skillztwizz": "skillztwizz"
         }
       }
     },
@@ -406,21 +406,21 @@
       "division": "Academy",
       "roster": {
         "gms": [
-          "MIS | shooter"
+          "disabledvetamaturegamer16"
         ],
         "coaches": [],
         "players": [
-          "MIS | ImAkaii",
-          "MIS | Kentucky",
-          "MIS | Racist Guy Marv",
-          "MIS | shooter"
+          "disabledvetamaturegamer16",
+          "imakaiii",
+          "kentuckykarma75",
+          "marv3lous2001"
         ],
         "nonPlaying": [],
         "links": {
-          "MIS | Kentucky": "mis-kentucky",
-          "MIS | ImAkaii": "mis-imakaii",
-          "MIS | Racist Guy Marv": "mis-racist-guy-marv",
-          "MIS | shooter": "mis-shooter"
+          "kentuckykarma75": "kentuckykarma75",
+          "imakaiii": "imakaiii",
+          "marv3lous2001": "marv3lous2001",
+          "disabledvetamaturegamer16": "disabledvetamaturegamer16"
         }
       }
     },
@@ -431,24 +431,24 @@
       "division": "Academy",
       "roster": {
         "gms": [
-          "OMH | unholy draco"
+          "unholy_ra"
         ],
         "coaches": [
-          "ATL | BBLZaaZaa"
+          "xxflexdogxx"
         ],
         "players": [
-          "OMH | Gutta",
-          "OMH | Revert",
-          "OMH | SlayFS",
-          "OMH | unholy draco"
+          "revert2.0",
+          "sellticss",
+          "tk_gutta",
+          "unholy_ra"
         ],
         "nonPlaying": [],
         "links": {
-          "OMH | unholy draco": "omh-unholy-draco",
-          "OMH | Revert": "omh-revert",
-          "OMH | Gutta": "omh-gutta",
-          "OMH | SlayFS": "omh-slayfs",
-          "ATL | BBLZaaZaa": "atl-bblzaazaa"
+          "unholy_ra": "unholy-ra",
+          "revert2.0": "revert2-0",
+          "tk_gutta": "tk-gutta",
+          "sellticss": "sellticss",
+          "xxflexdogxx": "xxflexdogxx"
         }
       }
     }
@@ -1018,14 +1018,14 @@
   "members": {
     "4623064ecf744333f6f7": {
       "team": "atl",
-      "name": "ATL | Xerxes",
+      "name": "datboibebearded",
       "roles": [
         "player"
       ]
     },
     "e5bff57d28cd2185c135": {
       "team": "atl",
-      "name": "ATL | BBLZaaZaa",
+      "name": "xxflexdogxx",
       "roles": [
         "player",
         "gm",
@@ -1034,21 +1034,21 @@
     },
     "c1fd90bf17d65a2f054c": {
       "team": "atl",
-      "name": "ATL | Reddaza",
+      "name": "reddaza",
       "roles": [
         "player"
       ]
     },
     "663def3148f4cbbb5268": {
       "team": "atl",
-      "name": "ATL | Speiddyy",
+      "name": "speiddyycod",
       "roles": [
         "player"
       ]
     },
     "3d5c8de87dd16ef32d6c": {
       "team": "car",
-      "name": "CAR | Lil'Ceezars",
+      "name": "snoweyer.",
       "roles": [
         "player",
         "gm",
@@ -1057,28 +1057,28 @@
     },
     "4569722f38e61fb3b813": {
       "team": "car",
-      "name": "CAR | Ny",
+      "name": "ny.ski",
       "roles": [
         "player"
       ]
     },
     "5bf7b0bb722756d62fd0": {
       "team": "car",
-      "name": "CAR | Zuko",
+      "name": "nova091028",
       "roles": [
         "player"
       ]
     },
     "62d8fb2a2a45e5404fe2": {
       "team": "car",
-      "name": "CAR | 007 Quay",
+      "name": ".quaza",
       "roles": [
         "player"
       ]
     },
     "56c8e1ef5dfbfd83acb8": {
       "team": "syr",
-      "name": "SYR | butchiehof",
+      "name": "butchiehof",
       "roles": [
         "player",
         "gm"
@@ -1086,70 +1086,70 @@
     },
     "8e3cfea2d2f5ec7336e3": {
       "team": "syr",
-      "name": "SYR | Crouse",
+      "name": "crousemissle",
       "roles": [
         "player"
       ]
     },
     "498e3024effcd57afd25": {
       "team": "syr",
-      "name": "SYR | Loyal",
+      "name": "loyaltotheroyal",
       "roles": [
         "player"
       ]
     },
     "2157bbb040dac182dbb8": {
       "team": "syr",
-      "name": "SYR | nitsua",
+      "name": "nitsuaaaa_",
       "roles": [
         "player"
       ]
     },
     "cb9bd71b4a3db6ac4413": {
       "team": "syr",
-      "name": "COACH | Delusions",
+      "name": "delusions949598",
       "roles": [
         "coach"
       ]
     },
     "e8e8bc689b0fb48c6697": {
       "team": "sln",
-      "name": "SLN | Lux",
+      "name": "3lux.",
       "roles": [
         "player"
       ]
     },
     "16245870b83997b1d170": {
       "team": "sln",
-      "name": "SLN | Primo",
+      "name": "primoabie",
       "roles": [
         "player"
       ]
     },
     "c1d4bdcefc4ffa3e9d78": {
       "team": "sln",
-      "name": "SLN | Spyder",
+      "name": "spyder_r1",
       "roles": [
         "player"
       ]
     },
     "5b42ab7101f0e0ff3dab": {
       "team": "sln",
-      "name": "SLN | Kjay",
+      "name": "kjay_1",
       "roles": [
         "player"
       ]
     },
     "fd50f20e29e80d8c3ee7": {
       "team": "sln",
-      "name": "SLN | K1lla",
+      "name": "k1llagh0st",
       "roles": [
         "gm"
       ]
     },
     "e0a63810ce200ce74ee6": {
       "team": "sfs",
-      "name": "SFS | MoonerTheAlcoholic",
+      "name": "2themooner",
       "roles": [
         "player",
         "gm"
@@ -1157,35 +1157,35 @@
     },
     "3b09accb39af5a511f14": {
       "team": "sfs",
-      "name": "SFS | vis",
+      "name": "8visionaryy",
       "roles": [
         "player"
       ]
     },
     "7a032ce1c7e486aff293": {
       "team": "sfs",
-      "name": "SFS | ilikefeet",
+      "name": "singletonjw11",
       "roles": [
         "player"
       ]
     },
     "b185e31c44d952e14490": {
       "team": "sfs",
-      "name": "SFS | Lakas",
+      "name": "lakasombodee",
       "roles": [
         "player"
       ]
     },
     "3d0ef410f719125d2a0f": {
       "team": "ccc",
-      "name": "CCC | BamBam",
+      "name": "stevenriosjr.",
       "roles": [
         "player"
       ]
     },
     "94f75c6749a0e0519d21": {
       "team": "ccc",
-      "name": "CCC | Venom",
+      "name": ".venomizer",
       "roles": [
         "player",
         "gm"
@@ -1193,35 +1193,35 @@
     },
     "54bf4a99ce7b4e726eb6": {
       "team": "ccc",
-      "name": "CCC | Crazed",
+      "name": "crazed99",
       "roles": [
         "player"
       ]
     },
     "ffd5ab606f8755b6e355": {
       "team": "ccc",
-      "name": "CCC | Freaky",
+      "name": "freaky.him",
       "roles": [
         "player"
       ]
     },
     "8973811321d65bf3b673": {
       "team": "tor",
-      "name": "TOR | BrooksySZN",
+      "name": "brooksy1717",
       "roles": [
         "player"
       ]
     },
     "6a5c63a901b429734107": {
       "team": "tor",
-      "name": "TOR | Luke",
+      "name": "sonarkx",
       "roles": [
         "player"
       ]
     },
     "b3fefabc6c639ab6b885": {
       "team": "tor",
-      "name": "TOR | Zylixz",
+      "name": "nosajj__",
       "roles": [
         "player",
         "gm"
@@ -1229,28 +1229,28 @@
     },
     "3aad8d4d163311f30e8e": {
       "team": "tor",
-      "name": "TOR | Hunna",
+      "name": "pinkyszn",
       "roles": [
         "player"
       ]
     },
     "098559cba8bcdce2e2eb": {
       "team": "hal",
-      "name": "HAL | Bis",
+      "name": "bis00",
       "roles": [
         "player"
       ]
     },
     "ec9967a409beb6e09f13": {
       "team": "hal",
-      "name": "HAL | g-ter",
+      "name": ".gter",
       "roles": [
         "player"
       ]
     },
     "e63655325df0bd70629d": {
       "team": "hal",
-      "name": "HAL | RynoRH",
+      "name": "rynorh",
       "roles": [
         "player",
         "gm"
@@ -1258,35 +1258,35 @@
     },
     "35a3b495990ec34156e6": {
       "team": "hal",
-      "name": "HAL | MoistQuackers",
+      "name": "moistquackers",
       "roles": [
         "player"
       ]
     },
     "6eba674a89096a099f7d": {
       "team": "ros",
-      "name": "ROS | Owes Every1 Taco Bell Plu",
+      "name": "tpne.999",
       "roles": [
         "player"
       ]
     },
     "487171bde66caaf9a017": {
       "team": "ros",
-      "name": "MFIC | Inspire",
+      "name": "inspire023",
       "roles": [
         "player"
       ]
     },
     "4a0001b12d145e369b77": {
       "team": "ros",
-      "name": "ROS | BooshDaGoat",
+      "name": "boosh253",
       "roles": [
         "player"
       ]
     },
     "456afdd22adc0c988950": {
       "team": "ros",
-      "name": "ROS | ⛧ Ƒëﾑr ツ",
+      "name": "ii_noxiious_ii",
       "roles": [
         "player",
         "gm"
@@ -1294,7 +1294,7 @@
     },
     "025feda6b6afba4a90b0": {
       "team": "mrd",
-      "name": "MRD | 🧛🏼OverlordAlucard 🧛🏼",
+      "name": "christian_da_bos",
       "roles": [
         "player",
         "gm"
@@ -1302,49 +1302,49 @@
     },
     "3731c247df3bd0a6625e": {
       "team": "mrd",
-      "name": "MRD | Bruce",
+      "name": ".wonders",
       "roles": [
         "player"
       ]
     },
     "2e8bed8819a76c2afc08": {
       "team": "mrd",
-      "name": "MRD | JAYDREAMZ",
+      "name": "jaydream_",
       "roles": [
         "player"
       ]
     },
     "dd84ea797e0c80a9f20c": {
       "team": "mrd",
-      "name": "MRD | ZEUS",
+      "name": "kaos2627",
       "roles": [
         "player"
       ]
     },
     "bcbccee7f2319dbe79c8": {
       "team": "mrd",
-      "name": "COACH | Chrollo",
+      "name": "chrollo666",
       "roles": [
         "coach"
       ]
     },
     "05602de9aea222d1753e": {
       "team": "lex",
-      "name": "COMISH | Cam",
+      "name": ".cambr",
       "roles": [
         "player"
       ]
     },
     "74d3c710b3f08eb50078": {
       "team": "lex",
-      "name": "LEX | Palsy",
+      "name": "palsymh",
       "roles": [
         "player"
       ]
     },
     "019f75e43ef6125bb0b1": {
       "team": "lex",
-      "name": "LEX | Kib",
+      "name": "kib1514",
       "roles": [
         "player",
         "gm"
@@ -1352,35 +1352,35 @@
     },
     "f4294a759be3d312000b": {
       "team": "lex",
-      "name": "LEX | Bandit",
+      "name": "bandit_of_chaos",
       "roles": [
         "player"
       ]
     },
     "53a50678dbe66a4491de": {
       "team": "nor",
-      "name": "NOR | Divi",
+      "name": "jayedee98",
       "roles": [
         "player"
       ]
     },
     "c3d683d275a73cb633f0": {
       "team": "nor",
-      "name": "NOR | Fly Tendencies",
+      "name": "flytendencies95",
       "roles": [
         "player"
       ]
     },
     "a93d644f8a3489d5cba0": {
       "team": "nor",
-      "name": "NOR | Tanji",
+      "name": "tanji2hotti",
       "roles": [
         "player"
       ]
     },
     "f76158dbfc25c120b50b": {
       "team": "nor",
-      "name": "NOR | Leisure",
+      "name": "lei5ur3",
       "roles": [
         "player",
         "gm"
@@ -1388,7 +1388,7 @@
     },
     "c434afac690b53b89c3f": {
       "team": "kck",
-      "name": "KCK | Sac",
+      "name": "bigsac9",
       "roles": [
         "player",
         "gm"
@@ -1396,56 +1396,56 @@
     },
     "5ccc1b9b1c54bdee1b77": {
       "team": "kck",
-      "name": "KCK | cbass",
+      "name": "cbbasss",
       "roles": [
         "player"
       ]
     },
     "41d5302bd81a48bee21d": {
       "team": "kck",
-      "name": "KCK | Rogue",
+      "name": "rogue713.",
       "roles": [
         "player"
       ]
     },
     "a2a68018498db6357f09": {
       "team": "kck",
-      "name": "COMISH | MaRsH313",
+      "name": "marsh313",
       "roles": [
         "player"
       ]
     },
     "e4801d6539e91745f8fb": {
       "team": "kck",
-      "name": "Bgolden",
+      "name": "bgolden83",
       "roles": [
         "coach"
       ]
     },
     "f792d0a1a59ee39e8741": {
       "team": "pit",
-      "name": "PIT | 2elite",
+      "name": ".2elite",
       "roles": [
         "player"
       ]
     },
     "484f010b69343c22efe4": {
       "team": "pit",
-      "name": "PIT | Brimington",
+      "name": "garronbrimmer",
       "roles": [
         "player"
       ]
     },
     "00e5776d8ebd67070622": {
       "team": "pit",
-      "name": "MFIC | Ranked Incorrectly",
+      "name": "pizz",
       "roles": [
         "player"
       ]
     },
     "ebf90d2adcdf2e9d4091": {
       "team": "pit",
-      "name": "PIT | Twizz",
+      "name": "skillztwizz",
       "roles": [
         "player",
         "gm"
@@ -1453,28 +1453,28 @@
     },
     "c3efec830c56393e5d6b": {
       "team": "mis",
-      "name": "MIS | Kentucky",
+      "name": "kentuckykarma75",
       "roles": [
         "player"
       ]
     },
     "d917fafee7d5e1d39edf": {
       "team": "mis",
-      "name": "MIS | ImAkaii",
+      "name": "imakaiii",
       "roles": [
         "player"
       ]
     },
     "b1bdf118360ab3670cd5": {
       "team": "mis",
-      "name": "MIS | Racist Guy Marv",
+      "name": "marv3lous2001",
       "roles": [
         "player"
       ]
     },
     "42aa69d5aa2d0882d849": {
       "team": "mis",
-      "name": "MIS | shooter",
+      "name": "disabledvetamaturegamer16",
       "roles": [
         "player",
         "gm"
@@ -1482,7 +1482,7 @@
     },
     "1e795f51e1222c271558": {
       "team": "omh",
-      "name": "OMH | unholy draco",
+      "name": "unholy_ra",
       "roles": [
         "player",
         "gm"
@@ -1490,21 +1490,21 @@
     },
     "d4e3fbcdccb230412ebd": {
       "team": "omh",
-      "name": "OMH | Revert",
+      "name": "revert2.0",
       "roles": [
         "player"
       ]
     },
     "fb185ee08814ed68a4a9": {
       "team": "omh",
-      "name": "OMH | Gutta",
+      "name": "tk_gutta",
       "roles": [
         "player"
       ]
     },
     "dd16af1b1141a43c70d7": {
       "team": "omh",
-      "name": "OMH | SlayFS",
+      "name": "sellticss",
       "roles": [
         "player"
       ]
@@ -1512,8 +1512,8 @@
   },
   "players": [
     {
-      "slug": "atl-xerxes",
-      "name": "ATL | Xerxes",
+      "slug": "datboibebearded",
+      "name": "datboibebearded",
       "team": "atl",
       "roles": [
         "player"
@@ -1550,9 +1550,65 @@
       ]
     },
     {
-      "slug": "atl-bblzaazaa",
-      "name": "ATL | BBLZaaZaa",
+      "slug": "xxflexdogxx",
+      "name": "xxflexdogxx",
       "team": "atl",
+      "roles": [
+        "player",
+        "gm",
+        "coach"
+      ],
+      "gamertag": "BBLZaaZaa",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.17",
+            "kpm": "21.0",
+            "maps": 34
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "ATL",
+              "kd": "1.20",
+              "kpm": "21.2",
+              "maps": 19
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "CAR",
+              "kd": "1.14",
+              "kpm": "20.7",
+              "maps": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "reddaza",
+      "name": "reddaza",
+      "team": "atl",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "speiddyycod",
+      "name": "speiddyycod",
+      "team": "atl",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "snoweyer",
+      "name": "snoweyer.",
+      "team": "car",
       "roles": [
         "player",
         "gm",
@@ -1560,58 +1616,62 @@
       ]
     },
     {
-      "slug": "atl-reddaza",
-      "name": "ATL | Reddaza",
-      "team": "atl",
-      "roles": [
-        "player"
-      ]
-    },
-    {
-      "slug": "atl-speiddyy",
-      "name": "ATL | Speiddyy",
-      "team": "atl",
-      "roles": [
-        "player"
-      ]
-    },
-    {
-      "slug": "car-lil-ceezars",
-      "name": "CAR | Lil'Ceezars",
-      "team": "car",
-      "roles": [
-        "player",
-        "gm",
-        "coach"
-      ]
-    },
-    {
-      "slug": "car-ny",
-      "name": "CAR | Ny",
+      "slug": "ny-ski",
+      "name": "ny.ski",
       "team": "car",
       "roles": [
         "player"
+      ],
+      "gamertag": "amarae",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.18",
+            "kpm": "21.6",
+            "maps": 15
+          },
+          "seasons": [
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SLN / CAR / SFS",
+              "kd": "0.91",
+              "kpm": "16.7",
+              "maps": 11
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "PIT",
+              "kd": "1.99",
+              "kpm": "34.8",
+              "maps": 4
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "car-zuko",
-      "name": "CAR | Zuko",
-      "team": "car",
-      "roles": [
-        "player"
-      ]
-    },
-    {
-      "slug": "car-007-quay",
-      "name": "CAR | 007 Quay",
+      "slug": "nova091028",
+      "name": "nova091028",
       "team": "car",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "syr-butchiehof",
-      "name": "SYR | butchiehof",
+      "slug": "quaza",
+      "name": ".quaza",
+      "team": "car",
+      "roles": [
+        "player"
+      ]
+    },
+    {
+      "slug": "butchiehof",
+      "name": "butchiehof",
       "team": "syr",
       "roles": [
         "player",
@@ -1641,16 +1701,16 @@
       ]
     },
     {
-      "slug": "syr-crouse",
-      "name": "SYR | Crouse",
+      "slug": "crousemissle",
+      "name": "crousemissle",
       "team": "syr",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "syr-loyal",
-      "name": "SYR | Loyal",
+      "slug": "loyaltotheroyal",
+      "name": "loyaltotheroyal",
       "team": "syr",
       "roles": [
         "player"
@@ -1679,8 +1739,8 @@
       ]
     },
     {
-      "slug": "syr-nitsua",
-      "name": "SYR | nitsua",
+      "slug": "nitsuaaaa",
+      "name": "nitsuaaaa_",
       "team": "syr",
       "roles": [
         "player"
@@ -1717,8 +1777,8 @@
       ]
     },
     {
-      "slug": "coach-delusions",
-      "name": "COACH | Delusions",
+      "slug": "delusions949598",
+      "name": "delusions949598",
       "team": "syr",
       "roles": [
         "coach"
@@ -1755,16 +1815,16 @@
       ]
     },
     {
-      "slug": "sln-lux",
-      "name": "SLN | Lux",
+      "slug": "3lux",
+      "name": "3lux.",
       "team": "sln",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "sln-primo",
-      "name": "SLN | Primo",
+      "slug": "primoabie",
+      "name": "primoabie",
       "team": "sln",
       "roles": [
         "player"
@@ -1801,41 +1861,71 @@
       ]
     },
     {
-      "slug": "sln-spyder",
-      "name": "SLN | Spyder",
+      "slug": "spyder-r1",
+      "name": "spyder_r1",
       "team": "sln",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "sln-kjay",
-      "name": "SLN | Kjay",
+      "slug": "kjay-1",
+      "name": "kjay_1",
       "team": "sln",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "sln-k1lla",
-      "name": "SLN | K1lla",
+      "slug": "k1llagh0st",
+      "name": "k1llagh0st",
       "team": "sln",
       "roles": [
         "gm"
       ]
     },
     {
-      "slug": "sfs-moonerthealcoholic",
-      "name": "SFS | MoonerTheAlcoholic",
+      "slug": "2themooner",
+      "name": "2themooner",
       "team": "sfs",
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "MoonerTheAlcoholic",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.44",
+            "kpm": "22.0",
+            "maps": 30
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.62",
+              "kpm": "22.4",
+              "maps": 19
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SFS",
+              "kd": "1.19",
+              "kpm": "21.2",
+              "maps": 11
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "sfs-vis",
-      "name": "SFS | vis",
+      "slug": "8visionaryy",
+      "name": "8visionaryy",
       "team": "sfs",
       "roles": [
         "player"
@@ -1872,16 +1962,38 @@
       ]
     },
     {
-      "slug": "sfs-ilikefeet",
-      "name": "SFS | ilikefeet",
+      "slug": "singletonjw11",
+      "name": "singletonjw11",
       "team": "sfs",
       "roles": [
         "player"
+      ],
+      "gamertag": "ilikefeet",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.92",
+            "kpm": "19.6",
+            "maps": 10
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SLN",
+              "kd": "0.92",
+              "kpm": "19.6",
+              "maps": 10
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "sfs-lakas",
-      "name": "SFS | Lakas",
+      "slug": "lakasombodee",
+      "name": "lakasombodee",
       "team": "sfs",
       "roles": [
         "player"
@@ -1910,16 +2022,46 @@
       ]
     },
     {
-      "slug": "ccc-bambam",
-      "name": "CCC | BamBam",
+      "slug": "stevenriosjr",
+      "name": "stevenriosjr.",
       "team": "ccc",
       "roles": [
         "player"
+      ],
+      "gamertag": "BamBam",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.15",
+            "kpm": "20.7",
+            "maps": 20
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "TOR",
+              "kd": "1.23",
+              "kpm": "21.2",
+              "maps": 17
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SPS",
+              "kd": "0.78",
+              "kpm": "17.7",
+              "maps": 3
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "ccc-venom",
-      "name": "CCC | Venom",
+      "slug": "venomizer",
+      "name": ".venomizer",
       "team": "ccc",
       "roles": [
         "player",
@@ -1949,8 +2091,8 @@
       ]
     },
     {
-      "slug": "ccc-crazed",
-      "name": "CCC | Crazed",
+      "slug": "crazed99",
+      "name": "crazed99",
       "team": "ccc",
       "roles": [
         "player"
@@ -1979,8 +2121,8 @@
       ]
     },
     {
-      "slug": "ccc-freaky",
-      "name": "CCC | Freaky",
+      "slug": "freaky-him",
+      "name": "freaky.him",
       "team": "ccc",
       "roles": [
         "player"
@@ -2017,8 +2159,8 @@
       ]
     },
     {
-      "slug": "tor-brooksyszn",
-      "name": "TOR | BrooksySZN",
+      "slug": "brooksy1717",
+      "name": "brooksy1717",
       "team": "tor",
       "roles": [
         "player"
@@ -2029,11 +2171,19 @@
         {
           "game": "BO7",
           "total": {
-            "kd": "0.96",
-            "kpm": "20.0",
-            "maps": 8
+            "kd": "0.88",
+            "kpm": "18.9",
+            "maps": 38
           },
           "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "KNX",
+              "kd": "0.86",
+              "kpm": "18.6",
+              "maps": 30
+            },
             {
               "name": "Premier Mini SZN",
               "current": false,
@@ -2047,16 +2197,16 @@
       ]
     },
     {
-      "slug": "tor-luke",
-      "name": "TOR | Luke",
+      "slug": "sonarkx",
+      "name": "sonarkx",
       "team": "tor",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "tor-zylixz",
-      "name": "TOR | Zylixz",
+      "slug": "nosajj",
+      "name": "nosajj__",
       "team": "tor",
       "roles": [
         "player",
@@ -2086,16 +2236,16 @@
       ]
     },
     {
-      "slug": "tor-hunna",
-      "name": "TOR | Hunna",
+      "slug": "pinkyszn",
+      "name": "pinkyszn",
       "team": "tor",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "hal-bis",
-      "name": "HAL | Bis",
+      "slug": "bis00",
+      "name": "bis00",
       "team": "hal",
       "roles": [
         "player"
@@ -2132,16 +2282,16 @@
       ]
     },
     {
-      "slug": "hal-g-ter",
-      "name": "HAL | g-ter",
+      "slug": "gter",
+      "name": ".gter",
       "team": "hal",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "hal-rynorh",
-      "name": "HAL | RynoRH",
+      "slug": "rynorh",
+      "name": "rynorh",
       "team": "hal",
       "roles": [
         "player",
@@ -2149,8 +2299,8 @@
       ]
     },
     {
-      "slug": "hal-moistquackers",
-      "name": "HAL | MoistQuackers",
+      "slug": "moistquackers",
+      "name": "moistquackers",
       "team": "hal",
       "roles": [
         "player"
@@ -2179,32 +2329,76 @@
       ]
     },
     {
-      "slug": "ros-owes-every1-taco-bell-plu",
-      "name": "ROS | Owes Every1 Taco Bell Plu",
+      "slug": "tpne-999",
+      "name": "tpne.999",
       "team": "ros",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "mfic-inspire",
-      "name": "MFIC | Inspire",
+      "slug": "inspire023",
+      "name": "inspire023",
       "team": "ros",
       "roles": [
         "player"
+      ],
+      "gamertag": "Inspire",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.75",
+            "kpm": "13.9",
+            "maps": 29
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SLN",
+              "kd": "0.75",
+              "kpm": "13.9",
+              "maps": 29
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "ros-booshdagoat",
-      "name": "ROS | BooshDaGoat",
+      "slug": "boosh253",
+      "name": "boosh253",
       "team": "ros",
       "roles": [
         "player"
+      ],
+      "gamertag": "BooshDaGoat",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.08",
+            "kpm": "17.2",
+            "maps": 26
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "WAS",
+              "kd": "1.08",
+              "kpm": "17.2",
+              "maps": 26
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "ros-e-r",
-      "name": "ROS | ⛧ Ƒëﾑr ツ",
+      "slug": "ii-noxiious-ii",
+      "name": "ii_noxiious_ii",
       "team": "ros",
       "roles": [
         "player",
@@ -2212,8 +2406,8 @@
       ]
     },
     {
-      "slug": "mrd-overlordalucard",
-      "name": "MRD | 🧛🏼OverlordAlucard 🧛🏼",
+      "slug": "christian-da-bos",
+      "name": "christian_da_bos",
       "team": "mrd",
       "roles": [
         "player",
@@ -2221,8 +2415,8 @@
       ]
     },
     {
-      "slug": "mrd-bruce",
-      "name": "MRD | Bruce",
+      "slug": "wonders",
+      "name": ".wonders",
       "team": "mrd",
       "roles": [
         "player"
@@ -2259,8 +2453,8 @@
       ]
     },
     {
-      "slug": "mrd-jaydreamz",
-      "name": "MRD | JAYDREAMZ",
+      "slug": "jaydream",
+      "name": "jaydream_",
       "team": "mrd",
       "roles": [
         "player"
@@ -2297,8 +2491,8 @@
       ]
     },
     {
-      "slug": "mrd-zeus",
-      "name": "MRD | ZEUS",
+      "slug": "kaos2627",
+      "name": "kaos2627",
       "team": "mrd",
       "roles": [
         "player"
@@ -2335,16 +2529,16 @@
       ]
     },
     {
-      "slug": "coach-chrollo",
-      "name": "COACH | Chrollo",
+      "slug": "chrollo666",
+      "name": "chrollo666",
       "team": "mrd",
       "roles": [
         "coach"
       ]
     },
     {
-      "slug": "comish-cam",
-      "name": "COMISH | Cam",
+      "slug": "cambr",
+      "name": ".cambr",
       "team": "lex",
       "roles": [
         "player"
@@ -2389,16 +2583,16 @@
       ]
     },
     {
-      "slug": "lex-palsy",
-      "name": "LEX | Palsy",
+      "slug": "palsymh",
+      "name": "palsymh",
       "team": "lex",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "lex-kib",
-      "name": "LEX | Kib",
+      "slug": "kib1514",
+      "name": "kib1514",
       "team": "lex",
       "roles": [
         "player",
@@ -2436,40 +2630,102 @@
       ]
     },
     {
-      "slug": "lex-bandit",
-      "name": "LEX | Bandit",
+      "slug": "bandit-of-chaos",
+      "name": "bandit_of_chaos",
       "team": "lex",
       "roles": [
         "player"
+      ],
+      "gamertag": "Bandit",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.98",
+            "kpm": "21.2",
+            "maps": 44
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "AUS / CHP",
+              "kd": "1.03",
+              "kpm": "21.8",
+              "maps": 36
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "DEL",
+              "kd": "0.77",
+              "kpm": "18.6",
+              "maps": 8
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "nor-divi",
-      "name": "NOR | Divi",
+      "slug": "jayedee98",
+      "name": "jayedee98",
       "team": "nor",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "nor-fly-tendencies",
-      "name": "NOR | Fly Tendencies",
+      "slug": "flytendencies95",
+      "name": "flytendencies95",
       "team": "nor",
       "roles": [
         "player"
+      ],
+      "gamertag": "Fly Tendencies",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.09",
+            "kpm": "21.7",
+            "maps": 45
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "AUS",
+              "kd": "1.10",
+              "kpm": "21.9",
+              "maps": 41
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR",
+              "kd": "1.01",
+              "kpm": "20.0",
+              "maps": 4
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "nor-tanji",
-      "name": "NOR | Tanji",
+      "slug": "tanji2hotti",
+      "name": "tanji2hotti",
       "team": "nor",
       "roles": [
         "player"
-      ]
+      ],
+      "gamertag": "arrmie",
+      "gamertagSource": "linked"
     },
     {
-      "slug": "nor-leisure",
-      "name": "NOR | Leisure",
+      "slug": "lei5ur3",
+      "name": "lei5ur3",
       "team": "nor",
       "roles": [
         "player",
@@ -2507,8 +2763,8 @@
       ]
     },
     {
-      "slug": "kck-sac",
-      "name": "KCK | Sac",
+      "slug": "bigsac9",
+      "name": "bigsac9",
       "team": "kck",
       "roles": [
         "player",
@@ -2546,24 +2802,54 @@
       ]
     },
     {
-      "slug": "kck-cbass",
-      "name": "KCK | cbass",
+      "slug": "cbbasss",
+      "name": "cbbasss",
+      "team": "kck",
+      "roles": [
+        "player"
+      ],
+      "gamertag": "cbass",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.81",
+            "kpm": "18.2",
+            "maps": 11
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "CAR",
+              "kd": "0.88",
+              "kpm": "16.3",
+              "maps": 3
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "DEL",
+              "kd": "0.79",
+              "kpm": "18.9",
+              "maps": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rogue713",
+      "name": "rogue713.",
       "team": "kck",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "kck-rogue",
-      "name": "KCK | Rogue",
-      "team": "kck",
-      "roles": [
-        "player"
-      ]
-    },
-    {
-      "slug": "comish-marsh313",
-      "name": "COMISH | MaRsH313",
+      "slug": "marsh313",
+      "name": "marsh313",
       "team": "kck",
       "roles": [
         "player"
@@ -2600,40 +2886,70 @@
       ]
     },
     {
-      "slug": "bgolden",
-      "name": "Bgolden",
+      "slug": "bgolden83",
+      "name": "bgolden83",
       "team": "kck",
       "roles": [
         "coach"
+      ],
+      "gamertag": "Bgolden",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.09",
+            "kpm": "18.8",
+            "maps": 32
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "MAN / OMH",
+              "kd": "1.05",
+              "kpm": "19.2",
+              "maps": 25
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "KCK / MRD",
+              "kd": "1.28",
+              "kpm": "17.2",
+              "maps": 7
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "pit-2elite",
-      "name": "PIT | 2elite",
+      "slug": "2elite",
+      "name": ".2elite",
       "team": "pit",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "pit-brimington",
-      "name": "PIT | Brimington",
+      "slug": "garronbrimmer",
+      "name": "garronbrimmer",
       "team": "pit",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "mfic-ranked-incorrectly",
-      "name": "MFIC | Ranked Incorrectly",
+      "slug": "pizz",
+      "name": "pizz",
       "team": "pit",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "pit-twizz",
-      "name": "PIT | Twizz",
+      "slug": "skillztwizz",
+      "name": "skillztwizz",
       "team": "pit",
       "roles": [
         "player",
@@ -2671,8 +2987,8 @@
       ]
     },
     {
-      "slug": "mis-kentucky",
-      "name": "MIS | Kentucky",
+      "slug": "kentuckykarma75",
+      "name": "kentuckykarma75",
       "team": "mis",
       "roles": [
         "player"
@@ -2709,24 +3025,46 @@
       ]
     },
     {
-      "slug": "mis-imakaii",
-      "name": "MIS | ImAkaii",
+      "slug": "imakaiii",
+      "name": "imakaiii",
       "team": "mis",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "mis-racist-guy-marv",
-      "name": "MIS | Racist Guy Marv",
+      "slug": "marv3lous2001",
+      "name": "marv3lous2001",
       "team": "mis",
       "roles": [
         "player"
+      ],
+      "gamertag": "Racist Guy Marv",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.80",
+            "kpm": "12.3",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "KNX",
+              "kd": "0.80",
+              "kpm": "12.3",
+              "maps": 3
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "mis-shooter",
-      "name": "MIS | shooter",
+      "slug": "disabledvetamaturegamer16",
+      "name": "disabledvetamaturegamer16",
       "team": "mis",
       "roles": [
         "player",
@@ -2734,33 +3072,55 @@
       ]
     },
     {
-      "slug": "omh-unholy-draco",
-      "name": "OMH | unholy draco",
+      "slug": "unholy-ra",
+      "name": "unholy_ra",
       "team": "omh",
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "unholy draco",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.87",
+            "kpm": "16.8",
+            "maps": 17
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "OMH",
+              "kd": "0.87",
+              "kpm": "16.8",
+              "maps": 17
+            }
+          ]
+        }
       ]
     },
     {
-      "slug": "omh-revert",
-      "name": "OMH | Revert",
+      "slug": "revert2-0",
+      "name": "revert2.0",
       "team": "omh",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "omh-gutta",
-      "name": "OMH | Gutta",
+      "slug": "tk-gutta",
+      "name": "tk_gutta",
       "team": "omh",
       "roles": [
         "player"
       ]
     },
     {
-      "slug": "omh-slayfs",
-      "name": "OMH | SlayFS",
+      "slug": "sellticss",
+      "name": "sellticss",
       "team": "omh",
       "roles": [
         "player"
