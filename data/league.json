@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795551159182,
+  "generatedAt": 1795551314817,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1872,7 +1872,9 @@
       "team": "lex",
       "roles": [
         "player"
-      ]
+      ],
+      "gamertag": "Cam",
+      "gamertagSource": "linked"
     },
     {
       "slug": "lex-palsy",
