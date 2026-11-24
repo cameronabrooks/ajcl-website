@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795552012120,
+  "generatedAt": 1795552312092,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -53,6 +53,11 @@
           "ATL | Xerxes"
         ],
         "nonPlaying": [],
+        "kd": {
+          "ATL | Xerxes": "0.92",
+          "ATL | Reddaza": "0.00",
+          "ATL | Speiddyy": "0.00"
+        },
         "links": {
           "ATL | Xerxes": "atl-xerxes",
           "ATL | BBLZaaZaa": "atl-bblzaazaa",
@@ -78,6 +83,9 @@
           "CAR | Zuko"
         ],
         "nonPlaying": [],
+        "kd": {
+          "CAR | Zuko": "0.00"
+        },
         "links": {
           "CAR | Lil'Ceezars": "car-lil-ceezars",
           "CAR | Ny": "car-ny",
@@ -349,6 +357,10 @@
           "NOR | Tanji"
         ],
         "nonPlaying": [],
+        "kd": {
+          "NOR | Leisure": "1.02",
+          "NOR | Divi": "0.00"
+        },
         "links": {
           "NOR | Divi": "nor-divi",
           "NOR | Fly Tendencies": "nor-fly-tendencies",
@@ -377,6 +389,10 @@
           "KCK | Sac"
         ],
         "nonPlaying": [],
+        "kd": {
+          "KCK | Sac": "0.99",
+          "COMISH | MaRsH313": "0.96"
+        },
         "links": {
           "KCK | Sac": "kck-sac",
           "KCK | cbass": "kck-cbass",
@@ -403,6 +419,9 @@
           "PIT | Twizz"
         ],
         "nonPlaying": [],
+        "kd": {
+          "PIT | Twizz": "0.93"
+        },
         "links": {
           "PIT | 2elite": "pit-2elite",
           "PIT | Brimington": "pit-brimington",
@@ -428,6 +447,11 @@
           "MIS | shooter"
         ],
         "nonPlaying": [],
+        "kd": {
+          "MIS | shooter": "0.00",
+          "MIS | Kentucky": "1.19",
+          "MIS | ImAkaii": "0.00"
+        },
         "links": {
           "MIS | Kentucky": "mis-kentucky",
           "MIS | ImAkaii": "mis-imakaii",
@@ -455,6 +479,12 @@
           "OMH | unholy draco"
         ],
         "nonPlaying": [],
+        "kd": {
+          "OMH | unholy draco": "0.00",
+          "OMH | Revert": "0.00",
+          "OMH | Gutta": "0.00",
+          "OMH | SlayFS": "1.16"
+        },
         "links": {
           "OMH | unholy draco": "omh-unholy-draco",
           "OMH | Revert": "omh-revert",
@@ -1529,6 +1559,30 @@
       "team": "atl",
       "roles": [
         "player"
+      ],
+      "gamertag": "Xerxes",
+      "gamertagSource": "name",
+      "kd": "0.92",
+      "stats": {
+        "kd": "0.92",
+        "winPct": "62%",
+        "maps": "42",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": "W2"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.92",
+          "winPct": "62%",
+          "maps": "42",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": "W2",
+          "at": 1795552170728
+        }
       ]
     },
     {
@@ -1539,6 +1593,29 @@
         "player",
         "gm",
         "coach"
+      ],
+      "gamertag": "BBLZaaZaa",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552179227
+        }
       ]
     },
     {
@@ -1547,6 +1624,30 @@
       "team": "atl",
       "roles": [
         "player"
+      ],
+      "gamertag": "Reddaza",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552189132
+        }
       ]
     },
     {
@@ -1555,6 +1656,30 @@
       "team": "atl",
       "roles": [
         "player"
+      ],
+      "gamertag": "Speiddyy",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552198028
+        }
       ]
     },
     {
@@ -1565,6 +1690,29 @@
         "player",
         "gm",
         "coach"
+      ],
+      "gamertag": "Lil'Ceezars",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552206572
+        }
       ]
     },
     {
@@ -1573,6 +1721,29 @@
       "team": "car",
       "roles": [
         "player"
+      ],
+      "gamertag": "Ny",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552216573
+        }
       ]
     },
     {
@@ -1581,6 +1752,30 @@
       "team": "car",
       "roles": [
         "player"
+      ],
+      "gamertag": "Zuko",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552252878
+        }
       ]
     },
     {
@@ -2178,6 +2373,30 @@
       "team": "nor",
       "roles": [
         "player"
+      ],
+      "gamertag": "Divi",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552015561
+        }
       ]
     },
     {
@@ -2186,6 +2405,29 @@
       "team": "nor",
       "roles": [
         "player"
+      ],
+      "gamertag": "Fly Tendencies",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552023129
+        }
       ]
     },
     {
@@ -2194,6 +2436,29 @@
       "team": "nor",
       "roles": [
         "player"
+      ],
+      "gamertag": "Tanji",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552029841
+        }
       ]
     },
     {
@@ -2203,6 +2468,30 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Leisure",
+      "gamertagSource": "name",
+      "kd": "1.02",
+      "stats": {
+        "kd": "1.02",
+        "winPct": "50%",
+        "maps": "26",
+        "avgKills": "20.7",
+        "plusMinus": "+12",
+        "streak": "W1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "1.02",
+          "winPct": "50%",
+          "maps": "26",
+          "avgKills": "20.7",
+          "plusMinus": "+12",
+          "streak": "W1",
+          "at": 1795552037229
+        }
       ]
     },
     {
@@ -2212,6 +2501,30 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Sac",
+      "gamertagSource": "name",
+      "kd": "0.99",
+      "stats": {
+        "kd": "0.99",
+        "winPct": "41%",
+        "maps": "37",
+        "avgKills": "18.5",
+        "plusMinus": "-10",
+        "streak": "W1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.99",
+          "winPct": "41%",
+          "maps": "37",
+          "avgKills": "18.5",
+          "plusMinus": "-10",
+          "streak": "W1",
+          "at": 1795552044430
+        }
       ]
     },
     {
@@ -2220,6 +2533,29 @@
       "team": "kck",
       "roles": [
         "player"
+      ],
+      "gamertag": "cbass",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552051129
+        }
       ]
     },
     {
@@ -2228,6 +2564,29 @@
       "team": "kck",
       "roles": [
         "player"
+      ],
+      "gamertag": "Rogue",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552057033
+        }
       ]
     },
     {
@@ -2236,6 +2595,30 @@
       "team": "kck",
       "roles": [
         "player"
+      ],
+      "gamertag": "MaRsH313",
+      "gamertagSource": "name",
+      "kd": "0.96",
+      "stats": {
+        "kd": "0.96",
+        "winPct": "50%",
+        "maps": "44",
+        "avgKills": "21.3",
+        "plusMinus": "-38",
+        "streak": "L1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.96",
+          "winPct": "50%",
+          "maps": "44",
+          "avgKills": "21.3",
+          "plusMinus": "-38",
+          "streak": "L1",
+          "at": 1795552064535
+        }
       ]
     },
     {
@@ -2252,6 +2635,29 @@
       "team": "pit",
       "roles": [
         "player"
+      ],
+      "gamertag": "2elite",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552071830
+        }
       ]
     },
     {
@@ -2260,6 +2666,29 @@
       "team": "pit",
       "roles": [
         "player"
+      ],
+      "gamertag": "Brimington",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552077731
+        }
       ]
     },
     {
@@ -2268,6 +2697,29 @@
       "team": "pit",
       "roles": [
         "player"
+      ],
+      "gamertag": "Ranked Incorrectly",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552084534
+        }
       ]
     },
     {
@@ -2277,6 +2729,30 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "Twizz",
+      "gamertagSource": "name",
+      "kd": "0.93",
+      "stats": {
+        "kd": "0.93",
+        "winPct": "68%",
+        "maps": "19",
+        "avgKills": "15.3",
+        "plusMinus": "-23",
+        "streak": "W1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.93",
+          "winPct": "68%",
+          "maps": "19",
+          "avgKills": "15.3",
+          "plusMinus": "-23",
+          "streak": "W1",
+          "at": 1795552091830
+        }
       ]
     },
     {
@@ -2285,6 +2761,30 @@
       "team": "mis",
       "roles": [
         "player"
+      ],
+      "gamertag": "Kentucky",
+      "gamertagSource": "name",
+      "kd": "1.19",
+      "stats": {
+        "kd": "1.19",
+        "winPct": "45%",
+        "maps": "42",
+        "avgKills": "20.1",
+        "plusMinus": "+137",
+        "streak": "L2"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "1.19",
+          "winPct": "45%",
+          "maps": "42",
+          "avgKills": "20.1",
+          "plusMinus": "+137",
+          "streak": "L2",
+          "at": 1795552099132
+        }
       ]
     },
     {
@@ -2293,6 +2793,30 @@
       "team": "mis",
       "roles": [
         "player"
+      ],
+      "gamertag": "ImAkaii",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552105828
+        }
       ]
     },
     {
@@ -2301,6 +2825,29 @@
       "team": "mis",
       "roles": [
         "player"
+      ],
+      "gamertag": "Racist Guy Marv",
+      "gamertagSource": "name",
+      "stats": {
+        "kd": null,
+        "winPct": null,
+        "maps": null,
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": null,
+          "winPct": null,
+          "maps": null,
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552116634
+        }
       ]
     },
     {
@@ -2310,6 +2857,30 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "shooter",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552125533
+        }
       ]
     },
     {
@@ -2319,6 +2890,30 @@
       "roles": [
         "player",
         "gm"
+      ],
+      "gamertag": "unholy draco",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552134431
+        }
       ]
     },
     {
@@ -2327,6 +2922,30 @@
       "team": "omh",
       "roles": [
         "player"
+      ],
+      "gamertag": "Revert",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552143733
+        }
       ]
     },
     {
@@ -2335,6 +2954,30 @@
       "team": "omh",
       "roles": [
         "player"
+      ],
+      "gamertag": "Gutta",
+      "gamertagSource": "name",
+      "kd": "0.00",
+      "stats": {
+        "kd": "0.00",
+        "winPct": "0%",
+        "maps": "0",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": null
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "0.00",
+          "winPct": "0%",
+          "maps": "0",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": null,
+          "at": 1795552152645
+        }
       ]
     },
     {
@@ -2343,6 +2986,30 @@
       "team": "omh",
       "roles": [
         "player"
+      ],
+      "gamertag": "SlayFS",
+      "gamertagSource": "name",
+      "kd": "1.16",
+      "stats": {
+        "kd": "1.16",
+        "winPct": "41%",
+        "maps": "39",
+        "avgKills": null,
+        "plusMinus": null,
+        "streak": "W1"
+      },
+      "season": "Season X",
+      "seasons": [
+        {
+          "season": "Season X",
+          "kd": "1.16",
+          "winPct": "41%",
+          "maps": "39",
+          "avgKills": null,
+          "plusMinus": null,
+          "streak": "W1",
+          "at": 1795552162028
+        }
       ]
     }
   ]
