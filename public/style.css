@@ -425,3 +425,7 @@ html:not(.js) .player-layout .season-tabs, html:not(.js) .player-layout .game-ta
 .brand { flex: none; }
 .brand small { white-space: nowrap; }
 @media (max-width: 1150px) { .brand small { display: none; } .nav a { padding: 8px 10px 5px; } }
+
+/* Whole match card opens the match page */
+.match .mc-team, .match .mc-meta { pointer-events: none; }
+.match:hover .mc-name { color: var(--gold); }

@@ -189,11 +189,13 @@ function statusPill(m) {
 
 function matchCard(m, { showDivision = true } = {}) {
   const r = m.result;
+  // Team rows aren't separate links: the whole card opens the match page
+  // (which links to both teams).
   const side = (team, maps, won) => `
-    <a class="mc-team${r ? (won ? ' won' : ' lost') : ''}" href="${teamHref(team)}">
+    <div class="mc-team${r ? (won ? ' won' : ' lost') : ''}">
       ${crest(team, 'sm')}<span class="mc-name">${esc(team.name)}</span>
       ${r ? `<span class="mc-score">${maps}</span>` : ''}
-    </a>`;
+    </div>`;
   return `<article class="match" data-teams="${esc(m.home.slug)} ${esc(m.away.slug)}">
     <a class="mc-link" href="${matchHref(m)}" aria-label="${esc(m.home.name)} vs ${esc(m.away.name)}: match details"></a>
     <div class="mc-meta">${showDivision ? `<span class="div-tag div-${m.division.toLowerCase()}">${esc(m.division)}</span>` : ''}<span class="muted">Week ${m.week}</span>${statusPill(m)}</div>
