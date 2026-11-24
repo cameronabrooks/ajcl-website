@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795560290926,
+  "generatedAt": 1795561741388,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -119,15 +119,15 @@
         "nonPlaying": [],
         "ranks": {
           "butchiehof": "Amethyst",
+          "nitsua": "Kyanite",
           "Crouse": "Amethyst",
-          "Loyal": "Amethyst",
-          "nitsua": "Kyanite"
+          "Loyal": "Amethyst"
         },
         "links": {
+          "nitsua": "nitsua",
           "butchiehof": "butchiehof",
           "Crouse": "crouse",
           "Loyal": "loyal",
-          "nitsua": "nitsua",
           "Delusions": "delusions"
         }
       }
@@ -1138,6 +1138,7 @@
       "deadline": 1800507599000
     }
   ],
+  "powerRankings": {},
   "members": {
     "e5bff57d28cd2185c135": {
       "team": "atl",
@@ -1199,6 +1200,13 @@
         "player"
       ]
     },
+    "2157bbb040dac182dbb8": {
+      "team": "syr",
+      "name": "nitsua",
+      "roles": [
+        "player"
+      ]
+    },
     "56c8e1ef5dfbfd83acb8": {
       "team": "syr",
       "name": "butchiehof",
@@ -1217,13 +1225,6 @@
     "498e3024effcd57afd25": {
       "team": "syr",
       "name": "Loyal",
-      "roles": [
-        "player"
-      ]
-    },
-    "2157bbb040dac182dbb8": {
-      "team": "syr",
-      "name": "nitsua",
       "roles": [
         "player"
       ]
@@ -1823,6 +1824,45 @@
       "rank": "Amethyst"
     },
     {
+      "slug": "nitsua",
+      "name": "nitsua",
+      "team": "syr",
+      "roles": [
+        "player"
+      ],
+      "rank": "Kyanite",
+      "gamertag": "nitsua",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.27",
+            "kpm": "23.7",
+            "maps": 38
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.31",
+              "kpm": "23.6",
+              "maps": 29
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.16",
+              "kpm": "24.0",
+              "maps": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "butchiehof",
       "name": "butchiehof",
       "team": "syr",
@@ -1911,45 +1951,6 @@
               "kd": "1.25",
               "kpm": "23.4",
               "maps": 28
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "nitsua",
-      "name": "nitsua",
-      "team": "syr",
-      "roles": [
-        "player"
-      ],
-      "rank": "Kyanite",
-      "gamertag": "nitsua",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.27",
-            "kpm": "23.7",
-            "maps": 38
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "SLN",
-              "kd": "1.31",
-              "kpm": "23.6",
-              "maps": 29
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "SLN",
-              "kd": "1.16",
-              "kpm": "24.0",
-              "maps": 9
             }
           ]
         }
