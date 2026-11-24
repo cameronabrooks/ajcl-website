@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795563003542,
+  "generatedAt": 1795563725873,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -472,14 +472,14 @@
         "nonPlaying": [],
         "ranks": {
           "Twizz": "Amber",
+          "Ranked Incorrectly": "Ruby",
           "2elite": "Amber",
-          "Brimington": "Ruby",
-          "Ranked Incorrectly": "Ruby"
+          "Brimington": "Ruby"
         },
         "links": {
+          "Ranked Incorrectly": "ranked-incorrectly",
           "2elite": "2elite",
           "Brimington": "brimington",
-          "Ranked Incorrectly": "ranked-incorrectly",
           "Twizz": "twizz"
         }
       }
@@ -1560,6 +1560,13 @@
         "coach"
       ]
     },
+    "00e5776d8ebd67070622": {
+      "team": "pit",
+      "name": "Ranked Incorrectly",
+      "roles": [
+        "player"
+      ]
+    },
     "f792d0a1a59ee39e8741": {
       "team": "pit",
       "name": "2elite",
@@ -1570,13 +1577,6 @@
     "484f010b69343c22efe4": {
       "team": "pit",
       "name": "Brimington",
-      "roles": [
-        "player"
-      ]
-    },
-    "00e5776d8ebd67070622": {
-      "team": "pit",
-      "name": "Ranked Incorrectly",
       "roles": [
         "player"
       ]
@@ -3248,6 +3248,15 @@
       ]
     },
     {
+      "slug": "ranked-incorrectly",
+      "name": "Ranked Incorrectly",
+      "team": "pit",
+      "roles": [
+        "player"
+      ],
+      "rank": "Ruby"
+    },
+    {
       "slug": "2elite",
       "name": "2elite",
       "team": "pit",
@@ -3259,15 +3268,6 @@
     {
       "slug": "brimington",
       "name": "Brimington",
-      "team": "pit",
-      "roles": [
-        "player"
-      ],
-      "rank": "Ruby"
-    },
-    {
-      "slug": "ranked-incorrectly",
-      "name": "Ranked Incorrectly",
       "team": "pit",
       "roles": [
         "player"
