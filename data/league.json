@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795557970267,
+  "generatedAt": 1795559954480,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -53,9 +53,15 @@
           "Xerxes"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "BBLZaaZaa": "Amethyst",
+          "Xerxes": "Amethyst",
+          "Reddaza": "Kyanite",
+          "Speiddyy": "Amethyst"
+        },
         "links": {
-          "Xerxes": "xerxes",
           "BBLZaaZaa": "bblzaazaa",
+          "Xerxes": "xerxes",
           "Reddaza": "reddaza",
           "Speiddyy": "speiddyy"
         }
@@ -78,6 +84,12 @@
           "Zuko"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "Lil'Ceezars": "Kyanite",
+          "Ny": "Amethyst",
+          "Zuko": "Amethyst",
+          "007 Quay": "Amethyst"
+        },
         "links": {
           "Lil'Ceezars": "lil-ceezars",
           "Ny": "ny",
@@ -105,6 +117,12 @@
           "nitsua"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "butchiehof": "Amethyst",
+          "Crouse": "Amethyst",
+          "Loyal": "Amethyst",
+          "nitsua": "Kyanite"
+        },
         "links": {
           "butchiehof": "butchiehof",
           "Crouse": "crouse",
@@ -131,6 +149,12 @@
           "Spyder"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "Lux": "Kyanite",
+          "Primo": "Amethyst",
+          "Spyder": "Amethyst",
+          "Kjay": "Amethyst"
+        },
         "links": {
           "Lux": "lux",
           "Primo": "primo",
@@ -157,6 +181,12 @@
           "vis"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "MoonerTheAlcoholic": "Kyanite",
+          "vis": "Amethyst",
+          "ilikefeet": "Amethyst",
+          "Lakas": "Amethyst"
+        },
         "links": {
           "MoonerTheAlcoholic": "moonerthealcoholic",
           "vis": "vis",
@@ -182,6 +212,12 @@
           "Venom"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "Venom": "Amethyst",
+          "BamBam": "Kyanite",
+          "Crazed": "Amethyst",
+          "Freaky": "Amethyst"
+        },
         "links": {
           "BamBam": "bambam",
           "Venom": "venom",
@@ -207,6 +243,12 @@
           "Zylixz"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "Zylixz": "Kyanite",
+          "BrooksySZN": "Amethyst",
+          "Luke": "Amethyst",
+          "Hunna": "Amethyst"
+        },
         "links": {
           "BrooksySZN": "brooksyszn",
           "Luke": "luke",
@@ -232,6 +274,12 @@
           "RynoRH"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "RynoRH": "Amethyst",
+          "Bis": "Amethyst",
+          "g-ter": "Kyanite",
+          "MoistQuackers": "Amethyst"
+        },
         "links": {
           "Bis": "bis",
           "g-ter": "g-ter",
@@ -257,6 +305,12 @@
           "Owes Every1 Taco Bell Plu"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "⛧ Ƒëﾑr ツ": "Ruby",
+          "Owes Every1 Taco Bell Plu": "Amber",
+          "Inspire": "Amber",
+          "BooshDaGoat": "Ruby"
+        },
         "links": {
           "Owes Every1 Taco Bell Plu": "owes-every1-taco-bell-plu",
           "Inspire": "inspire",
@@ -284,6 +338,12 @@
           "ZEUS"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "🧛🏼OverlordAlucard 🧛🏼": "Amber",
+          "Bruce": "Amber",
+          "JAYDREAMZ": "Ruby",
+          "ZEUS": "Ruby"
+        },
         "links": {
           "🧛🏼OverlordAlucard 🧛🏼": "overlordalucard",
           "Bruce": "bruce",
@@ -310,6 +370,12 @@
           "Palsy"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "Kib": "Amber",
+          "Cam": "Amber",
+          "Palsy": "Ruby",
+          "Bandit": "Ruby"
+        },
         "links": {
           "Cam": "cam",
           "Palsy": "palsy",
@@ -337,6 +403,13 @@
           "Tanji"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "Leisure": "Ruby",
+          "Lil'Ceezars": "Kyanite",
+          "Divi": "Ruby",
+          "Fly Tendencies": "Amber",
+          "Tanji": "Amber"
+        },
         "links": {
           "Divi": "divi",
           "Fly Tendencies": "fly-tendencies",
@@ -365,6 +438,12 @@
           "Sac"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "Sac": "Ruby",
+          "cbass": "Amber",
+          "Rogue": "Amber",
+          "MaRsH313": "Ruby"
+        },
         "links": {
           "Sac": "sac",
           "cbass": "cbass",
@@ -391,6 +470,12 @@
           "Twizz"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "Twizz": "Amber",
+          "2elite": "Amber",
+          "Brimington": "Ruby",
+          "Ranked Incorrectly": "Ruby"
+        },
         "links": {
           "2elite": "2elite",
           "Brimington": "brimington",
@@ -416,6 +501,12 @@
           "shooter"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "shooter": "Ruby",
+          "Kentucky": "Ruby",
+          "ImAkaii": "Amber",
+          "Racist Guy Marv": "Amber"
+        },
         "links": {
           "Kentucky": "kentucky",
           "ImAkaii": "imakaii",
@@ -443,6 +534,13 @@
           "unholy draco"
         ],
         "nonPlaying": [],
+        "ranks": {
+          "unholy draco": "Ruby",
+          "BBLZaaZaa": "Amethyst",
+          "Revert": "Ruby",
+          "Gutta": "Amber",
+          "SlayFS": "Amber"
+        },
         "links": {
           "unholy draco": "unholy-draco",
           "Revert": "revert",
@@ -482,7 +580,28 @@
       "status": "scheduled",
       "time": 1795912200000,
       "result": null,
-      "deadline": 1796273999000
+      "deadline": 1796273999000,
+      "picksBans": {
+        "teamA": "tor",
+        "teamB": "sln",
+        "inProgress": true,
+        "actions": [
+          {
+            "mode": "hardpoint",
+            "action": "ban",
+            "team": "tor",
+            "slot": null,
+            "map": "Munition"
+          },
+          {
+            "mode": "hardpoint",
+            "action": "ban",
+            "team": "sln",
+            "slot": null,
+            "map": "Rooftops"
+          }
+        ]
+      }
     },
     {
       "week": 1,
@@ -512,7 +631,11 @@
       "status": "scheduled",
       "time": 1795576500000,
       "result": null,
-      "deadline": 1796273999000
+      "deadline": 1796273999000,
+      "caster": {
+        "name": "nitsua",
+        "stream": "https://www.twitch.tv/nitsuafps"
+      }
     },
     {
       "week": 1,
@@ -1016,13 +1139,6 @@
     }
   ],
   "members": {
-    "4623064ecf744333f6f7": {
-      "team": "atl",
-      "name": "Xerxes",
-      "roles": [
-        "player"
-      ]
-    },
     "e5bff57d28cd2185c135": {
       "team": "atl",
       "name": "BBLZaaZaa",
@@ -1030,6 +1146,13 @@
         "player",
         "gm",
         "coach"
+      ]
+    },
+    "4623064ecf744333f6f7": {
+      "team": "atl",
+      "name": "Xerxes",
+      "roles": [
+        "player"
       ]
     },
     "c1fd90bf17d65a2f054c": {
@@ -1512,44 +1635,6 @@
   },
   "players": [
     {
-      "slug": "xerxes",
-      "name": "Xerxes",
-      "team": "atl",
-      "roles": [
-        "player"
-      ],
-      "gamertag": "Xerxes",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.92",
-            "kpm": "19.3",
-            "maps": 42
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "PIT / SLN",
-              "kd": "0.93",
-              "kpm": "19.8",
-              "maps": 29
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "CAR / SLN",
-              "kd": "0.88",
-              "kpm": "18.2",
-              "maps": 13
-            }
-          ]
-        }
-      ]
-    },
-    {
       "slug": "bblzaazaa",
       "name": "BBLZaaZaa",
       "team": "atl",
@@ -1558,6 +1643,7 @@
         "gm",
         "coach"
       ],
+      "rank": "Amethyst",
       "gamertag": "BBLZaaZaa",
       "gamertagSource": "name",
       "games": [
@@ -1590,12 +1676,52 @@
       ]
     },
     {
+      "slug": "xerxes",
+      "name": "Xerxes",
+      "team": "atl",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amethyst",
+      "gamertag": "Xerxes",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.92",
+            "kpm": "19.3",
+            "maps": 42
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "PIT / SLN",
+              "kd": "0.93",
+              "kpm": "19.8",
+              "maps": 29
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "CAR / SLN",
+              "kd": "0.88",
+              "kpm": "18.2",
+              "maps": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "reddaza",
       "name": "Reddaza",
       "team": "atl",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Kyanite"
     },
     {
       "slug": "speiddyy",
@@ -1603,7 +1729,8 @@
       "team": "atl",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amethyst"
     },
     {
       "slug": "lil-ceezars",
@@ -1614,6 +1741,7 @@
         "gm",
         "coach"
       ],
+      "rank": "Kyanite",
       "gamertag": "ceez",
       "gamertagSource": "linked",
       "games": [
@@ -1644,6 +1772,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "amarae",
       "gamertagSource": "linked",
       "games": [
@@ -1681,7 +1810,8 @@
       "team": "car",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amethyst"
     },
     {
       "slug": "007-quay",
@@ -1689,7 +1819,8 @@
       "team": "car",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amethyst"
     },
     {
       "slug": "butchiehof",
@@ -1699,6 +1830,7 @@
         "player",
         "gm"
       ],
+      "rank": "Amethyst",
       "gamertag": "butchiehof",
       "gamertagSource": "name",
       "games": [
@@ -1729,6 +1861,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "ExubeTurtle85",
       "gamertagSource": "linked",
       "games": [
@@ -1759,6 +1892,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "Loyal",
       "gamertagSource": "name",
       "games": [
@@ -1789,6 +1923,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Kyanite",
       "gamertag": "nitsua",
       "gamertagSource": "name",
       "games": [
@@ -1864,7 +1999,8 @@
       "team": "sln",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Kyanite"
     },
     {
       "slug": "primo",
@@ -1873,6 +2009,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "Primo",
       "gamertagSource": "name",
       "games": [
@@ -1910,7 +2047,8 @@
       "team": "sln",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amethyst"
     },
     {
       "slug": "kjay",
@@ -1918,7 +2056,8 @@
       "team": "sln",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amethyst"
     },
     {
       "slug": "k1lla",
@@ -1936,6 +2075,7 @@
         "player",
         "gm"
       ],
+      "rank": "Kyanite",
       "gamertag": "MoonerTheAlcoholic",
       "gamertagSource": "name",
       "games": [
@@ -1974,6 +2114,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "vis",
       "gamertagSource": "name",
       "games": [
@@ -2012,6 +2153,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "ilikefeet",
       "gamertagSource": "name",
       "games": [
@@ -2042,6 +2184,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "Lakas",
       "gamertagSource": "name",
       "games": [
@@ -2072,6 +2215,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Kyanite",
       "gamertag": "BamBam",
       "gamertagSource": "name",
       "games": [
@@ -2111,6 +2255,7 @@
         "player",
         "gm"
       ],
+      "rank": "Amethyst",
       "gamertag": "Venom",
       "gamertagSource": "name",
       "games": [
@@ -2141,6 +2286,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "Crazed",
       "gamertagSource": "name",
       "games": [
@@ -2171,6 +2317,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "Freaky",
       "gamertagSource": "name",
       "games": [
@@ -2209,6 +2356,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "BrooksySZN",
       "gamertagSource": "name",
       "games": [
@@ -2246,7 +2394,8 @@
       "team": "tor",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amethyst"
     },
     {
       "slug": "zylixz",
@@ -2256,6 +2405,7 @@
         "player",
         "gm"
       ],
+      "rank": "Kyanite",
       "gamertag": "Zylixz",
       "gamertagSource": "name",
       "games": [
@@ -2285,7 +2435,8 @@
       "team": "tor",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amethyst"
     },
     {
       "slug": "bis",
@@ -2294,6 +2445,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "Bis",
       "gamertagSource": "name",
       "games": [
@@ -2331,7 +2483,8 @@
       "team": "hal",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Kyanite"
     },
     {
       "slug": "rynorh",
@@ -2340,7 +2493,8 @@
       "roles": [
         "player",
         "gm"
-      ]
+      ],
+      "rank": "Amethyst"
     },
     {
       "slug": "moistquackers",
@@ -2349,6 +2503,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amethyst",
       "gamertag": "MoistQuackers",
       "gamertagSource": "name",
       "games": [
@@ -2378,7 +2533,8 @@
       "team": "ros",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amber"
     },
     {
       "slug": "inspire",
@@ -2387,6 +2543,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amber",
       "gamertag": "Inspire",
       "gamertagSource": "name",
       "games": [
@@ -2417,6 +2574,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Ruby",
       "gamertag": "BooshDaGoat",
       "gamertagSource": "name",
       "games": [
@@ -2448,6 +2606,7 @@
         "player",
         "gm"
       ],
+      "rank": "Ruby",
       "gamertag": "当 Feムrツ",
       "gamertagSource": "linked",
       "games": [
@@ -2487,6 +2646,7 @@
         "player",
         "gm"
       ],
+      "rank": "Amber",
       "gamertag": "ChristianDaBos",
       "gamertagSource": "linked",
       "games": [
@@ -2533,6 +2693,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amber",
       "gamertag": "Bruce",
       "gamertagSource": "name",
       "games": [
@@ -2571,6 +2732,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Ruby",
       "gamertag": "JAYDREAMZ",
       "gamertagSource": "name",
       "games": [
@@ -2609,6 +2771,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Ruby",
       "gamertag": "ZEUS",
       "gamertagSource": "name",
       "games": [
@@ -2655,6 +2818,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amber",
       "gamertag": "Cam",
       "gamertagSource": "linked",
       "games": [
@@ -2700,7 +2864,8 @@
       "team": "lex",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Ruby"
     },
     {
       "slug": "kib",
@@ -2710,6 +2875,7 @@
         "player",
         "gm"
       ],
+      "rank": "Amber",
       "gamertag": "Kib",
       "gamertagSource": "name",
       "games": [
@@ -2748,6 +2914,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Ruby",
       "gamertag": "Bandit",
       "gamertagSource": "name",
       "games": [
@@ -2785,7 +2952,8 @@
       "team": "nor",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Ruby"
     },
     {
       "slug": "fly-tendencies",
@@ -2794,6 +2962,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amber",
       "gamertag": "Fly Tendencies",
       "gamertagSource": "name",
       "games": [
@@ -2832,6 +3001,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amber",
       "gamertag": "arrmie",
       "gamertagSource": "linked"
     },
@@ -2843,6 +3013,7 @@
         "player",
         "gm"
       ],
+      "rank": "Ruby",
       "gamertag": "Leisure",
       "gamertagSource": "name",
       "games": [
@@ -2882,6 +3053,7 @@
         "player",
         "gm"
       ],
+      "rank": "Ruby",
       "gamertag": "Sac",
       "gamertagSource": "name",
       "games": [
@@ -2920,6 +3092,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amber",
       "gamertag": "cbass",
       "gamertagSource": "name",
       "games": [
@@ -2957,7 +3130,8 @@
       "team": "kck",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amber"
     },
     {
       "slug": "marsh313",
@@ -2966,6 +3140,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Ruby",
       "gamertag": "MaRsH313",
       "gamertagSource": "name",
       "games": [
@@ -3041,7 +3216,8 @@
       "team": "pit",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amber"
     },
     {
       "slug": "brimington",
@@ -3049,7 +3225,8 @@
       "team": "pit",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Ruby"
     },
     {
       "slug": "ranked-incorrectly",
@@ -3057,7 +3234,8 @@
       "team": "pit",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Ruby"
     },
     {
       "slug": "twizz",
@@ -3067,6 +3245,7 @@
         "player",
         "gm"
       ],
+      "rank": "Amber",
       "gamertag": "Twizz",
       "gamertagSource": "name",
       "games": [
@@ -3105,6 +3284,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Ruby",
       "gamertag": "Kentucky",
       "gamertagSource": "name",
       "games": [
@@ -3142,7 +3322,8 @@
       "team": "mis",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amber"
     },
     {
       "slug": "racist-guy-marv",
@@ -3151,6 +3332,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amber",
       "gamertag": "Racist Guy Marv",
       "gamertagSource": "name",
       "games": [
@@ -3181,7 +3363,8 @@
       "roles": [
         "player",
         "gm"
-      ]
+      ],
+      "rank": "Ruby"
     },
     {
       "slug": "unholy-draco",
@@ -3191,6 +3374,7 @@
         "player",
         "gm"
       ],
+      "rank": "Ruby",
       "gamertag": "unholy draco",
       "gamertagSource": "name",
       "games": [
@@ -3220,7 +3404,8 @@
       "team": "omh",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Ruby"
     },
     {
       "slug": "gutta",
@@ -3228,7 +3413,8 @@
       "team": "omh",
       "roles": [
         "player"
-      ]
+      ],
+      "rank": "Amber"
     },
     {
       "slug": "slayfs",
@@ -3237,6 +3423,7 @@
       "roles": [
         "player"
       ],
+      "rank": "Amber",
       "gamertag": "SlayFS",
       "gamertagSource": "name",
       "games": [
