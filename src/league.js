@@ -40,6 +40,7 @@ function renderPage(render, league, content, page) {
   if (page === 'teams') return render.teamsPage(league, content);
   if (page === 'players') return render.playersPage(league, content);
   if (page === 'draft') return render.draftPage(league, content);
+  if (page === 'power-rankings') return render.powerRankingsPage(league, content);
   if (page === 'stats') return render.statsPage(league, content);
   if (page === 'join') return render.joinPage(league, content);
   if (page && page.startsWith('match:')) {

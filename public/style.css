@@ -429,3 +429,19 @@ html:not(.js) .player-layout .season-tabs, html:not(.js) .player-layout .game-ta
 /* Whole match card opens the match page */
 .match .mc-team, .match .mc-meta { pointer-events: none; }
 .match:hover .mc-name { color: var(--gold); }
+
+/* Power rankings */
+.page-tabs { margin-top: 24px; }
+.power-list { list-style: none; margin: 0; padding: 0; }
+.power-list li { display: grid; grid-template-columns: 34px minmax(0, 1fr) 90px 64px; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+.power-list li:first-child { border-top: 0; }
+.power-rank { font: 700 24px/1 var(--heading); color: var(--muted); text-align: center; }
+.power-1 .power-rank { color: var(--gold); }
+.power-2 .power-rank { color: #d4d8e2; }
+.power-3 .power-rank { color: #d08b52; }
+.power-bar { height: 6px; border-radius: 999px; background: var(--panel-2); overflow: hidden; }
+.power-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--ember), var(--gold)); border-radius: inherit; transition: width .6s ease; }
+.power-pts { text-align: right; font-size: 13px; color: var(--muted); }
+.power-pts strong { font: 600 20px var(--heading); color: var(--text); }
+.power-meta { margin: 12px 0 0; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+@media (max-width: 560px) { .power-list li { grid-template-columns: 28px minmax(0, 1fr) 56px; } .power-bar { display: none; } }

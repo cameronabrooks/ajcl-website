@@ -334,6 +334,13 @@ function home(league, c) {
     ${['Premier', 'Academy'].map(d => `<div class="panel"><h3 class="panel-title div-${d.toLowerCase()}-text">${d}</h3>${standingsTable(league.standings[d], { compact: true })}</div>`).join('')}
   </div>
 </section>
+${hasPowerRankings(league) ? `
+<section class="wrap section">
+  <div class="section-head"><h2>Power Rankings</h2><a href="${u('/power-rankings/')}">Full power rankings →</a></div>
+  <div class="two-col">
+    ${['Premier', 'Academy'].filter(d => league.powerRankings[d]).map(d => `<div class="panel"><h3 class="panel-title div-${d.toLowerCase()}-text">${d}</h3>${powerTable(league, d, { top: 3 })}</div>`).join('')}
+  </div>
+</section>` : ''}
 
 <section class="wrap section">
   <div class="about panel">
@@ -468,8 +475,46 @@ function schedulePage(league, c) {
   return layout({ title: 'Schedule', active: 'schedule', body, c, script, page: 'schedule' });
 }
 
+// ---- Power rankings (from the bot's /powerrankings votes: 5/3/1 points) ----
+// Updates live: each vote reaches open pages within seconds via the live feed.
+const hasPowerRankings = league => !!(league.powerRankings && (league.powerRankings.Premier || league.powerRankings.Academy));
+
+function powerTable(league, division, { top } = {}) {
+  const pr = league.powerRankings && league.powerRankings[division];
+  if (!pr) return '<p class="muted">No power rankings yet.</p>';
+  const bySlug = Object.fromEntries(league.teams.map(t => [t.slug, t]));
+  // Shared rank for tied points (e.g. 1, 1, 3).
+  let rank = 0, prev = null;
+  const rows = pr.teams.map((e, i) => { if (e.points !== prev) { rank = i + 1; prev = e.points; } return { ...e, rank }; });
+  const shown = top ? rows.slice(0, top) : rows;
+  const max = Math.max(1, ...rows.map(r => r.points));
+  return `<ol class="power-list">${shown.map(e => {
+    const t = bySlug[e.team];
+    if (!t) return '';
+    return `<li class="${e.rank <= 3 && e.points ? `power-top power-${e.rank}` : ''}" data-team="${esc(t.slug)}">
+      <span class="power-rank">${e.rank}</span>
+      <a class="team-cell" href="${teamHref(t)}">${crest(t, 'xs')}<span>${esc(t.name)}</span></a>
+      <span class="power-bar"><span style="width:${Math.round((e.points / max) * 100)}%"></span></span>
+      <span class="power-pts"><strong>${e.points}</strong> pts</span>
+    </li>`;
+  }).join('')}</ol>
+  <p class="muted power-meta">${pr.status === 'open' ? '<span class="pill pill-live"><span class="live-dot"></span>Voting open</span> ' : '<span class="pill">Final</span> '}${pr.voters} voter${pr.voters === 1 ? '' : 's'}</p>`;
+}
+
+function powerRankingsPage(league, c) {
+  const body = pageHead(c.season || 'Power Rankings', 'Power Rankings', 'Voted on in the AJCL Discord: each voter ranks their top 3 teams (1st = 5 pts, 2nd = 3 pts, 3rd = 1 pt). Updates live as votes come in.') + `
+<section class="wrap"><div class="tabs page-tabs"><a class="tab" href="${u('/standings/')}">Standings</a><a class="tab active" href="${u('/power-rankings/')}">Power Rankings</a></div></section>
+<section class="wrap section two-col">
+  ${hasPowerRankings(league)
+    ? ['Premier', 'Academy'].map(d => `<div class="panel"><h2 class="panel-title div-${d.toLowerCase()}-text">${d} Division</h2>${powerTable(league, d)}</div>`).join('')
+    : '<p class="muted">Power rankings voting hasn\'t started yet.</p>'}
+</section>`;
+  return layout({ title: 'Power Rankings', active: 'standings', body, c, page: 'power-rankings' });
+}
+
 function standingsPage(league, c) {
   const body = pageHead(c.season || 'Standings', 'Standings', 'Ranked by series wins, then map differential.') + `
+<section class="wrap"><div class="tabs page-tabs"><a class="tab active" href="${u('/standings/')}">Standings</a><a class="tab" href="${u('/power-rankings/')}">Power Rankings</a></div></section>` + `
 <section class="wrap section two-col">
   ${['Premier', 'Academy'].map(d => `<div class="panel"><h2 class="panel-title div-${d.toLowerCase()}-text">${d} Division</h2>${standingsTable(league.standings[d])}</div>`).join('')}
 </section>`;
@@ -763,4 +808,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, matchId, matchPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, matchId, matchPage, powerRankingsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
