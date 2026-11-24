@@ -21,15 +21,49 @@ function timeTag(ts) {
   return `<time datetime="${new Date(ts).toISOString()}">${esc(et)}</time>`;
 }
 
-// morph=true gives the crest a shared view-transition name so it glides between the
-// Teams grid and the team page. Only use it where the team appears once on the page.
+// morph=true marks the crest so the page-transition script can make it glide between
+// the Teams grid and that team's page. The transition name is only assigned at
+// navigation time, to the one team involved (see TRANSITION_SCRIPT).
 function crest(team, size = 'md', morph = false) {
-  const vt = morph ? ` style="view-transition-name: crest-${esc(team.slug)}"` : '';
+  const vt = morph ? ` data-morph="${esc(team.slug)}"` : '';
   if (team.logo) return `<img class="crest crest-${size}" src="${esc(u(team.logo))}" alt=""${vt}${morph ? '' : ' loading="lazy"'}>`;
   return `<span class="crest crest-${size} crest-fallback" aria-hidden="true"${vt}>${esc(team.abbr)}</span>`;
 }
 
 const teamHref = team => u(`/teams/${team.slug}/`);
+
+// Cross-document view transitions: give only the navigated team's crest a shared
+// name on both the outgoing and incoming page, so it alone morphs and everything
+// else moves together with the page.
+const TRANSITION_SCRIPT = `<script>
+(function () {
+  function teamSlug(url) {
+    var m = /\\/teams\\/([a-z0-9-]+)\\/?$/.exec(new URL(url, location.href).pathname);
+    return m ? m[1] : null;
+  }
+  function tag(slug, vt) {
+    if (!vt) return;
+    // A skipped transition (e.g. clicking again mid-animation) rejects these; that's expected.
+    vt.ready.catch(function () {});
+    if (!slug) return;
+    var el = document.querySelector('[data-morph="' + slug + '"]');
+    if (!el) return;
+    el.style.viewTransitionName = 'team-crest';
+    var clear = function () { el.style.viewTransitionName = ''; };
+    vt.finished.then(clear, clear);
+  }
+  addEventListener('pageswap', function (e) {
+    if (!e.viewTransition) return;
+    var to = e.activation && e.activation.entry ? teamSlug(e.activation.entry.url) : null;
+    tag(to || teamSlug(location.href), e.viewTransition);
+  });
+  addEventListener('pagereveal', function (e) {
+    if (!e.viewTransition) return;
+    var from = window.navigation && navigation.activation && navigation.activation.from;
+    tag(teamSlug(location.href) || (from && teamSlug(from.url)), e.viewTransition);
+  });
+})();
+</script>`;
 
 function layout({ title, active, body, c, script = '' }) {
   const nav = [
@@ -54,6 +88,8 @@ function layout({ title, active, body, c, script = '' }) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${u('/style.css')}?v=${CSS_VERSION}">
+<link rel="expect" href="#page-end" blocking="render">
+${TRANSITION_SCRIPT}
 </head>
 <body>
 <header class="topbar">
@@ -63,7 +99,7 @@ function layout({ title, active, body, c, script = '' }) {
     ${discord}
   </div>
 </header>
-<main>${body}</main>
+<main>${body}<span id="page-end"></span></main>
 <footer class="footer">
   <div class="wrap footer-inner">
     <span>© ${new Date().getFullYear()} Average Joe's CoD League</span>

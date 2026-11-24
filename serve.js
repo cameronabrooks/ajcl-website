@@ -3,17 +3,17 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { build } = require('./build');
-
 const DIST = path.join(__dirname, 'dist');
 const port = Number(process.env.PORT) || 3000;
 const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.js': 'text/javascript' };
 
 function rebuild() {
   try {
-    for (const k of Object.keys(require.cache)) if (k.includes(`${path.sep}src${path.sep}`)) delete require.cache[k];
-    require('./src/render');
-    build();
+    // Drop cached copies of build.js and src/* so edits take effect without a restart.
+    for (const k of Object.keys(require.cache)) {
+      if (k.startsWith(__dirname) && k !== __filename) delete require.cache[k];
+    }
+    require('./build').build();
   } catch (e) { console.error('Build failed:', e.message); }
 }
 rebuild();
