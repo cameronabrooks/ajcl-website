@@ -4,9 +4,9 @@ The website for Average Joe's CoD League. It's a static site hosted free on GitH
 
 ## How it stays up to date
 
-1. The AJCL bot builds the league data (rosters, schedule, match times, results, map pool).
-2. Every 5 minutes, if anything changed, the bot commits it to `data/league.json` in this repo.
-3. That commit triggers the **Build & deploy website** GitHub Action, which rebuilds and publishes the site (about 1 minute).
+1. The AJCL bot builds the league data (rosters, schedule, match times, results, map pool) whenever something changes.
+2. **Instantly** (~1s): the bot sends it to the `ajcl-live` Cloudflare Worker (`live/`). Every open page is connected to it by WebSocket and re-renders itself in place (`public/live.js`, using the same templates bundled into `app.js`). Pages also fetch the latest data from it when they load.
+3. **Permanently** (~10s): the bot commits it to `data/league.json` here, which triggers the **Build & deploy website** GitHub Action (about 1 minute). That's what the static pages contain, so the site still works if the Worker is ever down.
 
 Don't edit `data/league.json` by hand: the bot overwrites it.
 
@@ -44,3 +44,14 @@ The Discord application must allow these redirect URLs (Developer Portal → OAu
 - `http://localhost:3000/auth/` (local preview)
 
 If you add a custom domain, add `https://<your-domain>/auth/` too.
+
+## Live feed (Cloudflare Worker)
+
+`live/` holds the `ajcl-live` Worker (https://ajcl-live.ajcl-live.workers.dev), set in `content.json` as `liveUrl`.
+
+- `PUT /league`: bot only (`Authorization: Bearer <LIVE_SECRET>`)
+- `GET /league.json`: latest data, never cached
+- `GET /ws`: WebSocket that receives the data whenever it changes
+
+Deploy changes with `cd live && npx wrangler deploy`. The secret is set with
+`npx wrangler secret put LIVE_SECRET` and must match the bot's `WEBSITE_LIVE_SECRET`.

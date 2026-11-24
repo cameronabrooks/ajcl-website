@@ -100,15 +100,26 @@
     }
   }
 
+  function applyIndex(user, idx) {
+    var entry = idx && idx.members && idx.members[user.hash];
+    document.querySelectorAll('.is-mine, .is-me').forEach(function (el) { el.classList.remove('is-mine', 'is-me'); });
+    render(user, entry, entry && idx.teams && idx.teams[entry.team]);
+    if (entry) highlight(entry);
+  }
+
   async function init() {
     if (/\/auth\/?$/.test(location.pathname)) return finishLogin();
     var user = getUser();
     if (!user) return render(null);
     render(user, null);
-    var idx = await loadIndex();
-    var entry = idx && idx.members && idx.members[user.hash];
-    render(user, entry, entry && idx.teams && idx.teams[entry.team]);
-    if (entry) highlight(entry);
+    applyIndex(user, await loadIndex());
+    // live.js re-rendered the page with newer data: re-match and re-highlight.
+    document.addEventListener('ajcl:league', function (e) {
+      var raw = e.detail || {};
+      var teams = {};
+      (raw.teams || []).forEach(function (t) { teams[t.slug] = t.name; });
+      applyIndex(user, { teams: teams, members: raw.members || {} });
+    });
   }
 
   init();

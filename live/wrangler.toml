@@ -1,0 +1,16 @@
+name = "ajcl-live"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[[durable_objects.bindings]]
+name = "LEAGUE"
+class_name = "League"
+
+# SQLite-backed Durable Objects are available on the Workers free plan.
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["League"]
+
+# Secret (set with: npx wrangler secret put LIVE_SECRET):
+#   LIVE_SECRET - shared with the AJCL bot (WEBSITE_LIVE_SECRET), lets only the bot publish.

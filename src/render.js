@@ -5,7 +5,11 @@
 let BASE = '';
 let CSS_VERSION = '1';
 let DISCORD_CLIENT_ID = '';
-function configure({ base = '', cssVersion = '1', discordClientId = '' } = {}) {
+let LIVE_URL = '';
+let DATA_VERSION = 0;
+function configure({ base = '', cssVersion = '1', discordClientId = '', liveUrl = '', dataVersion = 0 } = {}) {
+  LIVE_URL = (liveUrl || '').replace(/\/+$/, '');
+  DATA_VERSION = dataVersion || 0;
   BASE = base.replace(/\/+$/, '');
   CSS_VERSION = cssVersion;
   DISCORD_CLIENT_ID = discordClientId || '';
@@ -67,7 +71,7 @@ const TRANSITION_SCRIPT = `<script>
 })();
 </script>`;
 
-function layout({ title, active, body, c, script = '' }) {
+function layout({ title, active, body, c, script = '', page = '' }) {
   const nav = [
     ['/', 'Home', 'home'],
     ['/schedule/', 'Schedule', 'schedule'],
@@ -94,9 +98,11 @@ function layout({ title, active, body, c, script = '' }) {
 <link rel="expect" href="#page-end" blocking="render">
 <meta name="ajcl-base" content="${esc(BASE)}">
 <meta name="ajcl-discord-client" content="${esc(DISCORD_CLIENT_ID)}">
+<meta name="ajcl-live-url" content="${esc(LIVE_URL)}">
+<meta name="ajcl-data-version" content="${DATA_VERSION}">
 ${TRANSITION_SCRIPT}
 </head>
-<body>
+<body data-page="${esc(page)}">
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="brand" href="${u('/')}"><img src="${u('/ajcl-logo.png')}" alt=""><span><strong>AJCL</strong><small>Average Joe's CoD League</small></span></a>
@@ -114,6 +120,8 @@ ${TRANSITION_SCRIPT}
 </footer>
 ${script}
 <script src="${u('/account.js')}?v=${CSS_VERSION}" defer></script>
+${page && LIVE_URL ? `<script src="${u('/app.js')}?v=${CSS_VERSION}" defer></script>
+<script src="${u('/live.js')}?v=${CSS_VERSION}" defer></script>` : ''}
 </body>
 </html>`;
 }
@@ -214,7 +222,7 @@ function home(league, c) {
     </div>
   </div>
 </section>`;
-  return layout({ title: '', active: 'home', body, c });
+  return layout({ title: '', active: 'home', body, c, page: 'home' });
 }
 
 function teamsPage(league, c) {
@@ -233,7 +241,7 @@ function teamsPage(league, c) {
     </div>`;
   }).join('')}
 </section>`;
-  return layout({ title: 'Teams', active: 'teams', body, c });
+  return layout({ title: 'Teams', active: 'teams', body, c, page: 'teams' });
 }
 
 function teamPage(league, team, c) {
@@ -273,7 +281,7 @@ function teamPage(league, team, c) {
     <div class="match-list">${games.map(m => matchCard(m, { showDivision: false })).join('')}</div>
   </div>
 </section>`;
-  return layout({ title: team.name, active: 'teams', body, c });
+  return layout({ title: team.name, active: 'teams', body, c, page: `team:${team.slug}` });
 }
 
 // Static page holding every week; a small script shows one week + division at a time.
@@ -325,7 +333,7 @@ function schedulePage(league, c) {
   <div class="tabs-row"><div class="tabs">${divTabs}</div></div>
   ${panels}
 </section>`;
-  return layout({ title: 'Schedule', active: 'schedule', body, c, script });
+  return layout({ title: 'Schedule', active: 'schedule', body, c, script, page: 'schedule' });
 }
 
 function standingsPage(league, c) {
@@ -333,7 +341,7 @@ function standingsPage(league, c) {
 <section class="wrap section two-col">
   ${['Premier', 'Academy'].map(d => `<div class="panel"><h2 class="panel-title div-${d.toLowerCase()}-text">${d} Division</h2>${standingsTable(league.standings[d])}</div>`).join('')}
 </section>`;
-  return layout({ title: 'Standings', active: 'standings', body, c });
+  return layout({ title: 'Standings', active: 'standings', body, c, page: 'standings' });
 }
 
 function joinPage(league, c) {
@@ -356,7 +364,7 @@ function joinPage(league, c) {
     <div class="panel pool">${Object.entries(pool).map(([mode, maps]) => `<div><h4>${esc(mode)}</h4><p>${maps.map(esc).join(' · ')}</p></div>`).join('')}</div>` : ''}
   </div>
 </section>`;
-  return layout({ title: 'Join', active: 'join', body, c });
+  return layout({ title: 'Join', active: 'join', body, c, page: 'join' });
 }
 
 // One cod-stats.com embed per division (content.json -> statsEmbeds), shown as tabs.
