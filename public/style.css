@@ -295,3 +295,13 @@ html:not(.js) .stats .tabs { display: none; }
 .kd { flex: none; font: 600 16px var(--heading); letter-spacing: .04em; color: var(--gold); background: rgba(244,181,44,.1); border: 1px solid rgba(244,181,44,.3); border-radius: 4px; padding: 1px 7px 0; }
 .roster-group li.is-me::after { order: 1; }
 .roster-group li.is-me .kd { order: 2; }
+
+/* Player profiles */
+.roster-group a.member-name:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.player-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
+.player-layout .section-head { margin-bottom: 6px; }
+.stats-note { margin: 0 0 12px; font-size: 14px; }
+.player-stats iframe { height: 1400px; }
+.player-team a:hover { color: var(--gold-2); }
+.team-stats strong.player-role { font-size: 22px; padding-top: 4px; }
+@media (max-width: 900px) { .player-layout { grid-template-columns: 1fr; } .player-stats iframe { height: 1100px; } }

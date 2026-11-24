@@ -24,7 +24,12 @@ function hydrate(raw, hasLogo) {
       .map(r => ({ ...r, diff: r.mw - r.ml }))
       .sort((x, y) => y.w - x.w || y.diff - x.diff || x.l - y.l || x.team.name.localeCompare(y.team.name));
   }
-  return { ...raw, teams, matches, standings };
+  // Player profiles (published by the bot); link each to its team object.
+  const players = (raw.players || [])
+    .filter(p => bySlug[p.team])
+    .map(p => ({ ...p, teamObj: bySlug[p.team] }));
+
+  return { ...raw, teams, matches, standings, players };
 }
 
 // Which page builder renders a given page key (also used in the browser).
@@ -35,6 +40,10 @@ function renderPage(render, league, content, page) {
   if (page === 'teams') return render.teamsPage(league, content);
   if (page === 'stats') return render.statsPage(league, content);
   if (page === 'join') return render.joinPage(league, content);
+  if (page && page.startsWith('player:')) {
+    const player = league.players.find(p => p.slug === page.slice(7));
+    return player ? render.playerPage(league, player, content) : null;
+  }
   if (page && page.startsWith('team:')) {
     const team = league.teams.find(t => t.slug === page.slice(5));
     return team ? render.teamPage(league, team, content) : null;

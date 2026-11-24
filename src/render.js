@@ -270,7 +270,11 @@ function teamPage(league, team, c) {
   } else {
     // K/D from cod-stats.com (only for players who linked a gamertag with /linkgamertag).
     const kd = team.roster.kd || {};
-    const member = n => `<li data-member="${esc(n)}"><span class="member-name">${esc(n)}</span>${kd[n] ? `<span class="kd" title="K/D (cod-stats.com)">${esc(kd[n])} K/D</span>` : ''}</li>`;
+    const links = team.roster.links || {};
+    const nameHtml = n => links[n]
+      ? `<a class="member-name" href="${u(`/players/${links[n]}/`)}">${esc(n)}</a>`
+      : `<span class="member-name">${esc(n)}</span>`;
+    const member = n => `<li data-member="${esc(n)}">${nameHtml(n)}${kd[n] ? `<span class="kd" title="K/D (cod-stats.com)">${esc(kd[n])} K/D</span>` : ''}</li>`;
     const group = (label, names) => names.length ? `<div class="roster-group"><h4>${label}</h4><ul>${names.map(member).join('')}</ul></div>` : '';
     rosterHtml = (group('General Manager', team.roster.gms) + group('Coach', team.roster.coaches) +
       group('Players', team.roster.players) + group('Non-Playing', team.roster.nonPlaying)) ||
@@ -422,9 +426,50 @@ function authPage(c) {
   return layout({ title: 'Connecting', active: '', body, c });
 }
 
+const ROLE_LABELS = { gm: 'General Manager', coach: 'Coach', player: 'Player', nonPlaying: 'Non-Playing' };
+const COD_STATS_LEAGUE = 'https://cod-stats.com/amateur-leagues/average-joes-cod-league';
+
+// Player profile: team, role, K/D, the team's schedule, and the player's own
+// cod-stats.com profile (every season they've played) when they've linked a gamertag.
+function playerPage(league, player, c) {
+  const team = player.teamObj;
+  const roles = player.roles.map(r => ROLE_LABELS[r] || r).join(' · ');
+  const games = league.matches.filter(m => m.home.slug === team.slug || m.away.slug === team.slug);
+  const profileUrl = player.gamertag ? `${COD_STATS_LEAGUE}/player/${encodeURIComponent(player.gamertag)}` : null;
+
+  const stats = profileUrl ? `
+    <div class="section-head"><h2 class="panel-title">Stats</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">Open on cod-stats ↗</a></div>
+    <p class="muted stats-note">All seasons for <strong>${esc(player.gamertag)}</strong>, live from cod-stats.com.</p>
+    <div class="panel stats-embed player-stats"><iframe src="${esc(profileUrl)}" title="${esc(player.name)} stats on cod-stats.com" loading="lazy"></iframe></div>` : `
+    <h2 class="panel-title">Stats</h2>
+    <div class="panel"><p class="muted" style="margin:0">${esc(player.name)} hasn't linked a cod-stats.com gamertag yet. Players can link theirs in the AJCL Discord with <strong>/linkgamertag</strong>, and their stats from every season will show up here.</p></div>`;
+
+  const body = `
+<section class="pagehead team-head"><div class="wrap team-head-inner">
+  <a href="${teamHref(team)}" aria-label="${esc(team.name)}">${crest(team, 'xl')}</a>
+  <div>
+    <p class="eyebrow"><span class="div-tag div-${team.division.toLowerCase()}">${esc(team.division)}</span></p>
+    <h1>${esc(player.name)}</h1>
+    <div class="team-stats">
+      <div><strong>${player.kd ? esc(player.kd) : '–'}</strong><span>K/D</span></div>
+      <div><strong class="player-team"><a href="${teamHref(team)}">${esc(team.abbr)}</a></strong><span>${esc(team.name)}</span></div>
+      <div><strong class="player-role">${esc(roles)}</strong><span>Role</span></div>
+    </div>
+  </div>
+</div></section>
+<section class="wrap section player-layout">
+  <div>${stats}</div>
+  <div>
+    <h2 class="panel-title">${esc(team.name)} schedule</h2>
+    <div class="match-list">${games.map(m => matchCard(m, { showDivision: false })).join('')}</div>
+  </div>
+</section>`;
+  return layout({ title: player.name, active: 'teams', body, c, page: `player:${player.slug}` });
+}
+
 function notFound(c) {
   const body = pageHead('404', 'Page not found', "That page doesn't exist.") + `<section class="wrap section"><a class="btn btn-gold" href="${u('/')}">Back home</a></section>`;
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, home, teamsPage, teamPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, home, teamsPage, teamPage, playerPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
