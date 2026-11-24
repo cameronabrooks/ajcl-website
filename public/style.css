@@ -352,3 +352,24 @@ html:not(.js) .player-layout .season-tabs, html:not(.js) .player-layout .game-ta
 @media (max-width: 560px) { .search-bar { flex-direction: column; align-items: stretch; } .player-list { grid-template-columns: 1fr; } }
 .btn { white-space: nowrap; }
 .topbar-inner { gap: 18px; }
+
+/* Draft results */
+.draft-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.draft-card { padding: 16px; }
+.draft-team { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.draft-team h3 { font-size: 20px; }
+.draft-team a:hover { color: var(--gold); }
+.draft-order { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--panel-2); border: 1px solid var(--line); color: var(--muted); font: 600 15px var(--heading); padding-top: 2px; }
+.draft-list { list-style: none; margin: 0; padding: 0; }
+.draft-list li { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); }
+.draft-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.draft-name a:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.draft-gm .draft-name { font-weight: 600; }
+.gm-crown { color: var(--gold); font-size: 16px; }
+.draft-list .pill { font-size: 11px; padding: 1px 7px; }
+.tier { flex: none; font: 600 13px var(--heading); letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px 0; border-radius: 4px; border: 1px solid; }
+.tier-ruby { color: #ff6b81; border-color: rgba(255,107,129,.4); background: rgba(255,107,129,.1); }
+.tier-amber { color: #ffb547; border-color: rgba(255,181,71,.4); background: rgba(255,181,71,.1); }
+.tier-amethyst { color: #c08bff; border-color: rgba(192,139,255,.4); background: rgba(192,139,255,.1); }
+.tier-kyanite { color: #5cc8ff; border-color: rgba(92,200,255,.4); background: rgba(92,200,255,.1); }
+.tier-legend { display: flex; gap: 6px; }

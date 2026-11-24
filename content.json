@@ -81,5 +81,368 @@
         }
       ]
     }
-  ]
+  ],
+  "draft": {
+    "season": "SZN X",
+    "divisions": [
+      {
+        "division": "Premier",
+        "tiers": [
+          "amethyst",
+          "kyanite"
+        ],
+        "teams": [
+          {
+            "team": "SYR",
+            "gm": {
+              "name": "butchiehof",
+              "tier": "amethyst"
+            },
+            "picks": [
+              {
+                "name": "nitsua",
+                "tier": "kyanite"
+              },
+              {
+                "name": "Crouse",
+                "tier": "amethyst"
+              },
+              {
+                "name": "Loyal",
+                "tier": "amethyst"
+              }
+            ]
+          },
+          {
+            "team": "ATL",
+            "gm": {
+              "name": "BBLZaaZaa",
+              "tier": "amethyst"
+            },
+            "picks": [
+              {
+                "name": "Reddaza",
+                "tier": "kyanite"
+              },
+              {
+                "name": "Speiddyy",
+                "tier": "amethyst"
+              },
+              {
+                "name": "Xerxes",
+                "tier": "amethyst"
+              }
+            ]
+          },
+          {
+            "team": "HAL",
+            "gm": {
+              "name": "RynoRH",
+              "tier": "amethyst"
+            },
+            "picks": [
+              {
+                "name": "g-ter",
+                "tier": "kyanite"
+              },
+              {
+                "name": "Bis",
+                "tier": "amethyst"
+              },
+              {
+                "name": "MoistQuackers",
+                "tier": "amethyst"
+              }
+            ]
+          },
+          {
+            "team": "CAR",
+            "gm": {
+              "name": "Lil'Ceezars",
+              "tier": "kyanite"
+            },
+            "picks": [
+              {
+                "name": "Zuko",
+                "tier": "amethyst"
+              },
+              {
+                "name": "007 Quay",
+                "tier": "amethyst"
+              },
+              {
+                "name": "Ny",
+                "tier": "amethyst"
+              }
+            ]
+          },
+          {
+            "team": "SFS",
+            "gm": {
+              "name": "MoonerTheAlcoholic",
+              "tier": "kyanite"
+            },
+            "picks": [
+              {
+                "name": "Lakas",
+                "tier": "amethyst"
+              },
+              {
+                "name": "ilikefeet",
+                "tier": "amethyst"
+              },
+              {
+                "name": "vis",
+                "tier": "amethyst"
+              }
+            ]
+          },
+          {
+            "team": "CCC",
+            "gm": {
+              "name": "Venom",
+              "tier": "amethyst"
+            },
+            "picks": [
+              {
+                "name": "BamBam",
+                "tier": "kyanite"
+              },
+              {
+                "name": "Freaky",
+                "tier": "amethyst"
+              },
+              {
+                "name": "Crazed",
+                "tier": "amethyst"
+              }
+            ]
+          },
+          {
+            "team": "TOR",
+            "gm": {
+              "name": "Zylixz",
+              "tier": "kyanite"
+            },
+            "picks": [
+              {
+                "name": "BrooksySZN",
+                "tier": "amethyst"
+              },
+              {
+                "name": "Luke",
+                "tier": "amethyst"
+              },
+              {
+                "name": "Hunna",
+                "tier": "amethyst"
+              }
+            ]
+          },
+          {
+            "team": "SLN",
+            "gm": {
+              "name": "K1lla",
+              "tier": null
+            },
+            "picks": [
+              {
+                "name": "Kjay",
+                "tier": "amethyst"
+              },
+              {
+                "name": "Lux",
+                "tier": "kyanite"
+              },
+              {
+                "name": "Primo",
+                "tier": "amethyst"
+              },
+              {
+                "name": "Spyder",
+                "tier": "amethyst"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "division": "Academy",
+        "tiers": [
+          "ruby",
+          "amber"
+        ],
+        "teams": [
+          {
+            "team": "OMH",
+            "gm": {
+              "name": "unholy draco",
+              "tier": "ruby"
+            },
+            "picks": [
+              {
+                "name": "Gutta",
+                "tier": "amber"
+              },
+              {
+                "name": "SlayFS",
+                "tier": "amber"
+              },
+              {
+                "name": "Revert",
+                "tier": "ruby"
+              }
+            ]
+          },
+          {
+            "team": "MIS",
+            "gm": {
+              "name": "shooter",
+              "tier": "ruby"
+            },
+            "picks": [
+              {
+                "name": "Racist Guy Marv",
+                "tier": "amber"
+              },
+              {
+                "name": "ImAkaii",
+                "tier": "amber"
+              },
+              {
+                "name": "Kentucky",
+                "tier": "ruby"
+              }
+            ]
+          },
+          {
+            "team": "LEX",
+            "gm": {
+              "name": "Kib",
+              "tier": "amber"
+            },
+            "picks": [
+              {
+                "name": "Cam",
+                "tier": "amber"
+              },
+              {
+                "name": "Palsy",
+                "tier": "ruby"
+              },
+              {
+                "name": "Bandit",
+                "tier": "ruby"
+              }
+            ]
+          },
+          {
+            "team": "ROS",
+            "gm": {
+              "name": "⛧ Ƒëﾑr ツ",
+              "tier": "ruby"
+            },
+            "picks": [
+              {
+                "name": "Inspire",
+                "tier": "amber"
+              },
+              {
+                "name": "Owes Every1 Taco Bell Plu",
+                "tier": "amber"
+              },
+              {
+                "name": "BooshDaGoat",
+                "tier": "ruby"
+              }
+            ]
+          },
+          {
+            "team": "MRD",
+            "gm": {
+              "name": "🧛🏼OverlordAlucard 🧛🏼",
+              "tier": "amber"
+            },
+            "picks": [
+              {
+                "name": "JAYDREAMZ",
+                "tier": "ruby"
+              },
+              {
+                "name": "ZEUS",
+                "tier": "amber"
+              },
+              {
+                "name": "Bruce",
+                "tier": "amber"
+              }
+            ]
+          },
+          {
+            "team": "KCK",
+            "gm": {
+              "name": "Sac",
+              "tier": "ruby"
+            },
+            "picks": [
+              {
+                "name": "cbass",
+                "tier": "amber"
+              },
+              {
+                "name": "MaRsH313",
+                "tier": "ruby"
+              },
+              {
+                "name": "Rogue",
+                "tier": "amber"
+              }
+            ]
+          },
+          {
+            "team": "NOR",
+            "gm": {
+              "name": "Leisure",
+              "tier": "ruby"
+            },
+            "picks": [
+              {
+                "name": "Fly Tendencies",
+                "tier": "amber"
+              },
+              {
+                "name": "Tanji",
+                "tier": "amber"
+              },
+              {
+                "name": "Divi",
+                "tier": "ruby"
+              }
+            ]
+          },
+          {
+            "team": "PIT",
+            "gm": {
+              "name": "Twizz",
+              "tier": "amber"
+            },
+            "picks": [
+              {
+                "name": "Brimington",
+                "tier": "ruby"
+              },
+              {
+                "name": "2elite",
+                "tier": "amber"
+              },
+              {
+                "name": "Ranked Incorrectly",
+                "tier": "ruby"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

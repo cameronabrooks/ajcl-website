@@ -90,6 +90,7 @@ function layout({ title, active, body, c, script = '', page = '' }) {
     ['/standings/', 'Standings', 'standings'],
     ['/teams/', 'Teams', 'teams'],
     ['/players/', 'Players', 'players'],
+    ['/draft/', 'Draft', 'draft'],
     ['/stats/', 'Stats', 'stats'],
     ['/join/', 'Join', 'join'],
   ].map(([href, label, key]) => `<a href="${u(href)}"${key === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
@@ -445,6 +446,48 @@ function authPage(c) {
 
 const ROLE_LABELS = { gm: 'General Manager', coach: 'Coach', player: 'Player', nonPlaying: 'Non-Playing' };
 
+// Draft results (content.json -> draft): one card per team in draft order, GM first,
+// each player with their tier. Names link to player pages when they match a roster name.
+function draftPage(league, c) {
+  const d = c.draft;
+  if (!d || !d.divisions) {
+    const body = pageHead('Draft', 'Draft results', '') + `<section class="wrap section"><p class="muted">Draft results are coming soon.</p></section>`;
+    return layout({ title: 'Draft', active: 'draft', body, c });
+  }
+  const byAbbr = Object.fromEntries(league.teams.map(t => [t.abbr, t]));
+  const nameKey = s => String(s || '').normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const playerByName = {};
+  for (const p of league.players || []) playerByName[nameKey(p.name)] = p;
+  const person = (name, tier, isGm) => {
+    const p = playerByName[nameKey(name)];
+    const label = p ? `<a href="${u(`/players/${p.slug}/`)}">${esc(name)}</a>` : esc(name);
+    return `<li${isGm ? ' class="draft-gm"' : ''}>
+      ${isGm ? '<span class="gm-crown" title="General Manager">♛</span>' : ''}<span class="draft-name">${label}</span>
+      ${isGm ? '<span class="pill">GM</span>' : ''}${tier ? `<span class="tier tier-${esc(tier)}">${esc(tier)}</span>` : ''}
+    </li>`;
+  };
+  const sections = d.divisions.map(div => `
+  <div class="div-block">
+    <div class="section-head"><h2 class="div-${div.division.toLowerCase()}-text">${esc(div.division)}</h2>
+      <span class="tier-legend">${(div.tiers || []).map(t => `<span class="tier tier-${esc(t)}">${esc(t)}</span>`).join('')}</span></div>
+    <div class="draft-grid">${div.teams.map((entry, i) => {
+      const t = byAbbr[entry.team];
+      const name = t ? t.name : entry.team;
+      return `<article class="panel draft-card">
+        <div class="draft-team">
+          <span class="draft-order">${i + 1}</span>
+          ${t ? `<a href="${teamHref(t)}">${crest(t, 'sm')}</a>` : ''}
+          <h3>${t ? `<a href="${teamHref(t)}">${esc(name)}</a>` : esc(name)}</h3>
+        </div>
+        <ul class="draft-list">${person(entry.gm.name, entry.gm.tier, true)}${entry.picks.map(p => person(p.name, p.tier, false)).join('')}</ul>
+      </article>`;
+    }).join('')}</div>
+  </div>`).join('');
+  const body = pageHead(d.season || 'Draft', `${d.season || ''} Draft Results`.trim(), 'Every team\'s draft, with each player\'s tier.') + `
+<section class="wrap section">${sections}</section>`;
+  return layout({ title: 'Draft', active: 'draft', body, c, page: 'draft' });
+}
+
 // Searchable list of every rostered player. Filtering is client-side; the search
 // listener is delegated so it survives live.js re-rendering <main>.
 function playersPage(league, c) {
@@ -613,4 +656,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, home, teamsPage, teamPage, playerPage, playersPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
