@@ -452,7 +452,7 @@ function playerPage(league, player, c) {
     </table></div>` : '';
 
   const stats = profileUrl && st ? `
-    <div class="section-head"><h2 class="panel-title">${esc(player.season || 'Stats')}</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a></div>
+    <div class="section-head"><h2 class="panel-title">${esc(player.season || 'AJCL career')}</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a></div>
     <div class="stat-grid">
       ${tile('K/D', st.kd, ' stat-main')}
       ${tile('Win %', st.winPct)}
@@ -461,7 +461,7 @@ function playerPage(league, player, c) {
       ${tile('Plus / minus', st.plusMinus, signCls(st.plusMinus))}
       ${tile('Streak', st.streak, st.streak && /^W/i.test(st.streak) ? ' pos' : st.streak && /^L/i.test(st.streak) ? ' neg' : '')}
     </div>
-    <p class="muted stats-note">Stats for <strong>${esc(player.gamertag)}</strong> from cod-stats.com, updated every 30 minutes.${player.gamertagSource === 'name' ? ' Matched by Discord name. Wrong player? Link the right gamertag in Discord with <strong>/linkgamertag</strong>.' : ''}</p>
+    <p class="muted stats-note">Overall AJCL stats for <strong>${esc(player.gamertag)}</strong> across all seasons, from cod-stats.com (updated every 30 minutes).${player.gamertagSource === 'name' ? ' Matched by Discord name. Wrong player? Link the right gamertag in Discord with <strong>/linkgamertag</strong>.' : ''}</p>
     ${history}` : profileUrl ? `
     <div class="section-head"><h2 class="panel-title">Stats</h2><a href="${esc(profileUrl)}" target="_blank" rel="noopener">View on cod-stats ↗</a></div>
     <div class="panel"><p class="muted" style="margin:0">Stats for <strong>${esc(player.gamertag)}</strong> are on their way: they'll appear here after the next update from cod-stats.com.</p></div>` : `
