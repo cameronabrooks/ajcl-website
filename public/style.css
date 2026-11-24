@@ -288,3 +288,10 @@ h1, h2, h3, h4 { line-height: 1; letter-spacing: .03em; }
 }
 .stats-panel h2.sub { margin-top: 22px; }
 html:not(.js) .stats .tabs { display: none; }
+
+/* K/D badge on rosters */
+.roster-group li { display: flex; align-items: center; gap: 8px; }
+.roster-group .member-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.kd { flex: none; font: 600 16px var(--heading); letter-spacing: .04em; color: var(--gold); background: rgba(244,181,44,.1); border: 1px solid rgba(244,181,44,.3); border-radius: 4px; padding: 1px 7px 0; }
+.roster-group li.is-me::after { order: 1; }
+.roster-group li.is-me .kd { order: 2; }

@@ -268,7 +268,10 @@ function teamPage(league, team, c) {
   if (!team.roster) {
     rosterHtml = '<p class="muted">Roster coming soon.</p>';
   } else {
-    const group = (label, names) => names.length ? `<div class="roster-group"><h4>${label}</h4><ul>${names.map(n => `<li data-member="${esc(n)}">${esc(n)}</li>`).join('')}</ul></div>` : '';
+    // K/D from cod-stats.com (only for players who linked a gamertag with /linkgamertag).
+    const kd = team.roster.kd || {};
+    const member = n => `<li data-member="${esc(n)}"><span class="member-name">${esc(n)}</span>${kd[n] ? `<span class="kd" title="K/D (cod-stats.com)">${esc(kd[n])} K/D</span>` : ''}</li>`;
+    const group = (label, names) => names.length ? `<div class="roster-group"><h4>${label}</h4><ul>${names.map(member).join('')}</ul></div>` : '';
     rosterHtml = (group('General Manager', team.roster.gms) + group('Coach', team.roster.coaches) +
       group('Players', team.roster.players) + group('Non-Playing', team.roster.nonPlaying)) ||
       '<p class="muted">No players rostered yet.</p>';
