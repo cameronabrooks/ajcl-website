@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795590320882,
+  "generatedAt": 1795590349357,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1448,719 +1448,8 @@
   ],
   "eightsLeaderboards": [
     {
-      "key": "academy-8s-queue",
-      "name": "Academy 8s Queue",
-      "legacy": false,
-      "players": [
-        {
-          "name": "Inspire",
-          "rank": "Amber",
-          "rating": 1063,
-          "wins": 3,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 3
-        },
-        {
-          "name": "MaRsH313",
-          "rank": "Ruby",
-          "rating": 1051,
-          "wins": 3,
-          "losses": 6,
-          "winPct": 33.3,
-          "streak": 1
-        },
-        {
-          "name": "⛧ Ƒëﾑr ツ",
-          "rank": "Ruby",
-          "rating": 1046,
-          "wins": 6,
-          "losses": 3,
-          "winPct": 66.7,
-          "streak": 2
-        },
-        {
-          "name": "Cam",
-          "rank": "Amber",
-          "rating": 1033,
-          "wins": 4,
-          "losses": 2,
-          "winPct": 66.7,
-          "streak": 0
-        },
-        {
-          "name": "Senz",
-          "rank": "Amber",
-          "rating": 1033,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "Faker (Bottzy)",
-          "rank": "Ruby",
-          "rating": 1030,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
-          "name": "Tanji",
-          "rank": "Amber",
-          "rating": 1029,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
-          "name": "2elite",
-          "rank": "Amber",
-          "rating": 1028,
-          "wins": 4,
-          "losses": 3,
-          "winPct": 57.1,
-          "streak": -1
-        },
-        {
-          "name": "Fly Tendencies",
-          "rank": "Amber",
-          "rating": 1017,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "Kentucky",
-          "rank": "Ruby",
-          "rating": 1016,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "shooter",
-          "rank": "Ruby",
-          "rating": 1016,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "ZEUS",
-          "rank": "Ruby",
-          "rating": 1015,
-          "wins": 5,
-          "losses": 5,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "🧛🏼OverlordAlucard 🧛🏼",
-          "rank": "Amber",
-          "rating": 1015,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 1
-        },
-        {
-          "name": "Bandit",
-          "rank": "Ruby",
-          "rating": 1013,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": 1
-        },
-        {
-          "name": "Bruce",
-          "rank": "Amber",
-          "rating": 1011,
-          "wins": 1,
-          "losses": 1,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "Racist Guy Marv",
-          "rank": "Amber",
-          "rating": 1002,
-          "wins": 4,
-          "losses": 1,
-          "winPct": 80,
-          "streak": 0
-        },
-        {
-          "name": "Twizz",
-          "rank": "Amber",
-          "rating": 1000,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 0
-        },
-        {
-          "name": "cbass",
-          "rank": "Amber",
-          "rating": 986,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 0
-        },
-        {
-          "name": "Palsy",
-          "rank": "Ruby",
-          "rating": 985,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -1
-        },
-        {
-          "name": "Pizz",
-          "rank": "Ruby",
-          "rating": 984,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": 0
-        },
-        {
-          "name": "ImAkaii",
-          "rank": "Amber",
-          "rating": 984,
-          "wins": 3,
-          "losses": 3,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "JAYDREAMZ",
-          "rank": "Ruby",
-          "rating": 983,
-          "wins": 0,
-          "losses": 1,
-          "winPct": 0,
-          "streak": -1
-        },
-        {
-          "name": "Esca",
-          "rank": "Amethyst",
-          "rating": 969,
-          "wins": 0,
-          "losses": 2,
-          "winPct": 0,
-          "streak": 0
-        },
-        {
-          "name": "Brimington",
-          "rank": "Ruby",
-          "rating": 969,
-          "wins": 2,
-          "losses": 6,
-          "winPct": 25,
-          "streak": -4
-        },
-        {
-          "name": "Kain",
-          "rank": "Ruby",
-          "rating": 967,
-          "wins": 1,
-          "losses": 7,
-          "winPct": 12.5,
-          "streak": -1
-        },
-        {
-          "name": "SlayFS",
-          "rank": "Amber",
-          "rating": 951,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -1
-        }
-      ],
-      "results": [
-        {
-          "number": 14,
-          "winner": "A",
-          "at": 1795578720989,
-          "byStaff": false,
-          "format": null,
-          "maps": null,
-          "teamA": [
-            {
-              "name": "⛧ Ƒëﾑr ツ",
-              "delta": 29,
-              "rating": 1046
-            },
-            {
-              "name": "Tanji",
-              "delta": 29,
-              "rating": 1029
-            },
-            {
-              "name": "🧛🏼OverlordAlucard 🧛🏼",
-              "delta": 29,
-              "rating": 1015
-            },
-            {
-              "name": "Bandit",
-              "delta": 29,
-              "rating": 1013
-            }
-          ],
-          "teamB": [
-            {
-              "name": "2elite",
-              "delta": -17,
-              "rating": 1028
-            },
-            {
-              "name": "SlayFS",
-              "delta": -17,
-              "rating": 951
-            },
-            {
-              "name": "Kain",
-              "delta": -17,
-              "rating": 967
-            },
-            {
-              "name": "ImAkaii",
-              "delta": -17,
-              "rating": 984
-            }
-          ]
-        },
-        {
-          "number": 16,
-          "winner": "B",
-          "at": 1795576135866,
-          "byStaff": false,
-          "format": null,
-          "maps": null,
-          "teamA": [
-            {
-              "name": "Brimington",
-              "delta": -15,
-              "rating": 969
-            },
-            {
-              "name": "Bruce",
-              "delta": -19,
-              "rating": 1011
-            },
-            {
-              "name": "JAYDREAMZ",
-              "delta": -17,
-              "rating": 983
-            },
-            {
-              "name": "ZEUS",
-              "delta": -16,
-              "rating": 1015
-            }
-          ],
-          "teamB": [
-            {
-              "name": "⛧ Ƒëﾑr ツ",
-              "delta": 32,
-              "rating": 1017
-            },
-            {
-              "name": "Kain",
-              "delta": 35,
-              "rating": 984
-            },
-            {
-              "name": "2elite",
-              "delta": 45,
-              "rating": 1045
-            },
-            {
-              "name": "MaRsH313",
-              "delta": 37,
-              "rating": 1051
-            }
-          ]
-        },
-        {
-          "number": 13,
-          "winner": "A",
-          "at": 1795484262785,
-          "byStaff": false,
-          "format": null,
-          "maps": null,
-          "teamA": [
-            {
-              "name": "Cam",
-              "delta": 15,
-              "rating": null
-            },
-            {
-              "name": "Inspire",
-              "delta": 15,
-              "rating": null
-            },
-            {
-              "name": "MaRsH313",
-              "delta": 15,
-              "rating": null
-            },
-            {
-              "name": "Pizz",
-              "delta": 15,
-              "rating": null
-            }
-          ],
-          "teamB": [
-            {
-              "name": "⛧ Ƒëﾑr ツ",
-              "delta": -15,
-              "rating": null
-            },
-            {
-              "name": "🧛🏼OverlordAlucard 🧛🏼",
-              "delta": -15,
-              "rating": null
-            },
-            {
-              "name": "Palsy",
-              "delta": -15,
-              "rating": null
-            },
-            {
-              "name": "Brimington",
-              "delta": -15,
-              "rating": null
-            }
-          ]
-        },
-        {
-          "number": 12,
-          "winner": "A",
-          "at": 1795480878373,
-          "byStaff": false,
-          "format": null,
-          "maps": null,
-          "teamA": [
-            {
-              "name": "Cam",
-              "delta": 16,
-              "rating": null
-            },
-            {
-              "name": "2elite",
-              "delta": 16,
-              "rating": null
-            },
-            {
-              "name": "⛧ Ƒëﾑr ツ",
-              "delta": 16,
-              "rating": null
-            },
-            {
-              "name": "MaRsH313",
-              "delta": 16,
-              "rating": null
-            }
-          ],
-          "teamB": [
-            {
-              "name": "🧛🏼OverlordAlucard 🧛🏼",
-              "delta": -16,
-              "rating": null
-            },
-            {
-              "name": "Kain",
-              "delta": -16,
-              "rating": null
-            },
-            {
-              "name": "Brimington",
-              "delta": -16,
-              "rating": null
-            },
-            {
-              "name": "Pizz",
-              "delta": -16,
-              "rating": null
-            }
-          ]
-        },
-        {
-          "number": 9,
-          "winner": "B",
-          "at": 1795478748216,
-          "byStaff": false,
-          "format": null,
-          "maps": null,
-          "teamA": [
-            {
-              "name": "Kain",
-              "delta": -17,
-              "rating": null
-            },
-            {
-              "name": "Cam",
-              "delta": -17,
-              "rating": null
-            },
-            {
-              "name": "MaRsH313",
-              "delta": -17,
-              "rating": null
-            },
-            {
-              "name": "Brimington",
-              "delta": -17,
-              "rating": null
-            }
-          ],
-          "teamB": [
-            {
-              "name": "⛧ Ƒëﾑr ツ",
-              "delta": 17,
-              "rating": null
-            },
-            {
-              "name": "Inspire",
-              "delta": 17,
-              "rating": null
-            },
-            {
-              "name": "🧛🏼OverlordAlucard 🧛🏼",
-              "delta": 17,
-              "rating": null
-            },
-            {
-              "name": "ImAkaii",
-              "delta": 17,
-              "rating": null
-            }
-          ]
-        },
-        {
-          "number": 7,
-          "winner": "B",
-          "at": 1795405843533,
-          "byStaff": false,
-          "format": null,
-          "maps": null,
-          "teamA": [
-            {
-              "name": "cbass",
-              "delta": -15,
-              "rating": null
-            },
-            {
-              "name": "SlayFS",
-              "delta": -15,
-              "rating": null
-            },
-            {
-              "name": "ZEUS",
-              "delta": -15,
-              "rating": null
-            },
-            {
-              "name": "Kain",
-              "delta": -15,
-              "rating": null
-            }
-          ],
-          "teamB": [
-            {
-              "name": "shooter",
-              "delta": 15,
-              "rating": null
-            },
-            {
-              "name": "Racist Guy Marv",
-              "delta": 15,
-              "rating": null
-            },
-            {
-              "name": "Kentucky",
-              "delta": 15,
-              "rating": null
-            },
-            {
-              "name": "ImAkaii",
-              "delta": 15,
-              "rating": null
-            }
-          ]
-        },
-        {
-          "number": 6,
-          "winner": "B",
-          "at": 1795402195743,
-          "byStaff": false,
-          "format": null,
-          "maps": null,
-          "teamA": [
-            {
-              "name": "Twizz",
-              "delta": -17,
-              "rating": null
-            },
-            {
-              "name": "Brimington",
-              "delta": -17,
-              "rating": null
-            },
-            {
-              "name": "Kain",
-              "delta": -17,
-              "rating": null
-            },
-            {
-              "name": "MaRsH313",
-              "delta": -17,
-              "rating": null
-            }
-          ],
-          "teamB": [
-            {
-              "name": "Racist Guy Marv",
-              "delta": 17,
-              "rating": null
-            },
-            {
-              "name": "cbass",
-              "delta": 17,
-              "rating": null
-            },
-            {
-              "name": "Cam",
-              "delta": 17,
-              "rating": null
-            },
-            {
-              "name": "ZEUS",
-              "delta": 17,
-              "rating": null
-            }
-          ]
-        },
-        {
-          "number": 5,
-          "winner": "B",
-          "at": 1795398419788,
-          "byStaff": false,
-          "format": null,
-          "maps": null,
-          "teamA": [
-            {
-              "name": "MaRsH313",
-              "delta": -16,
-              "rating": null
-            },
-            {
-              "name": "2elite",
-              "delta": -16,
-              "rating": null
-            },
-            {
-              "name": "ImAkaii",
-              "delta": -16,
-              "rating": null
-            },
-            {
-              "name": "ZEUS",
-              "delta": -16,
-              "rating": null
-            }
-          ],
-          "teamB": [
-            {
-              "name": "Twizz",
-              "delta": 16,
-              "rating": null
-            },
-            {
-              "name": "Brimington",
-              "delta": 16,
-              "rating": null
-            },
-            {
-              "name": "Fly Tendencies",
-              "delta": 16,
-              "rating": null
-            },
-            {
-              "name": "⛧ Ƒëﾑr ツ",
-              "delta": 16,
-              "rating": null
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "winner": "A",
-          "at": 1795386117859,
-          "byStaff": false,
-          "format": null,
-          "maps": null,
-          "teamA": [
-            {
-              "name": "Cam",
-              "delta": 16,
-              "rating": null
-            },
-            {
-              "name": "Senz",
-              "delta": 16,
-              "rating": null
-            },
-            {
-              "name": "2elite",
-              "delta": 16,
-              "rating": null
-            },
-            {
-              "name": "ZEUS",
-              "delta": 16,
-              "rating": null
-            }
-          ],
-          "teamB": [
-            {
-              "name": "⛧ Ƒëﾑr ツ",
-              "delta": -16,
-              "rating": null
-            },
-            {
-              "name": "Esca",
-              "delta": -16,
-              "rating": null
-            },
-            {
-              "name": "Bandit",
-              "delta": -16,
-              "rating": null
-            },
-            {
-              "name": "Palsy",
-              "delta": -16,
-              "rating": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "open-8s-queue",
-      "name": "Open 8s Queue",
+      "key": "in-queue",
+      "name": "in-queue",
       "legacy": false,
       "players": [
         {
@@ -4202,7 +3491,1087 @@
           ]
         }
       ]
+    },
+    {
+      "key": "in-queue-2",
+      "name": "in-queue",
+      "legacy": false,
+      "players": [
+        {
+          "name": "Inspire",
+          "rank": "Amber",
+          "rating": 1063,
+          "wins": 3,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 3
+        },
+        {
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1051,
+          "wins": 3,
+          "losses": 6,
+          "winPct": 33.3,
+          "streak": 1
+        },
+        {
+          "name": "⛧ Ƒëﾑr ツ",
+          "rank": "Ruby",
+          "rating": 1046,
+          "wins": 6,
+          "losses": 3,
+          "winPct": 66.7,
+          "streak": 2
+        },
+        {
+          "name": "Cam",
+          "rank": "Amber",
+          "rating": 1033,
+          "wins": 4,
+          "losses": 2,
+          "winPct": 66.7,
+          "streak": 0
+        },
+        {
+          "name": "Senz",
+          "rank": "Amber",
+          "rating": 1033,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "Faker (Bottzy)",
+          "rank": "Ruby",
+          "rating": 1030,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "Tanji",
+          "rank": "Amber",
+          "rating": 1029,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "2elite",
+          "rank": "Amber",
+          "rating": 1028,
+          "wins": 4,
+          "losses": 3,
+          "winPct": 57.1,
+          "streak": -1
+        },
+        {
+          "name": "Fly Tendencies",
+          "rank": "Amber",
+          "rating": 1017,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "Kentucky",
+          "rank": "Ruby",
+          "rating": 1016,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "shooter",
+          "rank": "Ruby",
+          "rating": 1016,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "ZEUS",
+          "rank": "Ruby",
+          "rating": 1015,
+          "wins": 5,
+          "losses": 5,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "🧛🏼OverlordAlucard 🧛🏼",
+          "rank": "Amber",
+          "rating": 1015,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 1
+        },
+        {
+          "name": "Bandit",
+          "rank": "Ruby",
+          "rating": 1013,
+          "wins": 1,
+          "losses": 2,
+          "winPct": 33.3,
+          "streak": 1
+        },
+        {
+          "name": "Bruce",
+          "rank": "Amber",
+          "rating": 1011,
+          "wins": 1,
+          "losses": 1,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "Racist Guy Marv",
+          "rank": "Amber",
+          "rating": 1002,
+          "wins": 4,
+          "losses": 1,
+          "winPct": 80,
+          "streak": 0
+        },
+        {
+          "name": "Twizz",
+          "rank": "Amber",
+          "rating": 1000,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 0
+        },
+        {
+          "name": "cbass",
+          "rank": "Amber",
+          "rating": 986,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 0
+        },
+        {
+          "name": "Palsy",
+          "rank": "Ruby",
+          "rating": 985,
+          "wins": 0,
+          "losses": 3,
+          "winPct": 0,
+          "streak": -1
+        },
+        {
+          "name": "Pizz",
+          "rank": "Ruby",
+          "rating": 984,
+          "wins": 1,
+          "losses": 2,
+          "winPct": 33.3,
+          "streak": 0
+        },
+        {
+          "name": "ImAkaii",
+          "rank": "Amber",
+          "rating": 984,
+          "wins": 3,
+          "losses": 3,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "JAYDREAMZ",
+          "rank": "Ruby",
+          "rating": 983,
+          "wins": 0,
+          "losses": 1,
+          "winPct": 0,
+          "streak": -1
+        },
+        {
+          "name": "Esca",
+          "rank": "Amethyst",
+          "rating": 969,
+          "wins": 0,
+          "losses": 2,
+          "winPct": 0,
+          "streak": 0
+        },
+        {
+          "name": "Brimington",
+          "rank": "Ruby",
+          "rating": 969,
+          "wins": 2,
+          "losses": 6,
+          "winPct": 25,
+          "streak": -4
+        },
+        {
+          "name": "Kain",
+          "rank": "Ruby",
+          "rating": 967,
+          "wins": 1,
+          "losses": 7,
+          "winPct": 12.5,
+          "streak": -1
+        },
+        {
+          "name": "SlayFS",
+          "rank": "Amber",
+          "rating": 951,
+          "wins": 0,
+          "losses": 3,
+          "winPct": 0,
+          "streak": -1
+        }
+      ],
+      "results": [
+        {
+          "number": 14,
+          "winner": "A",
+          "at": 1795578720989,
+          "byStaff": false,
+          "format": null,
+          "maps": null,
+          "teamA": [
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": 29,
+              "rating": 1046
+            },
+            {
+              "name": "Tanji",
+              "delta": 29,
+              "rating": 1029
+            },
+            {
+              "name": "🧛🏼OverlordAlucard 🧛🏼",
+              "delta": 29,
+              "rating": 1015
+            },
+            {
+              "name": "Bandit",
+              "delta": 29,
+              "rating": 1013
+            }
+          ],
+          "teamB": [
+            {
+              "name": "2elite",
+              "delta": -17,
+              "rating": 1028
+            },
+            {
+              "name": "SlayFS",
+              "delta": -17,
+              "rating": 951
+            },
+            {
+              "name": "Kain",
+              "delta": -17,
+              "rating": 967
+            },
+            {
+              "name": "ImAkaii",
+              "delta": -17,
+              "rating": 984
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "winner": "B",
+          "at": 1795576135866,
+          "byStaff": false,
+          "format": null,
+          "maps": null,
+          "teamA": [
+            {
+              "name": "Brimington",
+              "delta": -15,
+              "rating": 969
+            },
+            {
+              "name": "Bruce",
+              "delta": -19,
+              "rating": 1011
+            },
+            {
+              "name": "JAYDREAMZ",
+              "delta": -17,
+              "rating": 983
+            },
+            {
+              "name": "ZEUS",
+              "delta": -16,
+              "rating": 1015
+            }
+          ],
+          "teamB": [
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": 32,
+              "rating": 1017
+            },
+            {
+              "name": "Kain",
+              "delta": 35,
+              "rating": 984
+            },
+            {
+              "name": "2elite",
+              "delta": 45,
+              "rating": 1045
+            },
+            {
+              "name": "MaRsH313",
+              "delta": 37,
+              "rating": 1051
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "winner": "A",
+          "at": 1795484262785,
+          "byStaff": false,
+          "format": null,
+          "maps": null,
+          "teamA": [
+            {
+              "name": "Cam",
+              "delta": 15,
+              "rating": null
+            },
+            {
+              "name": "Inspire",
+              "delta": 15,
+              "rating": null
+            },
+            {
+              "name": "MaRsH313",
+              "delta": 15,
+              "rating": null
+            },
+            {
+              "name": "Pizz",
+              "delta": 15,
+              "rating": null
+            }
+          ],
+          "teamB": [
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": -15,
+              "rating": null
+            },
+            {
+              "name": "🧛🏼OverlordAlucard 🧛🏼",
+              "delta": -15,
+              "rating": null
+            },
+            {
+              "name": "Palsy",
+              "delta": -15,
+              "rating": null
+            },
+            {
+              "name": "Brimington",
+              "delta": -15,
+              "rating": null
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "winner": "A",
+          "at": 1795480878373,
+          "byStaff": false,
+          "format": null,
+          "maps": null,
+          "teamA": [
+            {
+              "name": "Cam",
+              "delta": 16,
+              "rating": null
+            },
+            {
+              "name": "2elite",
+              "delta": 16,
+              "rating": null
+            },
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": 16,
+              "rating": null
+            },
+            {
+              "name": "MaRsH313",
+              "delta": 16,
+              "rating": null
+            }
+          ],
+          "teamB": [
+            {
+              "name": "🧛🏼OverlordAlucard 🧛🏼",
+              "delta": -16,
+              "rating": null
+            },
+            {
+              "name": "Kain",
+              "delta": -16,
+              "rating": null
+            },
+            {
+              "name": "Brimington",
+              "delta": -16,
+              "rating": null
+            },
+            {
+              "name": "Pizz",
+              "delta": -16,
+              "rating": null
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "winner": "B",
+          "at": 1795478748216,
+          "byStaff": false,
+          "format": null,
+          "maps": null,
+          "teamA": [
+            {
+              "name": "Kain",
+              "delta": -17,
+              "rating": null
+            },
+            {
+              "name": "Cam",
+              "delta": -17,
+              "rating": null
+            },
+            {
+              "name": "MaRsH313",
+              "delta": -17,
+              "rating": null
+            },
+            {
+              "name": "Brimington",
+              "delta": -17,
+              "rating": null
+            }
+          ],
+          "teamB": [
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": 17,
+              "rating": null
+            },
+            {
+              "name": "Inspire",
+              "delta": 17,
+              "rating": null
+            },
+            {
+              "name": "🧛🏼OverlordAlucard 🧛🏼",
+              "delta": 17,
+              "rating": null
+            },
+            {
+              "name": "ImAkaii",
+              "delta": 17,
+              "rating": null
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "winner": "B",
+          "at": 1795405843533,
+          "byStaff": false,
+          "format": null,
+          "maps": null,
+          "teamA": [
+            {
+              "name": "cbass",
+              "delta": -15,
+              "rating": null
+            },
+            {
+              "name": "SlayFS",
+              "delta": -15,
+              "rating": null
+            },
+            {
+              "name": "ZEUS",
+              "delta": -15,
+              "rating": null
+            },
+            {
+              "name": "Kain",
+              "delta": -15,
+              "rating": null
+            }
+          ],
+          "teamB": [
+            {
+              "name": "shooter",
+              "delta": 15,
+              "rating": null
+            },
+            {
+              "name": "Racist Guy Marv",
+              "delta": 15,
+              "rating": null
+            },
+            {
+              "name": "Kentucky",
+              "delta": 15,
+              "rating": null
+            },
+            {
+              "name": "ImAkaii",
+              "delta": 15,
+              "rating": null
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "winner": "B",
+          "at": 1795402195743,
+          "byStaff": false,
+          "format": null,
+          "maps": null,
+          "teamA": [
+            {
+              "name": "Twizz",
+              "delta": -17,
+              "rating": null
+            },
+            {
+              "name": "Brimington",
+              "delta": -17,
+              "rating": null
+            },
+            {
+              "name": "Kain",
+              "delta": -17,
+              "rating": null
+            },
+            {
+              "name": "MaRsH313",
+              "delta": -17,
+              "rating": null
+            }
+          ],
+          "teamB": [
+            {
+              "name": "Racist Guy Marv",
+              "delta": 17,
+              "rating": null
+            },
+            {
+              "name": "cbass",
+              "delta": 17,
+              "rating": null
+            },
+            {
+              "name": "Cam",
+              "delta": 17,
+              "rating": null
+            },
+            {
+              "name": "ZEUS",
+              "delta": 17,
+              "rating": null
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "winner": "B",
+          "at": 1795398419788,
+          "byStaff": false,
+          "format": null,
+          "maps": null,
+          "teamA": [
+            {
+              "name": "MaRsH313",
+              "delta": -16,
+              "rating": null
+            },
+            {
+              "name": "2elite",
+              "delta": -16,
+              "rating": null
+            },
+            {
+              "name": "ImAkaii",
+              "delta": -16,
+              "rating": null
+            },
+            {
+              "name": "ZEUS",
+              "delta": -16,
+              "rating": null
+            }
+          ],
+          "teamB": [
+            {
+              "name": "Twizz",
+              "delta": 16,
+              "rating": null
+            },
+            {
+              "name": "Brimington",
+              "delta": 16,
+              "rating": null
+            },
+            {
+              "name": "Fly Tendencies",
+              "delta": 16,
+              "rating": null
+            },
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": 16,
+              "rating": null
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "winner": "A",
+          "at": 1795386117859,
+          "byStaff": false,
+          "format": null,
+          "maps": null,
+          "teamA": [
+            {
+              "name": "Cam",
+              "delta": 16,
+              "rating": null
+            },
+            {
+              "name": "Senz",
+              "delta": 16,
+              "rating": null
+            },
+            {
+              "name": "2elite",
+              "delta": 16,
+              "rating": null
+            },
+            {
+              "name": "ZEUS",
+              "delta": 16,
+              "rating": null
+            }
+          ],
+          "teamB": [
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": -16,
+              "rating": null
+            },
+            {
+              "name": "Esca",
+              "delta": -16,
+              "rating": null
+            },
+            {
+              "name": "Bandit",
+              "delta": -16,
+              "rating": null
+            },
+            {
+              "name": "Palsy",
+              "delta": -16,
+              "rating": null
+            }
+          ]
+        }
+      ]
     }
+  ],
+  "eightsMembers": [
+    "'Nightmare2tuRnt",
+    "@exotic",
+    "*",
+    "⛧ Ƒëﾑr ツ",
+    "🧛🏼OverlordAlucard 🧛🏼",
+    "007 Quay",
+    "253",
+    "2elite",
+    "2Nasty 🏅",
+    "2Tonettv",
+    "6BluntKilla",
+    "Afroman",
+    "AJ",
+    "Alex",
+    "Alive",
+    "Amiri",
+    "Ant",
+    "ArcanExZ",
+    "Aspect",
+    "Assaults",
+    "athral",
+    "AustinJustDifferent",
+    "Avecti",
+    "𝘼𝙫𝙚𝙧𝙮 𖹭",
+    "Avxesia",
+    "BadKarma556",
+    "Bandit",
+    "Barb Jr",
+    "BBLZaaZaa",
+    "Bearbut",
+    "BearXO",
+    "Benny",
+    "Berggaming2000",
+    "berry",
+    "BerserkCA",
+    "Bgolden",
+    "bickle",
+    "bigdud",
+    "Birch",
+    "Bis",
+    "Bizz",
+    "BizZo",
+    "Blackout",
+    "Blank",
+    "Blessed_Aim",
+    "Bloodz",
+    "Blurr",
+    "Bodiezz",
+    "Boosh's Son",
+    "BooshDaGoat",
+    "Brad",
+    "brady",
+    "Brimington",
+    "BrooksySZN",
+    "Bruxo",
+    "BT",
+    "bubblemelts",
+    "Bubblzoid",
+    "Bunnii",
+    "Butcher",
+    "butchiehof",
+    "C0d3",
+    "Cali",
+    "Cam",
+    "Canon",
+    "Cat 4hurricane",
+    "Cave",
+    "Ceasar",
+    "Ceej",
+    "Cerberus",
+    "Cglok",
+    "Cheetah",
+    "ChiliMxc",
+    "Cliz 🏅",
+    "ClutCh",
+    "cmoore",
+    "Coop",
+    "crashh",
+    "Crazed",
+    "Crouse",
+    "CWarren",
+    "Daddy Dash",
+    "Death_Curry",
+    "DefineX",
+    "Dexter",
+    "Dirt",
+    "dirtygoose_",
+    "Diversityy",
+    "Divi",
+    "Dizzle",
+    "Donny",
+    "dr overspy",
+    "Drakioo",
+    "DrewPeaBalls (Rob)",
+    "DrJuice",
+    "dropout",
+    "dusk",
+    "DZ_TOP",
+    "envylaking",
+    "Esca",
+    "Evade",
+    "Exelsss",
+    "Exquisite",
+    "Fat Baspie",
+    "Felix Palencia",
+    "Fen",
+    "Fern",
+    "fettii",
+    "Flick",
+    "Float",
+    "Fly Tendencies",
+    "FlyTheW",
+    "𝙁𝙤𝙯𝙨𝙮",
+    "Franny",
+    "Freaky",
+    "FrogMop",
+    "Future_dT",
+    "g-ter",
+    "Galant",
+    "Gee",
+    "GhxstVI",
+    "GmanBTW",
+    "Godly",
+    "GoreMandir",
+    "Griff",
+    "Grimothe",
+    "Guncites",
+    "Gunned",
+    "GunSage",
+    "Gutta",
+    "Haight",
+    "Hell",
+    "Hell™",
+    "henrytheinkling5",
+    "Hidden Illusion",
+    "Hoodii",
+    "Houndful",
+    "Hunna",
+    "Iamenemyy",
+    "iiSustain",
+    "ilikefeet",
+    "Immola7eHD",
+    "ImWarmer🇨🇦",
+    "Incise",
+    "Inferno",
+    "Inspire",
+    "Intrvrt",
+    "𝐼𝓃𝓋𝒾𝒸𝓉𝓊𝓈",
+    "ItwasLuck 🥷",
+    "J T Ā X",
+    "Jantehhhhh",
+    "Jay",
+    "JAYDREAMZ",
+    "JD",
+    "Jerby",
+    "Jerome",
+    "Jestrose",
+    "John Wick",
+    "Joltcy",
+    "jonathan",
+    "JTy",
+    "justtomonkey",
+    "K1lla",
+    "Kachigga",
+    "Kain",
+    "Kaptiankush44",
+    "Kay",
+    "Kenster",
+    "Kev",
+    "Kevoh",
+    "Kib",
+    "Killua",
+    "King",
+    "King Soop",
+    "KiwiSZN",
+    "Kjay",
+    "KlutchPhreek",
+    "Kmoney0303 🥇",
+    "Kosmos",
+    "Kozah",
+    "KPKev",
+    "KreativityTV",
+    "Kreaux",
+    "kripticshotz",
+    "Krypto",
+    "Kugo",
+    "Kuuuji",
+    "Kyanite Kosm",
+    "Kyle",
+    "KYRO",
+    "L e T H a L",
+    "Laser",
+    "Lil'Ceezars",
+    "Lion",
+    "Logical",
+    "LordFrieza",
+    "Lovell",
+    "Lowtweaker",
+    "Loyal",
+    "LQWD",
+    "Luke",
+    "Maddix",
+    "Maloso33_",
+    "MaRsH313",
+    "Matt",
+    "Mclovin",
+    "MeRcY",
+    "MetricXD (EX)",
+    "MidwestCultivators",
+    "MistC",
+    "Mizzro",
+    "model",
+    "mollyjanesapphi",
+    "MoonerTheAlcoholic",
+    "Msn",
+    "Mute",
+    "Mxnny",
+    "nashi",
+    "NavyYeti",
+    "Nemo",
+    "Nicko",
+    "Nightmare",
+    "Noah",
+    "Nolzii",
+    "Noted",
+    "NovaSZN",
+    "Nuggies",
+    "Nuke",
+    "Ny",
+    "OG RaZoR",
+    "OGBunz",
+    "OGLee",
+    "OrLeX",
+    "Palsy",
+    "Paradise",
+    "PARZIII",
+    "Pavidion",
+    "PeanutEx",
+    "PegAsus",
+    "Pete",
+    "Pistol",
+    "Pizz",
+    "poisontv",
+    "Pollo",
+    "Poot Shiesty",
+    "𝒑͋𝒓𝒆𝒔𝒔",
+    "Presto",
+    "Primo",
+    "ProRex",
+    "Psychic",
+    "pyp",
+    "pyth0n freezy",
+    "Quartz",
+    "quinnfury",
+    "R3AP9",
+    "Racist Guy Marv",
+    "ragu",
+    "RAIFORD",
+    "rallo",
+    "Rami",
+    "Ray",
+    "Reaper",
+    "Reddaza",
+    "Refrain",
+    "relax",
+    "repeallz",
+    "Retribution",
+    "Revert",
+    "rez..",
+    "Rhinø",
+    "rhixc6",
+    "Rigo👑",
+    "RTFCod",
+    "Ryan",
+    "RynoRH",
+    "Sac",
+    "saint420",
+    "Santini",
+    "Saphy",
+    "Scayed",
+    "ScorpZ III",
+    "Scrxwnee",
+    "scumbag",
+    "Seanny",
+    "Shi",
+    "shrumps",
+    "Silentwolf",
+    "skippz",
+    "Skittles",
+    "SkitZo",
+    "Slammie",
+    "Sleepxo™",
+    "Smacc",
+    "Snipez",
+    "Snoopzzy",
+    "Society",
+    "Solo",
+    "Sophellium",
+    "Space",
+    "Spanky Flanky",
+    "Spartan Attack",
+    "spoochfps",
+    "Spyde",
+    "Spyder",
+    "Stezi",
+    "Stives",
+    "Stobs",
+    "STOMPN",
+    "𝖘𝖙𝖗𝖆𝖚𝖙𝖔",
+    "StrokelySellsSR",
+    "Stxhtic",
+    "Sumo",
+    "Tactical Reaper",
+    "Tanji",
+    "Tekksal",
+    "Teo",
+    "Theftz",
+    "theylovederek",
+    "Thuggy Cheeks",
+    "Thumpa",
+    "Tmanyyy",
+    "Trendz",
+    "TruNova",
+    "Tuba",
+    "Twisted_Tummyz",
+    "Twizz",
+    "Unfiltered",
+    "unholy draco",
+    "Vaypur",
+    "vBorndi",
+    "Venom",
+    "Villain Galde-145",
+    "Vinjay",
+    "Vinny hacker",
+    "vis",
+    "VixSZN",
+    "Void",
+    "Voltain",
+    "Wade",
+    "Washed Trav",
+    "Wet Willy Fingers",
+    "Wild420",
+    "Windend 👾Bald Cheeks",
+    "Winter ❄️",
+    "Wronghand",
+    "xASSinNINEx",
+    "Xerxes",
+    "Xolbo",
+    "xShisui",
+    "XTheJW",
+    "Xyn",
+    "Yolkz",
+    "YoungIceVanilla",
+    "Yuno",
+    "Yuriomadness",
+    "yvvA",
+    "Zech",
+    "Zero Dark Berty",
+    "Zet",
+    "ZEUS",
+    "ZombieMercenary",
+    "Zuko",
+    "zyleex",
+    "Zylixz",
+    "Zyn",
+    "Zyvex",
+    "᲼"
   ],
   "announcements": [
     {
