@@ -232,6 +232,7 @@ function matchPage(league, m, c) {
       <h3>${esc(m.caster.name)}</h3>
       ${m.caster.stream ? `<a class="btn btn-gold btn-sm" href="${esc(m.caster.stream)}" target="_blank" rel="noopener">Watch the stream ↗</a>` : '<p class="muted">Stream link coming soon.</p>'}
       <p style="margin:12px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset/`)}" target="_blank" rel="noopener">Mapset screen (for the stream) ↗</a></p>
+      <p style="margin:6px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset/?record`)}" target="_blank" rel="noopener">Download mapset video ↓</a> <span class="muted" style="font-size:13px">(opens a tab that records it, about 8 seconds)</span></p>
     </div>` : `
     <div class="panel mp-caster"><p class="eyebrow">Casting</p><p class="muted" style="margin:0">No caster yet.</p></div>`;
 
@@ -600,6 +601,132 @@ function mapsetPage(league, m, c) {
   // live.js re-renders the page: the video and patch layer are kept (data-live-keep).
   document.addEventListener('ajcl:league', function () { setTimeout(init, 0); });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+<script>
+(function () {
+  // "Download video": record the mapset screen (intro video + this match's maps,
+  // logos, records and vetos) into a 1920x1080 video file, in the browser.
+  if (!/[?&]record\\b/.test(location.search)) return;
+  var HOLD = 3; // seconds to hold the finished screen after the intro
+  var W = 1920, H = 1080;
+  var bar = document.createElement('div');
+  bar.style.cssText = 'position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:99;background:rgba(10,10,10,.85);color:#fff;font:600 16px system-ui,sans-serif;padding:10px 16px;border-radius:10px;border:1px solid #444';
+  function say(t) { bar.textContent = t; if (!bar.parentNode) document.body.appendChild(bar); }
+  say('Getting the mapset video ready…');
+
+  function stageScale() { var st = document.querySelector('[data-ms-stage]'); return st.getBoundingClientRect().width / W; }
+  function local(rect, origin, sc) { return { x: (rect.left - origin.left) / sc, y: (rect.top - origin.top) / sc, w: rect.width / sc, h: rect.height / sc }; }
+  function loadImg(src) { return new Promise(function (res) { var i = new Image(); i.crossOrigin = 'anonymous'; i.onload = function () { res(i); }; i.onerror = function () { res(null); }; i.src = src; }); }
+  function bgUrl(el) { var m = /url\\(["']?([^"')]+)["']?\\)/.exec(getComputedStyle(el).getPropertyValue('--map-img') || ''); return m ? m[1] : null; }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  // Draw one text element where the page shows it, in the same font and colour.
+  function drawText(ctx, el, origin, sc) {
+    var text = (el.textContent || '').trim();
+    if (!text) return;
+    var cs = getComputedStyle(el), r = el.getBoundingClientRect();
+    var range = document.createRange(); range.selectNodeContents(el);
+    var tr = range.getBoundingClientRect();
+    if (!tr.width) return;
+    var size = parseFloat(cs.fontSize) / sc * sc; // font-size is in stage px already
+    ctx.save();
+    ctx.font = cs.fontWeight + ' ' + parseFloat(cs.fontSize) + 'px ' + cs.fontFamily;
+    if ('fontVariantCaps' in ctx) ctx.fontVariantCaps = cs.fontVariantCaps === 'small-caps' ? 'small-caps' : 'normal';
+    ctx.fillStyle = cs.color;
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'left';
+    ctx.shadowColor = 'rgba(0,0,0,.75)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 2;
+    var box = local(tr, origin, sc);
+    ctx.fillText(text, box.x, box.y + box.h / 2, Math.max(box.w + 2, (r.width / sc)));
+    ctx.restore();
+  }
+
+  async function record() {
+    var st = document.querySelector('[data-ms-stage]');
+    var v = document.getElementById('ms-video'), patch = document.getElementById('ms-patch');
+    if (!st || !v) return say('This mapset screen has no video to record.');
+    // Wait for the clean patches, fonts and pictures.
+    for (var i = 0; i < 100 && !(patch && patch.classList.contains('is-built')); i++) await wait(100);
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    var panels = [].slice.call(st.querySelectorAll('.ms-panel'));
+    var pics = await Promise.all(panels.map(function (p) { var u = bgUrl(p); return u ? loadImg(u) : null; }));
+    var logos = [].slice.call(st.querySelectorAll('.ms-logo img'));
+    await Promise.all(logos.map(function (img) { return img.complete ? null : new Promise(function (r) { img.onload = img.onerror = r; }); }));
+
+    var canvas = document.createElement('canvas'); canvas.width = W; canvas.height = H;
+    var ctx = canvas.getContext('2d');
+    var types = ['video/mp4;codecs=avc1.42E01E', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'];
+    var type = types.filter(function (t) { return window.MediaRecorder && MediaRecorder.isTypeSupported(t); })[0];
+    if (!type) return say("This browser can't record video. Try Chrome or Edge.");
+    var stream = canvas.captureStream(30);
+    var rec = new MediaRecorder(stream, { mimeType: type, videoBitsPerSecond: 12000000 });
+    var chunks = [];
+    rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+
+    function frame() {
+      var sc = stageScale(), origin = st.getBoundingClientRect();
+      ctx.clearRect(0, 0, W, H);
+      ctx.drawImage(v, 0, 0, W, H);
+      if (patch.classList.contains('is-built')) ctx.drawImage(patch, 0, 0);
+      // Map pictures in the slanted panels, with the page's current fade.
+      panels.forEach(function (p, i) {
+        var op = parseFloat(getComputedStyle(p).opacity) || 0;
+        if (!op) return;
+        var b = local(p.getBoundingClientRect(), origin, sc);
+        ctx.save();
+        ctx.globalAlpha = op;
+        ctx.beginPath();
+        ctx.moveTo(b.x, b.y); ctx.lineTo(b.x + 162, b.y); ctx.lineTo(b.x + 290, b.y + 512); ctx.lineTo(b.x + 128, b.y + 512); ctx.closePath();
+        ctx.clip();
+        ctx.fillStyle = '#1b1c20'; ctx.fillRect(b.x, b.y, 290, 512);
+        var img = pics[i];
+        if (img) { var s = Math.max(290 / img.width, 512 / img.height), iw = img.width * s, ih = img.height * s; ctx.drawImage(img, b.x + (290 - iw) / 2, b.y + (512 - ih) / 2, iw, ih); }
+        var g = ctx.createLinearGradient(0, b.y, 0, b.y + 512); g.addColorStop(0.55, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.85)');
+        ctx.fillStyle = g; ctx.fillRect(b.x, b.y, 290, 512);
+        p.querySelectorAll('.ms-label span, .ms-label strong, .ms-label em').forEach(function (el) { drawText(ctx, el, origin, sc); });
+        ctx.restore();
+      });
+      // Records, vetos and logos.
+      st.querySelectorAll('.ms-rec, .ms-row span, .ms-status').forEach(function (el) { drawText(ctx, el, origin, sc); });
+      logos.forEach(function (img) {
+        if (!img.naturalWidth) return;
+        var b = local(img.getBoundingClientRect(), origin, sc);
+        var s = Math.min(b.w / img.naturalWidth, b.h / img.naturalHeight), iw = img.naturalWidth * s, ih = img.naturalHeight * s;
+        ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 20; ctx.shadowOffsetY = 8;
+        ctx.drawImage(img, b.x + (b.w - iw) / 2, b.y + (b.h - ih) / 2, iw, ih);
+        ctx.restore();
+      });
+    }
+
+    // Play the intro from the start and record it, then hold the finished screen.
+    v.pause(); v.currentTime = 0;
+    await new Promise(function (r) { v.addEventListener('seeked', r, { once: true }); });
+    st.classList.remove('is-ready');
+    frame();
+    rec.start(250);
+    say('Recording… (about ' + Math.round((v.duration || 5) + HOLD) + ' seconds, keep this tab open)');
+    var endAt = null, done = false;
+    await v.play().catch(function () {});
+    await new Promise(function (resolve) {
+      (function tick() {
+        frame();
+        if (v.ended && endAt === null) endAt = performance.now() + HOLD * 1000;
+        if (endAt !== null && performance.now() >= endAt) return resolve();
+        requestAnimationFrame(tick);
+      })();
+    });
+    rec.stop();
+    await new Promise(function (r) { rec.onstop = r; });
+    var blob = new Blob(chunks, { type: type.split(';')[0] });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = (document.title.split(' · ')[0] || 'mapset').replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '-mapset.' + (type.indexOf('mp4') >= 0 ? 'mp4' : 'webm');
+    document.body.appendChild(a); a.click();
+    say('Done — your mapset video downloaded (' + a.download + ').');
+  }
+  function go() { setTimeout(function () { record().catch(function (e) { say('Could not make the video: ' + (e && e.message || e)); }); }, 800); }
+  if (document.readyState === 'complete') go(); else addEventListener('load', go);
 })();
 </script>
 ${LIVE_URL ? `<script src="${u('/app.js')}?v=${CSS_VERSION}" defer></script>
