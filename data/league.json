@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795576531523,
+  "generatedAt": 1795576549118,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -636,7 +636,7 @@
       "picksBans": {
         "teamA": "mrd",
         "teamB": "kck",
-        "inProgress": true,
+        "inProgress": false,
         "actions": [
           {
             "mode": "hardpoint",
@@ -693,6 +693,27 @@
             "team": "mrd",
             "slot": 5,
             "map": "Rooftops"
+          },
+          {
+            "mode": "hijack",
+            "action": "ban",
+            "team": "mrd",
+            "slot": null,
+            "map": "Lotus"
+          },
+          {
+            "mode": "hijack",
+            "action": "ban",
+            "team": "kck",
+            "slot": null,
+            "map": "Munition"
+          },
+          {
+            "mode": "hijack",
+            "action": "pick",
+            "team": null,
+            "slot": 3,
+            "map": "Lithium"
           }
         ]
       }
