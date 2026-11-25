@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795565277584,
+  "generatedAt": 1795565302321,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1202,22 +1202,27 @@
     },
     "Academy": {
       "status": "open",
-      "voters": 1,
+      "voters": 2,
       "postedAt": 1795565229593,
       "teams": [
         {
-          "team": "omh",
-          "points": 5,
+          "team": "ros",
+          "points": 6,
           "firsts": 1
         },
         {
-          "team": "pit",
+          "team": "omh",
+          "points": 6,
+          "firsts": 1
+        },
+        {
+          "team": "nor",
           "points": 3,
           "firsts": 0
         },
         {
-          "team": "ros",
-          "points": 1,
+          "team": "pit",
+          "points": 3,
           "firsts": 0
         },
         {
@@ -1227,11 +1232,6 @@
         },
         {
           "team": "lex",
-          "points": 0,
-          "firsts": 0
-        },
-        {
-          "team": "nor",
           "points": 0,
           "firsts": 0
         },
