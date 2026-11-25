@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795565500828,
+  "generatedAt": 1795565653628,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -60,8 +60,8 @@
           "Speiddyy": "Amethyst"
         },
         "links": {
-          "BBLZaaZaa": "bblzaazaa",
           "Xerxes": "xerxes",
+          "BBLZaaZaa": "bblzaazaa",
           "Reddaza": "reddaza",
           "Speiddyy": "speiddyy"
         }
@@ -1249,6 +1249,13 @@
     }
   },
   "members": {
+    "4623064ecf744333f6f7": {
+      "team": "atl",
+      "name": "Xerxes",
+      "roles": [
+        "player"
+      ]
+    },
     "e5bff57d28cd2185c135": {
       "team": "atl",
       "name": "BBLZaaZaa",
@@ -1256,13 +1263,6 @@
         "player",
         "gm",
         "coach"
-      ]
-    },
-    "4623064ecf744333f6f7": {
-      "team": "atl",
-      "name": "Xerxes",
-      "roles": [
-        "player"
       ]
     },
     "c1fd90bf17d65a2f054c": {
@@ -1745,6 +1745,45 @@
   },
   "players": [
     {
+      "slug": "xerxes",
+      "name": "Xerxes",
+      "team": "atl",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amethyst",
+      "gamertag": "Xerxes",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.92",
+            "kpm": "19.3",
+            "maps": 42
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "PIT / SLN",
+              "kd": "0.93",
+              "kpm": "19.8",
+              "maps": 29
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "CAR / SLN",
+              "kd": "0.88",
+              "kpm": "18.2",
+              "maps": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "bblzaazaa",
       "name": "BBLZaaZaa",
       "team": "atl",
@@ -1780,45 +1819,6 @@
               "kd": "1.14",
               "kpm": "20.7",
               "maps": 15
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "xerxes",
-      "name": "Xerxes",
-      "team": "atl",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amethyst",
-      "gamertag": "Xerxes",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.92",
-            "kpm": "19.3",
-            "maps": 42
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "PIT / SLN",
-              "kd": "0.93",
-              "kpm": "19.8",
-              "maps": 29
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "CAR / SLN",
-              "kd": "0.88",
-              "kpm": "18.2",
-              "maps": 13
             }
           ]
         }
