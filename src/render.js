@@ -1119,14 +1119,17 @@ function playerPage(league, player, c) {
 </script>` : '';
 
   // Discord profile link (player's own ID, else their staff entry's).
-  const discordId = player.discordId || ((league.staff || []).flatMap(g => g.members || []).find(m => m.slug === player.slug || m.name === player.name) || {}).discordId;
+  const staffEntry = (league.staff || []).flatMap(g => g.members || []).find(m => m.slug === player.slug || m.name === player.name) || {};
+  const discordId = player.discordId || staffEntry.discordId;
+  const avatarUrl = /^https:\/\/cdn\.discordapp\.com\//.test(String(player.avatar || staffEntry.avatar || '')) ? (player.avatar || staffEntry.avatar) : null;
+  const avatar = avatarUrl ? `<img class="player-avatar" src="${esc(avatarUrl)}" alt="" width="56" height="56">` : '';
   const discordBtn = /^\d{15,22}$/.test(String(discordId || ''))
     ? `<a class="btn btn-discord btn-sm player-discord" href="https://discord.com/users/${discordId}" target="_blank" rel="noopener">${DISCORD_SVG} Discord profile</a>` : '';
   const head = team ? `
   <a href="${teamHref(team)}" aria-label="${esc(team.name)}">${crest(team, 'xl')}</a>
   <div>
     <p class="eyebrow"><span class="div-tag div-${team.division.toLowerCase()}">${esc(team.division)}</span></p>
-    <h1>${esc(player.name)}${player.rank ? ` ${rankTag(player.rank)}` : ''}</h1>
+    <h1 class="player-title">${avatar}<span>${esc(player.name)}</span>${player.rank ? ` ${rankTag(player.rank)}` : ''}</h1>
     <div class="team-stats">
       <div><strong>${player.kd ? esc(player.kd) : '–'}</strong><span>${esc(c.season || 'Season')} K/D</span></div>
       <div><strong class="player-team"><a href="${teamHref(team)}">${esc(team.abbr)}</a></strong><span>${esc(team.name)}</span></div>
@@ -1137,7 +1140,7 @@ function playerPage(league, player, c) {
   <span class="crest crest-xl crest-fallback" aria-hidden="true">${esc(player.freeAgent ? 'FA' : (player.lastTeam || '—'))}</span>
   <div>
     <p class="eyebrow"><span class="pill${player.freeAgent ? ' pill-live' : ''}">${player.freeAgent ? esc(faLabel(player)) : 'Former player'}</span></p>
-    <h1>${esc(player.name)}${player.rank ? ` ${rankTag(player.rank)}` : ''}</h1>
+    <h1 class="player-title">${avatar}<span>${esc(player.name)}</span>${player.rank ? ` ${rankTag(player.rank)}` : ''}</h1>
     <div class="team-stats">
       ${player.lastTeam ? `<div><strong>${esc(player.lastTeam)}</strong><span>Last team</span></div>` : ''}
       <div><strong>${(player.games || []).reduce((n, g) => n + g.seasons.length, 0)}</strong><span>Seasons played</span></div>

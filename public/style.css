@@ -616,3 +616,6 @@ html:not(.js) .lb-tabs { display: none; }
 .staff-discord { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin-right: 10px; border-radius: 8px; color: #fff; background: #5865f2; opacity: .85; transition: opacity .15s, transform .15s; }
 .staff-discord:hover { opacity: 1; transform: translateY(-1px); }
 .player-discord { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; }
+.player-title { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+.player-avatar { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--line); flex: none; object-fit: cover; }
+@media (max-width: 600px) { .player-avatar { width: 44px; height: 44px; } }
