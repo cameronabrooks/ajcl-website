@@ -982,6 +982,7 @@ const ROSTER_TOOLS_SCRIPT = `<script>
       el.hidden = !mine; if (mine && el.closest('[data-rt-offers]')) anyOffer = true;
     });
     var box = document.querySelector('[data-rt-offers]'); if (box) box.hidden = !anyOffer;
+    document.querySelectorAll('[data-rt-staffonly]').forEach(function (el) { el.hidden = !(loggedIn && staff); });
   }
   // Trade form: their team -> their roster.
   document.addEventListener('change', function (e) {
@@ -1005,6 +1006,14 @@ const ROSTER_TOOLS_SCRIPT = `<script>
     var options = {};
     new FormData(form).forEach(function (v, k) { if (v !== '') options[k] = v; });
     form.querySelectorAll('input[type=checkbox]').forEach(function (c) { options[c.name] = c.checked; });
+    if (form.dataset.cmd === 'announce') {
+      // Image links -> image, image2, ... image10 (the command's attachment options).
+      (options.images || '').split(/\\s+/).filter(function (x) { return /^https:\\/\\//i.test(x); }).slice(0, 10)
+        .forEach(function (url, i) { options[i ? 'image' + (i + 1) : 'image'] = url; });
+      delete options.images;
+      // "2026-12-25T15:00" -> "12/25/2026 15:00" (Eastern Time, like the Discord option).
+      if (options.schedule) { var m = /^(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}:\\d{2})/.exec(options.schedule); options.schedule = m ? m[2] + '/' + m[3] + '/' + m[1] + ' ' + m[4] : options.schedule; }
+    }
     var LIVE = (document.querySelector('meta[name="ajcl-live-url"]') || {}).content || '';
     form.querySelectorAll('button').forEach(function (b) { b.disabled = true; });
     say('Sending to the bot…');
@@ -1390,11 +1399,34 @@ function announcementCard(a, { clamp = false } = {}) {
 
 function announcementsPage(league, c) {
   const list = league.announcements || [];
-  const body = pageHead('League', 'Announcements', 'The latest from #league-announcements in the AJCL Discord.') + `
+  // Staff: post an announcement through the bot (runs the real /announce command).
+  const CHANNELS = [['1091487836043235358', 'league-announcements'], ['1102805391986933800', 'misc-announcements'], ['1069758646877171713', 'stream-announcements'],
+    ['1135032383918329896', 'tournament-announcements'], ['1310080914121818162', 'gm-announcement'], ['1573027758068596736', 'gm-commands'],
+    ['1070503275411021846', 'ga-info'], ['1573121502000193616', 'staff-commands']];
+  const teamRoles = (league.teams || []).filter(t => t.roleId).sort((a, b) => a.name.localeCompare(b.name));
+  const composer = `<section class="wrap section rt-section" data-rt-staffonly hidden>
+  <form class="panel rt-panel rt-staff rt-form an-form" data-cmd="announce" data-confirm="Post this announcement in Discord?">
+    <p class="eyebrow">Make an announcement · staff</p>
+    <div class="an-grid">
+      <label>Channel<select name="channel" required>${CHANNELS.map(([id, n]) => `<option value="${id}">#${n}</option>`).join('')}</select></label>
+      <label>Title <span class="muted">(optional — posts as an embed)</span><input name="title" maxlength="256" placeholder="Title"></label>
+      <label class="an-wide">Message<textarea name="message" rows="6" maxlength="4000" required placeholder="What do you want to announce?"></textarea></label>
+      <label>Ping<select name="ping"><option value="none">No ping</option><option value="everyone">@everyone</option><option value="here">@here</option></select></label>
+      <label>Ping a team <span class="muted">(optional)</span><select name="rolemention"><option value="">None</option>${teamRoles.map(t => `<option value="${esc(t.roleId)}">${esc(t.name)}</option>`).join('')}</select></label>
+      <label>Ping a user <span class="muted">(Discord user ID)</span><input name="user_ping" maxlength="25" placeholder="e.g. 123456789012345678"></label>
+      <label>Tag channels <span class="muted">(channel IDs, space-separated)</span><input name="channel_tag" maxlength="200"></label>
+      <label class="an-wide">Images <span class="muted">(up to 10 image links, one per line)</span><textarea name="images" rows="2" placeholder="https://…"></textarea></label>
+      <label>Schedule <span class="muted">(optional, Eastern Time)</span><input type="datetime-local" name="schedule"></label>
+    </div>
+    <div class="mt-row"><button class="btn btn-sm btn-gold">Post announcement</button></div>
+    <p class="mt-out muted"></p>
+  </form>
+</section>`;
+  const body = pageHead('League', 'Announcements', 'The latest from #league-announcements in the AJCL Discord.') + composer + `
 <section class="wrap section">
   <div class="announce-list announce-full">${list.map(a => `<div id="${esc(a.id)}">${announcementCard(a)}</div>`).join('') || '<p class="muted">No announcements yet.</p>'}</div>
 </section>`;
-  return layout({ title: 'Announcements', active: 'home', body, c, page: 'announcements' });
+  return layout({ title: 'Announcements', active: 'home', body, c, script: ROSTER_TOOLS_SCRIPT, page: 'announcements' });
 }
 
 // ---- 8s: live queues (live feed only) + leaderboard ----

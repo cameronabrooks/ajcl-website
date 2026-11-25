@@ -112,7 +112,7 @@ export class League {
       }
       if (request.method !== 'POST') return new Response('{"error":"method"}', { status: 405, headers });
       const text = await request.text();
-      if (text.length > 1000) return new Response('{"error":"too large"}', { status: 413, headers });
+      if (text.length > 9000) return new Response('{"error":"too large"}', { status: 413, headers });
       let body;
       try { body = JSON.parse(text); } catch { return new Response('{"error":"bad json"}', { status: 400, headers }); }
       // Match actions: picks/bans (sides, map), scheduling (propose, confirm, reschedule),
@@ -120,7 +120,7 @@ export class League {
       const OPS = ['sides', 'map', 'propose', 'confirm', 'reschedule', 'report', 'set_time', 'set_deadline', 'reset_pb', 'start_pb', 'cmd'];
       // 'cmd' = GM / staff / player roster tools; the bot runs the real Discord command.
       const CMDS = ['offer', 'drop', 'trade', 'esub', 'commoffer', 'commdrop', 'clearteamneeds', 'removesuspension',
-        'trade_accept', 'trade_decline', 'offer_accept', 'offer_decline', 'esub_accept', 'esub_backout'];
+        'trade_accept', 'trade_decline', 'offer_accept', 'offer_decline', 'esub_accept', 'esub_backout', 'announce'];
       const op = body && body.op, match = String((body && body.match) || (op === 'cmd' ? 'roster' : '')).slice(0, 120);
       if (!match || !OPS.includes(op)) return new Response('{"error":"bad request"}', { status: 400, headers });
       if (op === 'cmd' && !CMDS.includes(body.command)) return new Response('{"error":"unknown tool"}', { status: 400, headers });
@@ -136,7 +136,7 @@ export class League {
       if (op === 'cmd') {
         action.command = body.command;
         const opts = JSON.stringify(body.options && typeof body.options === 'object' ? body.options : {});
-        if (opts.length > 1500) return new Response('{"error":"too large"}', { status: 413, headers });
+        if (opts.length > (body.command === 'announce' ? 8000 : 1500)) return new Response('{"error":"too large"}', { status: 413, headers });
         action.options = opts;
       }
       actions.push(action);

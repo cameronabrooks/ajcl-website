@@ -779,3 +779,11 @@ button.btn { font: inherit; cursor: pointer; }
 .rt-sub-side { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .rt-player-offers { margin-bottom: 22px; }
 .rt-form .mt-check { flex: 1 0 100%; white-space: nowrap; }
+
+/* Announcement composer (staff) */
+.an-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 16px; margin: 8px 0 12px; }
+.an-grid label { display: grid; gap: 4px; font-size: 13px; font-weight: 600; }
+.an-grid label .muted { font-weight: 400; }
+.an-grid .an-wide { grid-column: 1 / -1; }
+.an-form input, .an-form select, .an-form textarea { background: var(--bg-2); color: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; font: inherit; font-size: 14px; color-scheme: dark; width: 100%; }
+.an-form textarea { resize: vertical; }
