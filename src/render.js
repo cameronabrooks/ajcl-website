@@ -828,7 +828,7 @@ function eightsPage(league, c) {
     const team = (label, list) => `<div class="q-team"><h5>${label}</h5><ul>${list.map(n => `<li>${esc(n)}</li>`).join('') || '<li class="muted">Picking…</li>'}</ul></div>`;
     return `<article class="panel queue-card">
       <div class="q-head">
-        <h3>${esc(q.name)} 8s</h3>
+        <h3>${esc(q.name)}${/\b8s\b/i.test(q.name) ? '' : ' 8s'}</h3>
         ${q.locked ? '<span class="pill">Locked</span>' : `<span class="pill pill-live"><span class="live-dot"></span>${q.count}/${q.size || 8} in queue</span>`}
       </div>
       <div class="q-bar"><span style="width:${pct}%"></span></div>
