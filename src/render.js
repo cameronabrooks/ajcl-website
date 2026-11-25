@@ -232,7 +232,9 @@ function matchPage(league, m, c) {
       <h3>${esc(m.caster.name)}</h3>
       ${m.caster.stream ? `<a class="btn btn-gold btn-sm" href="${esc(m.caster.stream)}" target="_blank" rel="noopener">Watch the stream ↗</a>` : '<p class="muted">Stream link coming soon.</p>'}
       <p style="margin:12px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset/`)}" target="_blank" rel="noopener">Mapset screen (for the stream) ↗</a></p>
-      <p style="margin:6px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset/?record`)}" target="_blank" rel="noopener">Download mapset video ↓</a> <span class="muted" style="font-size:13px">(opens a tab that records it, about 8 seconds)</span></p>
+      ${mapsetVideoReady(m)
+        ? `<p style="margin:6px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset.mp4`)}" download="${esc(`${m.home.abbr}-vs-${m.away.abbr}-mapset.mp4`.toLowerCase())}">Download mapset video (MP4) ↓</a></p>`
+        : '<p class="muted" style="margin:6px 0 0;font-size:13px">The mapset video download appears once picks &amp; bans are done.</p>'}
     </div>` : `
     <div class="panel mp-caster"><p class="eyebrow">Casting</p><p class="muted" style="margin:0">No caster yet.</p></div>`;
 
@@ -371,9 +373,17 @@ function matchPage(league, m, c) {
   return layout({ title: `${m.home.abbr} vs ${m.away.abbr}`, active: 'schedule', body, c, script, page: `match:${matchId(m)}` });
 }
 
-// Caster mapset overlay (1920x1080, for OBS): the league template with the five
-// map pictures, both team logos + records, and each team's bans per mode.
+// Caster mapset screen (1920x1080, for OBS): the AJCL overlay artwork (with its
+// sample text erased) plus the five map panels, team logos + records and each team's
+// bans. The panels come in one by one like the stream overlay video and the AJCL
+// logo flickers on like a neon sign. ?frame=<seconds> shows one moment of the
+// animation (the build uses it to render the downloadable MP4).
 const MODE_SHORT = { hardpoint: 'HP', search_and_destroy: 'SND', hijack: 'Hijack' };
+const MS_SLOPE = 0.2522;                     // panel slant, measured from the artwork
+// Frames are 8px at the top, 28px at the bottom, 12.3px at the sides (22px right of the last).
+const MS_PANEL = { x: 26.5, step: 174.6, top: 56, bottom: 555, width: 150, side: 12.3, ft: 8, fb: 28, lastRight: 22 };
+const MAPSET_SECONDS = 6;                    // length of the downloadable video
+function mapsetVideoReady(m) { return !!(m.caster && m.picksBans && !m.picksBans.inProgress && m.picksBans.actions.some(a => a.action === 'pick')); }
 function mapsetPage(league, m, c) {
   const p = m.picksBans || null;
   const left = p && p.teamA === m.away.slug ? m.away : m.home;   // Team A on the left
@@ -385,29 +395,40 @@ function mapsetPage(league, m, c) {
   };
   const picks = p ? p.actions.filter(a => a.action === 'pick') : [];
   const slots = [1, 2, 3, 4, 5].map(n => picks.find(a => a.slot === n) || null);
-  // Panel geometry measured from the template (top-left x of each slanted panel).
+  const defaultMode = ['hardpoint', 'search_and_destroy', 'hijack', 'hardpoint', 'search_and_destroy'];
+  const P = MS_PANEL, h = P.bottom - P.top, S = MS_SLOPE;
   const panel = (a, i) => {
-    const x = 23 + 174.6 * i;
-    const style = `left:${x.toFixed(1)}px${a ? `;--map-img:url('${mapImage(a.map)}')` : ''}`;
-    return `<div class="ms-panel${a ? '' : ' is-empty'}" style="${style}">
-      <div class="ms-label"><span>Map ${i + 1}</span><strong>${a ? esc(a.map) : 'TBD'}</strong><em>${esc(MODE_SHORT[(a && a.mode) || ['hardpoint', 'search_and_destroy', 'hijack', 'hardpoint', 'search_and_destroy'][i]])}</em></div>
+    const ix = P.x + P.step * i, fr = i === 4 ? P.lastRight : P.side;
+    const top = P.top - P.ft, H = h + P.ft + P.fb;
+    const TL = ix - P.side - S * P.ft, TR = ix + P.width + fr - S * P.ft;
+    const BR = ix + P.width + fr + S * (h + P.fb), BL = ix - P.side + S * (h + P.fb);
+    const W = BR - TL, L = v => (v - TL).toFixed(1);
+    const outer = `polygon(0px 0px, ${L(TR)}px 0px, ${L(BR)}px ${H}px, ${L(BL)}px ${H}px)`;
+    const inner = `polygon(${L(ix)}px ${P.ft}px, ${L(ix + P.width)}px ${P.ft}px, ${L(ix + P.width + S * h)}px ${P.ft + h}px, ${L(ix + S * h)}px ${P.ft + h}px)`;
+    const mode = (a && a.mode) || defaultMode[i];
+    return `<div class="ms-panel" data-i="${i}" style="left:${TL.toFixed(1)}px;top:${top}px;width:${W.toFixed(1)}px;height:${H}px">
+      <div class="ms-frame" style="clip-path:${outer}"></div>
+      <div class="ms-pic${a ? '' : ' is-empty'}" style="clip-path:${inner}${a ? `;--map-img:url('${mapImage(a.map)}')` : ''}"></div>
+      <div class="ms-label" style="left:${(ix - TL + S * h * 0.88).toFixed(0)}px;bottom:${P.fb + 14}px;width:${P.width - 20}px"><span>Map ${i + 1}</span><strong>${a ? esc(a.map) : 'TBD'}</strong><em>${esc(MODE_SHORT[mode])}</em></div>
     </div>`;
   };
   const banOf = (team, mode) => {
-    const b = p ? p.actions.find(a => a.action === 'ban' && a.team === team.slug && a.mode === mode) : null;
-    return b ? esc(b.map) : '–';
+    const x = p ? p.actions.find(a => a.action === 'ban' && a.team === team.slug && a.mode === mode) : null;
+    return x ? esc(x.map) : '–';
   };
   const logo = team => team.logo ? `<img src="${esc(u(team.logo))}" alt="${esc(team.name)}">` : `<span class="ms-abbr">${esc(team.abbr)}</span>`;
-  const rows = ['hardpoint', 'search_and_destroy', 'hijack'].map(mode => `<div class="ms-row"><span>${banOf(left, mode)}</span><span class="ms-mode">${MODE_SHORT[mode]}</span><span>${banOf(right, mode)}</span></div>`).join('');
+  const rows = ['hardpoint', 'search_and_destroy', 'hijack'].map(mode => `<div class="ms-row"><span>${banOf(left, mode)}</span><span>${MODE_SHORT[mode]}</span><span>${banOf(right, mode)}</span></div>`).join('');
+  const neon = `${u('/mapset/neon.webp')}?v=${CSS_VERSION}`;
   const body = `<div class="ms-stage" data-ms-stage>
-    <video class="ms-video" id="ms-video" data-live-keep src="${u('/mapset/overlay.mp4')}?v=${CSS_VERSION}" muted autoplay playsinline preload="auto"></video>
-    <canvas class="ms-patch" id="ms-patch" data-live-keep width="1920" height="1080"></canvas>
+    <div class="ms-neon" data-ms-neon><img class="ms-neon-glow" src="${neon}" alt=""><img class="ms-neon-base" src="${neon}" alt=""></div>
     ${slots.map(panel).join('')}
-    <div class="ms-cover ms-rec ms-rec-l">${esc(record(left))}</div>
-    <div class="ms-cover ms-rec ms-rec-r">${esc(record(right))}</div>
-    <div class="ms-cover ms-logo ms-logo-l">${logo(left)}</div>
-    <div class="ms-cover ms-logo ms-logo-r">${logo(right)}</div>
-    <div class="ms-cover ms-vetos">${rows}</div>
+    <div class="ms-rec ms-rec-l">${esc(record(left))}</div>
+    <div class="ms-rec ms-rec-r">${esc(record(right))}</div>
+    <div class="ms-logo ms-logo-l">${logo(left)}</div>
+    <div class="ms-logo ms-logo-r">${logo(right)}</div>
+    <div class="ms-title">Vetoes</div>
+    <div class="ms-heads"><span class="o">Maps</span><span>Mode</span><span class="o">Maps</span></div>
+    <div class="ms-vetoes">${rows}</div>
     ${p && p.inProgress ? '<div class="ms-status">Picks &amp; bans in progress</div>' : !p ? '<div class="ms-status">Waiting on picks &amp; bans</div>' : ''}
   </div>`;
   return `<!doctype html>
@@ -420,44 +441,42 @@ function mapsetPage(league, m, c) {
 <meta name="ajcl-live-url" content="${esc(LIVE_URL)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=block" rel="stylesheet">
 <style>
   html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
   main { position: fixed; inset: 0; }
-  .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; background: #000 url('${u('/mapset/template-clean.webp')}?v=${CSS_VERSION}') center / cover no-repeat;
-    font-family: Agdasima, 'Arial Narrow', sans-serif; font-weight: 700; font-variant: small-caps; color: #a8f57f; text-transform: none; }
-  .ms-video, .ms-patch { position: absolute; inset: 0; width: 1920px; height: 1080px; display: block; }
-  .ms-video { object-fit: cover; }
-  .ms-patch { pointer-events: none; opacity: 0; transition: opacity .4s; }
-  .ms-patch.is-built { opacity: 1; }
-  .no-video .ms-video, .no-video .ms-patch { display: none; }
-  /* Map pictures fade in once the video's panels have slid in. */
-  .ms-panel { opacity: 0; }
-  .is-ready .ms-panel { opacity: 1; }
-  /* Map pictures over the template's five sky panels (same slant). */
-  .ms-panel { position: absolute; top: 50px; width: 290px; height: 512px; overflow: hidden;
-    clip-path: polygon(0 0, 162px 0, 290px 100%, 128px 100%);
-    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.85)), var(--map-img) center / cover no-repeat, #1b1c20; }
-  .ms-panel.is-empty { background: linear-gradient(160deg, #26272c, #121316); }
-  .ms-label { position: absolute; left: 132px; right: 34px; bottom: 14px; display: grid; gap: 0; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
+  .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; overflow: hidden;
+    background: #000 url('${u('/mapset/plate.webp')}?v=${CSS_VERSION}') center / cover no-repeat;
+    font-family: Agdasima, 'Arial Narrow', sans-serif; font-weight: 700; font-variant: small-caps; color: #a8f57f; }
+  /* AJCL logo as a neon sign: same picture on top, brightness + glow driven by the timeline. */
+  .ms-neon { position: absolute; left: 1500px; top: 8px; width: 360px; height: 300px; pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse 62% 60% at 50% 48%, #000 62%, transparent 100%); mask-image: radial-gradient(ellipse 62% 60% at 50% 48%, #000 62%, transparent 100%); }
+  .ms-neon img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .ms-neon-glow { filter: blur(14px) saturate(1.6); mix-blend-mode: screen; opacity: 0; }
+  /* Panels: gold-brown frame + map picture, same slant and size as the artwork's. */
+  .ms-panel { position: absolute; opacity: 0; will-change: opacity, transform; }
+  .ms-frame { position: absolute; inset: 0; background: linear-gradient(170deg, #8a6b2e 0%, #5b4416 45%, #3e2e0f 100%); }
+  .ms-pic { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.85)), var(--map-img) center / cover no-repeat, #1b1c20; }
+  .ms-pic.is-empty { background: linear-gradient(160deg, #2a2b30, #141518); }
+  .ms-label { position: absolute; display: grid; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
   .ms-label span { font-size: 22px; color: #ffcf5a; letter-spacing: .06em; }
-  .ms-label strong { font-size: 38px; color: #fff; font-weight: 700; white-space: nowrap; overflow: hidden; display: block; }
+  .ms-label strong { font-size: 38px; color: #fff; white-space: nowrap; overflow: hidden; display: block; }
   .ms-label em { font-style: normal; font-size: 24px; color: #a8f57f; }
-  /* Covers for the template's sample text/logos. */
-  .ms-cover { position: absolute; display: grid; place-items: center; border-radius: 18px;
-    background: rgba(12,12,14,.55); -webkit-backdrop-filter: blur(26px); backdrop-filter: blur(26px); }
-  .ms-rec { top: 648px; width: 210px; height: 88px; font-size: 92px; font-weight: 600; line-height: 1; padding-top: 8px; box-sizing: border-box; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; text-shadow: 0 3px 10px rgba(0,0,0,.7); }
-  .ms-rec-l { left: 123px; }
-  .ms-rec-r { left: 1607px; }
-  /* Logos sit straight on the template (its sample logos are erased from the image). */
-  .ms-logo { top: 748px; width: 360px; height: 322px; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; border-radius: 0; }
-  .ms-logo-l { left: 44px; }
-  .ms-logo-r { left: 1535px; }
+  .ms-rec { position: absolute; top: 640px; width: 230px; text-align: center; font-size: 96px; line-height: 1; color: #b9f98f; text-shadow: 0 0 14px rgba(140,255,100,.55), 0 3px 8px rgba(0,0,0,.6); }
+  .ms-rec-l { left: 114px; }
+  .ms-rec-r { left: 1597px; }
+  .ms-logo { position: absolute; top: 760px; width: 360px; height: 300px; display: grid; place-items: center; }
+  .ms-logo-l { left: 49px; }
+  .ms-logo-r { left: 1532px; }
   .ms-logo img { max-width: 300px; max-height: 290px; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,.6)); }
   .ms-abbr { font-size: 120px; color: #fff; }
-  /* The template already has the grey vetos box (its sample text is erased). */
-  .ms-vetos { left: 566px; top: 838px; width: 830px; height: 216px; border-radius: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; align-content: center; gap: 2px; text-shadow: 0 2px 8px rgba(0,0,0,.55); }
-  .ms-row { display: grid; grid-template-columns: 1fr 230px 1fr; width: 100%; text-align: center; font-size: 66px; font-weight: 600; line-height: 1.02; }
+  .ms-title { position: absolute; left: 610px; width: 780px; top: 618px; text-align: center; font-size: 150px; line-height: 1; color: #c6ff9f;
+    text-shadow: 0 0 10px rgba(150,255,110,.9), 0 0 34px rgba(110,240,80,.55), 0 4px 10px rgba(0,0,0,.5); }
+  .ms-heads, .ms-row { display: grid; grid-template-columns: 1fr 230px 1fr; text-align: center; }
+  .ms-heads { position: absolute; left: 572px; width: 822px; top: 770px; font-size: 62px; line-height: 1; color: #b9f98f; text-shadow: 0 3px 8px rgba(0,0,0,.6); }
+  .ms-heads .o { color: #ec6a2c; }
+  .ms-vetoes { position: absolute; left: 572px; width: 822px; top: 846px; }
+  .ms-row { height: 68px; align-items: center; font-size: 64px; line-height: 1; color: #b9f98f; text-shadow: 0 3px 8px rgba(0,0,0,.55); }
   .ms-row span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .ms-status { position: absolute; left: 30px; top: 8px; font-size: 30px; color: #ffcf5a; text-shadow: 0 2px 6px rgba(0,0,0,.9); letter-spacing: .05em; }
 </style>
@@ -472,124 +491,47 @@ function mapsetPage(league, m, c) {
     if (st) st.style.transform = 'translate(-50%, -50%) scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')';
   }
   addEventListener('resize', fit);
-  fit();
 
-  // The intro video brings the five panels in one by one (measured from the video:
-  // panel 1 at ~0.2s, then every 0.2s, each fading in over ~0.1s). Each map picture
-  // follows the video's own clock so it appears together with its panel.
-  var FIRST = 0.2, STEP = 0.2, FADE = 0.12, DONE = 1.3;
-  function video() { return document.getElementById('ms-video'); }
-  function sync() {
-    var v = video(), st = document.querySelector('[data-ms-stage]');
-    if (!st) return;
-    var t = v ? v.currentTime : 99;
-    var all = !v || v.ended || t >= DONE || st.classList.contains('no-video');
-    st.querySelectorAll('.ms-panel').forEach(function (el, i) {
-      el.style.opacity = all ? 1 : Math.max(0, Math.min(1, (t - (FIRST + STEP * i)) / FADE));
+  // The panels come in one by one, like the stream overlay video: panel 1 at 0.2s,
+  // then every 0.2s, each sliding in from the left while fading in.
+  var FIRST = 0.2, STEP = 0.2, IN = 0.16, SLIDE = 40;
+  var ease = function (x) { return 1 - Math.pow(1 - x, 3); };
+  function show(t) {
+    neon(t);
+    document.querySelectorAll('.ms-panel').forEach(function (el) {
+      var i = +el.dataset.i || 0;
+      var k = Math.max(0, Math.min(1, (t - (FIRST + STEP * i)) / IN)), e = ease(k);
+      el.style.opacity = e.toFixed(3);
+      el.style.transform = 'translateX(' + (-(1 - e) * SLIDE).toFixed(1) + 'px)';
     });
-    if (all) st.classList.add('is-ready');
   }
-  function ready() { sync(); }
-  // Track the video every frame from page load until the panels are all in (the
-  // video may already be playing before this script runs, so don't wait for events).
-  var looping = false;
-  function loop() {
-    sync();
-    var v = video();
-    if (v && !v.ended && v.currentTime < DONE && !document.querySelector('.no-video')) requestAnimationFrame(loop);
-    else looping = false;
+  var DONE = FIRST + STEP * 4 + IN;
+
+  // AJCL logo as a neon sign: dim until 1.3s, flickers on like a fluorescent tube,
+  // then keeps a soft hum with a quick dip every few seconds.
+  var NEON_ON = 1.3;
+  var FLICKER = [[0, 1], [0.05, 0.12], [0.11, 0.85], [0.17, 0.08], [0.3, 1], [0.36, 0.35], [0.44, 1]];
+  function neonLevel(t) {
+    if (t < NEON_ON) return 0;
+    var r = t - NEON_ON, lvl = 1;
+    for (var i = 0; i < FLICKER.length; i++) if (r >= FLICKER[i][0]) lvl = FLICKER[i][1];
+    if (r > 0.5) {
+      lvl = 0.94 + 0.06 * Math.sin(t * 9.0);
+      var c = (t - NEON_ON) % 4.7;
+      if (c > 4.6) lvl = 0.55;
+    }
+    return lvl;
   }
-  function startLoop() { if (!looping) { looping = true; requestAnimationFrame(loop); } }
-  function watch() {
-    var v = video();
-    if (!v || v.dataset.watched) return;
-    v.dataset.watched = '1';
-    v.addEventListener('timeupdate', ready);
-    v.addEventListener('playing', startLoop);
-    v.addEventListener('play', startLoop);
-    v.addEventListener('seeked', ready);
-    v.addEventListener('ended', ready);
-    var p = v.play && v.play();
-    // Autoplay blocked or the video failed: jump to the finished frame.
-    var skip = function () { try { v.currentTime = Math.max(0, (v.duration || 5) - 0.05); } catch (e) {} setTimeout(ready, 300); };
-    if (p && p.catch) p.catch(skip);
-    v.addEventListener('error', function () { var st = document.querySelector('[data-ms-stage]'); if (st) st.classList.add('is-ready', 'no-video'); });
-    setTimeout(function () { if (v.paused && v.currentTime === 0) skip(); }, 2500);
+  function neon(t) {
+    var box = document.querySelector('[data-ms-neon]');
+    if (!box) return;
+    var l = neonLevel(t);
+    var base = box.querySelector('.ms-neon-base'), glow = box.querySelector('.ms-neon-glow');
+    if (base) base.style.filter = 'brightness(' + (0.32 + 0.85 * l).toFixed(3) + ') saturate(' + (0.55 + 0.65 * l).toFixed(3) + ')';
+    if (glow) glow.style.opacity = (0.9 * l).toFixed(3);
   }
 
-  // Erase the sample records and vetos text that's part of the video: take the
-  // video's final frame, fill the green text (and the little gem icons) from
-  // their surroundings, and draw those clean pieces over the video.
-  var AREAS = [
-    [118, 640, 338, 744],     // left record
-    [1598, 640, 1822, 744],   // right record
-    [568, 838, 1396, 1056],   // vetos list (inside the grey box)
-  ];
-  function erase(ctx, x0, y0, x1, y1) {
-    var w = x1 - x0 + 1, h = y1 - y0 + 1;
-    var img = ctx.getImageData(x0, y0, w, h), d = img.data, n = w * h;
-    var mask = new Uint8Array(n), hit = new Uint8Array(n), i, j;
-    for (i = 0; i < n; i++) {
-      var r = d[i * 4], g = d[i * 4 + 1], b = d[i * 4 + 2];
-      if (g > 80 && g > r + 14 && g > b + 22) hit[i] = 1;
-    }
-    var R = 11, R2 = R * R;
-    for (j = 0; j < h; j++) for (i = 0; i < w; i++) {
-      if (!hit[j * w + i]) continue;
-      for (var dj = -R; dj <= R; dj++) for (var di = -R; di <= R; di++) {
-        var ii = i + di, jj = j + dj;
-        if (ii >= 0 && jj >= 0 && ii < w && jj < h && di * di + dj * dj <= R2) mask[jj * w + ii] = 1;
-      }
-    }
-    // Keep a 1px frame of real pixels so the fill has an edge to grow from.
-    for (i = 0; i < w; i++) { mask[i] = 0; mask[(h - 1) * w + i] = 0; }
-    for (j = 0; j < h; j++) { mask[j * w] = 0; mask[j * w + w - 1] = 0; }
-    var idx = [], sum = [0, 0, 0], cnt = 0;
-    for (i = 0; i < n; i++) {
-      if (mask[i]) idx.push(i);
-      else { sum[0] += d[i * 4]; sum[1] += d[i * 4 + 1]; sum[2] += d[i * 4 + 2]; cnt++; }
-    }
-    if (!cnt) return img;
-    var ch = [new Float32Array(n), new Float32Array(n), new Float32Array(n)];
-    for (i = 0; i < n; i++) for (var c = 0; c < 3; c++) ch[c][i] = mask[i] ? sum[c] / cnt : d[i * 4 + c];
-    // Grey out the starting guess so no green tint seeps back in.
-    for (var it = 0; it < 900; it++) {
-      for (var q = 0; q < idx.length; q++) {
-        var k = idx[q], kx = k % w;
-        for (c = 0; c < 3; c++) {
-          var a = ch[c];
-          a[k] = (a[k - w] + a[k + w] + (kx > 0 ? a[k - 1] : a[k]) + (kx < w - 1 ? a[k + 1] : a[k])) / 4;
-        }
-      }
-    }
-    for (q = 0; q < idx.length; q++) {
-      k = idx[q];
-      var noise = (Math.random() - 0.5) * 7;
-      d[k * 4] = ch[0][k] + noise; d[k * 4 + 1] = ch[1][k] + noise; d[k * 4 + 2] = ch[2][k] + noise; d[k * 4 + 3] = 255;
-    }
-    return img;
-  }
-  function buildPatches() {
-    var canvas = document.getElementById('ms-patch');
-    if (!canvas || canvas.dataset.built) return;
-    canvas.dataset.built = '1';
-    var src = video() && video().currentSrc || (video() && video().src);
-    if (!src) return;
-    var v2 = document.createElement('video');
-    v2.muted = true; v2.preload = 'auto'; v2.playsInline = true; v2.crossOrigin = 'anonymous'; v2.src = src;
-    v2.addEventListener('loadedmetadata', function () { v2.currentTime = Math.max(0, v2.duration - 0.05); });
-    v2.addEventListener('seeked', function () {
-      var work = document.createElement('canvas'); work.width = 1920; work.height = 1080;
-      var wctx = work.getContext('2d', { willReadFrequently: true });
-      wctx.drawImage(v2, 0, 0, 1920, 1080);
-      var ctx = canvas.getContext('2d');
-      AREAS.forEach(function (a) {
-        try { ctx.putImageData(erase(wctx, a[0], a[1], a[2], a[3]), a[0], a[1]); } catch (e) {}
-      });
-      canvas.classList.add('is-built');
-    }, { once: true });
-  }
-
+  // Shrink map names that don't fit their panel.
   function fitLabels() {
     document.querySelectorAll('.ms-label strong').forEach(function (el) {
       el.style.fontSize = '';
@@ -597,136 +539,44 @@ function mapsetPage(league, m, c) {
       while (el.scrollWidth > el.clientWidth + 1 && size > 20) { size -= 1; el.style.fontSize = size + 'px'; }
     });
   }
-  function init() { fit(); watch(); buildPatches(); fitLabels(); ready(); startLoop(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLabels); }
-  // live.js re-renders the page: the video and patch layer are kept (data-live-keep).
-  document.addEventListener('ajcl:league', function () { setTimeout(init, 0); });
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
-})();
-</script>
-<script>
-(function () {
-  // "Download video": record the mapset screen (intro video + this match's maps,
-  // logos, records and vetos) into a 1920x1080 video file, in the browser.
-  if (!/[?&]record\\b/.test(location.search)) return;
-  var HOLD = 3; // seconds to hold the finished screen after the intro
-  var W = 1920, H = 1080;
-  var bar = document.createElement('div');
-  bar.style.cssText = 'position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:99;background:rgba(10,10,10,.85);color:#fff;font:600 16px system-ui,sans-serif;padding:10px 16px;border-radius:10px;border:1px solid #444';
-  function say(t) { bar.textContent = t; if (!bar.parentNode) document.body.appendChild(bar); }
-  say('Getting the mapset video ready…');
 
-  function stageScale() { var st = document.querySelector('[data-ms-stage]'); return st.getBoundingClientRect().width / W; }
-  function local(rect, origin, sc) { return { x: (rect.left - origin.left) / sc, y: (rect.top - origin.top) / sc, w: rect.width / sc, h: rect.height / sc }; }
-  function loadImg(src) { return new Promise(function (res) { var i = new Image(); i.crossOrigin = 'anonymous'; i.onload = function () { res(i); }; i.onerror = function () { res(null); }; i.src = src; }); }
-  function bgUrl(el) { var m = /url\\(["']?([^"')]+)["']?\\)/.exec(getComputedStyle(el).getPropertyValue('--map-img') || ''); return m ? m[1] : null; }
-  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
-
-  // Draw one text element where the page shows it, in the same font and colour.
-  function drawText(ctx, el, origin, sc) {
-    var text = (el.textContent || '').trim();
-    if (!text) return;
-    var cs = getComputedStyle(el), r = el.getBoundingClientRect();
-    var range = document.createRange(); range.selectNodeContents(el);
-    var tr = range.getBoundingClientRect();
-    if (!tr.width) return;
-    var size = parseFloat(cs.fontSize) / sc * sc; // font-size is in stage px already
-    ctx.save();
-    ctx.font = cs.fontWeight + ' ' + parseFloat(cs.fontSize) + 'px ' + cs.fontFamily;
-    if ('fontVariantCaps' in ctx) ctx.fontVariantCaps = cs.fontVariantCaps === 'small-caps' ? 'small-caps' : 'normal';
-    ctx.fillStyle = cs.color;
-    ctx.textBaseline = 'middle';
-    ctx.textAlign = 'left';
-    ctx.shadowColor = 'rgba(0,0,0,.75)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 2;
-    var box = local(tr, origin, sc);
-    ctx.fillText(text, box.x, box.y + box.h / 2, Math.max(box.w + 2, (r.width / sc)));
-    ctx.restore();
-  }
-
-  async function record() {
-    var st = document.querySelector('[data-ms-stage]');
-    var v = document.getElementById('ms-video'), patch = document.getElementById('ms-patch');
-    if (!st || !v) return say('This mapset screen has no video to record.');
-    // Wait for the clean patches, fonts and pictures.
-    for (var i = 0; i < 100 && !(patch && patch.classList.contains('is-built')); i++) await wait(100);
-    if (document.fonts && document.fonts.ready) await document.fonts.ready;
-    var panels = [].slice.call(st.querySelectorAll('.ms-panel'));
-    var pics = await Promise.all(panels.map(function (p) { var u = bgUrl(p); return u ? loadImg(u) : null; }));
-    var logos = [].slice.call(st.querySelectorAll('.ms-logo img'));
-    await Promise.all(logos.map(function (img) { return img.complete ? null : new Promise(function (r) { img.onload = img.onerror = r; }); }));
-
-    var canvas = document.createElement('canvas'); canvas.width = W; canvas.height = H;
-    var ctx = canvas.getContext('2d');
-    var types = ['video/mp4;codecs=avc1.42E01E', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'];
-    var type = types.filter(function (t) { return window.MediaRecorder && MediaRecorder.isTypeSupported(t); })[0];
-    if (!type) return say("This browser can't record video. Try Chrome or Edge.");
-    var stream = canvas.captureStream(30);
-    var rec = new MediaRecorder(stream, { mimeType: type, videoBitsPerSecond: 12000000 });
-    var chunks = [];
-    rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
-
-    function frame() {
-      var sc = stageScale(), origin = st.getBoundingClientRect();
-      ctx.clearRect(0, 0, W, H);
-      ctx.drawImage(v, 0, 0, W, H);
-      if (patch.classList.contains('is-built')) ctx.drawImage(patch, 0, 0);
-      // Map pictures in the slanted panels, with the page's current fade.
-      panels.forEach(function (p, i) {
-        var op = parseFloat(getComputedStyle(p).opacity) || 0;
-        if (!op) return;
-        var b = local(p.getBoundingClientRect(), origin, sc);
-        ctx.save();
-        ctx.globalAlpha = op;
-        ctx.beginPath();
-        ctx.moveTo(b.x, b.y); ctx.lineTo(b.x + 162, b.y); ctx.lineTo(b.x + 290, b.y + 512); ctx.lineTo(b.x + 128, b.y + 512); ctx.closePath();
-        ctx.clip();
-        ctx.fillStyle = '#1b1c20'; ctx.fillRect(b.x, b.y, 290, 512);
-        var img = pics[i];
-        if (img) { var s = Math.max(290 / img.width, 512 / img.height), iw = img.width * s, ih = img.height * s; ctx.drawImage(img, b.x + (290 - iw) / 2, b.y + (512 - ih) / 2, iw, ih); }
-        var g = ctx.createLinearGradient(0, b.y, 0, b.y + 512); g.addColorStop(0.55, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.85)');
-        ctx.fillStyle = g; ctx.fillRect(b.x, b.y, 290, 512);
-        p.querySelectorAll('.ms-label span, .ms-label strong, .ms-label em').forEach(function (el) { drawText(ctx, el, origin, sc); });
-        ctx.restore();
-      });
-      // Records, vetos and logos.
-      st.querySelectorAll('.ms-rec, .ms-row span, .ms-status').forEach(function (el) { drawText(ctx, el, origin, sc); });
-      logos.forEach(function (img) {
-        if (!img.naturalWidth) return;
-        var b = local(img.getBoundingClientRect(), origin, sc);
-        var s = Math.min(b.w / img.naturalWidth, b.h / img.naturalHeight), iw = img.naturalWidth * s, ih = img.naturalHeight * s;
-        ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 20; ctx.shadowOffsetY = 8;
-        ctx.drawImage(img, b.x + (b.w - iw) / 2, b.y + (b.h - ih) / 2, iw, ih);
-        ctx.restore();
-      });
-    }
-
-    // Play the intro from the start and record it, then hold the finished screen.
-    v.pause(); v.currentTime = 0;
-    await new Promise(function (r) { v.addEventListener('seeked', r, { once: true }); });
-    st.classList.remove('is-ready');
-    frame();
-    rec.start(250);
-    say('Recording… (about ' + Math.round((v.duration || 5) + HOLD) + ' seconds, keep this tab open)');
-    var endAt = null, done = false;
-    await v.play().catch(function () {});
-    await new Promise(function (resolve) {
-      (function tick() {
-        frame();
-        if (v.ended && endAt === null) endAt = performance.now() + HOLD * 1000;
-        if (endAt !== null && performance.now() >= endAt) return resolve();
-        requestAnimationFrame(tick);
-      })();
+  // Everything the screen shows must be loaded before the intro starts.
+  function loaded() {
+    var imgs = [].slice.call(document.querySelectorAll('.ms-logo img'));
+    var urls = [];
+    document.querySelectorAll('.ms-pic').forEach(function (el) {
+      var m = /url\\(["']?([^"')]+)["']?\\)/.exec(el.style.getPropertyValue('--map-img') || '');
+      if (m) urls.push(m[1]);
     });
-    rec.stop();
-    await new Promise(function (r) { rec.onstop = r; });
-    var blob = new Blob(chunks, { type: type.split(';')[0] });
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = (document.title.split(' · ')[0] || 'mapset').replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '-mapset.' + (type.indexOf('mp4') >= 0 ? 'mp4' : 'webm');
-    document.body.appendChild(a); a.click();
-    say('Done — your mapset video downloaded (' + a.download + ').');
+    var st = document.querySelector('[data-ms-stage]');
+    var bg = /url\\(["']?([^"')]+)["']?\\)/.exec(getComputedStyle(st).backgroundImage || '');
+    if (bg) urls.push(bg[1]);
+    var waits = urls.map(function (src) { return new Promise(function (r) { var i = new Image(); i.onload = i.onerror = r; i.src = src; }); })
+      .concat(imgs.map(function (img) { return img.complete ? null : new Promise(function (r) { img.onload = img.onerror = r; }); }));
+    if (document.fonts && document.fonts.ready) waits.push(document.fonts.ready);
+    return Promise.all(waits);
   }
-  function go() { setTimeout(function () { record().catch(function (e) { say('Could not make the video: ' + (e && e.message || e)); }); }, 800); }
-  if (document.readyState === 'complete') go(); else addEventListener('load', go);
+
+  var frameParam = /[?&]frame=([\\d.]+)/.exec(location.search);
+  var started = false, t0 = 0;
+  function tick() {
+    var t = (performance.now() - t0) / 1000;
+    show(t);
+    requestAnimationFrame(tick);
+  }
+  function start() {
+    fit(); fitLabels();
+    window.__msShow = show;                   // the video build steps through the timeline
+    if (frameParam) { show(parseFloat(frameParam[1])); window.__msReady = true; return; }
+    if (started) return;                      // live update: the timeline keeps running
+    started = true; t0 = performance.now();
+    requestAnimationFrame(tick);
+  }
+  // live.js re-renders the page with new data: show the finished state right away.
+  document.addEventListener('ajcl:league', function () { setTimeout(function () { fit(); fitLabels(); show(frameParam ? parseFloat(frameParam[1]) : (performance.now() - t0) / 1000); }, 0); });
+  fit();
+  show(0);
+  loaded().then(start);
 })();
 </script>
 ${LIVE_URL ? `<script src="${u('/app.js')}?v=${CSS_VERSION}" defer></script>
@@ -1887,4 +1737,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, matchId, matchPage, mapsetPage, staffPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, matchId, matchPage, mapsetPage, mapsetVideoReady, MAPSET_SECONDS, staffPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
