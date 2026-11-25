@@ -768,6 +768,54 @@ function announcementsPage(league, c) {
 }
 
 // ---- 8s: live queues (live feed only) + leaderboard ----
+// 8s staff tools (staff only). Every button maps to a Discord 8s command; the
+// ajcl-live Worker checks the Discord login + staff list, then the bot runs it.
+const EIGHTS_QUEUES = [
+  ['1532249725380591676', 'Open 8s Queue'],
+  ['1532289923141472296', 'League 8s Queue'],
+  ['1532290092096295104', 'Academy 8s Queue'],
+];
+function eightsStaffTools(league) {
+  const names = new Set();
+  for (const p of league.players || []) if (!p.former) names.add(p.name);
+  for (const b of league.eightsLeaderboards || []) for (const r of b.players || []) if (r.name !== 'Former member') names.add(r.name);
+  for (const q of league.queues || []) for (const n of q.players || []) names.add(n);
+  const btn = (op, label, confirm, cls = '') => `<button type="submit" class="btn btn-sm${cls ? ' ' + cls : ''}" value="${op}"${confirm ? ` data-confirm="${esc(confirm)}"` : ''}>${label}</button>`;
+  const playerInput = (name = 'player', ph = 'Player name') => `<input name="${name}" list="st-players" placeholder="${ph}" autocomplete="off" required>`;
+  const form = (inner, title) => `<form class="st-form">${title ? `<h5>${title}</h5>` : ''}<div class="st-row">${inner}</div><p class="st-out muted" aria-live="polite"></p></form>`;
+  return `<section class="wrap section staff-block" id="staff-tools" data-live-keep>
+  <details class="panel st-panel" open>
+    <summary><span>8s staff tools</span><span class="pill">Staff only</span></summary>
+    <datalist id="st-players">${[...names].sort((a, b) => a.localeCompare(b)).map(n => `<option value="${esc(n)}">`).join('')}</datalist>
+    <label class="st-queue">Queue <select data-st-queue>${EIGHTS_QUEUES.map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}</select></label>
+    <div class="st-grid">
+      <div class="st-group"><h4>Queue</h4>
+        ${form(btn('start', 'Start') + btn('stop', 'Stop', 'Stop {queue}? This removes the queue embed.') + btn('lock', 'Lock') + btn('unlock', 'Unlock') + btn('testmode', 'Test mode on/off') + btn('clear', 'Clear queue', 'Remove everyone from {queue}?'))}
+        ${form('<input name="name" placeholder="New queue name" required maxlength="80">' + btn('rename', 'Rename'), 'Rename')}
+        ${form(playerInput() + btn('kick', 'Remove from queue'), 'Remove a player')}
+      </div>
+      <div class="st-group"><h4>Match</h4>
+        ${form(btn('decide_method', 'Decide captain method') + btn('decide_format', 'Decide format') + btn('end_captain_vote', 'End captain vote') + btn('random_captains', 'Random captains'), 'Votes')}
+        ${form('<input type="hidden" name="winner" value="A">' + btn('winner', '🔵 Team 1 won', 'Set Team 1 as the winner in {queue}? This updates ratings and ends the match.'), 'Set winner')}
+        ${form('<input type="hidden" name="winner" value="B">' + btn('winner', '🔴 Team 2 won', 'Set Team 2 as the winner in {queue}? This updates ratings and ends the match.'))}
+        ${form(btn('cancel_match', 'Cancel match', 'Cancel the match in {queue}? No result is recorded.', 'btn-danger'))}
+        ${form(playerInput('player', 'Player out') + playerInput('substitute', 'Player in') + btn('sub', 'Sub'), 'Substitute')}
+      </div>
+      <div class="st-group"><h4>Bans</h4>
+        ${form(playerInput() + '<input name="reason" placeholder="Reason (optional)" maxlength="300"><input name="duration" type="number" min="1" placeholder="Length"><select name="unit"><option value="">Permanent</option><option value="minutes">Minutes</option><option value="hours">Hours</option><option value="days">Days</option></select>' + btn('ban', 'Ban', 'Ban {player} from 8s?', 'btn-danger'), 'Ban')}
+        ${form(playerInput() + btn('unban', 'Unban') + btn('ban_check', 'Check ban'), 'Unban / check')}
+      </div>
+      <div class="st-group"><h4>Ratings <span class="muted">(uses the queue above)</span></h4>
+        ${form(playerInput() + btn('view_stats', 'View stats'), 'View')}
+        ${form(playerInput() + '<input name="mmr" type="number" step="any" placeholder="MMR"><input name="wins" type="number" placeholder="Wins"><input name="losses" type="number" placeholder="Losses"><input name="streak" type="number" placeholder="Streak (set only)">' + btn('set_stats', 'Set to these') + btn('add_stats', 'Add these'), 'Edit stats')}
+        ${form(playerInput() + '<label class="st-check"><input type="checkbox" name="mmrOnly"> MMR only</label>' + btn('reset_player', 'Reset player', "Reset {player}'s rating in {queue}?", 'btn-danger'), 'Reset a player')}
+        ${form('<input name="confirm" placeholder="Type the queue name to confirm" required><label class="st-check"><input type="checkbox" name="mmrOnly"> MMR only</label>' + btn('reset_all', 'Reset whole queue', 'Reset ALL ratings in {queue}? This cannot be undone.', 'btn-danger'), 'Reset everyone in the queue')}
+      </div>
+    </div>
+  </details>
+</section>`;
+}
+
 function eightsPage(league, c) {
   const queues = league.queues; // undefined in the static build until the live feed loads
   const queueCard = q => {
@@ -861,7 +909,8 @@ function eightsPage(league, c) {
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   document.documentElement.classList.add('js');
-  addEventListener('hashchange', showChosen);
+  // Only a real address change scrolls; live.js fires a synthetic one after each update.
+  addEventListener('hashchange', function (e) { if (e.isTrusted) showChosen(); else apply(); });
   // Clicking a link to the tab that's already in the address bar doesn't fire hashchange.
   document.addEventListener('click', function (e) {
     // The queue tabs themselves just switch in place (no jump to the leaderboard).
@@ -883,6 +932,7 @@ function eightsPage(league, c) {
     : queues.length ? `<div class="queue-grid">${queues.map(queueCard).join('')}</div>`
     : '<div class="panel"><p class="muted" style="margin:0">No 8s queues are running right now.</p></div>'}
 </section>
+${eightsStaffTools(league)}
 <section class="wrap section" id="results">
   <div class="section-head"><h2>Queue results</h2><span class="muted">${boards.length > 1 ? 'Pick a queue' : ''}</span></div>
   ${resultsSection}
@@ -940,7 +990,57 @@ function eightsPage(league, c) {
   });
 })();
 </script>`;
-  return layout({ title: '8s', active: 'eights', body, c, script: (script || '') + staffScript, page: '8s' });
+  const toolsScript = `<script>
+(function () {
+  var LIVE = (document.querySelector('meta[name="ajcl-live-url"]') || {}).content || '';
+  function token() { try { var t = JSON.parse(localStorage.getItem('ajcl_token')); return t && t.exp > Date.now() ? t.t : null; } catch (e) { return null; } }
+  function panel() { return document.getElementById('staff-tools'); }
+  function out(form, msg, kind) {
+    var o = form.querySelector('.st-out');
+    if (!o) return;
+    o.textContent = msg; o.className = 'st-out' + (kind ? ' is-' + kind : '');
+  }
+  document.addEventListener('submit', async function (e) {
+    var form = e.target.closest && e.target.closest('#staff-tools form.st-form');
+    if (!form) return;
+    e.preventDefault();
+    var btn = e.submitter && e.submitter.closest('button');
+    var op = (btn && btn.value) || form.dataset.op;
+    if (!op) return;
+    var body = { op: op };
+    var q = panel().querySelector('[data-st-queue]');
+    if (q) body.queue = q.value;
+    new FormData(form).forEach(function (v, k) { if (k !== 'op') body[k] = typeof v === 'string' ? v.trim() : v; });
+    form.querySelectorAll('input[type=checkbox]').forEach(function (c) { body[c.name] = c.checked; });
+    var qLabel = q ? q.options[q.selectedIndex].text : '';
+    var ask = btn && btn.dataset.confirm;
+    if (ask && !confirm(ask.replace('{queue}', qLabel).replace('{player}', body.player || 'this player'))) return;
+    var t = token();
+    if (!t) return out(form, 'Log in with Discord first (log out and back in if you already are).', 'err');
+    var buttons = form.querySelectorAll('button');
+    buttons.forEach(function (b) { b.disabled = true; });
+    out(form, 'Sending to the bot...');
+    try {
+      var r = await fetch(LIVE + '/private/8s-action', { method: 'POST', headers: { Authorization: 'Bearer ' + t, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      var d = await r.json().catch(function () { return {}; });
+      if (!r.ok) return out(form, r.status === 403 ? 'Only staff can do that.' : r.status === 401 ? 'Your Discord login expired. Log out and back in.' : (d.error || 'Could not send it.'), 'err');
+      for (var i = 0; i < 20; i++) {
+        await new Promise(function (res) { setTimeout(res, 2500); });
+        var s = await fetch(LIVE + '/private/8s-action?id=' + encodeURIComponent(d.id), { headers: { Authorization: 'Bearer ' + t }, cache: 'no-store' })
+          .then(function (x) { return x.json(); }).catch(function () { return {}; });
+        if (s.status && s.status !== 'pending') return out(form, s.message || ('Result: ' + s.status), s.status === 'done' ? 'ok' : 'err');
+        out(form, 'Waiting for the bot...');
+      }
+      out(form, 'The bot has not picked it up yet. It may be restarting.', 'err');
+    } catch (err) {
+      out(form, 'Could not reach the server. Try again.', 'err');
+    } finally {
+      buttons.forEach(function (b) { b.disabled = false; });
+    }
+  });
+})();
+</script>`;
+  return layout({ title: '8s', active: 'eights', body, c, script: (script || '') + staffScript + toolsScript, page: '8s' });
 }
 
 // ---- Staff: public staff list + staff-only modmail ----

@@ -652,3 +652,27 @@ html.is-staff .staff-only { display: flex !important; }
 .qr-more summary { cursor: pointer; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
 .qr-none { margin: 0 0 8px; }
 .qr-tabs { margin-bottom: 16px; }
+
+/* 8s staff tools */
+.staff-block { display: none; }
+html.is-staff .staff-block { display: block; }
+.st-panel { border-color: rgba(244,181,44,.45); }
+.st-panel > summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; font: 700 22px/1 var(--heading); text-transform: uppercase; letter-spacing: .03em; list-style: none; }
+.st-panel > summary::-webkit-details-marker { display: none; }
+.st-queue { display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 6px; font-weight: 600; }
+.st-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; margin-top: 10px; }
+.st-group { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+.st-group h4 { margin: 0 0 8px; font-size: 16px; }
+.st-form { margin: 0 0 10px; }
+.st-form h5 { margin: 6px 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted, #9a9aa3); }
+.st-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.st-row input, .st-row select, .st-queue select { background: var(--panel); color: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px; font: inherit; font-size: 13px; min-width: 0; }
+.st-row input[name=player], .st-row input[name=substitute], .st-row input[name=name], .st-row input[name=reason], .st-row input[name=confirm] { flex: 1 1 140px; }
+.st-row input[type=number] { width: 86px; }
+.st-check { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; }
+.st-out { margin: 4px 0 0; font-size: 13px; min-height: 0; }
+.st-out:empty { display: none; }
+.st-out.is-ok { color: #3ecf8e; }
+.st-out.is-err { color: #ff6b6b; }
+.btn-danger { border-color: rgba(255,90,90,.5); color: #ff8a8a; }
+.btn-danger:hover { background: rgba(255,90,90,.12); }

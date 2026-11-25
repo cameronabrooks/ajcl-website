@@ -30,7 +30,12 @@
       var main = document.querySelector('main');
       if (fresh && main) {
         var y = window.scrollY;
+        // Blocks marked data-live-keep (e.g. the staff tools, with typed-in values)
+        // are carried over as-is instead of being redrawn.
+        var keep = {};
+        main.querySelectorAll('[data-live-keep][id]').forEach(function (el) { keep[el.id] = el; });
         main.innerHTML = fresh.innerHTML;
+        main.querySelectorAll('[data-live-keep][id]').forEach(function (el) { if (keep[el.id]) el.replaceWith(keep[el.id]); });
         window.scrollTo(0, y);
         // Let page scripts (schedule/stats tabs) re-apply their state to the new markup.
         window.dispatchEvent(new HashChangeEvent('hashchange'));

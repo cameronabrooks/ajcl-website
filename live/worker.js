@@ -42,7 +42,7 @@ export default {
       return new Response(null, { status: 204, headers: url.pathname.startsWith('/private') ? privateCors(request) : CORS });
     }
     if (url.pathname === '/') return new Response('AJCL live data feed', { headers: { 'content-type': 'text/plain', ...CORS } });
-    if (!['/league', '/league.json', '/ws', '/private', '/private/modmail', '/private/8s-winner', '/private/actions', '/private/actions/done'].includes(url.pathname)) return new Response('Not found', { status: 404, headers: CORS });
+    if (!['/league', '/league.json', '/ws', '/private', '/private/modmail', '/private/8s-winner', '/private/8s-action', '/private/actions', '/private/actions/done'].includes(url.pathname)) return new Response('Not found', { status: 404, headers: CORS });
     const stub = env.LEAGUE.get(env.LEAGUE.idFromName('ajcl'));
     return stub.fetch(request);
   },
@@ -96,6 +96,34 @@ export class League {
 
   async fetch(request) {
     const url = new URL(request.url);
+
+    // 8s staff tools (start/stop/lock queues, match controls, bans, ratings).
+    // Same staff check; the bot validates each op again before doing anything.
+    if (url.pathname === '/private/8s-action') {
+      const headers = { ...privateCors(request), 'content-type': 'application/json; charset=utf-8' };
+      const who = await this.staffUser(request, headers);
+      if (who instanceof Response) return who;
+      const actions = (await this.state.storage.get('actions')) || [];
+      if (request.method === 'GET') {
+        const a = actions.find(x => x.id === url.searchParams.get('id'));
+        return new Response(JSON.stringify(a ? { status: a.status, message: a.message || '' } : { status: 'unknown' }), { headers });
+      }
+      if (request.method !== 'POST') return new Response('{"error":"method"}', { status: 405, headers });
+      const text = await request.text();
+      if (text.length > 2000) return new Response('{"error":"too large"}', { status: 413, headers });
+      let body;
+      try { body = JSON.parse(text); } catch { return new Response('{"error":"bad json"}', { status: 400, headers }); }
+      const OPS = ['start', 'stop', 'lock', 'unlock', 'rename', 'testmode', 'clear', 'kick', 'decide_method', 'decide_format', 'end_captain_vote',
+        'random_captains', 'winner', 'cancel_match', 'sub', 'ban', 'unban', 'ban_check', 'view_stats', 'set_stats', 'add_stats', 'reset_player', 'reset_all'];
+      if (!body || !OPS.includes(body.op)) return new Response('{"error":"unknown tool"}', { status: 400, headers });
+      const action = { id: crypto.randomUUID(), type: '8s', by: who, at: Date.now(), status: 'pending' };
+      for (const k of ['op', 'queue', 'player', 'substitute', 'name', 'winner', 'reason', 'duration', 'unit', 'mmr', 'wins', 'losses', 'streak', 'mmrOnly', 'confirm']) {
+        if (body[k] != null) action[k] = typeof body[k] === 'boolean' ? body[k] : String(body[k]).slice(0, 300);
+      }
+      actions.push(action);
+      await this.state.storage.put('actions', actions.slice(-50));
+      return new Response(JSON.stringify({ ok: true, id: action.id }), { headers });
+    }
 
     if (url.pathname === '/private/8s-winner') {
       const headers = { ...privateCors(request), 'content-type': 'application/json; charset=utf-8' };
