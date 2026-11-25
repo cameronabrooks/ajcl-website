@@ -399,6 +399,8 @@ function mapsetPage(league, m, c) {
   const logo = team => team.logo ? `<img src="${esc(u(team.logo))}" alt="${esc(team.name)}">` : `<span class="ms-abbr">${esc(team.abbr)}</span>`;
   const rows = ['hardpoint', 'search_and_destroy', 'hijack'].map(mode => `<div class="ms-row"><span>${banOf(left, mode)}</span><span class="ms-mode">${MODE_SHORT[mode]}</span><span>${banOf(right, mode)}</span></div>`).join('');
   const body = `<div class="ms-stage" data-ms-stage>
+    <video class="ms-video" id="ms-video" data-live-keep src="${u('/mapset/overlay.mp4')}?v=${CSS_VERSION}" muted autoplay playsinline preload="auto"></video>
+    <canvas class="ms-patch" id="ms-patch" data-live-keep width="1920" height="1080"></canvas>
     ${slots.map(panel).join('')}
     <div class="ms-cover ms-rec ms-rec-l">${esc(record(left))}</div>
     <div class="ms-cover ms-rec ms-rec-r">${esc(record(right))}</div>
@@ -417,12 +419,20 @@ function mapsetPage(league, m, c) {
 <meta name="ajcl-live-url" content="${esc(LIVE_URL)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap" rel="stylesheet">
 <style>
   html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
   main { position: fixed; inset: 0; }
-  .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; background: url('${u('/mapset/template-clean.webp')}?v=${CSS_VERSION}') center / cover no-repeat;
-    font-family: Teko, 'Arial Narrow', sans-serif; color: #a8f57f; text-transform: uppercase; }
+  .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; background: #000 url('${u('/mapset/template-clean.webp')}?v=${CSS_VERSION}') center / cover no-repeat;
+    font-family: Agdasima, 'Arial Narrow', sans-serif; font-weight: 700; font-variant: small-caps; color: #a8f57f; text-transform: none; }
+  .ms-video, .ms-patch { position: absolute; inset: 0; width: 1920px; height: 1080px; display: block; }
+  .ms-video { object-fit: cover; }
+  .ms-patch { pointer-events: none; opacity: 0; transition: opacity .4s; }
+  .ms-patch.is-built { opacity: 1; }
+  .no-video .ms-video, .no-video .ms-patch { display: none; }
+  /* Map pictures fade in once the video's panels have slid in. */
+  .ms-panel { opacity: 0; transition: opacity .6s ease; }
+  .is-ready .ms-panel { opacity: 1; }
   /* Map pictures over the template's five sky panels (same slant). */
   .ms-panel { position: absolute; top: 50px; width: 290px; height: 512px; overflow: hidden;
     clip-path: polygon(0 0, 162px 0, 290px 100%, 128px 100%);
@@ -430,7 +440,7 @@ function mapsetPage(league, m, c) {
   .ms-panel.is-empty { background: linear-gradient(160deg, #26272c, #121316); }
   .ms-label { position: absolute; left: 132px; right: 6px; bottom: 14px; display: grid; gap: 0; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
   .ms-label span { font-size: 22px; color: #ffcf5a; letter-spacing: .06em; }
-  .ms-label strong { font-size: 34px; color: #fff; font-weight: 700; }
+  .ms-label strong { font-size: 38px; color: #fff; font-weight: 700; }
   .ms-label em { font-style: normal; font-size: 24px; color: #a8f57f; }
   /* Covers for the template's sample text/logos. */
   .ms-cover { position: absolute; display: grid; place-items: center; border-radius: 18px;
@@ -461,8 +471,106 @@ function mapsetPage(league, m, c) {
     if (st) st.style.transform = 'translate(-50%, -50%) scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')';
   }
   addEventListener('resize', fit);
-  document.addEventListener('ajcl:league', function () { setTimeout(fit, 0); });
   fit();
+
+  // The intro video: map pictures fade in once the video's panels have slid in.
+  var READY_AT = 2.6;
+  function video() { return document.getElementById('ms-video'); }
+  function ready() {
+    var v = video(), st = document.querySelector('[data-ms-stage]');
+    if (st && v && (v.ended || v.currentTime >= READY_AT)) st.classList.add('is-ready');
+  }
+  function watch() {
+    var v = video();
+    if (!v || v.dataset.watched) return;
+    v.dataset.watched = '1';
+    v.addEventListener('timeupdate', ready);
+    v.addEventListener('ended', ready);
+    var p = v.play && v.play();
+    // Autoplay blocked or the video failed: jump to the finished frame.
+    var skip = function () { try { v.currentTime = Math.max(0, (v.duration || 5) - 0.05); } catch (e) {} setTimeout(ready, 300); };
+    if (p && p.catch) p.catch(skip);
+    v.addEventListener('error', function () { var st = document.querySelector('[data-ms-stage]'); if (st) st.classList.add('is-ready', 'no-video'); });
+    setTimeout(function () { if (v.paused && v.currentTime === 0) skip(); }, 2500);
+  }
+
+  // Erase the sample records and vetos text that's part of the video: take the
+  // video's final frame, fill the green text (and the little gem icons) from
+  // their surroundings, and draw those clean pieces over the video.
+  var AREAS = [
+    [118, 640, 338, 744],     // left record
+    [1598, 640, 1822, 744],   // right record
+    [568, 838, 1396, 1056],   // vetos list (inside the grey box)
+  ];
+  function erase(ctx, x0, y0, x1, y1) {
+    var w = x1 - x0 + 1, h = y1 - y0 + 1;
+    var img = ctx.getImageData(x0, y0, w, h), d = img.data, n = w * h;
+    var mask = new Uint8Array(n), hit = new Uint8Array(n), i, j;
+    for (i = 0; i < n; i++) {
+      var r = d[i * 4], g = d[i * 4 + 1], b = d[i * 4 + 2];
+      if (g > 80 && g > r + 14 && g > b + 22) hit[i] = 1;
+    }
+    var R = 11, R2 = R * R;
+    for (j = 0; j < h; j++) for (i = 0; i < w; i++) {
+      if (!hit[j * w + i]) continue;
+      for (var dj = -R; dj <= R; dj++) for (var di = -R; di <= R; di++) {
+        var ii = i + di, jj = j + dj;
+        if (ii >= 0 && jj >= 0 && ii < w && jj < h && di * di + dj * dj <= R2) mask[jj * w + ii] = 1;
+      }
+    }
+    // Keep a 1px frame of real pixels so the fill has an edge to grow from.
+    for (i = 0; i < w; i++) { mask[i] = 0; mask[(h - 1) * w + i] = 0; }
+    for (j = 0; j < h; j++) { mask[j * w] = 0; mask[j * w + w - 1] = 0; }
+    var idx = [], sum = [0, 0, 0], cnt = 0;
+    for (i = 0; i < n; i++) {
+      if (mask[i]) idx.push(i);
+      else { sum[0] += d[i * 4]; sum[1] += d[i * 4 + 1]; sum[2] += d[i * 4 + 2]; cnt++; }
+    }
+    if (!cnt) return img;
+    var ch = [new Float32Array(n), new Float32Array(n), new Float32Array(n)];
+    for (i = 0; i < n; i++) for (var c = 0; c < 3; c++) ch[c][i] = mask[i] ? sum[c] / cnt : d[i * 4 + c];
+    // Grey out the starting guess so no green tint seeps back in.
+    for (var it = 0; it < 900; it++) {
+      for (var q = 0; q < idx.length; q++) {
+        var k = idx[q], kx = k % w;
+        for (c = 0; c < 3; c++) {
+          var a = ch[c];
+          a[k] = (a[k - w] + a[k + w] + (kx > 0 ? a[k - 1] : a[k]) + (kx < w - 1 ? a[k + 1] : a[k])) / 4;
+        }
+      }
+    }
+    for (q = 0; q < idx.length; q++) {
+      k = idx[q];
+      var noise = (Math.random() - 0.5) * 7;
+      d[k * 4] = ch[0][k] + noise; d[k * 4 + 1] = ch[1][k] + noise; d[k * 4 + 2] = ch[2][k] + noise; d[k * 4 + 3] = 255;
+    }
+    return img;
+  }
+  function buildPatches() {
+    var canvas = document.getElementById('ms-patch');
+    if (!canvas || canvas.dataset.built) return;
+    canvas.dataset.built = '1';
+    var src = video() && video().currentSrc || (video() && video().src);
+    if (!src) return;
+    var v2 = document.createElement('video');
+    v2.muted = true; v2.preload = 'auto'; v2.playsInline = true; v2.crossOrigin = 'anonymous'; v2.src = src;
+    v2.addEventListener('loadedmetadata', function () { v2.currentTime = Math.max(0, v2.duration - 0.05); });
+    v2.addEventListener('seeked', function () {
+      var work = document.createElement('canvas'); work.width = 1920; work.height = 1080;
+      var wctx = work.getContext('2d', { willReadFrequently: true });
+      wctx.drawImage(v2, 0, 0, 1920, 1080);
+      var ctx = canvas.getContext('2d');
+      AREAS.forEach(function (a) {
+        try { ctx.putImageData(erase(wctx, a[0], a[1], a[2], a[3]), a[0], a[1]); } catch (e) {}
+      });
+      canvas.classList.add('is-built');
+    }, { once: true });
+  }
+
+  function init() { fit(); watch(); buildPatches(); ready(); }
+  // live.js re-renders the page: the video and patch layer are kept (data-live-keep).
+  document.addEventListener('ajcl:league', function () { setTimeout(init, 0); });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
 ${LIVE_URL ? `<script src="${u('/app.js')}?v=${CSS_VERSION}" defer></script>
