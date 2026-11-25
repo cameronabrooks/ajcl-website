@@ -132,7 +132,7 @@ ${TRANSITION_SCRIPT}
 <main>${body}<span id="page-end"></span></main>
 <footer class="footer">
   <div class="wrap footer-inner">
-    <span>© ${new Date().getFullYear()} Average Joe's CoD League</span>
+    <span>© ${new Date().getFullYear()} Average Joe's CoD League · <a href="${u('/staff/')}">League staff</a></span>
     <span class="muted">Schedules, results and rosters update automatically from the AJCL Discord.</span>
   </div>
 </footer>
@@ -841,6 +841,69 @@ function eightsPage(league, c) {
   return layout({ title: '8s', active: 'eights', body, c, script, page: '8s' });
 }
 
+// ---- Staff: public staff list + staff-only modmail ----
+// The modmail section is filled in the browser, only for staff: it asks the AJCL
+// Worker with the visitor's Discord login, and the Worker checks they're staff.
+// Ticket data is never part of the public site data.
+function staffPage(league, c) {
+  const groups = league.staff || [];
+  const person = m => `<div class="staff-person">
+    ${m.avatar ? `<img src="${esc(m.avatar)}" alt="" loading="lazy">` : `<span class="acct-initial">${esc(String(m.name).charAt(0))}</span>`}
+    <span class="staff-name">${esc(m.name)}</span>${m.rank ? rankTag(m.rank) : ''}
+  </div>`;
+  const list = groups.length ? groups.map(g => `<div class="staff-group">
+    <h3 class="sub">${esc(g.title === 'Commissioner' ? 'Commissioners' : g.title)}</h3>
+    <div class="staff-grid">${g.members.map(person).join('')}</div>
+  </div>`).join('') : '<p class="muted">The staff list will appear here shortly.</p>';
+  const script = `<script>
+(function () {
+  var box = document.querySelector('[data-modmail]');
+  if (!box) return;
+  var LIVE = (document.querySelector('meta[name="ajcl-live-url"]') || {}).content || '';
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]; }); }
+  function ago(ts) { var m = Math.max(0, Math.round((Date.now() - ts) / 60000)); if (m < 1) return 'just now'; if (m < 60) return m + 'm ago'; var h = Math.round(m / 60); if (h < 48) return h + 'h ago'; return Math.round(h / 24) + 'd ago'; }
+  function show(html, visible) { box.hidden = !visible; var body = box.querySelector('[data-modmail-body]'); if (body) body.innerHTML = html; }
+  async function load() {
+    var token = window.ajclDiscordToken && window.ajclDiscordToken();
+    if (!LIVE) return show('', false);
+    if (!token) return show('<p class="muted">Staff: log in with Discord (top right) to see open modmail tickets. If you logged in before this was added, log out and back in once.</p>', true);
+    try {
+      var r = await fetch(LIVE + '/private/modmail', { headers: { Authorization: 'Bearer ' + token }, cache: 'no-store' });
+      if (r.status === 403) return show('', false); // not staff: show nothing
+      if (r.status === 401) return show('<p class="muted">Your Discord login expired. Log out and log back in to see modmail.</p>', true);
+      if (!r.ok) throw new Error(r.status);
+      var d = await r.json();
+      var t = d.tickets || [];
+      var waiting = t.filter(function (x) { return x.waitingOnStaff; }).length;
+      show(
+        '<p class="muted modmail-summary">' + t.length + ' open ticket' + (t.length === 1 ? '' : 's') + (waiting ? ' · <strong class="neg">' + waiting + ' waiting on staff</strong>' : '') + (d.updatedAt ? ' · updated ' + ago(d.updatedAt) : '') + '</p>' +
+        (t.length ? '<div class="modmail-list">' + t.map(function (x) {
+          return '<article class="panel ticket' + (x.waitingOnStaff ? ' is-waiting' : '') + '">' +
+            '<div class="ticket-head"><strong>' + esc(x.user) + '</strong>' +
+            (x.waitingOnStaff ? '<span class="pill pill-now"><span class="live-dot"></span>Waiting on staff</span>' : '<span class="pill">Staff replied</span>') + '</div>' +
+            '<p class="ticket-preview">' + (x.lastBy ? '<span class="muted">' + esc(x.lastBy) + ':</span> ' : '') + esc(x.preview || '') + '</p>' +
+            '<div class="ticket-foot muted"><span>Opened ' + ago(x.openedAt) + ' · last activity ' + ago(x.lastAt) + '</span>' +
+            '<a class="btn btn-sm" href="' + esc(x.url) + '" target="_blank" rel="noopener">Open in Discord ↗</a></div></article>';
+        }).join('') + '</div>' : '<p class="muted">No open tickets. 🎉</p>'), true);
+    } catch (e) {
+      show('<p class="muted">Couldn\\'t load modmail right now. It will retry in a moment.</p>', true);
+    }
+  }
+  load();
+  setInterval(load, 30000);
+})();
+</script>`;
+  const body = pageHead('League', 'Staff', "The people who run Average Joe's CoD League.") + `
+<section class="wrap section" id="modmail">
+  <div class="panel modmail-panel" data-modmail hidden>
+    <div class="section-head"><h2>Open modmail tickets</h2><span class="pill">Staff only</span></div>
+    <div data-modmail-body><p class="muted">Loading…</p></div>
+  </div>
+</section>
+<section class="wrap section staff-section">${list}</section>`;
+  return layout({ title: 'Staff', active: 'staff', body, c, script }); // no live re-render: keeps loaded tickets
+}
+
 const faLabel = p => (p.freeAgent === 'rfa' ? 'Restricted free agent' : 'Free agent');
 const RANK_ORDER = ['Obsidian', 'Kyanite', 'Amethyst', 'Amber', 'Ruby', 'Emerald'];
 
@@ -1063,4 +1126,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, matchId, matchPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, matchId, matchPage, staffPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };

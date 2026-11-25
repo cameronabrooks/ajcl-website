@@ -78,6 +78,7 @@ window.AJCL = (function () {
   write('draft/index.html', renderPage(render, league, content, 'draft'));
   write('power-rankings/index.html', renderPage(render, league, content, 'power-rankings'));
   write('settings/index.html', renderPage(render, league, content, 'settings'));
+  write('staff/index.html', render.staffPage(league, content));
   write('8s/index.html', renderPage(render, league, content, '8s'));
   write('announcements/index.html', renderPage(render, league, content, 'announcements'));
   write('free-agents/index.html', renderPage(render, league, content, 'free-agents'));
@@ -93,6 +94,8 @@ window.AJCL = (function () {
     members: league.members || {},
     // "team|display name" -> player page slug, for the account menu's "My Profile".
     profiles: Object.fromEntries((league.players || []).map(p => [`${p.team}|${p.name}`, p.slug])),
+    // Hashes of staff members, so their account menu can show the staff tools link.
+    staff: (league.staff || []).flatMap(g => (g.members || []).map(m => m.hash)).filter(Boolean),
   }));
   fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
 

@@ -40,14 +40,24 @@
     location.href = 'https://discord.com/oauth2/authorize?' + q.toString();
   }
 
+  // The Discord login (identify only) is kept so staff tools can prove who you are
+  // to the AJCL Worker. It expires when Discord says it does.
+  var TOKEN = 'ajcl_token';
+  function getToken() {
+    try { var t = JSON.parse(localStorage.getItem(TOKEN)); return t && t.exp > Date.now() ? t.t : null; } catch (e) { return null; }
+  }
+  window.ajclDiscordToken = getToken;
+
   function logout() {
     localStorage.removeItem(STORE);
+    localStorage.removeItem(TOKEN);
     document.querySelectorAll('.is-mine, .is-me').forEach(function (el) { el.classList.remove('is-mine', 'is-me'); });
     render(null, null);
   }
 
   var DISCORD_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.2a18.2 18.2 0 0 0-5.6 0L8.6 3a19.5 19.5 0 0 0-4.9 1.5C.6 9.1-.3 13.7.1 18.2a19.8 19.8 0 0 0 6 3l1.3-2.1a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.7 19.7 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.8zM8 15.4c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.6 8 10.6s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg>';
 
+  var isStaff = false;
   function render(user, entry, teamName) {
     if (!slot) return;
     if (!CLIENT_ID) { slot.innerHTML = ''; return; }
@@ -67,6 +77,7 @@
         '<span class="acct-name">' + esc(user.name) + '</span></button>' +
       '<div class="acct-menu" hidden data-acct-menu>' +
         '<p class="acct-label">Signed in with Discord</p><p class="acct-full">' + esc(user.name) + '</p>' + teamLine +
+        (isStaff ? '<a class="acct-staff" href="' + BASE + '/staff/#modmail">Staff tools · Modmail →</a>' : '') +
         '<button type="button" class="acct-logout" data-logout>Log out</button></div>';
     var btn = slot.querySelector('[data-acct-toggle]'), menu = slot.querySelector('[data-acct-menu]');
     btn.addEventListener('click', function (e) { e.stopPropagation(); menu.hidden = !menu.hidden; btn.setAttribute('aria-expanded', String(!menu.hidden)); });
@@ -108,6 +119,7 @@
       var u = await r.json();
       var avatar = u.avatar ? 'https://cdn.discordapp.com/avatars/' + u.id + '/' + u.avatar + '.png?size=64' : null;
       localStorage.setItem(STORE, JSON.stringify({ name: u.global_name || u.username, avatar: avatar, hash: await hashId(u.id), at: Date.now() }));
+      localStorage.setItem(TOKEN, JSON.stringify({ t: p.get('access_token'), exp: Date.now() + (Number(p.get('expires_in')) || 604800) * 1000 }));
       location.replace(back);
     } catch (e) {
       say('Could not reach Discord to finish logging in. Please try again.');
@@ -115,6 +127,7 @@
   }
 
   function applyIndex(user, idx) {
+    isStaff = !!(idx && idx.staff && idx.staff.indexOf(user.hash) !== -1);
     var found = idx && idx.members && idx.members[user.hash];
     // Attach the visitor's player page slug ("team|name" -> slug) for "My Profile".
     var entry = found ? Object.assign({}, found, { profile: idx.profiles && idx.profiles[found.team + '|' + found.name] }) : null;
@@ -136,7 +149,9 @@
       (raw.teams || []).forEach(function (t) { teams[t.slug] = t.name; });
       var profiles = {};
       (raw.players || []).forEach(function (p) { profiles[p.team + '|' + p.name] = p.slug; });
-      applyIndex(user, { teams: teams, members: raw.members || {}, profiles: profiles });
+      var staff = [];
+      (raw.staff || []).forEach(function (g) { (g.members || []).forEach(function (m) { if (m.hash) staff.push(m.hash); }); });
+      applyIndex(user, { teams: teams, members: raw.members || {}, profiles: profiles, staff: staff });
     });
   }
 
