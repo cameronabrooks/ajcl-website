@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795568546231,
+  "generatedAt": 1795569154407,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1199,7 +1199,7 @@
     },
     "Academy": {
       "status": "open",
-      "voters": 9,
+      "voters": 10,
       "postedAt": 1795565229593,
       "teams": [
         {
@@ -1208,23 +1208,23 @@
           "firsts": 4
         },
         {
+          "team": "omh",
+          "points": 17,
+          "firsts": 2
+        },
+        {
           "team": "nor",
           "points": 14,
           "firsts": 1
         },
         {
-          "team": "omh",
-          "points": 12,
-          "firsts": 1
-        },
-        {
           "team": "pit",
-          "points": 8,
+          "points": 11,
           "firsts": 1
         },
         {
           "team": "mrd",
-          "points": 6,
+          "points": 7,
           "firsts": 0
         },
         {
@@ -1249,10 +1249,10 @@
     {
       "id": "1574939448813162603",
       "title": "🏆 Academy Power Rankings",
-      "text": "@everyone\n\n🥇 Roswell Aliens — **51 pts**\n🥈 Omaha Bandits — **40 pts**\n🥉 New Orleans Reapers — **31 pts**\n4️⃣ Montreal Red Dragons — **26 pts**\n5️⃣ Pittsburgh Nocturnal — **23 pts**\n6️⃣ Michigan Samurai — **23 pts**\n7️⃣ Kansas City Kings — **14 pts**\n8️⃣ Lexington Majestic — **11 pts**",
+      "text": "@everyone\n\n🥇 Roswell Aliens — **56 pts**\n🥈 Omaha Bandits — **48 pts**\n🥉 New Orleans Reapers — **35 pts**\n4️⃣ Montreal Red Dragons — **32 pts**\n5️⃣ Pittsburgh Nocturnal — **30 pts**\n6️⃣ Michigan Samurai — **26 pts**\n7️⃣ Kansas City Kings — **15 pts**\n8️⃣ Lexington Majestic — **13 pts**",
       "images": [],
       "postedAt": 1795565225557,
-      "editedAt": 1795567343531
+      "editedAt": 1795569142165
     },
     {
       "id": "1574939352251768863",
