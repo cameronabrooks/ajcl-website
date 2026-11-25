@@ -82,7 +82,13 @@
         (isStaff ? '<a class="acct-staff" href="' + BASE + '/staff/#modmail">Staff tools · Modmail →</a>' : '') +
         '<button type="button" class="acct-logout" data-logout>Log out</button></div>';
     var btn = slot.querySelector('[data-acct-toggle]'), menu = slot.querySelector('[data-acct-menu]');
-    btn.addEventListener('click', function (e) { e.stopPropagation(); menu.hidden = !menu.hidden; btn.setAttribute('aria-expanded', String(!menu.hidden)); });
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      menu.hidden = !menu.hidden;
+      btn.setAttribute('aria-expanded', String(!menu.hidden));
+      // On phones the menu is a full-width panel just under the profile button.
+      if (!menu.hidden) menu.style.setProperty('--acct-top', Math.round(btn.getBoundingClientRect().bottom + 8) + 'px');
+    });
     document.addEventListener('click', function (e) { if (!slot.contains(e.target)) { menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); } });
     slot.querySelector('[data-logout]').addEventListener('click', logout);
   }

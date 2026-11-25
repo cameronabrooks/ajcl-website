@@ -695,3 +695,6 @@ button.btn { font: inherit; cursor: pointer; }
 .st-match-note { font-size: 12px; color: var(--gold); }
 .st-group-queue { display: flex; margin: 0 0 10px; font-size: 13px; }
 .st-group-queue select { flex: 1; }
+@media (max-width: 760px) {
+  .acct-menu { position: fixed; left: 12px; right: 12px; width: auto; top: var(--acct-top, 72px); max-height: calc(100vh - var(--acct-top, 72px) - 16px); overflow-y: auto; }
+}
