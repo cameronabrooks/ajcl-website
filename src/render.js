@@ -31,9 +31,21 @@ function timeTag(ts) {
 // morph=true marks the crest so the page-transition script can make it glide between
 // the Teams grid and that team's page. The transition name is only assigned at
 // navigation time, to the one team involved (see TRANSITION_SCRIPT).
+// Each team logo's animation, based on what the team is (see public/team-anim.css).
+const TEAM_ANIM = {
+  atl: 'fire', car: 'carnage', syr: 'roll', sln: 'stalk', sfs: 'strike', ccc: 'peck', tor: 'dragon-blue', hal: 'soar',
+  ros: 'ufo', mrd: 'dragon-red', lex: 'majestic', nor: 'reaper', kck: 'royal', pit: 'nocturnal', mis: 'slash', omh: 'sneak',
+};
+// data-anim + a per-team start offset so logos on the same page don't move in sync.
+function teamAnim(team) {
+  const a = TEAM_ANIM[team.slug];
+  if (!a) return '';
+  let h = 0; for (const ch of team.slug) h = (h * 31 + ch.charCodeAt(0)) % 997;
+  return ` data-anim="${a}" style="--anim-delay:-${(h % 40) / 10}s"`;
+}
 function crest(team, size = 'md', morph = false) {
   const vt = morph ? ` data-morph="${esc(team.slug)}"` : '';
-  if (team.logo) return `<img class="crest crest-${size}" src="${esc(u(team.logo))}" alt=""${vt}${morph ? '' : ' loading="lazy"'}>`;
+  if (team.logo) return `<img class="crest crest-${size}" src="${esc(u(team.logo))}" alt=""${vt}${teamAnim(team)}${morph ? '' : ' loading="lazy"'}>`;
   return `<span class="crest crest-${size} crest-fallback" aria-hidden="true"${vt}>${esc(team.abbr)}</span>`;
 }
 
@@ -112,6 +124,7 @@ ${HTTPS_SCRIPT}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${u('/style.css')}?v=${CSS_VERSION}">
+<link rel="stylesheet" href="${u('/team-anim.css')}?v=${CSS_VERSION}">
 <link rel="expect" href="#page-end" blocking="render">
 <meta name="ajcl-base" content="${esc(BASE)}">
 <meta name="ajcl-discord-client" content="${esc(DISCORD_CLIENT_ID)}">
@@ -425,7 +438,7 @@ function mapsetPage(league, m, c) {
     const x = p ? p.actions.find(a => a.action === 'ban' && a.team === team.slug && a.mode === mode) : null;
     return x ? esc(x.map) : '–';
   };
-  const logo = team => team.logo ? `<img src="${esc(u(team.logo))}" alt="${esc(team.name)}">` : `<span class="ms-abbr">${esc(team.abbr)}</span>`;
+  const logo = team => team.logo ? `<img src="${esc(u(team.logo))}" alt="${esc(team.name)}"${teamAnim(team)}>` : `<span class="ms-abbr">${esc(team.abbr)}</span>`;
   const rows = ['hardpoint', 'search_and_destroy', 'hijack'].map(mode => `<div class="ms-row"><span>${banOf(left, mode)}</span><span>${MODE_SHORT[mode]}</span><span>${banOf(right, mode)}</span></div>`).join('');
   const neon = `${u('/mapset/neon.webp')}?v=${CSS_VERSION}`;
   const body = `<div class="ms-stage" data-ms-stage>
@@ -453,6 +466,7 @@ function mapsetPage(league, m, c) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="${u('/team-anim.css')}?v=${CSS_VERSION}">
 <style>
   html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
   main { position: fixed; inset: 0; }
@@ -585,8 +599,15 @@ function mapsetPage(league, m, c) {
   }
 
   // One moment of the whole screen (the video build calls this for every frame).
+  // Team logo animations (CSS) are stepped to the same moment, so the video build
+  // captures them frame by frame.
+  function logosAt(t) {
+    if (!document.getAnimations) return;
+    document.getAnimations().forEach(function (a) { try { a.pause(); a.currentTime = t * 1000; } catch (e) {} });
+  }
   window.__msShow = function (t) {
     lastT = t;
+    logosAt(t);
     if (layerOnly) { panels(t); neon(t); return Promise.resolve(); }
     return seek(t).then(function () { panels(t); neon(t); });
   };

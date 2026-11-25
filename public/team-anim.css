@@ -1,0 +1,151 @@
+/* Team logo animations, one per team theme (set by data-anim on the logo).
+   Subtle on purpose; each logo gets its own start offset so they don't move in sync.
+   Shared by the website and the caster mapset screen. */
+img[data-anim] { animation-duration: var(--anim-dur, 4s); animation-iteration-count: infinite; animation-timing-function: ease-in-out; animation-delay: var(--anim-delay, 0s); will-change: transform, filter; transform-origin: 50% 60%; }
+
+/* Fire: flickering warm glow and a slight rise (Firebirds) */
+img[data-anim="fire"] { animation-name: ta-fire; --anim-dur: 1.8s; }
+@keyframes ta-fire {
+  0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 4px rgba(255,140,40,.45)) drop-shadow(0 -2px 8px rgba(255,80,20,.25)); }
+  20% { filter: drop-shadow(0 0 9px rgba(255,170,60,.75)) drop-shadow(0 -4px 14px rgba(255,90,20,.45)); }
+  35% { transform: translateY(-2px) scale(1.02); filter: drop-shadow(0 0 5px rgba(255,120,30,.5)) drop-shadow(0 -2px 9px rgba(255,70,10,.3)); }
+  60% { filter: drop-shadow(0 0 11px rgba(255,190,80,.8)) drop-shadow(0 -6px 16px rgba(255,100,20,.5)); }
+  80% { transform: translateY(-1px) scale(1.01); filter: drop-shadow(0 0 6px rgba(255,130,40,.55)); }
+}
+
+/* Dragon breath: glow builds and a breath push (Red / Blue Dragons) */
+img[data-anim="dragon-red"] { animation-name: ta-dragon-red; --anim-dur: 3.6s; }
+img[data-anim="dragon-blue"] { animation-name: ta-dragon-blue; --anim-dur: 3.6s; }
+@keyframes ta-dragon-red {
+  0%, 55%, 100% { transform: scale(1); filter: drop-shadow(0 0 3px rgba(255,40,30,.3)); }
+  70% { transform: scale(1.06) rotate(-2deg); filter: drop-shadow(0 0 14px rgba(255,60,20,.85)) drop-shadow(0 0 26px rgba(255,140,40,.45)); }
+  80% { transform: scale(1.03) rotate(1deg); filter: drop-shadow(0 0 9px rgba(255,80,30,.6)); }
+}
+@keyframes ta-dragon-blue {
+  0%, 55%, 100% { transform: scale(1); filter: drop-shadow(0 0 3px rgba(60,150,255,.3)); }
+  70% { transform: scale(1.06) rotate(2deg); filter: drop-shadow(0 0 14px rgba(70,170,255,.85)) drop-shadow(0 0 26px rgba(120,220,255,.45)); }
+  80% { transform: scale(1.03) rotate(-1deg); filter: drop-shadow(0 0 9px rgba(80,170,255,.6)); }
+}
+
+/* Menacing pulse: slow red heartbeat (Carnage) */
+img[data-anim="carnage"] { animation-name: ta-carnage; --anim-dur: 2.4s; }
+@keyframes ta-carnage {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 3px rgba(200,0,0,.3)); }
+  12% { transform: scale(1.05); filter: drop-shadow(0 0 12px rgba(230,20,20,.8)); }
+  24% { transform: scale(1.01); filter: drop-shadow(0 0 5px rgba(200,0,0,.4)); }
+  36% { transform: scale(1.04); filter: drop-shadow(0 0 10px rgba(230,20,20,.7)); }
+  50% { transform: scale(1); filter: drop-shadow(0 0 3px rgba(200,0,0,.3)); }
+}
+
+/* Roll side to side (Armadillos) */
+img[data-anim="roll"] { animation-name: ta-roll; --anim-dur: 4s; }
+@keyframes ta-roll {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  25% { transform: translateX(3px) rotate(10deg); }
+  50% { transform: translateX(0) rotate(0); }
+  75% { transform: translateX(-3px) rotate(-10deg); }
+}
+
+/* Stalk: fades into the shadows, eyes glint (Nightstalkers) */
+img[data-anim="stalk"] { animation-name: ta-stalk; --anim-dur: 5s; }
+@keyframes ta-stalk {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 0 rgba(0,0,0,0)); transform: translateX(0); }
+  40% { filter: brightness(.45) saturate(.6) drop-shadow(0 0 8px rgba(0,0,0,.8)); transform: translateX(-2px); }
+  55% { filter: brightness(1.25) drop-shadow(0 0 8px rgba(180,200,255,.6)); transform: translateX(1px); }
+  65% { filter: brightness(1) drop-shadow(0 0 2px rgba(180,200,255,.2)); transform: translateX(0); }
+}
+
+/* Tail strike: coil, then a quick jab (Scorpions) */
+img[data-anim="strike"] { animation-name: ta-strike; --anim-dur: 3.2s; }
+@keyframes ta-strike {
+  0%, 60%, 100% { transform: translate(0,0) scale(1) rotate(0); }
+  70% { transform: translate(0,2px) scale(.96) rotate(-4deg); }
+  76% { transform: translate(2px,-4px) scale(1.08) rotate(5deg); filter: drop-shadow(0 0 8px rgba(255,200,60,.6)); }
+  86% { transform: translate(0,0) scale(1) rotate(0); }
+}
+
+/* Peck + cobra sway (Cobra Chickens) */
+img[data-anim="peck"] { animation-name: ta-peck; --anim-dur: 3s; }
+@keyframes ta-peck {
+  0%, 100% { transform: rotate(0) translateY(0); }
+  10% { transform: rotate(-8deg) translateY(3px); }
+  18% { transform: rotate(0) translateY(0); }
+  26% { transform: rotate(-8deg) translateY(3px); }
+  34% { transform: rotate(0) translateY(0); }
+  55% { transform: rotate(4deg) translateX(2px); }
+  75% { transform: rotate(-4deg) translateX(-2px); }
+}
+
+/* Soar: glide and bank (Ospreys) */
+img[data-anim="soar"] { animation-name: ta-soar; --anim-dur: 5s; }
+@keyframes ta-soar {
+  0%, 100% { transform: translate(0,0) rotate(0); }
+  25% { transform: translate(3px,-4px) rotate(4deg); }
+  50% { transform: translate(0,-6px) rotate(0); }
+  75% { transform: translate(-3px,-3px) rotate(-4deg); }
+}
+
+/* UFO hover with green glow (Aliens) */
+img[data-anim="ufo"] { animation-name: ta-ufo; --anim-dur: 3s; }
+@keyframes ta-ufo {
+  0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 4px rgba(80,255,120,.4)); }
+  50% { transform: translateY(-5px); filter: drop-shadow(0 6px 10px rgba(80,255,120,.75)) drop-shadow(0 0 16px rgba(120,255,160,.4)); }
+}
+
+/* Majestic: proud rise and a gold shimmer (Majestic) */
+img[data-anim="majestic"] { animation-name: ta-majestic; --anim-dur: 4.5s; }
+@keyframes ta-majestic {
+  0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 2px rgba(255,215,100,.2)); }
+  45% { transform: translateY(-3px) scale(1.04); filter: brightness(1.12) drop-shadow(0 0 10px rgba(255,215,100,.7)); }
+  60% { transform: translateY(-2px) scale(1.03); filter: brightness(1.05) drop-shadow(0 0 6px rgba(255,215,100,.45)); }
+}
+
+/* Reaper: scythe swing with a dark aura (Reapers) */
+img[data-anim="reaper"] { animation-name: ta-reaper; --anim-dur: 4s; transform-origin: 50% 20%; }
+@keyframes ta-reaper {
+  0%, 100% { transform: rotate(0); filter: drop-shadow(0 0 4px rgba(120,0,160,.35)); }
+  30% { transform: rotate(-6deg); filter: drop-shadow(0 0 10px rgba(140,30,200,.6)); }
+  45% { transform: rotate(5deg); filter: drop-shadow(0 0 12px rgba(160,40,220,.7)); }
+  60% { transform: rotate(0); filter: drop-shadow(0 0 5px rgba(120,0,160,.4)); }
+}
+
+/* Royal roar: pulse and gold glint (Kings) */
+img[data-anim="royal"] { animation-name: ta-royal; --anim-dur: 3.4s; }
+@keyframes ta-royal {
+  0%, 60%, 100% { transform: scale(1); filter: drop-shadow(0 0 3px rgba(255,200,60,.3)); }
+  68% { transform: scale(1.08); filter: brightness(1.15) drop-shadow(0 0 14px rgba(255,200,60,.85)) drop-shadow(0 0 4px rgba(170,80,255,.6)); }
+  76% { transform: scale(1.02) translateX(-1px); }
+  82% { transform: scale(1.04) translateX(1px); filter: drop-shadow(0 0 8px rgba(255,200,60,.5)); }
+}
+
+/* Nocturnal: blinks into the dark, purple glow (Nocturnal) */
+img[data-anim="nocturnal"] { animation-name: ta-nocturnal; --anim-dur: 4.2s; }
+@keyframes ta-nocturnal {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 4px rgba(150,80,255,.4)); transform: scale(1); }
+  46% { filter: brightness(1) drop-shadow(0 0 6px rgba(150,80,255,.5)); }
+  50% { filter: brightness(.35) drop-shadow(0 0 2px rgba(150,80,255,.2)); transform: scale(.98); }
+  54% { filter: brightness(1.2) drop-shadow(0 0 12px rgba(170,100,255,.8)); transform: scale(1.03); }
+  70% { filter: brightness(1) drop-shadow(0 0 5px rgba(150,80,255,.45)); transform: scale(1); }
+}
+
+/* Samurai: draw and a quick slash flash (Samurai) */
+img[data-anim="slash"] { animation-name: ta-slash; --anim-dur: 3.6s; }
+@keyframes ta-slash {
+  0%, 62%, 100% { transform: rotate(0) scale(1); filter: brightness(1); }
+  68% { transform: rotate(-5deg) scale(1.02); }
+  72% { transform: rotate(6deg) scale(1.06); filter: brightness(1.6) drop-shadow(0 0 12px rgba(255,255,255,.85)); }
+  80% { transform: rotate(0) scale(1); filter: brightness(1.05); }
+}
+
+/* Bandit: sneaky side-step and peek (Bandits) */
+img[data-anim="sneak"] { animation-name: ta-sneak; --anim-dur: 4.4s; }
+@keyframes ta-sneak {
+  0%, 100% { transform: translateX(0) skewX(0); }
+  20% { transform: translateX(-4px) skewX(4deg); }
+  30% { transform: translateX(-4px) skewX(0); }
+  55% { transform: translateX(4px) skewX(-4deg); }
+  65% { transform: translateX(4px) skewX(0); }
+  85% { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) { img[data-anim] { animation: none !important; } }
