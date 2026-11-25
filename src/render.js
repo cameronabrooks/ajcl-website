@@ -226,7 +226,7 @@ const mapImage = name => u(`/maps/${String(name).toLowerCase().replace(/[^a-z0-9
 // Match page: teams + score, time / LIVE status, caster, and picks & bans.
 // Match stats from cod-stats (the scraper reads the signed-in scorecard): series MVP,
 // each team's overall scorecard, then one tab per map. Shown once cod-stats has them.
-const SC_LABELS = { KD: 'K/D', DMG: 'DMG', FB: 'FB', HILL: 'Hill', PLANTS: 'Plants', DEFUSES: 'Defuses' };
+const SC_LABELS = { KD: 'K/D', DMG: 'DMG', FB: 'FB', HILL: 'Hill', PLANTS: 'Plants', DEFUSES: 'Defuses', CAP: 'Caps', DATA: 'Data Uploaded' };
 function scorecard(m) {
   const cs = m.codStats;
   if (!cs || !((cs.overall || []).length || (cs.maps || []).length)) return '';
