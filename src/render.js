@@ -431,16 +431,16 @@ function mapsetPage(league, m, c) {
   .ms-patch.is-built { opacity: 1; }
   .no-video .ms-video, .no-video .ms-patch { display: none; }
   /* Map pictures fade in once the video's panels have slid in. */
-  .ms-panel { opacity: 0; transition: opacity .6s ease; }
+  .ms-panel { opacity: 0; }
   .is-ready .ms-panel { opacity: 1; }
   /* Map pictures over the template's five sky panels (same slant). */
   .ms-panel { position: absolute; top: 50px; width: 290px; height: 512px; overflow: hidden;
     clip-path: polygon(0 0, 162px 0, 290px 100%, 128px 100%);
     background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.85)), var(--map-img) center / cover no-repeat, #1b1c20; }
   .ms-panel.is-empty { background: linear-gradient(160deg, #26272c, #121316); }
-  .ms-label { position: absolute; left: 132px; right: 6px; bottom: 14px; display: grid; gap: 0; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
+  .ms-label { position: absolute; left: 132px; right: 14px; bottom: 14px; display: grid; gap: 0; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
   .ms-label span { font-size: 22px; color: #ffcf5a; letter-spacing: .06em; }
-  .ms-label strong { font-size: 38px; color: #fff; font-weight: 700; }
+  .ms-label strong { font-size: 38px; color: #fff; font-weight: 700; white-space: nowrap; overflow: hidden; display: block; }
   .ms-label em { font-style: normal; font-size: 24px; color: #a8f57f; }
   /* Covers for the template's sample text/logos. */
   .ms-cover { position: absolute; display: grid; place-items: center; border-radius: 18px;
@@ -473,18 +473,30 @@ function mapsetPage(league, m, c) {
   addEventListener('resize', fit);
   fit();
 
-  // The intro video: map pictures fade in once the video's panels have slid in.
-  var READY_AT = 2.6;
+  // The intro video brings the five panels in one by one (measured from the video:
+  // panel 1 at ~0.2s, then every 0.2s, each fading in over ~0.1s). Each map picture
+  // follows the video's own clock so it appears together with its panel.
+  var FIRST = 0.2, STEP = 0.2, FADE = 0.12, DONE = 1.3;
   function video() { return document.getElementById('ms-video'); }
-  function ready() {
+  function sync() {
     var v = video(), st = document.querySelector('[data-ms-stage]');
-    if (st && v && (v.ended || v.currentTime >= READY_AT)) st.classList.add('is-ready');
+    if (!st) return;
+    var t = v ? v.currentTime : 99;
+    var all = !v || v.ended || t >= DONE || st.classList.contains('no-video');
+    st.querySelectorAll('.ms-panel').forEach(function (el, i) {
+      el.style.opacity = all ? 1 : Math.max(0, Math.min(1, (t - (FIRST + STEP * i)) / FADE));
+    });
+    if (all) st.classList.add('is-ready');
   }
+  function ready() { sync(); }
+  function loop() { sync(); var v = video(); if (v && !v.ended && v.currentTime < DONE) requestAnimationFrame(loop); }
   function watch() {
     var v = video();
     if (!v || v.dataset.watched) return;
     v.dataset.watched = '1';
     v.addEventListener('timeupdate', ready);
+    v.addEventListener('playing', function () { requestAnimationFrame(loop); });
+    v.addEventListener('seeked', ready);
     v.addEventListener('ended', ready);
     var p = v.play && v.play();
     // Autoplay blocked or the video failed: jump to the finished frame.
@@ -567,7 +579,14 @@ function mapsetPage(league, m, c) {
     }, { once: true });
   }
 
-  function init() { fit(); watch(); buildPatches(); ready(); }
+  function fitLabels() {
+    document.querySelectorAll('.ms-label strong').forEach(function (el) {
+      el.style.fontSize = '';
+      var size = parseFloat(getComputedStyle(el).fontSize) || 38;
+      while (el.scrollWidth > el.clientWidth + 1 && size > 20) { size -= 1; el.style.fontSize = size + 'px'; }
+    });
+  }
+  function init() { fit(); watch(); buildPatches(); fitLabels(); ready(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLabels); }
   // live.js re-renders the page: the video and patch layer are kept (data-live-keep).
   document.addEventListener('ajcl:league', function () { setTimeout(init, 0); });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
