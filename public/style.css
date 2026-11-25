@@ -577,3 +577,6 @@ html:not(.js) .settings .game-tabs { display: none; }
 .lb-tabs { margin-bottom: 4px; }
 .lb-panel h3.sub { margin: 16px 0 10px; }
 html:not(.js) .lb-tabs { display: none; }
+
+.lb-tabs { scroll-margin-top: 90px; }
+.lb-panel { scroll-margin-top: 90px; }

@@ -794,11 +794,25 @@ function eightsPage(league, c) {
     var cur = keys.indexOf(want) >= 0 ? want : keys[0];
     document.querySelectorAll('[data-lb]').forEach(function (p) { p.hidden = p.dataset.lb !== cur; });
     document.querySelectorAll('[data-lb-tab]').forEach(function (t) { t.classList.toggle('active', t.dataset.lbTab === cur); });
+    return cur;
+  }
+  // Bring the chosen queue's leaderboard into view (the tabs sit below the live queues).
+  function showChosen() {
+    if (!/^#lb-/.test(location.hash)) return;
+    var cur = apply();
+    var target = document.querySelector('.lb-tabs') || document.querySelector('[data-lb="' + cur + '"]');
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   document.documentElement.classList.add('js');
-  addEventListener('hashchange', apply);
+  addEventListener('hashchange', showChosen);
+  // Clicking a link to the tab that's already in the address bar doesn't fire hashchange.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#lb-"]');
+    if (a && a.getAttribute('href') === location.hash) { e.preventDefault(); showChosen(); }
+  });
   document.addEventListener('ajcl:league', function () { setTimeout(apply, 0); });
   apply();
+  if (/^#lb-/.test(location.hash)) setTimeout(showChosen, 300);
 })();
 </script>` : '';
 
