@@ -896,7 +896,7 @@ function teamTools(league, team) {
   const outgoing = moves.filter(x => x.type === 'trade' && x.from === team.slug);
   const offers = moves.filter(x => x.type === 'offer' && x.team === team.slug);
   const teamName = slug => (league.teams.find(t => t.slug === slug) || {}).name || slug;
-  const faSelect = `<select name="player" required><option value="">Pick a free agent…</option>${fas.map(rtOption).join('')}</select>`;
+  const faSelect = `<select name="player" required data-rt-search><option value="">Pick a free agent…</option>${fas.map(rtOption).join('')}</select>`;
   const mineSelect = (name, list = mine) => `<select name="${name}" required><option value="">Pick a player…</option>${list.map(rtOption).join('')}</select>`;
   // Same players Discord's drop lists offer: GMs can't drop coaches, GMs, players on
   // several teams or non-playing members; staff can't drop coaches/non-playing.
@@ -930,7 +930,7 @@ function teamTools(league, team) {
       ${rtForm('commoffer', faSelect + `<input type="hidden" name="team" value="${esc(team.roleId)}"><input name="notes" placeholder="Notes (optional)" maxlength="200"><button class="btn btn-sm btn-gold">Offer to ${esc(team.abbr)}</button>`, 'Offer a free agent to this team', `Offer this player to ${team.name}?`)}
       ${rtForm('commdrop', mineSelect('player', staffDroppable) + `<input type="hidden" name="team" value="${esc(team.roleId)}">` + dropFlags + '<button class="btn btn-sm btn-danger">Drop</button>', 'Drop a player from this team', 'Drop this player from the team?')}
       ${rtForm('clearteamneeds', `<input type="hidden" name="team" value="${esc(team.roleId)}"><button class="btn btn-sm">Clear rank requirement</button>`, 'Pending rank requirement', `Clear ${team.name}'s pending rank requirement?`)}
-      ${rtForm('removesuspension', `<select name="player" required><option value="">Pick a player…</option>${fas.map(rtOption).join('')}</select><button class="btn btn-sm">Remove suspension</button>`, 'Remove a self-drop suspension', 'Remove this player\'s self-drop suspension?')}
+      ${rtForm('removesuspension', `<select name="player" required data-rt-search><option value="">Pick a player…</option>${fas.map(rtOption).join('')}</select><button class="btn btn-sm">Remove suspension</button>`, 'Remove a self-drop suspension', 'Remove this player\'s self-drop suspension?')}
     </div>
   </div>
 </section>`;
@@ -983,6 +983,34 @@ const ROSTER_TOOLS_SCRIPT = `<script>
     });
     var box = document.querySelector('[data-rt-offers]'); if (box) box.hidden = !anyOffer;
     document.querySelectorAll('[data-rt-staffonly]').forEach(function (el) { el.hidden = !(loggedIn && staff); });
+    document.querySelectorAll('select[data-rt-search]').forEach(setupSearch);
+  }
+  // Type-to-search on the free agent dropdowns: a box above the list that narrows it.
+  function setupSearch(sel) {
+    if (sel.dataset.rtSearchReady) return;
+    sel.dataset.rtSearchReady = '1';
+    var first = sel.options[0] ? sel.options[0].textContent : '';
+    var all = [].slice.call(sel.options).slice(1).map(function (o) { return { v: o.value, t: o.textContent }; });
+    var box = document.createElement('input');
+    box.type = 'search'; box.className = 'rt-search'; box.placeholder = 'Type to search free agents…'; box.autocomplete = 'off';
+    box.setAttribute('aria-label', 'Search free agents');
+    sel.parentNode.insertBefore(box, sel);
+    box.addEventListener('input', function () {
+      var q = box.value.trim().toLowerCase(), keep = sel.value;
+      var hits = all.filter(function (o) { return !q || o.t.toLowerCase().indexOf(q) >= 0; });
+      sel.innerHTML = '';
+      sel.add(new Option(q ? (hits.length ? hits.length + ' match' + (hits.length === 1 ? '' : 'es') + ' — pick one' : 'No free agent matches') : first, ''));
+      hits.forEach(function (o) { sel.add(new Option(o.t, o.v)); });
+      if (hits.length === 1) sel.value = hits[0].v;
+      else if (hits.some(function (o) { return o.v === keep; })) sel.value = keep;
+    });
+    // Enter in the box picks the top match instead of sending the form.
+    box.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      if (!sel.value && sel.options.length > 1) sel.selectedIndex = 1;
+      sel.focus();
+    });
   }
   // Trade form: their team -> their roster.
   document.addEventListener('change', function (e) {

@@ -779,6 +779,7 @@ button.btn { font: inherit; cursor: pointer; }
 .rt-sub-side { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .rt-player-offers { margin-bottom: 22px; }
 .rt-form .mt-check { flex: 1 0 100%; white-space: nowrap; }
+.rt-form .rt-search { flex: 1 0 100%; }
 
 /* Announcement composer (staff) */
 .an-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 16px; margin: 8px 0 12px; }
