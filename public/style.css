@@ -787,3 +787,7 @@ button.btn { font: inherit; cursor: pointer; }
 .an-grid .an-wide { grid-column: 1 / -1; }
 .an-form input, .an-form select, .an-form textarea { background: var(--bg-2); color: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; font: inherit; font-size: 14px; color-scheme: dark; width: 100%; }
 .an-form textarea { resize: vertical; }
+
+/* Staff badge on profiles */
+.pill-staff { color: var(--ember); border-color: rgba(63,182,240,.45); background: rgba(63,182,240,.12); font-weight: 600; letter-spacing: .04em; text-decoration: none; margin-left: 8px; vertical-align: middle; }
+.pill-staff:hover { border-color: var(--ember); }

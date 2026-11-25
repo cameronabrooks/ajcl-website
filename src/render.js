@@ -2052,7 +2052,16 @@ function playerPage(league, player, c) {
 </script>` : '';
 
   // Discord profile link (player's own ID, else their staff entry's).
-  const staffEntry = (league.staff || []).flatMap(g => g.members || []).find(m => m.slug === player.slug || m.name === player.name) || {};
+  const staffHit = (() => {
+    const groups = league.staff || [];
+    const tests = [m => player.discordId && m.discordId === player.discordId, m => m.slug && m.slug === player.slug, m => m.name === player.name];
+    for (const t of tests) for (const g of groups) { const m = (g.members || []).find(t); if (m) return { g, m }; }
+    return null;
+  })();
+  const staffEntry = staffHit ? staffHit.m : {};
+  // MFIC / Commissioner / Staff badge, like the Staff page groups.
+  const staffTitle = staffHit ? (staffHit.g.title === 'Staff' ? 'League Staff' : staffHit.g.title) : '';
+  const staffBadge = staffTitle ? ` <a class="pill pill-staff" href="${u('/staff/')}">${esc(staffTitle)}</a>` : '';
   const discordId = player.discordId || staffEntry.discordId;
   const avatarUrl = /^https:\/\/cdn\.discordapp\.com\//.test(String(player.avatar || staffEntry.avatar || '')) ? (player.avatar || staffEntry.avatar) : null;
   const avatar = avatarUrl ? `<img class="player-avatar" src="${esc(avatarUrl)}" alt="" width="56" height="56">` : '';
@@ -2061,7 +2070,7 @@ function playerPage(league, player, c) {
   const head = team ? `
   <a href="${teamHref(team)}" aria-label="${esc(team.name)}">${crest(team, 'xl')}</a>
   <div>
-    <p class="eyebrow"><span class="div-tag div-${team.division.toLowerCase()}">${esc(team.division)}</span></p>
+    <p class="eyebrow"><span class="div-tag div-${team.division.toLowerCase()}">${esc(team.division)}</span>${staffBadge}</p>
     <h1 class="player-title">${avatar}<span>${esc(player.name)}</span>${player.rank ? ` ${rankTag(player.rank)}` : ''}</h1>
     <div class="team-stats">
       <div><strong>${player.kd ? esc(player.kd) : '–'}</strong><span>${esc(c.season || 'Season')} K/D</span></div>
@@ -2072,7 +2081,7 @@ function playerPage(league, player, c) {
   </div>` : `
   <span class="crest crest-xl crest-fallback" aria-hidden="true">${esc(player.freeAgent ? 'FA' : (player.lastTeam || '—'))}</span>
   <div>
-    <p class="eyebrow"><span class="pill${player.freeAgent ? ' pill-live' : ''}">${player.freeAgent ? esc(faLabel(player)) : 'Former player'}</span></p>
+    <p class="eyebrow"><span class="pill${player.freeAgent ? ' pill-live' : ''}">${player.freeAgent ? esc(faLabel(player)) : (staffTitle && !player.former ? 'Not on a team' : 'Former player')}</span>${staffBadge}</p>
     <h1 class="player-title">${avatar}<span>${esc(player.name)}</span>${player.rank ? ` ${rankTag(player.rank)}` : ''}</h1>
     <div class="team-stats">
       ${player.lastTeam ? `<div><strong>${esc(player.lastTeam)}</strong><span>Last team</span></div>` : ''}
