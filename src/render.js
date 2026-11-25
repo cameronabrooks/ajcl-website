@@ -863,10 +863,14 @@ function eightsPage(league, c) {
 // MFIC → Commissioners → Staff (each person once, under their highest role).
 function staffGroups(league) {
   const groups = (league.staff || []).filter(g => (g.members || []).length);
-  const person = m => `<div class="staff-person">
-    ${m.avatar ? `<img src="${esc(m.avatar)}" alt="" loading="lazy">` : `<span class="acct-initial">${esc(String(m.name).charAt(0))}</span>`}
-    <span class="staff-name">${esc(m.name)}</span>${m.rank ? rankTag(m.rank) : ''}
-  </div>`;
+  // Link to the person's player page (bot-provided slug, else match by name).
+  const slugFor = m => m.slug || ((league.players || []).find(p => p.name === m.name) || {}).slug || null;
+  const person = m => {
+    const slug = slugFor(m);
+    const inner = `${m.avatar ? `<img src="${esc(m.avatar)}" alt="" loading="lazy">` : `<span class="acct-initial">${esc(String(m.name).charAt(0))}</span>`}
+    <span class="staff-name">${esc(m.name)}</span>${m.rank ? rankTag(m.rank) : ''}`;
+    return slug ? `<a class="staff-person" href="${u(`/players/${slug}/`)}">${inner}</a>` : `<div class="staff-person">${inner}</div>`;
+  };
   return groups.length ? groups.map(g => `<div class="staff-group">
     <h3 class="sub">${esc(g.title === 'Commissioner' ? 'Commissioners' : g.title)}</h3>
     <div class="staff-grid">${g.members.map(person).join('')}</div>
