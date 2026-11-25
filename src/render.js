@@ -92,6 +92,7 @@ function layout({ title, active, body, c, script = '', page = '' }) {
     ['/players/', 'Players', 'players'],
     ['/draft/', 'Draft', 'draft'],
     ['/stats/', 'Stats', 'stats'],
+    ['/8s/', '8s', 'eights'],
     ['/settings/', 'Settings', 'settings'],
     ['/join/', 'Join', 'join'],
   ].map(([href, label, key]) => `<a href="${u(href)}"${key === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
@@ -740,6 +741,56 @@ function announcementsPage(league, c) {
   return layout({ title: 'Announcements', active: 'home', body, c, page: 'announcements' });
 }
 
+// ---- 8s: live queues (live feed only) + leaderboard ----
+function eightsPage(league, c) {
+  const queues = league.queues; // undefined in the static build until the live feed loads
+  const queueCard = q => {
+    const m = q.match;
+    const pct = Math.min(100, Math.round((q.count / (q.size || 8)) * 100));
+    const team = (label, list) => `<div class="q-team"><h5>${label}</h5><ul>${list.map(n => `<li>${esc(n)}</li>`).join('') || '<li class="muted">Picking…</li>'}</ul></div>`;
+    return `<article class="panel queue-card">
+      <div class="q-head">
+        <h3>${esc(q.name)} 8s</h3>
+        ${q.locked ? '<span class="pill">Locked</span>' : `<span class="pill pill-live"><span class="live-dot"></span>${q.count}/${q.size || 8} in queue</span>`}
+      </div>
+      <div class="q-bar"><span style="width:${pct}%"></span></div>
+      <div class="q-players">${q.players.map(n => `<span class="map-chip">${esc(n)}</span>`).join('') || '<span class="muted">Queue is empty — join in the AJCL Discord.</span>'}</div>
+      ${m ? `<div class="q-match">
+        <div class="q-match-head"><strong>Match ${m.number ? `#${esc(m.number)}` : ''}</strong><span class="pill pill-live">${esc(m.phase)}</span>${m.format ? `<span class="muted">${esc(m.format)}</span>` : ''}</div>
+        ${m.maps ? `<div class="q-maps">${m.maps.map((x, i) => `<div class="q-map" style="--map-img:url('${mapImage(x.map)}')"><span>Map ${i + 1}</span><strong>${esc(x.map)}</strong><em>${esc(MODE_LABELS[x.mode] || x.mode || '')}</em></div>`).join('')}</div>` : ''}
+        ${(m.teamA.length || m.teamB.length) ? `<div class="q-teams">${team('Team A', m.teamA)}${team('Team B', m.teamB)}</div>` : (m.players.length ? `<div class="q-players">${m.players.map(n => `<span class="map-chip">${esc(n)}</span>`).join('')}</div>` : '')}
+      </div>` : ''}
+    </article>`;
+  };
+
+  const lb = league.eightsLeaderboard || [];
+  const streak = s => (s > 0 ? `<span class="pos">W${s}</span>` : s < 0 ? `<span class="neg">L${-s}</span>` : '<span class="muted">–</span>');
+  const leaderboard = lb.length ? `<div class="panel table-wrap"><table class="standings lb-table">
+    <thead><tr><th>#</th><th class="left">Player</th><th>MMR</th><th>W-L</th><th>Win %</th><th>Streak</th></tr></thead>
+    <tbody>${lb.map((r, i) => `<tr class="${i < 3 ? `lb-top lb-${i + 1}` : ''}">
+      <td class="rank">${i + 1}</td>
+      <td class="left"><span class="lb-name">${esc(r.name)}</span>${r.rank ? ` ${rankTag(r.rank)}` : ''}</td>
+      <td><strong>${r.rating}</strong></td>
+      <td>${r.wins}-${r.losses}</td>
+      <td>${r.winPct}%</td>
+      <td>${streak(r.streak)}</td>
+    </tr>`).join('')}</tbody>
+  </table></div>` : '<p class="muted">No ratings yet — play some 8s matches in the AJCL Discord!</p>';
+
+  const body = pageHead('8s', '8s Queue', 'Live queues from the AJCL Discord and the 8s leaderboard. Updates live.') + `
+<section class="wrap section">
+  <h2 class="panel-title">Live queues</h2>
+  ${queues === undefined ? '<p class="muted" data-queues-loading>Connecting to the live queue…</p>'
+    : queues.length ? `<div class="queue-grid">${queues.map(queueCard).join('')}</div>`
+    : '<div class="panel"><p class="muted" style="margin:0">No 8s queues are running right now.</p></div>'}
+</section>
+<section class="wrap section">
+  <div class="section-head"><h2>Leaderboard</h2><span class="muted">Top ${lb.length || 50} by MMR</span></div>
+  ${leaderboard}
+</section>`;
+  return layout({ title: '8s', active: 'eights', body, c, page: '8s' });
+}
+
 const faLabel = p => (p.freeAgent === 'rfa' ? 'Restricted free agent' : 'Free agent');
 const RANK_ORDER = ['Obsidian', 'Kyanite', 'Amethyst', 'Amber', 'Ruby', 'Emerald'];
 
@@ -962,4 +1013,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, matchId, matchPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, matchId, matchPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };

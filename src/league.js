@@ -43,6 +43,7 @@ function renderPage(render, league, content, page) {
   if (page === 'draft') return render.draftPage(league, content);
   if (page === 'power-rankings') return render.powerRankingsPage(league, content);
   if (page === 'settings') return render.settingsPage(league, content);
+  if (page === '8s') return render.eightsPage(league, content);
   if (page === 'announcements') return render.announcementsPage(league, content);
   if (page === 'free-agents') return render.freeAgentsPage(league, content);
   if (page === 'stats') return render.statsPage(league, content);

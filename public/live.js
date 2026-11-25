@@ -14,8 +14,14 @@
   var logoSet = new Set(AJCL.logos);
   AJCL.render.configure({ base: meta('ajcl-base'), discordClientId: meta('ajcl-discord-client'), liveUrl: LIVE, dataVersion: version });
 
+  // Pages that need live-only data (8s queues aren't in the static build) take
+  // the first live snapshot even if it's slightly older than the page.
+  var needsLive = page === '8s';
+  var gotLive = false;
   function apply(raw) {
-    if (!raw || !raw.generatedAt || raw.generatedAt <= version) return;
+    if (!raw || !raw.generatedAt) return;
+    if (raw.generatedAt <= version && !(needsLive && !gotLive)) return;
+    gotLive = true;
     version = raw.generatedAt;
     var league = AJCL.hydrate(raw, function (abbr) { return logoSet.has(abbr); });
     var html = AJCL.renderPage(AJCL.render, league, AJCL.content, page);

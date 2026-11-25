@@ -546,3 +546,29 @@ html:not(.js) .settings .game-tabs { display: none; }
 .mp-bans li { align-items: center; }
 .ban-thumb { flex: none; width: 56px; height: 24px; border-radius: 4px; background: var(--panel-2) center / cover no-repeat; filter: grayscale(.85) brightness(.7); border: 1px solid var(--line); }
 .ban-map { flex: 1; text-decoration: line-through; text-decoration-color: rgba(255,107,107,.7); }
+
+/* 8s queues + leaderboard */
+.queue-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+.queue-card { display: grid; gap: 12px; }
+.q-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.q-head h3 { font-size: 24px; }
+.q-bar { height: 8px; border-radius: 999px; background: var(--panel-2); overflow: hidden; }
+.q-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--ember), var(--gold)); transition: width .5s ease; }
+.q-players { display: flex; flex-wrap: wrap; gap: 6px; }
+.q-match { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 10px; }
+.q-match-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.q-match-head strong { font: 600 18px var(--heading); text-transform: uppercase; }
+.q-maps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.q-map { position: relative; min-height: 70px; border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid var(--line); overflow: hidden;
+  background: linear-gradient(0deg, rgba(8,8,10,.92), rgba(8,8,10,.3)), var(--map-img) center / cover no-repeat, var(--panel-2); }
+.q-map span { position: absolute; top: 6px; left: 10px; font: 600 12px var(--heading); color: var(--gold); letter-spacing: .08em; text-transform: uppercase; }
+.q-map strong { font: 700 16px/1.1 var(--heading); text-transform: uppercase; }
+.q-map em { font-style: normal; font-size: 11px; color: #cfcdc8; text-transform: uppercase; letter-spacing: .06em; }
+.q-teams { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.q-team h5 { margin: 0 0 6px; font: 600 14px var(--heading); color: var(--gold); letter-spacing: .08em; text-transform: uppercase; }
+.q-team ul { list-style: none; margin: 0; padding: 0; }
+.q-team li { padding: 4px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.lb-table td.left .tier { font-size: 11px; padding: 1px 6px 0; margin-left: 6px; }
+.lb-table .lb-name { font-weight: 600; }
+.lb-1 .rank { color: var(--gold); } .lb-2 .rank { color: #d4d8e2; } .lb-3 .rank { color: #d08b52; }
+@media (max-width: 560px) { .queue-grid { grid-template-columns: 1fr; } .q-maps { grid-template-columns: 1fr; } }
