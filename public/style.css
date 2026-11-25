@@ -615,3 +615,4 @@ html:not(.js) .lb-tabs { display: none; }
 .staff-link { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; padding: 10px 12px; color: inherit; text-decoration: none; }
 .staff-discord { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin-right: 10px; border-radius: 8px; color: #fff; background: #5865f2; opacity: .85; transition: opacity .15s, transform .15s; }
 .staff-discord:hover { opacity: 1; transform: translateY(-1px); }
+.player-discord { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; }

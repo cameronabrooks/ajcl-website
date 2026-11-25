@@ -1118,6 +1118,10 @@ function playerPage(league, player, c) {
 })();
 </script>` : '';
 
+  // Discord profile link (player's own ID, else their staff entry's).
+  const discordId = player.discordId || ((league.staff || []).flatMap(g => g.members || []).find(m => m.slug === player.slug || m.name === player.name) || {}).discordId;
+  const discordBtn = /^\d{15,22}$/.test(String(discordId || ''))
+    ? `<a class="btn btn-discord btn-sm player-discord" href="https://discord.com/users/${discordId}" target="_blank" rel="noopener">${DISCORD_SVG} Discord profile</a>` : '';
   const head = team ? `
   <a href="${teamHref(team)}" aria-label="${esc(team.name)}">${crest(team, 'xl')}</a>
   <div>
@@ -1128,6 +1132,7 @@ function playerPage(league, player, c) {
       <div><strong class="player-team"><a href="${teamHref(team)}">${esc(team.abbr)}</a></strong><span>${esc(team.name)}</span></div>
       <div><strong class="player-role">${esc(roles)}</strong><span>Role</span></div>
     </div>
+    ${discordBtn}
   </div>` : `
   <span class="crest crest-xl crest-fallback" aria-hidden="true">${esc(player.freeAgent ? 'FA' : (player.lastTeam || '—'))}</span>
   <div>
@@ -1137,6 +1142,7 @@ function playerPage(league, player, c) {
       ${player.lastTeam ? `<div><strong>${esc(player.lastTeam)}</strong><span>Last team</span></div>` : ''}
       <div><strong>${(player.games || []).reduce((n, g) => n + g.seasons.length, 0)}</strong><span>Seasons played</span></div>
     </div>
+    ${discordBtn}
   </div>`;
   const body = `
 <section class="pagehead team-head"><div class="wrap team-head-inner">${head}
