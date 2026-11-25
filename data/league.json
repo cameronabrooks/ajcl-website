@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795565256128,
+  "generatedAt": 1795565277584,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1155,13 +1155,18 @@
   "powerRankings": {
     "Premier": {
       "status": "open",
-      "voters": 2,
+      "voters": 3,
       "postedAt": 1795565206281,
       "teams": [
         {
           "team": "atl",
-          "points": 10,
+          "points": 13,
           "firsts": 2
+        },
+        {
+          "team": "hal",
+          "points": 8,
+          "firsts": 1
         },
         {
           "team": "sfs",
@@ -1169,13 +1174,8 @@
           "firsts": 0
         },
         {
-          "team": "hal",
-          "points": 3,
-          "firsts": 0
-        },
-        {
           "team": "car",
-          "points": 1,
+          "points": 2,
           "firsts": 0
         },
         {
@@ -1202,12 +1202,22 @@
     },
     "Academy": {
       "status": "open",
-      "voters": 0,
+      "voters": 1,
       "postedAt": 1795565229593,
       "teams": [
         {
+          "team": "omh",
+          "points": 5,
+          "firsts": 1
+        },
+        {
+          "team": "pit",
+          "points": 3,
+          "firsts": 0
+        },
+        {
           "team": "ros",
-          "points": 0,
+          "points": 1,
           "firsts": 0
         },
         {
@@ -1231,17 +1241,7 @@
           "firsts": 0
         },
         {
-          "team": "pit",
-          "points": 0,
-          "firsts": 0
-        },
-        {
           "team": "mis",
-          "points": 0,
-          "firsts": 0
-        },
-        {
-          "team": "omh",
           "points": 0,
           "firsts": 0
         }
