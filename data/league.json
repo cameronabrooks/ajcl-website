@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795569983627,
+  "generatedAt": 1795570850565,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -644,6 +644,13 @@
             "team": "mrd",
             "slot": null,
             "map": "Rooftops"
+          },
+          {
+            "mode": "hardpoint",
+            "action": "ban",
+            "team": "kck",
+            "slot": null,
+            "map": "Sentry"
           }
         ]
       }
@@ -1267,6 +1274,14 @@
   },
   "announcements": [
     {
+      "id": "1574962963113054249",
+      "title": "Average Joe's CoD League",
+      "text": "We wanted to announce the release of our website! In the website you can see everything you need to know, including game settings for each mode! You can login with your discord and see your stats for the season via the COD-Stats website still or you can see the basic stats on the website itself.\n\nThe website shows schedules and updates in real time!\n\n\nhttps://averagejoescodleague.com/\n\n@everyone\n\nAverage Joe's is a COD league designed to give lesser skilled or new players a chance to compete in a competitive environment away from higher skilled players.",
+      "images": [],
+      "postedAt": 1795570831803,
+      "editedAt": null
+    },
+    {
       "id": "1574939448813162603",
       "title": "🏆 Academy Power Rankings",
       "text": "@everyone\n\n🥇 Roswell Aliens — **63 pts**\n🥈 Omaha Bandits — **54 pts**\n🥉 New Orleans Reapers — **40 pts**\n4️⃣ Pittsburgh Nocturnal — **38 pts**\n5️⃣ Montreal Red Dragons — **36 pts**\n6️⃣ Michigan Samurai — **29 pts**\n7️⃣ Kansas City Kings — **17 pts**\n8️⃣ Lexington Majestic — **14 pts**",
@@ -1456,14 +1471,6 @@
       "text": "@everyone\n\nThrowback 8s Discord if anyone wants to dabble\nhttps://discord.gg/A455Hcjpe",
       "images": [],
       "postedAt": 1785550649654,
-      "editedAt": null
-    },
-    {
-      "id": "1532888950807592960",
-      "title": null,
-      "text": "@everyone #applications-and-szn-registration\nWe're still looking for GM's! \nWe need 2-3 for lowers and 4 for uppers!\nIf you want to GM make sure you put in your application if you haven't already! The channel is linked above :-)",
-      "images": [],
-      "postedAt": 1785539605572,
       "editedAt": null
     }
   ],
