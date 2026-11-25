@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795576190256,
+  "generatedAt": 1795576496313,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -658,6 +658,13 @@
             "team": "mrd",
             "slot": 1,
             "map": "Reactor U92"
+          },
+          {
+            "mode": "hardpoint",
+            "action": "pick",
+            "team": "kck",
+            "slot": 4,
+            "map": "Munition"
           }
         ]
       }
