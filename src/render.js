@@ -489,13 +489,23 @@ function mapsetPage(league, m, c) {
     if (all) st.classList.add('is-ready');
   }
   function ready() { sync(); }
-  function loop() { sync(); var v = video(); if (v && !v.ended && v.currentTime < DONE) requestAnimationFrame(loop); }
+  // Track the video every frame from page load until the panels are all in (the
+  // video may already be playing before this script runs, so don't wait for events).
+  var looping = false;
+  function loop() {
+    sync();
+    var v = video();
+    if (v && !v.ended && v.currentTime < DONE && !document.querySelector('.no-video')) requestAnimationFrame(loop);
+    else looping = false;
+  }
+  function startLoop() { if (!looping) { looping = true; requestAnimationFrame(loop); } }
   function watch() {
     var v = video();
     if (!v || v.dataset.watched) return;
     v.dataset.watched = '1';
     v.addEventListener('timeupdate', ready);
-    v.addEventListener('playing', function () { requestAnimationFrame(loop); });
+    v.addEventListener('playing', startLoop);
+    v.addEventListener('play', startLoop);
     v.addEventListener('seeked', ready);
     v.addEventListener('ended', ready);
     var p = v.play && v.play();
@@ -586,7 +596,7 @@ function mapsetPage(league, m, c) {
       while (el.scrollWidth > el.clientWidth + 1 && size > 20) { size -= 1; el.style.fontSize = size + 'px'; }
     });
   }
-  function init() { fit(); watch(); buildPatches(); fitLabels(); ready(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLabels); }
+  function init() { fit(); watch(); buildPatches(); fitLabels(); ready(); startLoop(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLabels); }
   // live.js re-renders the page: the video and patch layer are kept (data-live-keep).
   document.addEventListener('ajcl:league', function () { setTimeout(init, 0); });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
