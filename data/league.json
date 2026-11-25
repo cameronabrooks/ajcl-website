@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795644643127,
+  "generatedAt": 1795644662125,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -347,6 +347,12 @@
           "ZEUS"
         ],
         "nonPlaying": [],
+        "kd": {
+          "🧛🏼OverlordAlucard 🧛🏼": "1.74",
+          "Bruce": "1.33",
+          "JAYDREAMZ": "1.07",
+          "ZEUS": "1.17"
+        },
         "ranks": {
           "🧛🏼OverlordAlucard 🧛🏼": "Amber",
           "Bruce": "Amber",
@@ -449,6 +455,9 @@
           "Sac"
         ],
         "nonPlaying": [],
+        "kd": {
+          "MaRsH313": "0.65"
+        },
         "ranks": {
           "Sac": "Ruby",
           "cbass": "Amber",
@@ -7111,7 +7120,26 @@
       "rank": "Amber",
       "gamertag": "ChristianDaBos",
       "gamertagSource": "linked",
+      "kd": "1.74",
       "games": [
+        {
+          "game": "MW4",
+          "total": {
+            "kd": "1.74",
+            "kpm": "22.7",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "SZN X Academy",
+              "current": true,
+              "team": "MRD",
+              "kd": "1.74",
+              "kpm": "22.7",
+              "maps": 3
+            }
+          ]
+        },
         {
           "game": "BO7",
           "total": {
@@ -7162,7 +7190,26 @@
       "rank": "Amber",
       "gamertag": "Bruce",
       "gamertagSource": "name",
+      "kd": "1.33",
       "games": [
+        {
+          "game": "MW4",
+          "total": {
+            "kd": "1.33",
+            "kpm": "19.0",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "SZN X Academy",
+              "current": true,
+              "team": "MRD",
+              "kd": "1.33",
+              "kpm": "19.0",
+              "maps": 3
+            }
+          ]
+        },
         {
           "game": "BO7",
           "total": {
@@ -7205,7 +7252,26 @@
       "rank": "Ruby",
       "gamertag": "JAYDREAMZ",
       "gamertagSource": "name",
+      "kd": "1.07",
       "games": [
+        {
+          "game": "MW4",
+          "total": {
+            "kd": "1.07",
+            "kpm": "16.0",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "SZN X Academy",
+              "current": true,
+              "team": "MRD",
+              "kd": "1.07",
+              "kpm": "16.0",
+              "maps": 3
+            }
+          ]
+        },
         {
           "game": "BO7",
           "total": {
@@ -7248,7 +7314,26 @@
       "rank": "Ruby",
       "gamertag": "ZEUS",
       "gamertagSource": "name",
+      "kd": "1.17",
       "games": [
+        {
+          "game": "MW4",
+          "total": {
+            "kd": "1.17",
+            "kpm": "16.0",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "SZN X Academy",
+              "current": true,
+              "team": "MRD",
+              "kd": "1.17",
+              "kpm": "16.0",
+              "maps": 3
+            }
+          ]
+        },
         {
           "game": "BO7",
           "total": {
@@ -7686,7 +7771,26 @@
       "rank": "Ruby",
       "gamertag": "MaRsH313",
       "gamertagSource": "name",
+      "kd": "0.65",
       "games": [
+        {
+          "game": "MW4",
+          "total": {
+            "kd": "0.65",
+            "kpm": "12.3",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "SZN X Academy",
+              "current": true,
+              "team": "KCK",
+              "kd": "0.65",
+              "kpm": "12.3",
+              "maps": 3
+            }
+          ]
+        },
         {
           "game": "BO7",
           "total": {
@@ -8357,7 +8461,26 @@
       "rank": "Amber",
       "gamertag": "Tuba",
       "gamertagSource": "name",
+      "kd": "0.77",
       "games": [
+        {
+          "game": "MW4",
+          "total": {
+            "kd": "0.77",
+            "kpm": "14.3",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "SZN X Academy",
+              "current": true,
+              "team": "KCK",
+              "kd": "0.77",
+              "kpm": "14.3",
+              "maps": 3
+            }
+          ]
+        },
         {
           "game": "BO7",
           "total": {
@@ -9381,6 +9504,38 @@
       ]
     },
     {
+      "slug": "cbbasswrld",
+      "name": "CbbassWRLD",
+      "team": null,
+      "former": true,
+      "lastTeam": "KCK",
+      "roles": [],
+      "gamertag": "CbbassWRLD",
+      "aliases": [
+        "CbbassWRLD"
+      ],
+      "games": [
+        {
+          "game": "MW4",
+          "total": {
+            "kd": "0.81",
+            "kpm": "15.3",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "SZN X Academy",
+              "current": true,
+              "team": "KCK",
+              "kd": "0.81",
+              "kpm": "15.3",
+              "maps": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "cmoore",
       "name": "Cmoore",
       "team": null,
@@ -10191,6 +10346,38 @@
               "kd": "1.07",
               "kpm": "23.5",
               "maps": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mvp",
+      "name": "Mvp",
+      "team": null,
+      "former": true,
+      "lastTeam": "KCK",
+      "roles": [],
+      "gamertag": "Mvp",
+      "aliases": [
+        "Mvp"
+      ],
+      "games": [
+        {
+          "game": "MW4",
+          "total": {
+            "kd": "0.77",
+            "kpm": "13.7",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "SZN X Academy",
+              "current": true,
+              "team": "KCK",
+              "kd": "0.77",
+              "kpm": "13.7",
+              "maps": 3
             }
           ]
         }
