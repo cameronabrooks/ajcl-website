@@ -1397,14 +1397,15 @@ function announcementCard(a, { clamp = false } = {}) {
   </article>`;
 }
 
-function announcementsPage(league, c) {
-  const list = league.announcements || [];
+function announceComposer(league) {
   // Staff: post an announcement through the bot (runs the real /announce command).
   const CHANNELS = [['1091487836043235358', 'league-announcements'], ['1102805391986933800', 'misc-announcements'], ['1069758646877171713', 'stream-announcements'],
     ['1135032383918329896', 'tournament-announcements'], ['1310080914121818162', 'gm-announcement'], ['1573027758068596736', 'gm-commands'],
     ['1070503275411021846', 'ga-info'], ['1573121502000193616', 'staff-commands']];
   const teamRoles = (league.teams || []).filter(t => t.roleId).sort((a, b) => a.name.localeCompare(b.name));
-  const composer = `<section class="wrap section rt-section" data-rt-staffonly hidden>
+  // Team GM first, then the rest in Discord's order.
+  const roles = (league.pingRoles || []).slice().sort((a, b) => (b.name.toLowerCase() === 'team gm') - (a.name.toLowerCase() === 'team gm'));
+  return `<section class="wrap section rt-section" data-rt-staffonly hidden>
   <form class="panel rt-panel rt-staff rt-form an-form" data-cmd="announce" data-confirm="Post this announcement in Discord?">
     <p class="eyebrow">Make an announcement · staff</p>
     <div class="an-grid">
@@ -1412,7 +1413,7 @@ function announcementsPage(league, c) {
       <label>Title <span class="muted">(optional — posts as an embed)</span><input name="title" maxlength="256" placeholder="Title"></label>
       <label class="an-wide">Message<textarea name="message" rows="6" maxlength="4000" required placeholder="What do you want to announce?"></textarea></label>
       <label>Ping<select name="ping"><option value="none">No ping</option><option value="everyone">@everyone</option><option value="here">@here</option></select></label>
-      <label>Ping a team <span class="muted">(optional)</span><select name="rolemention"><option value="">None</option>${teamRoles.map(t => `<option value="${esc(t.roleId)}">${esc(t.name)}</option>`).join('')}</select></label>
+      <label>Ping a role <span class="muted">(optional)</span><select name="rolemention"><option value="">None</option>${roles.length ? `<optgroup label="Roles">${roles.map(r => `<option value="${esc(r.id)}">@${esc(r.name)}</option>`).join('')}</optgroup>` : ''}<optgroup label="Teams">${teamRoles.map(t => `<option value="${esc(t.roleId)}">${esc(t.name)}</option>`).join('')}</optgroup></select></label>
       <label>Ping a user <span class="muted">(Discord user ID)</span><input name="user_ping" maxlength="25" placeholder="e.g. 123456789012345678"></label>
       <label>Tag channels <span class="muted">(channel IDs, space-separated)</span><input name="channel_tag" maxlength="200"></label>
       <label class="an-wide">Images <span class="muted">(up to 10 image links, one per line)</span><textarea name="images" rows="2" placeholder="https://…"></textarea></label>
@@ -1422,6 +1423,11 @@ function announcementsPage(league, c) {
     <p class="mt-out muted"></p>
   </form>
 </section>`;
+}
+
+function announcementsPage(league, c) {
+  const list = league.announcements || [];
+  const composer = announceComposer(league);
   const body = pageHead('League', 'Announcements', 'The latest from #league-announcements in the AJCL Discord.') + composer + `
 <section class="wrap section">
   <div class="announce-list announce-full">${list.map(a => `<div id="${esc(a.id)}">${announcementCard(a)}</div>`).join('') || '<p class="muted">No announcements yet.</p>'}</div>
@@ -1855,8 +1861,9 @@ function staffPage(league, c) {
     <div data-modmail-body><p class="muted">Loading…</p></div>
   </div>
 </section>
+` + announceComposer(league) + `
 <section class="wrap section staff-section">${list}</section>`;
-  return layout({ title: 'Staff', active: 'staff', body, c, script }); // no live re-render: keeps loaded tickets
+  return layout({ title: 'Staff', active: 'staff', body, c, script: script + ROSTER_TOOLS_SCRIPT }); // no live re-render: keeps loaded tickets
 }
 
 const faLabel = p => (p.freeAgent === 'rfa' ? 'Restricted free agent' : 'Free agent');
