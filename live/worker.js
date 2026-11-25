@@ -42,7 +42,7 @@ export default {
       return new Response(null, { status: 204, headers: url.pathname.startsWith('/private') ? privateCors(request) : CORS });
     }
     if (url.pathname === '/') return new Response('AJCL live data feed', { headers: { 'content-type': 'text/plain', ...CORS } });
-    if (!['/league', '/league.json', '/ws', '/private', '/private/modmail', '/private/me', '/private/8s-winner', '/private/8s-action', '/private/actions', '/private/actions/done'].includes(url.pathname)) return new Response('Not found', { status: 404, headers: CORS });
+    if (!['/league', '/league.json', '/ws', '/private', '/private/modmail', '/private/me', '/private/pb-action', '/private/8s-winner', '/private/8s-action', '/private/actions', '/private/actions/done'].includes(url.pathname)) return new Response('Not found', { status: 404, headers: CORS });
     const stub = env.LEAGUE.get(env.LEAGUE.idFromName('ajcl'));
     return stub.fetch(request);
   },
@@ -96,6 +96,37 @@ export class League {
 
   async fetch(request) {
     const url = new URL(request.url);
+
+    // Picks/bans from the website. Any logged-in Discord user may send one; the bot
+    // checks they're the team GM whose turn it is (or a Commissioner/MFIC).
+    if (url.pathname === '/private/pb-action') {
+      const headers = { ...privateCors(request), 'content-type': 'application/json; charset=utf-8' };
+      const token = (request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '').trim();
+      if (!token) return new Response('{"error":"login required"}', { status: 401, headers });
+      const userId = await this.discordUserId(token);
+      if (!userId) return new Response('{"error":"login expired"}', { status: 401, headers });
+      const actions = (await this.state.storage.get('actions')) || [];
+      if (request.method === 'GET') {
+        const a = actions.find(x => x.id === url.searchParams.get('id') && x.by === userId);
+        return new Response(JSON.stringify(a ? { status: a.status, message: a.message || '' } : { status: 'unknown' }), { headers });
+      }
+      if (request.method !== 'POST') return new Response('{"error":"method"}', { status: 405, headers });
+      const text = await request.text();
+      if (text.length > 1000) return new Response('{"error":"too large"}', { status: 413, headers });
+      let body;
+      try { body = JSON.parse(text); } catch { return new Response('{"error":"bad json"}', { status: 400, headers }); }
+      const op = body && body.op, match = String((body && body.match) || '').slice(0, 120);
+      if (!match || (op !== 'sides' && op !== 'map')) return new Response('{"error":"bad request"}', { status: 400, headers });
+      if (op === 'sides' && body.side !== 'a' && body.side !== 'b') return new Response('{"error":"bad side"}', { status: 400, headers });
+      // One pending request per person at a time.
+      if (actions.some(x => x.status === 'pending' && x.type === 'pb' && x.by === userId)) return new Response('{"error":"still working on your last choice"}', { status: 409, headers });
+      const action = { id: crypto.randomUUID(), type: 'pb', op, match, by: userId, at: Date.now(), status: 'pending' };
+      if (op === 'sides') action.side = body.side;
+      else action.map = String(body.map || '').slice(0, 60);
+      actions.push(action);
+      await this.state.storage.put('actions', actions.slice(-50));
+      return new Response(JSON.stringify({ ok: true, id: action.id }), { headers });
+    }
 
     // Is the logged-in visitor staff? The website only shows staff tools on a yes.
     if (url.pathname === '/private/me' && request.method === 'GET') {

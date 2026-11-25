@@ -698,3 +698,19 @@ button.btn { font: inherit; cursor: pointer; }
 @media (max-width: 760px) {
   .acct-menu { position: fixed; left: 12px; right: 12px; width: auto; top: var(--acct-top, 72px); max-height: calc(100vh - var(--acct-top, 72px) - 16px); overflow-y: auto; }
 }
+
+/* Match page: live picks/bans */
+.pb-live { margin-bottom: 16px; border-color: rgba(244,181,44,.45); }
+.pb-live h3 { margin: 4px 0 4px; }
+.pb-live > .muted { margin: 0 0 10px; }
+.pb-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pb-controls[hidden] { display: none; }
+.pb-maps { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; width: 100%; }
+.pb-map { position: relative; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 2px; aspect-ratio: 16 / 9; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); cursor: pointer; color: #fff; text-align: left; font: inherit;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.85)), var(--map-img) center / cover no-repeat, var(--panel); }
+.pb-map span { font: 700 18px/1 var(--heading); text-transform: uppercase; letter-spacing: .03em; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
+.pb-map em { font-style: normal; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); }
+.pb-map.is-ban em { color: #ff8a8a; }
+.pb-map:hover { border-color: var(--gold); transform: translateY(-1px); }
+.pb-map.is-ban:hover { border-color: #ff5a5a; }
+.pb-note { width: 100%; margin: 4px 0 0; font-size: 13px; }

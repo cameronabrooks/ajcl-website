@@ -52,6 +52,9 @@
     localStorage.removeItem(STORE);
     localStorage.removeItem(TOKEN);
     sessionStorage.removeItem('ajcl_staff'); isStaff = false;
+    delete document.documentElement.dataset.myTeam;
+    delete document.documentElement.dataset.teamGm;
+    document.dispatchEvent(new CustomEvent('ajcl:me', { detail: null }));
     document.documentElement.classList.remove('is-staff');
     document.querySelectorAll('.is-mine, .is-me').forEach(function (el) { el.classList.remove('is-mine', 'is-me'); });
     render(null, null);
@@ -166,6 +169,13 @@
     var entry = found ? Object.assign({}, found, { profile: idx.profiles && idx.profiles[found.team + '|' + found.name] }) : null;
     document.querySelectorAll('.is-mine, .is-me').forEach(function (el) { el.classList.remove('is-mine', 'is-me'); });
     lastEntry = entry; lastTeam = entry && idx.teams && idx.teams[entry.team];
+    // The visitor's team (slug), and whether they're its Team GM — the match page shows
+    // picks/bans buttons only to that team's GMs and staff (the bot checks again).
+    if (entry && entry.team) document.documentElement.dataset.myTeam = entry.team;
+    else delete document.documentElement.dataset.myTeam;
+    if (entry && (entry.roles || []).indexOf('pickban') !== -1) document.documentElement.dataset.teamGm = '1';
+    else delete document.documentElement.dataset.teamGm;
+    document.dispatchEvent(new CustomEvent('ajcl:me', { detail: entry && entry.team || null }));
     render(user, entry, lastTeam);
     if (entry) highlight(entry);
   }

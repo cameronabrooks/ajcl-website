@@ -234,6 +234,34 @@ function matchPage(league, m, c) {
     </div>` : `
     <div class="panel mp-caster"><p class="eyebrow">Casting</p><p class="muted" style="margin:0">No caster yet.</p></div>`;
 
+  // Live picks/bans: the side choice or the current step, with controls for the GMs.
+  let pbLive = '';
+  if (m.pbKey && m.pbSides) {
+    const home = teamName(m.pbSides.home), away = teamName(m.pbSides.away);
+    pbLive = `<div class="panel pb-live">
+      <p class="eyebrow">Picks &amp; bans · choosing sides</p>
+      <h3>${esc(home)} (home) chooses Team A or Team B</h3>
+      <p class="muted">Team A goes first in several bans and picks.</p>
+      <div class="pb-controls" data-pb-controls data-match="${esc(m.pbKey)}" data-teams="${esc(m.pbSides.home)},${esc(m.pbSides.away)}" hidden>
+        <button type="button" class="btn btn-gold btn-sm" data-pb-side="a" data-confirm="Make ${esc(home)} Team A?">${esc(home)} will be Team A</button>
+        <button type="button" class="btn btn-sm" data-pb-side="b" data-confirm="Make ${esc(away)} Team A?">${esc(away)} will be Team A</button>
+        <p class="muted pb-note">Only ${esc(home)}'s Team GM (or staff) can choose.</p>
+      </div>
+    </div>`;
+  } else if (m.pbKey && m.picksBans && m.picksBans.next) {
+    const n = m.picksBans.next;
+    const verb = n.action === 'ban' ? 'Ban' : 'Pick';
+    pbLive = `<div class="panel pb-live">
+      <p class="eyebrow">Picks &amp; bans · step ${n.step} of ${n.steps}</p>
+      <h3>${esc(teamName(n.team))} ${n.action === 'ban' ? 'bans' : 'picks'} a ${esc(MODE_LABELS[n.mode] || n.mode)} map</h3>
+      <p class="muted">${esc(n.desc)}</p>
+      <div class="pb-controls" data-pb-controls data-match="${esc(m.pbKey)}" data-verb="${verb}" data-teams="${esc(m.picksBans.teamA)},${esc(m.picksBans.teamB)}" hidden>
+        <div class="pb-maps">${(n.available || []).map(x => `<button type="button" class="pb-map${n.action === 'ban' ? ' is-ban' : ''}" data-pb-map="${esc(x)}" style="--map-img:url('${mapImage(x)}')"><span>${esc(x)}</span><em>${verb}</em></button>`).join('')}</div>
+        <p class="muted pb-note">Only ${esc(teamName(n.team))}'s Team GM (or staff) can choose this one. It updates Discord too.</p>
+      </div>
+    </div>`;
+  }
+
   // Picks & bans
   let pb = '';
   if (m.picksBans) {
@@ -243,6 +271,7 @@ function matchPage(league, m, c) {
     const label = slug => (slug === p.teamA ? 'Team A' : slug === p.teamB ? 'Team B' : '');
     pb = `
     <h2 class="panel-title">Picks &amp; bans${p.inProgress ? ' <span class="pill pill-live">In progress</span>' : ''}</h2>
+    ${pbLive}
     <ol class="mapset">${picks.map(a => `<li class="map-card" style="--map-img:url('${mapImage(a.map)}')">
       <span class="map-slot">Map ${a.slot || '?'}</span>
       <span class="map-name"><strong>${esc(a.map)}</strong><span>${esc(MODE_LABELS[a.mode] || a.mode)}</span></span>
@@ -255,7 +284,7 @@ function matchPage(league, m, c) {
   } else {
     pb = `
     <h2 class="panel-title">Picks &amp; bans</h2>
-    <div class="panel"><p class="muted" style="margin:0">Maps will show here once the GMs finish picks &amp; bans.</p></div>`;
+    ${pbLive || '<div class="panel"><p class="muted" style="margin:0">Maps will show here once the GMs finish picks &amp; bans.</p></div>'}`;
   }
 
   const when = m.status === 'scheduled' ? timeTag(m.time) : m.status === 'final' ? 'Final' : 'Time not set yet';
@@ -273,7 +302,71 @@ function matchPage(league, m, c) {
   <div>${pb}</div>
   <div>${caster}</div>
 </section>`;
-  return layout({ title: `${m.home.abbr} vs ${m.away.abbr}`, active: 'schedule', body, c, page: `match:${matchId(m)}` });
+  const script = `<script>
+(function () {
+  var LIVE = (document.querySelector('meta[name="ajcl-live-url"]') || {}).content || '';
+  var isStaff = document.documentElement.classList.contains('is-staff');
+  function token() { try { var t = JSON.parse(localStorage.getItem('ajcl_token')); return t && t.exp > Date.now() ? t.t : null; } catch (e) { return null; } }
+  // Buttons only for logged-in staff, or a Team GM of one of the two teams. The bot
+  // checks again (right team, right turn) before doing anything.
+  function apply() {
+    var html = document.documentElement;
+    var mine = html.dataset.myTeam || '';
+    var gm = html.dataset.teamGm === '1';
+    var loggedIn = !!token();
+    document.querySelectorAll('[data-pb-controls]').forEach(function (el) {
+      var teams = (el.dataset.teams || '').split(',');
+      el.hidden = !(loggedIn && (isStaff || (gm && mine && teams.indexOf(mine) !== -1)));
+    });
+  }
+  var toast = document.createElement('div');
+  toast.className = 'staff-toast'; toast.hidden = true;
+  function attach() { if (!toast.parentNode && document.body) document.body.appendChild(toast); }
+  var hideTimer;
+  function say(msg, kind) {
+    attach();
+    toast.textContent = msg; toast.className = 'staff-toast' + (kind ? ' is-' + kind : ''); toast.hidden = false;
+    clearTimeout(hideTimer); if (kind) hideTimer = setTimeout(function () { toast.hidden = true; }, 9000);
+  }
+  var busy = false;
+  document.addEventListener('click', async function (e) {
+    var b = e.target.closest && e.target.closest('[data-pb-map], [data-pb-side]');
+    if (!b || busy) return;
+    var box = b.closest('[data-pb-controls]');
+    if (!box) return;
+    var body = { match: box.dataset.match };
+    var question;
+    if (b.dataset.pbSide) { body.op = 'sides'; body.side = b.dataset.pbSide; question = b.dataset.confirm; }
+    else { body.op = 'map'; body.map = b.dataset.pbMap; question = (box.dataset.verb || 'Choose') + ' ' + b.dataset.pbMap + '?'; }
+    if (!confirm(question)) return;
+    var t = token();
+    if (!t) return say('Log in with Discord first.', 'err');
+    busy = true;
+    say('Sending to the bot...');
+    try {
+      var r = await fetch(LIVE + '/private/pb-action', { method: 'POST', headers: { Authorization: 'Bearer ' + t, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      var d = await r.json().catch(function () { return {}; });
+      if (!r.ok) return say(r.status === 401 ? 'Your Discord login expired. Log out and back in.' : (d.error || 'Could not send it.'), 'err');
+      for (var i = 0; i < 20; i++) {
+        await new Promise(function (res) { setTimeout(res, 2000); });
+        var s = await fetch(LIVE + '/private/pb-action?id=' + encodeURIComponent(d.id), { headers: { Authorization: 'Bearer ' + t }, cache: 'no-store' })
+          .then(function (x) { return x.json(); }).catch(function () { return {}; });
+        if (s.status && s.status !== 'pending') return say(s.message || ('Result: ' + s.status), s.status === 'done' ? 'ok' : 'err');
+      }
+      say('The bot has not picked it up yet. It may be restarting; try again in a minute.', 'err');
+    } catch (err) {
+      say('Could not reach the server. Try again.', 'err');
+    } finally {
+      busy = false;
+    }
+  });
+  document.addEventListener('ajcl:staff', function (e) { isStaff = !!e.detail; apply(); });
+  document.addEventListener('ajcl:me', apply);
+  document.addEventListener('ajcl:league', function () { setTimeout(apply, 0); });
+  apply();
+})();
+</script>`;
+  return layout({ title: `${m.home.abbr} vs ${m.away.abbr}`, active: 'schedule', body, c, script, page: `match:${matchId(m)}` });
 }
 
 function standingsTable(rows, { compact = false } = {}) {
