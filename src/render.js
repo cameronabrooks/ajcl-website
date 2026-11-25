@@ -897,7 +897,11 @@ function teamTools(league, team) {
   const offers = moves.filter(x => x.type === 'offer' && x.team === team.slug);
   const teamName = slug => (league.teams.find(t => t.slug === slug) || {}).name || slug;
   const faSelect = `<select name="player" required><option value="">Pick a free agent…</option>${fas.map(rtOption).join('')}</select>`;
-  const mineSelect = name => `<select name="${name}" required><option value="">Pick a player…</option>${mine.map(rtOption).join('')}</select>`;
+  const mineSelect = (name, list = mine) => `<select name="${name}" required><option value="">Pick a player…</option>${list.map(rtOption).join('')}</select>`;
+  // Same players Discord's drop lists offer: GMs can't drop coaches, GMs, players on
+  // several teams or non-playing members; staff can't drop coaches/non-playing.
+  const gmDroppable = mine.filter(p => p.dropGm !== false);
+  const staffDroppable = mine.filter(p => p.dropStaff !== false);
   const dropFlags = `<label class="mt-check"><input type="checkbox" name="self_drop"> Player asked to leave (self-drop)</label><label class="mt-check"><input type="checkbox" name="rerank"> Re-rank the player</label>`;
   const moveRow = (x, buttons) => `<div class="rt-move"><span>${x.type === 'trade' ? `${esc(teamName(x.from))} gives <strong>${esc(x.give)}</strong> for <strong>${esc(x.get)}</strong> (${esc(teamName(x.to))})` : `Offer to <strong>${esc(x.player)}</strong>`}</span>${buttons || ''}</div>`;
   const pending = (incoming.length || outgoing.length || offers.length) ? `<div class="rt-pending">
@@ -911,7 +915,7 @@ function teamTools(league, team) {
     ${pending}
     <div class="rt-grid">
       ${rtForm('offer', faSelect + '<input name="notes" placeholder="Notes (optional)" maxlength="200"><button class="btn btn-sm btn-gold">Send offer</button>', 'Offer a free agent', 'Send this contract offer?')}
-      ${rtForm('drop', mineSelect('player') + dropFlags + '<button class="btn btn-sm btn-danger">Drop</button>', 'Drop a player', 'Drop this player from the roster?')}
+      ${rtForm('drop', mineSelect('player', gmDroppable) + dropFlags + '<button class="btn btn-sm btn-danger">Drop</button>', 'Drop a player', 'Drop this player from the roster?')}
       <form class="rt-form" data-cmd="trade" data-confirm="Send this trade proposal?" data-rosters="${esc(JSON.stringify(rosterOf))}"><h5>Propose a trade</h5><div class="mt-row">
         ${mineSelect('your_player')}<span class="muted">for</span>
         <select data-rt-team-pick required><option value="">Their team…</option>${others.map(t => `<option value="${esc(t.slug)}">${esc(t.name)}</option>`).join('')}</select>
@@ -924,7 +928,7 @@ function teamTools(league, team) {
     <p class="eyebrow">Staff tools · ${esc(team.name)}</p>
     <div class="rt-grid">
       ${rtForm('commoffer', faSelect + `<input type="hidden" name="team" value="${esc(team.roleId)}"><input name="notes" placeholder="Notes (optional)" maxlength="200"><button class="btn btn-sm btn-gold">Offer to ${esc(team.abbr)}</button>`, 'Offer a free agent to this team', `Offer this player to ${team.name}?`)}
-      ${rtForm('commdrop', mineSelect('player') + `<input type="hidden" name="team" value="${esc(team.roleId)}">` + dropFlags + '<button class="btn btn-sm btn-danger">Drop</button>', 'Drop a player from this team', 'Drop this player from the team?')}
+      ${rtForm('commdrop', mineSelect('player', staffDroppable) + `<input type="hidden" name="team" value="${esc(team.roleId)}">` + dropFlags + '<button class="btn btn-sm btn-danger">Drop</button>', 'Drop a player from this team', 'Drop this player from the team?')}
       ${rtForm('clearteamneeds', `<input type="hidden" name="team" value="${esc(team.roleId)}"><button class="btn btn-sm">Clear rank requirement</button>`, 'Pending rank requirement', `Clear ${team.name}'s pending rank requirement?`)}
       ${rtForm('removesuspension', `<select name="player" required><option value="">Pick a player…</option>${fas.map(rtOption).join('')}</select><button class="btn btn-sm">Remove suspension</button>`, 'Remove a self-drop suspension', 'Remove this player\'s self-drop suspension?')}
     </div>
