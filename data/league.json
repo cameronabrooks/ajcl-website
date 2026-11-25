@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795631748322,
+  "generatedAt": 1795631883856,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2174,8 +2174,8 @@
       ]
     },
     {
-      "key": "open-8s-queue",
-      "name": "Open 8s Queue",
+      "key": "in-queue",
+      "name": "in-queue",
       "legacy": false,
       "players": [
         {
