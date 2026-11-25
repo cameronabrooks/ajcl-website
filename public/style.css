@@ -619,3 +619,30 @@ html:not(.js) .lb-tabs { display: none; }
 .player-title { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
 .player-avatar { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--line); flex: none; object-fit: cover; }
 @media (max-width: 600px) { .player-avatar { width: 44px; height: 44px; } }
+
+/* Staff-only controls (shown when a staff member is logged in) */
+.staff-only { display: none !important; }
+html.is-staff .staff-only { display: flex !important; }
+.q-staff { align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 12px; padding: 10px 12px; border: 1px dashed rgba(244,181,44,.45); border-radius: var(--radius); background: rgba(244,181,44,.06); }
+.q-staff-label { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--gold); margin-right: auto; }
+.q-staff button[disabled] { opacity: .5; cursor: wait; }
+.staff-toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 1000; max-width: min(560px, calc(100% - 32px)); padding: 12px 16px; border-radius: var(--radius); background: var(--panel); border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,.5); font-size: 14px; }
+.staff-toast.is-ok { border-color: #3ecf8e; }
+.staff-toast.is-err { border-color: #ff5a5a; }
+
+/* 8s: recent results per queue */
+.qr-title { margin-top: 26px; }
+.qr-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
+.qr-card { display: grid; gap: 10px; }
+.qr-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.qr-head .pill { margin-left: auto; }
+.qr-teams { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.qr-team { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg-2); }
+.qr-team.is-win { border-color: rgba(62,207,142,.55); }
+.qr-team h5 { margin: 0 0 6px; display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.qr-team ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; font-size: 13px; }
+.qr-team li { display: flex; justify-content: space-between; gap: 6px; }
+.qr-team li span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qr-team li em { font-style: normal; font-weight: 600; }
+.pill-win { background: rgba(62,207,142,.15); color: #3ecf8e; border-color: rgba(62,207,142,.4); }
+.qr-none { margin-top: 18px; }

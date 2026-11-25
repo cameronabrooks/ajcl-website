@@ -51,6 +51,7 @@
   function logout() {
     localStorage.removeItem(STORE);
     localStorage.removeItem(TOKEN);
+    document.documentElement.classList.remove('is-staff');
     document.querySelectorAll('.is-mine, .is-me').forEach(function (el) { el.classList.remove('is-mine', 'is-me'); });
     render(null, null);
   }
@@ -128,6 +129,7 @@
 
   function applyIndex(user, idx) {
     isStaff = !!(idx && idx.staff && idx.staff.indexOf(user.hash) !== -1);
+    document.documentElement.classList.toggle('is-staff', isStaff);
     var found = idx && idx.members && idx.members[user.hash];
     // Attach the visitor's player page slug ("team|name" -> slug) for "My Profile".
     var entry = found ? Object.assign({}, found, { profile: idx.profiles && idx.profiles[found.team + '|' + found.name] }) : null;

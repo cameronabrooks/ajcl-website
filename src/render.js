@@ -785,7 +785,12 @@ function eightsPage(league, c) {
       ${m ? `<div class="q-match">
         <div class="q-match-head"><strong>Match ${m.number ? `#${esc(m.number)}` : ''}</strong><span class="pill pill-live">${esc(m.phase)}</span>${m.format ? `<span class="muted">${esc(m.format)}</span>` : ''}</div>
         ${m.maps ? `<div class="q-maps">${m.maps.map((x, i) => `<div class="q-map" style="--map-img:url('${mapImage(x.map)}')"><span>Map ${i + 1}</span><strong>${esc(x.map)}</strong><em>${esc(MODE_LABELS[x.mode] || x.mode || '')}</em></div>`).join('')}</div>` : ''}
-        ${(m.teamA.length || m.teamB.length) ? `<div class="q-teams">${team('Team A', m.teamA)}${team('Team B', m.teamB)}</div>` : (m.players.length ? `<div class="q-players">${m.players.map(n => `<span class="map-chip">${esc(n)}</span>`).join('')}</div>` : '')}
+        ${(m.teamA.length || m.teamB.length) ? `<div class="q-teams">${team('🔵 Team 1', m.teamA)}${team('🔴 Team 2', m.teamB)}</div>` : (m.players.length ? `<div class="q-players">${m.players.map(n => `<span class="map-chip">${esc(n)}</span>`).join('')}</div>` : '')}
+        ${m.number && m.phase === 'Match in progress' && m.teamA.length && m.teamB.length ? `<div class="q-staff staff-only" data-queue="${esc(q.name)}" data-match="${esc(m.number)}">
+          <span class="q-staff-label">Staff override</span>
+          <button type="button" class="btn btn-sm" data-winner="A">🔵 Team 1 won</button>
+          <button type="button" class="btn btn-sm" data-winner="B">🔴 Team 2 won</button>
+        </div>` : ''}
       </div>` : ''}
     </article>`;
   };
@@ -804,11 +809,27 @@ function eightsPage(league, c) {
       <td>${streak(r.streak)}</td>
     </tr>`).join('')}</tbody>
   </table></div>`;
+  // Recent finished matches in a queue: winner first, rating changes per player.
+  const dateText = ts => new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/New_York' });
+  const resultRows = list => (list || []).map(r => {
+    const side = (label, team, won) => `<div class="qr-team${won ? ' is-win' : ''}">
+        <h5>${label}${won ? ' <span class="pill pill-win">Won</span>' : ''}</h5>
+        <ul>${team.map(p => `<li><span>${esc(p.name)}</span>${p.delta != null ? `<em class="${p.delta >= 0 ? 'pos' : 'neg'}">${p.delta >= 0 ? '+' : ''}${p.delta}</em>` : ''}</li>`).join('')}</ul>
+      </div>`;
+    return `<article class="panel qr-card">
+      <div class="qr-head"><strong>Match ${r.number ? '#' + esc(r.number) : ''}</strong><span class="muted">${esc(dateText(r.at))}${r.format ? ' · ' + esc(r.format) : ''}</span>${r.byStaff ? '<span class="pill">Staff decided</span>' : ''}</div>
+      <div class="qr-teams">${side('🔵 Team 1', r.teamA, r.winner === 'A')}${side('🔴 Team 2', r.teamB, r.winner === 'B')}</div>
+    </article>`;
+  }).join('');
+  const results = b => (b.results || []).length
+    ? `<h3 class="sub qr-title">${esc(b.name)} results <span class="muted">· last ${b.results.length}</span></h3><div class="qr-list">${resultRows(b.results)}</div>`
+    : `<p class="muted qr-none">No finished ${esc(b.name)} matches recorded yet.</p>`;
   const leaderboard = boards.length ? `
   ${boards.length > 1 ? `<div class="tabs lb-tabs">${boards.map(b => `<a class="tab" href="#lb-${esc(b.key)}" data-lb-tab="${esc(b.key)}">${esc(b.name)}</a>`).join('')}</div>` : ''}
   ${boards.map(b => `<div class="lb-panel" data-lb="${esc(b.key)}">
     <h3 class="sub">${esc(b.name)} leaderboard <span class="muted">· top ${b.players.length} by MMR</span></h3>
     ${table(b.players)}
+    ${results(b)}
   </div>`).join('')}` : '<p class="muted">No ratings yet — play some 8s matches in the AJCL Discord!</p>';
   // Tab switching; delegated + re-applied after live updates re-render the page.
   const script = boards.length > 1 ? `<script>
@@ -853,7 +874,56 @@ function eightsPage(league, c) {
   <div class="section-head"><h2>Leaderboards</h2><span class="muted">${boards.length > 1 ? 'Pick a queue' : ''}</span></div>
   ${leaderboard}
 </section>`;
-  return layout({ title: '8s', active: 'eights', body, c, script, page: '8s' });
+  // Staff override: only shown to staff (account.js adds html.is-staff); the Worker
+  // re-checks the Discord login and staff list before the bot applies anything.
+  const staffScript = `<script>
+(function () {
+  var LIVE = (document.querySelector('meta[name="ajcl-live-url"]') || {}).content || '';
+  var toast = document.createElement('div');
+  toast.className = 'staff-toast'; toast.hidden = true;
+  document.addEventListener('DOMContentLoaded', function () { document.body.appendChild(toast); });
+  if (document.body) document.body.appendChild(toast);
+  var hideTimer;
+  function say(msg, kind) {
+    toast.textContent = msg; toast.className = 'staff-toast' + (kind ? ' is-' + kind : ''); toast.hidden = false;
+    clearTimeout(hideTimer); if (kind) hideTimer = setTimeout(function () { toast.hidden = true; }, 8000);
+  }
+  function token() { try { var t = JSON.parse(localStorage.getItem('ajcl_token')); return t && t.exp > Date.now() ? t.t : null; } catch (e) { return null; } }
+  function setBusy(box, busy) { box.querySelectorAll('button').forEach(function (b) { b.disabled = busy; }); }
+  document.addEventListener('click', async function (e) {
+    var btn = e.target.closest('.q-staff [data-winner]');
+    if (!btn) return;
+    var box = btn.closest('.q-staff');
+    var team = btn.dataset.winner === 'A' ? 'Team 1' : 'Team 2';
+    var what = box.dataset.queue + ' match #' + box.dataset.match;
+    if (!confirm('Set ' + team + ' as the winner of ' + what + '? This updates ratings and ends the match.')) return;
+    var t = token();
+    if (!t) return say('Log in with Discord first (log out and back in if you already are).', 'err');
+    setBusy(box, true);
+    say('Sending to the bot...');
+    try {
+      var r = await fetch(LIVE + '/private/8s-winner', { method: 'POST', headers: { Authorization: 'Bearer ' + t, 'Content-Type': 'application/json' }, body: JSON.stringify({ queue: box.dataset.queue, match: Number(box.dataset.match), winner: btn.dataset.winner }) });
+      var d = await r.json().catch(function () { return {}; });
+      if (!r.ok) {
+        setBusy(box, false);
+        return say(r.status === 403 ? 'Only staff can do that.' : r.status === 401 ? 'Your Discord login expired. Log out and back in.' : (d.error || 'Could not send it.'), 'err');
+      }
+      say('Sent. Waiting for the bot to apply it...');
+      for (var i = 0; i < 20; i++) {
+        await new Promise(function (res) { setTimeout(res, 3000); });
+        var s = await fetch(LIVE + '/private/8s-winner?id=' + encodeURIComponent(d.id), { headers: { Authorization: 'Bearer ' + t }, cache: 'no-store' })
+          .then(function (x) { return x.json(); }).catch(function () { return {}; });
+        if (s.status && s.status !== 'pending') return say(s.message || ('Result: ' + s.status), s.status === 'done' ? 'ok' : 'err');
+      }
+      say('The bot has not picked it up yet. It may be restarting; check Discord.', 'err');
+    } catch (err) {
+      setBusy(box, false);
+      say('Could not reach the server. Try again.', 'err');
+    }
+  });
+})();
+</script>`;
+  return layout({ title: '8s', active: 'eights', body, c, script: (script || '') + staffScript, page: '8s' });
 }
 
 // ---- Staff: public staff list + staff-only modmail ----
