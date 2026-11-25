@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795575732460,
+  "generatedAt": 1795576190256,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -245,15 +245,15 @@
         "nonPlaying": [],
         "ranks": {
           "Zylixz": "Kyanite",
+          "BrooksySZN": "Amethyst",
           "Luke": "Amethyst",
-          "Hunna": "Amethyst",
-          "BrooksySZN": "Amethyst"
+          "Hunna": "Amethyst"
         },
         "links": {
+          "BrooksySZN": "brooksyszn",
           "Luke": "luke",
           "Zylixz": "zylixz",
-          "Hunna": "hunna",
-          "BrooksySZN": "brooksyszn"
+          "Hunna": "hunna"
         }
       }
     },
@@ -340,15 +340,15 @@
         "nonPlaying": [],
         "ranks": {
           "🧛🏼OverlordAlucard 🧛🏼": "Amber",
-          "JAYDREAMZ": "Ruby",
           "ZEUS": "Ruby",
-          "Bruce": "Amber"
+          "Bruce": "Amber",
+          "JAYDREAMZ": "Ruby"
         },
         "links": {
-          "JAYDREAMZ": "jaydreamz",
           "ZEUS": "zeus",
           "🧛🏼OverlordAlucard 🧛🏼": "overlordalucard",
           "Bruce": "bruce",
+          "JAYDREAMZ": "jaydreamz",
           "Chrollo": "chrollo"
         }
       }
@@ -500,14 +500,14 @@
         "nonPlaying": [],
         "ranks": {
           "shooter": "Ruby",
-          "Racist Guy Marv": "Amber",
           "Kentucky": "Ruby",
-          "ImAkaii": "Amber"
+          "ImAkaii": "Amber",
+          "Racist Guy Marv": "Amber"
         },
         "links": {
-          "Racist Guy Marv": "racist-guy-marv",
           "Kentucky": "kentucky",
           "ImAkaii": "imakaii",
+          "Racist Guy Marv": "racist-guy-marv",
           "shooter": "shooter"
         }
       }
@@ -1671,6 +1671,13 @@
         "player"
       ]
     },
+    "8973811321d65bf3b673": {
+      "team": "tor",
+      "name": "BrooksySZN",
+      "roles": [
+        "player"
+      ]
+    },
     "6a5c63a901b429734107": {
       "team": "tor",
       "name": "Luke",
@@ -1689,13 +1696,6 @@
     "3aad8d4d163311f30e8e": {
       "team": "tor",
       "name": "Hunna",
-      "roles": [
-        "player"
-      ]
-    },
-    "8973811321d65bf3b673": {
-      "team": "tor",
-      "name": "BrooksySZN",
       "roles": [
         "player"
       ]
@@ -1758,13 +1758,6 @@
         "player"
       ]
     },
-    "2e8bed8819a76c2afc08": {
-      "team": "mrd",
-      "name": "JAYDREAMZ",
-      "roles": [
-        "player"
-      ]
-    },
     "dd84ea797e0c80a9f20c": {
       "team": "mrd",
       "name": "ZEUS",
@@ -1783,6 +1776,13 @@
     "3731c247df3bd0a6625e": {
       "team": "mrd",
       "name": "Bruce",
+      "roles": [
+        "player"
+      ]
+    },
+    "2e8bed8819a76c2afc08": {
+      "team": "mrd",
+      "name": "JAYDREAMZ",
       "roles": [
         "player"
       ]
@@ -1910,13 +1910,6 @@
         "gm"
       ]
     },
-    "b1bdf118360ab3670cd5": {
-      "team": "mis",
-      "name": "Racist Guy Marv",
-      "roles": [
-        "player"
-      ]
-    },
     "c3efec830c56393e5d6b": {
       "team": "mis",
       "name": "Kentucky",
@@ -1927,6 +1920,13 @@
     "d917fafee7d5e1d39edf": {
       "team": "mis",
       "name": "ImAkaii",
+      "roles": [
+        "player"
+      ]
+    },
+    "b1bdf118360ab3670cd5": {
+      "team": "mis",
+      "name": "Racist Guy Marv",
       "roles": [
         "player"
       ]
@@ -2686,6 +2686,45 @@
       ]
     },
     {
+      "slug": "brooksyszn",
+      "name": "BrooksySZN",
+      "team": "tor",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amethyst",
+      "gamertag": "BrooksySZN",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.88",
+            "kpm": "18.9",
+            "maps": 38
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "KNX",
+              "kd": "0.86",
+              "kpm": "18.6",
+              "maps": 30
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "IMK / SPS",
+              "kd": "0.96",
+              "kpm": "20.0",
+              "maps": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "luke",
       "name": "Luke",
       "team": "tor",
@@ -2734,45 +2773,6 @@
         "player"
       ],
       "rank": "Amethyst"
-    },
-    {
-      "slug": "brooksyszn",
-      "name": "BrooksySZN",
-      "team": "tor",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amethyst",
-      "gamertag": "BrooksySZN",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.88",
-            "kpm": "18.9",
-            "maps": 38
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "KNX",
-              "kd": "0.86",
-              "kpm": "18.6",
-              "maps": 30
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "IMK / SPS",
-              "kd": "0.96",
-              "kpm": "20.0",
-              "maps": 8
-            }
-          ]
-        }
-      ]
     },
     {
       "slug": "bis",
@@ -2997,45 +2997,6 @@
       ]
     },
     {
-      "slug": "jaydreamz",
-      "name": "JAYDREAMZ",
-      "team": "mrd",
-      "roles": [
-        "player"
-      ],
-      "rank": "Ruby",
-      "gamertag": "JAYDREAMZ",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.05",
-            "kpm": "20.9",
-            "maps": 52
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "MAN / KCK / BOS / WAS",
-              "kd": "1.05",
-              "kpm": "21.4",
-              "maps": 46
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "SYR / PIT",
-              "kd": "1.08",
-              "kpm": "16.8",
-              "maps": 6
-            }
-          ]
-        }
-      ]
-    },
-    {
       "slug": "zeus",
       "name": "ZEUS",
       "team": "mrd",
@@ -3156,6 +3117,45 @@
               "kd": "1.07",
               "kpm": "20.9",
               "maps": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "jaydreamz",
+      "name": "JAYDREAMZ",
+      "team": "mrd",
+      "roles": [
+        "player"
+      ],
+      "rank": "Ruby",
+      "gamertag": "JAYDREAMZ",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.05",
+            "kpm": "20.9",
+            "maps": 52
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "MAN / KCK / BOS / WAS",
+              "kd": "1.05",
+              "kpm": "21.4",
+              "maps": 46
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR / PIT",
+              "kd": "1.08",
+              "kpm": "16.8",
+              "maps": 6
             }
           ]
         }
@@ -3649,37 +3649,6 @@
       ]
     },
     {
-      "slug": "racist-guy-marv",
-      "name": "Racist Guy Marv",
-      "team": "mis",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amber",
-      "gamertag": "Racist Guy Marv",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.80",
-            "kpm": "12.3",
-            "maps": 3
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "KNX",
-              "kd": "0.80",
-              "kpm": "12.3",
-              "maps": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
       "slug": "kentucky",
       "name": "Kentucky",
       "team": "mis",
@@ -3726,6 +3695,37 @@
         "player"
       ],
       "rank": "Amber"
+    },
+    {
+      "slug": "racist-guy-marv",
+      "name": "Racist Guy Marv",
+      "team": "mis",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amber",
+      "gamertag": "Racist Guy Marv",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.80",
+            "kpm": "12.3",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "KNX",
+              "kd": "0.80",
+              "kpm": "12.3",
+              "maps": 3
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "shooter",
@@ -3827,38 +3827,68 @@
       ]
     },
     {
-      "slug": "faker-bottzy",
-      "name": "Faker (Bottzy)",
+      "slug": "tuba",
+      "name": "Tuba",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
-      "rank": "Ruby"
-    },
-    {
-      "slug": "kain",
-      "name": "Kain",
-      "team": null,
-      "freeAgent": "fa",
-      "roles": [],
-      "rank": "Ruby",
-      "gamertag": "Kain",
+      "rank": "Amber",
+      "gamertag": "Tuba",
       "gamertagSource": "name",
       "games": [
         {
           "game": "BO7",
           "total": {
-            "kd": "0.86",
-            "kpm": "20.1",
-            "maps": 20
+            "kd": "0.96",
+            "kpm": "17.8",
+            "maps": 10
           },
           "seasons": [
             {
               "name": "Season 9 Academy",
               "current": false,
-              "team": "AUS / OMH / KCK",
-              "kd": "0.86",
-              "kpm": "20.1",
-              "maps": 20
+              "team": "OMH",
+              "kd": "0.96",
+              "kpm": "17.8",
+              "maps": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "2nasty",
+      "name": "2Nasty 🏅",
+      "team": null,
+      "freeAgent": "fa",
+      "roles": [],
+      "rank": "Amethyst",
+      "gamertag": "2Nasty 🏅",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.09",
+            "kpm": "21.3",
+            "maps": 42
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SFS",
+              "kd": "1.13",
+              "kpm": "21.7",
+              "maps": 35
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "CAR / ATL",
+              "kd": "0.91",
+              "kpm": "19.3",
+              "maps": 7
             }
           ]
         }
@@ -3909,6 +3939,44 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "kain",
+      "name": "Kain",
+      "team": null,
+      "freeAgent": "fa",
+      "roles": [],
+      "rank": "Ruby",
+      "gamertag": "Kain",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.86",
+            "kpm": "20.1",
+            "maps": 20
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "AUS / OMH / KCK",
+              "kd": "0.86",
+              "kpm": "20.1",
+              "maps": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "faker-bottzy",
+      "name": "Faker (Bottzy)",
+      "team": null,
+      "freeAgent": "fa",
+      "roles": [],
+      "rank": "Ruby"
     },
     {
       "slug": "zay",
@@ -4067,36 +4135,6 @@
       "rank": "Ruby"
     },
     {
-      "slug": "tuba",
-      "name": "Tuba",
-      "team": null,
-      "freeAgent": "fa",
-      "roles": [],
-      "rank": "Amber",
-      "gamertag": "Tuba",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.96",
-            "kpm": "17.8",
-            "maps": 10
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "OMH",
-              "kd": "0.96",
-              "kpm": "17.8",
-              "maps": 10
-            }
-          ]
-        }
-      ]
-    },
-    {
       "slug": "deadpool",
       "name": "Deadpool",
       "team": null,
@@ -4149,44 +4187,6 @@
       "freeAgent": "fa",
       "roles": [],
       "rank": "Amber"
-    },
-    {
-      "slug": "2nasty",
-      "name": "2Nasty 🏅",
-      "team": null,
-      "freeAgent": "fa",
-      "roles": [],
-      "rank": "Amethyst",
-      "gamertag": "2Nasty 🏅",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.09",
-            "kpm": "21.3",
-            "maps": 42
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "SFS",
-              "kd": "1.13",
-              "kpm": "21.7",
-              "maps": 35
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "CAR / ATL",
-              "kd": "0.91",
-              "kpm": "19.3",
-              "maps": 7
-            }
-          ]
-        }
-      ]
     },
     {
       "slug": "hidden-illusion",
