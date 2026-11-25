@@ -107,7 +107,7 @@ function layout({ title, active, body, c, script = '', page = '' }) {
 ${HTTPS_SCRIPT}
 <title>${esc(title ? `${title} · AJCL` : "Average Joe's CoD League")}</title>
 <meta name="description" content="${esc(c.tagline || '')}">
-<link rel="icon" href="${u('/ajcl-logo.png')}">
+<link rel="icon" href="${u('/ajcl-logo.png')}?v=${CSS_VERSION}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
@@ -123,7 +123,7 @@ ${TRANSITION_SCRIPT}
 <body data-page="${esc(page)}">
 <header class="topbar">
   <div class="wrap topbar-inner">
-    <a class="brand" href="${u('/')}"><img src="${u('/ajcl-logo.png')}" alt=""><span><strong>AJCL</strong><small>Average Joe's CoD League</small></span></a>
+    <a class="brand" href="${u('/')}"><img src="${u('/ajcl-logo.png')}?v=${CSS_VERSION}" alt=""><span><strong>AJCL</strong><small>Average Joe's CoD League</small></span></a>
     <nav class="nav">${nav}</nav>
     ${discord}
     <div class="account" data-account></div>
@@ -621,7 +621,7 @@ function home(league, c) {
         <a class="btn btn-ghost" href="${u('/join/')}">How to Join →</a>
       </div>
     </div>
-    <img class="hero-logo" src="${u('/ajcl-logo.png')}" alt="Average Joe's CoD League logo">
+    <img class="hero-logo" src="${u('/ajcl-logo.png')}?v=${CSS_VERSION}" alt="Average Joe's CoD League logo">
   </div>
 </section>
 
