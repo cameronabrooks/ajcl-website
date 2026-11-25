@@ -1040,7 +1040,22 @@ ${eightsStaffTools(league)}
   });
 })();
 </script>`;
-  return layout({ title: '8s', active: 'eights', body, c, script: (script || '') + staffScript + toolsScript, page: '8s' });
+  const pruneScript = `<script>
+(function () {
+  // Staff parts stay hidden until the AJCL server confirms this visitor is staff
+  // (account.js fires ajcl:staff). Anyone else gets them removed from the page.
+  var staff = null;
+  function prune() {
+    if (staff === true) return;
+    var noLogin = !localStorage.getItem('ajcl_token');
+    if (staff === false || noLogin) document.querySelectorAll('#staff-tools, .q-staff').forEach(function (el) { el.remove(); });
+  }
+  document.addEventListener('ajcl:staff', function (e) { staff = !!e.detail; prune(); });
+  document.addEventListener('ajcl:league', function () { setTimeout(prune, 0); });
+  prune();
+})();
+</script>`;
+  return layout({ title: '8s', active: 'eights', body, c, script: (script || '') + staffScript + toolsScript + pruneScript, page: '8s' });
 }
 
 // ---- Staff: public staff list + staff-only modmail ----

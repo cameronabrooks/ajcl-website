@@ -51,6 +51,7 @@
   function logout() {
     localStorage.removeItem(STORE);
     localStorage.removeItem(TOKEN);
+    sessionStorage.removeItem('ajcl_staff'); isStaff = false;
     document.documentElement.classList.remove('is-staff');
     document.querySelectorAll('.is-mine, .is-me').forEach(function (el) { el.classList.remove('is-mine', 'is-me'); });
     render(null, null);
@@ -127,14 +128,39 @@
     }
   }
 
-  function applyIndex(user, idx) {
-    isStaff = !!(idx && idx.staff && idx.staff.indexOf(user.hash) !== -1);
+  // Staff status comes from the AJCL server (it checks the Discord login against
+  // the bot's staff list), not from anything in the page. Cached for 10 minutes.
+  var staffChecked = false, lastEntry = null, lastTeam = null;
+  function setStaff(v) {
+    isStaff = !!v;
     document.documentElement.classList.toggle('is-staff', isStaff);
+    document.dispatchEvent(new CustomEvent('ajcl:staff', { detail: isStaff }));
+  }
+  async function checkStaff(user) {
+    var t = getToken();
+    if (!t) { setStaff(false); return; }
+    try {
+      var c = JSON.parse(sessionStorage.getItem('ajcl_staff') || 'null');
+      if (c && c.u === user.hash && Date.now() - c.at < 10 * 60 * 1000) { setStaff(c.v); return; }
+    } catch (e) {}
+    var live = (document.querySelector('meta[name="ajcl-live-url"]') || {}).content;
+    if (!live) { setStaff(false); return; }
+    try {
+      var r = await fetch(live + '/private/me', { headers: { Authorization: 'Bearer ' + t }, cache: 'no-store' });
+      var v = r.ok;
+      sessionStorage.setItem('ajcl_staff', JSON.stringify({ u: user.hash, v: v, at: Date.now() }));
+      setStaff(v);
+    } catch (e) { setStaff(false); }
+  }
+
+  function applyIndex(user, idx) {
+    if (!staffChecked) { staffChecked = true; checkStaff(user).then(function () { render(user, lastEntry, lastTeam); if (lastEntry) highlight(lastEntry); }); }
     var found = idx && idx.members && idx.members[user.hash];
     // Attach the visitor's player page slug ("team|name" -> slug) for "My Profile".
     var entry = found ? Object.assign({}, found, { profile: idx.profiles && idx.profiles[found.team + '|' + found.name] }) : null;
     document.querySelectorAll('.is-mine, .is-me').forEach(function (el) { el.classList.remove('is-mine', 'is-me'); });
-    render(user, entry, entry && idx.teams && idx.teams[entry.team]);
+    lastEntry = entry; lastTeam = entry && idx.teams && idx.teams[entry.team];
+    render(user, entry, lastTeam);
     if (entry) highlight(entry);
   }
 
