@@ -552,8 +552,15 @@ function powerTable(league, division, { top } = {}) {
   <p class="muted power-meta">${pr.status === 'open' ? '<span class="pill pill-live"><span class="live-dot"></span>Voting open</span> ' : '<span class="pill">Final</span> '}${pr.voters} voter${pr.voters === 1 ? '' : 's'}</p>`;
 }
 
+const ordinal = n => n + (['th', 'st', 'nd', 'rd'][(n % 100 > 10 && n % 100 < 14) ? 0 : (n % 10 < 4 ? n % 10 : 0)] || 'th');
+
 function powerRankingsPage(league, c) {
-  const body = pageHead(c.season || 'Power Rankings', 'Power Rankings', 'Voted on in the AJCL Discord: each voter ranks their top 3 teams (1st = 5 pts, 2nd = 3 pts, 3rd = 1 pt). Updates live as votes come in.') + `
+  // Describe the scoring the bot actually uses (sent with the data).
+  const pts = ((league.powerRankings && (league.powerRankings.Premier || league.powerRankings.Academy)) || {}).points || [8, 7, 6, 5, 4, 3, 2, 1];
+  const scoring = pts.length > 3
+    ? `each voter ranks all ${pts.length} teams (1st = ${pts[0]} pts, down to ${ordinal(pts.length)} = ${pts[pts.length - 1]} pt${pts[pts.length - 1] === 1 ? '' : 's'})`
+    : `each voter ranks their top ${pts.length} teams (${pts.map((p, i) => `${ordinal(i + 1)} = ${p} pt${p === 1 ? '' : 's'}`).join(', ')})`;
+  const body = pageHead(c.season || 'Power Rankings', 'Power Rankings', `Voted on in the AJCL Discord: ${scoring}. Updates live as votes come in.`) + `
 <section class="wrap"><div class="tabs page-tabs"><a class="tab" href="${u('/standings/')}">Standings</a><a class="tab active" href="${u('/power-rankings/')}">Power Rankings</a></div></section>
 <section class="wrap section two-col">
   ${hasPowerRankings(league)
