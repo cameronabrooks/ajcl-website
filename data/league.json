@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795576549118,
+  "generatedAt": 1795577618327,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -340,15 +340,15 @@
         "nonPlaying": [],
         "ranks": {
           "🧛🏼OverlordAlucard 🧛🏼": "Amber",
+          "JAYDREAMZ": "Ruby",
           "ZEUS": "Ruby",
-          "Bruce": "Amber",
-          "JAYDREAMZ": "Ruby"
+          "Bruce": "Amber"
         },
         "links": {
+          "JAYDREAMZ": "jaydreamz",
           "ZEUS": "zeus",
           "🧛🏼OverlordAlucard 🧛🏼": "overlordalucard",
           "Bruce": "bruce",
-          "JAYDREAMZ": "jaydreamz",
           "Chrollo": "chrollo"
         }
       }
@@ -411,10 +411,10 @@
           "Tanji": "Amber"
         },
         "links": {
-          "Leisure": "leisure",
           "Divi": "divi",
           "Fly Tendencies": "fly-tendencies",
           "Tanji": "tanji",
+          "Leisure": "leisure",
           "Lil'Ceezars": "lil-ceezars"
         }
       }
@@ -444,8 +444,8 @@
         },
         "links": {
           "MaRsH313": "marsh313",
-          "Sac": "sac",
           "cbass": "cbass",
+          "Sac": "sac",
           "Bgolden": "bgolden"
         }
       }
@@ -1335,6 +1335,7 @@
       ]
     }
   },
+  "eightsLeaderboard": [],
   "announcements": [
     {
       "id": "1574962963113054249",
@@ -1814,6 +1815,13 @@
         "player"
       ]
     },
+    "2e8bed8819a76c2afc08": {
+      "team": "mrd",
+      "name": "JAYDREAMZ",
+      "roles": [
+        "player"
+      ]
+    },
     "dd84ea797e0c80a9f20c": {
       "team": "mrd",
       "name": "ZEUS",
@@ -1832,13 +1840,6 @@
     "3731c247df3bd0a6625e": {
       "team": "mrd",
       "name": "Bruce",
-      "roles": [
-        "player"
-      ]
-    },
-    "2e8bed8819a76c2afc08": {
-      "team": "mrd",
-      "name": "JAYDREAMZ",
       "roles": [
         "player"
       ]
@@ -1879,14 +1880,6 @@
         "player"
       ]
     },
-    "f76158dbfc25c120b50b": {
-      "team": "nor",
-      "name": "Leisure",
-      "roles": [
-        "player",
-        "gm"
-      ]
-    },
     "53a50678dbe66a4491de": {
       "team": "nor",
       "name": "Divi",
@@ -1908,9 +1901,24 @@
         "player"
       ]
     },
+    "f76158dbfc25c120b50b": {
+      "team": "nor",
+      "name": "Leisure",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
     "a2a68018498db6357f09": {
       "team": "kck",
       "name": "MaRsH313",
+      "roles": [
+        "player"
+      ]
+    },
+    "5ccc1b9b1c54bdee1b77": {
+      "team": "kck",
+      "name": "cbass",
       "roles": [
         "player"
       ]
@@ -1921,13 +1929,6 @@
       "roles": [
         "player",
         "gm"
-      ]
-    },
-    "5ccc1b9b1c54bdee1b77": {
-      "team": "kck",
-      "name": "cbass",
-      "roles": [
-        "player"
       ]
     },
     "e4801d6539e91745f8fb": {
@@ -3053,6 +3054,45 @@
       ]
     },
     {
+      "slug": "jaydreamz",
+      "name": "JAYDREAMZ",
+      "team": "mrd",
+      "roles": [
+        "player"
+      ],
+      "rank": "Ruby",
+      "gamertag": "JAYDREAMZ",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.05",
+            "kpm": "20.9",
+            "maps": 52
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "MAN / KCK / BOS / WAS",
+              "kd": "1.05",
+              "kpm": "21.4",
+              "maps": 46
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR / PIT",
+              "kd": "1.08",
+              "kpm": "16.8",
+              "maps": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "zeus",
       "name": "ZEUS",
       "team": "mrd",
@@ -3173,45 +3213,6 @@
               "kd": "1.07",
               "kpm": "20.9",
               "maps": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "jaydreamz",
-      "name": "JAYDREAMZ",
-      "team": "mrd",
-      "roles": [
-        "player"
-      ],
-      "rank": "Ruby",
-      "gamertag": "JAYDREAMZ",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.05",
-            "kpm": "20.9",
-            "maps": 52
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "MAN / KCK / BOS / WAS",
-              "kd": "1.05",
-              "kpm": "21.4",
-              "maps": 46
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "SYR / PIT",
-              "kd": "1.08",
-              "kpm": "16.8",
-              "maps": 6
             }
           ]
         }
@@ -3361,46 +3362,6 @@
       ]
     },
     {
-      "slug": "leisure",
-      "name": "Leisure",
-      "team": "nor",
-      "roles": [
-        "player",
-        "gm"
-      ],
-      "rank": "Ruby",
-      "gamertag": "Leisure",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.02",
-            "kpm": "20.7",
-            "maps": 26
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "AUS",
-              "kd": "1.10",
-              "kpm": "21.5",
-              "maps": 19
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "PIT",
-              "kd": "0.84",
-              "kpm": "18.6",
-              "maps": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
       "slug": "divi",
       "name": "Divi",
       "team": "nor",
@@ -3460,6 +3421,46 @@
       "gamertagSource": "linked"
     },
     {
+      "slug": "leisure",
+      "name": "Leisure",
+      "team": "nor",
+      "roles": [
+        "player",
+        "gm"
+      ],
+      "rank": "Ruby",
+      "gamertag": "Leisure",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.02",
+            "kpm": "20.7",
+            "maps": 26
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "AUS",
+              "kd": "1.10",
+              "kpm": "21.5",
+              "maps": 19
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "PIT",
+              "kd": "0.84",
+              "kpm": "18.6",
+              "maps": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "marsh313",
       "name": "MaRsH313",
       "team": "kck",
@@ -3492,6 +3493,45 @@
               "team": "NOR",
               "kd": "0.76",
               "kpm": "17.5",
+              "maps": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cbass",
+      "name": "cbass",
+      "team": "kck",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amber",
+      "gamertag": "cbass",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.81",
+            "kpm": "18.2",
+            "maps": 11
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "CAR",
+              "kd": "0.88",
+              "kpm": "16.3",
+              "maps": 3
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "DEL",
+              "kd": "0.79",
+              "kpm": "18.9",
               "maps": 8
             }
           ]
@@ -3533,45 +3573,6 @@
               "kd": "1.15",
               "kpm": "15.7",
               "maps": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "cbass",
-      "name": "cbass",
-      "team": "kck",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amber",
-      "gamertag": "cbass",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.81",
-            "kpm": "18.2",
-            "maps": 11
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "CAR",
-              "kd": "0.88",
-              "kpm": "16.3",
-              "maps": 3
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "DEL",
-              "kd": "0.79",
-              "kpm": "18.9",
-              "maps": 8
             }
           ]
         }
@@ -3913,6 +3914,14 @@
       ]
     },
     {
+      "slug": "faker-bottzy",
+      "name": "Faker (Bottzy)",
+      "team": null,
+      "freeAgent": "fa",
+      "roles": [],
+      "rank": "Ruby"
+    },
+    {
       "slug": "2nasty",
       "name": "2Nasty 🏅",
       "team": null,
@@ -4025,14 +4034,6 @@
           ]
         }
       ]
-    },
-    {
-      "slug": "faker-bottzy",
-      "name": "Faker (Bottzy)",
-      "team": null,
-      "freeAgent": "fa",
-      "roles": [],
-      "rank": "Ruby"
     },
     {
       "slug": "zay",
