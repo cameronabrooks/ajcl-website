@@ -89,6 +89,7 @@ window.AJCL = (function () {
   write('join/index.html', renderPage(render, league, content, 'join'));
   write('stats/index.html', render.statsPage(league, content));
   write('auth/index.html', render.authPage(content));
+  write('overlay/index.html', render.overlayPage(content)); // OBS / Streamlabs browser source
   write('404.html', render.notFound(content));
   // Hashed member -> team index used after "Log in with Discord" (no raw Discord IDs).
   fs.writeFileSync(path.join(DIST, 'members.json'), JSON.stringify({

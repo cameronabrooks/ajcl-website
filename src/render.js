@@ -282,6 +282,10 @@ function matchPage(league, m, c) {
       <h3>${esc(m.caster.name)}</h3>
       ${m.caster.stream ? `<a class="btn btn-gold btn-sm" href="${esc(m.caster.stream)}" target="_blank" rel="noopener">Watch the stream ↗</a>` : '<p class="muted">Stream link coming soon.</p>'}
       <p style="margin:12px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset/`)}" target="_blank" rel="noopener">Mapset screen (for the stream) ↗</a></p>
+      <details class="mp-obs"><summary>Add it to OBS / Streamlabs automatically</summary>
+        <p>Add a <strong>Browser Source</strong> (width 1920, height 1080) with this link. It switches to your next casted match on its own, and updates live during picks &amp; bans:</p>
+        <input class="mp-obs-link" readonly value="${esc(`${SITE_URL || ''}${u('/overlay/')}?caster=${encodeURIComponent(m.caster.name)}`)}" onclick="this.select()">
+      </details>
       ${mapsetVideoReady(m)
         ? `<p style="margin:6px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset.mp4`)}" download="${esc(`${m.home.abbr}-vs-${m.away.abbr}-mapset.mp4`.toLowerCase())}">Download mapset video (MP4) ↓</a></p>
       <p style="margin:6px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset.png`)}" download="${esc(`${m.home.abbr}-vs-${m.away.abbr}-mapset.png`.toLowerCase())}">Download mapset picture (PNG) ↓</a></p>`
@@ -2175,9 +2179,82 @@ function playerPage(league, player, c) {
   return layout({ title: player.name, active: 'players', body, c, script, page: `player:${player.slug}` });
 }
 
+// Stream overlay for OBS / Streamlabs (Browser Source, 1920x1080): one fixed link
+// that always shows the mapset screen of the casted match that's on now or next.
+// ?caster=<name> picks that caster's matches; ?match=<w1-mrd-kck> pins one match.
+// It follows the live league data, so it switches matches (and updates picks/bans)
+// by itself. Nothing shows (see-through) when there's no casted match.
+function overlayPage(c) {
+  return `<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AJCL stream overlay</title>
+<style>
+  html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; background: transparent; }
+  .ov-note { position: fixed; left: 16px; bottom: 16px; font: 600 15px/1.4 system-ui, sans-serif; color: #fff; background: rgba(0,0,0,.6); padding: 8px 12px; border-radius: 6px; }
+</style>
+</head><body>
+<iframe id="ov" title="Mapset" allow="autoplay" hidden></iframe>
+<div class="ov-note" id="note" hidden></div>
+<script>
+(function () {
+  var LIVE = ${JSON.stringify(LIVE_URL)}, BASE = ${JSON.stringify(BASE)};
+  var q = new URLSearchParams(location.search);
+  var who = (q.get('caster') || '').trim().toLowerCase();
+  var pin = (q.get('match') || '').trim();
+  var debug = q.has('debug');
+  var frame = document.getElementById('ov'), note = document.getElementById('note'), current = null;
+  var id = function (m) { return 'w' + m.week + '-' + m.home + '-' + m.away; };
+  var at = function (m) { var t = m.time ? Date.parse(m.time) : NaN; return isNaN(t) ? null : t; };
+  function choose(league) {
+    var now = Date.now();
+    var list = (league.matches || []).filter(function (m) {
+      return m.caster && (!who || String(m.caster.name || '').toLowerCase().indexOf(who) >= 0);
+    });
+    if (pin) return list.filter(function (m) { return id(m) === pin; })[0] || null;
+    // Picks/bans happening right now win; then the next scheduled match (or one that
+    // started in the last 4 hours); then one that still needs a time.
+    var live = list.filter(function (m) { return m.picksBans && m.picksBans.inProgress; })[0];
+    if (live) return live;
+    var soon = list.filter(function (m) {
+      var t = at(m), done = m.result && m.result.reportedAt && now - m.result.reportedAt > 2 * 3600e3;
+      return !done && (t ? t > now - 4 * 3600e3 : m.status !== 'final');
+    }).sort(function (a, b) { var x = at(a), y = at(b); return (x == null ? 9e15 : x) - (y == null ? 9e15 : y); });
+    return soon[0] || null;
+  }
+  function show(m) {
+    var next = m ? id(m) : null;
+    if (debug) { note.hidden = false; note.textContent = m ? 'Showing ' + next + ' (' + m.caster.name + ')' : 'No casted match right now'; }
+    if (next === current) return;
+    current = next;
+    if (!next) { frame.hidden = true; frame.removeAttribute('src'); return; }
+    frame.hidden = false;
+    frame.src = BASE + '/matches/' + next + '/mapset/';
+  }
+  function load() {
+    fetch(LIVE + '/league.json', { cache: 'no-store' }).then(function (r) { return r.json(); })
+      .then(function (league) { show(choose(league)); })
+      .catch(function () {});
+  }
+  // A match that just got a caster may not have its page yet (the site rebuilds in a
+  // minute or two): try it again until it's there.
+  setInterval(function () {
+    if (!current) return;
+    try { var d = frame.contentDocument; if (d && !d.querySelector('[data-ms-stage]')) frame.src = BASE + '/matches/' + current + '/mapset/'; } catch (e) {}
+  }, 60000);
+  load();
+  setInterval(load, 20000);
+})();
+</script>
+</body></html>`;
+}
+
 function notFound(c) {
   const body = pageHead('404', 'Page not found', "That page doesn't exist.") + `<section class="wrap section"><a class="btn btn-gold" href="${u('/')}">Back home</a></section>`;
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, matchId, matchPage, mapsetPage, mapsetVideoReady, MAPSET_SECONDS, staffPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, overlayPage, matchId, matchPage, mapsetPage, mapsetVideoReady, MAPSET_SECONDS, staffPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
