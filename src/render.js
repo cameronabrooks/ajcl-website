@@ -233,7 +233,8 @@ function matchPage(league, m, c) {
       ${m.caster.stream ? `<a class="btn btn-gold btn-sm" href="${esc(m.caster.stream)}" target="_blank" rel="noopener">Watch the stream ↗</a>` : '<p class="muted">Stream link coming soon.</p>'}
       <p style="margin:12px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset/`)}" target="_blank" rel="noopener">Mapset screen (for the stream) ↗</a></p>
       ${mapsetVideoReady(m)
-        ? `<p style="margin:6px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset.mp4`)}" download="${esc(`${m.home.abbr}-vs-${m.away.abbr}-mapset.mp4`.toLowerCase())}">Download mapset video (MP4) ↓</a></p>`
+        ? `<p style="margin:6px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset.mp4`)}" download="${esc(`${m.home.abbr}-vs-${m.away.abbr}-mapset.mp4`.toLowerCase())}">Download mapset video (MP4) ↓</a></p>
+      <p style="margin:6px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset.png`)}" download="${esc(`${m.home.abbr}-vs-${m.away.abbr}-mapset.png`.toLowerCase())}">Download mapset picture (PNG) ↓</a></p>`
         : '<p class="muted" style="margin:6px 0 0;font-size:13px">The mapset video download appears once picks &amp; bans are done.</p>'}
     </div>` : `
     <div class="panel mp-caster"><p class="eyebrow">Casting</p><p class="muted" style="margin:0">No caster yet.</p></div>`;
@@ -382,7 +383,7 @@ const MODE_SHORT = { hardpoint: 'HP', search_and_destroy: 'SND', hijack: 'Hijack
 const MS_SLOPE = 0.2522;                     // panel slant, measured from the artwork
 // Frames are 8px at the top, 28px at the bottom, 12.3px at the sides (22px right of the last).
 const MS_PANEL = { x: 26.5, step: 174.6, top: 56, bottom: 555, width: 150, side: 12.3, ft: 8, fb: 28, lastRight: 22 };
-const MAPSET_SECONDS = 6;                    // length of the downloadable video
+const MAPSET_SECONDS = 10;                   // length of the downloadable video
 function mapsetVideoReady(m) { return !!(m.caster && m.picksBans && !m.picksBans.inProgress && m.picksBans.actions.some(a => a.action === 'pick')); }
 function mapsetPage(league, m, c) {
   const p = m.picksBans || null;

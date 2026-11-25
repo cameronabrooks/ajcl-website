@@ -67,8 +67,11 @@ function serve() {
       }
       ff.stdin.end();
       await done;
+      // Still picture of the finished screen (logo lit, all panels in).
+      await page.evaluate(() => { window.__msShow && window.__msShow(4); });
+      await page.screenshot({ type: 'png', path: path.join(DIST, 'matches', id, 'mapset.png'), clip: { x: 0, y: 0, width: 1920, height: 1080 } });
       await page.close();
-      console.log('mapset video:', id, (fs.statSync(out).size / 1024 / 1024).toFixed(1) + ' MB');
+      console.log('mapset video + picture:', id, (fs.statSync(out).size / 1024 / 1024).toFixed(1) + ' MB');
     }
   } finally {
     await browser.close();
