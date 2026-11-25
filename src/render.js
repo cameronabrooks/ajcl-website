@@ -405,11 +405,20 @@ function mapsetPage(league, m, c) {
     const W = BR - TL, L = v => (v - TL).toFixed(1);
     const outer = `polygon(0px 0px, ${L(TR)}px 0px, ${L(BR)}px ${H}px, ${L(BL)}px ${H}px)`;
     const inner = `polygon(${L(ix)}px ${P.ft}px, ${L(ix + P.width)}px ${P.ft}px, ${L(ix + P.width + S * h)}px ${P.ft + h}px, ${L(ix + S * h)}px ${P.ft + h}px)`;
+    // Thin dark line just outside the picture (the frame's inner edge, like the artwork).
+    const LW = 3;
+    const line = `polygon(${L(ix - LW)}px ${P.ft - LW}px, ${L(ix + P.width + LW)}px ${P.ft - LW}px, ${L(ix + P.width + LW + S * (h + 2 * LW))}px ${P.ft + h + LW}px, ${L(ix - LW + S * (h + 2 * LW))}px ${P.ft + h + LW}px)`;
+    // Map name block: same top for every panel, centred on the picture's slanted
+    // middle at that height.
+    const labelTop = P.ft + h - 104, labelW = P.width - 22;
+    const labelMid = P.ft + h - 58 - P.ft;
+    const labelLeft = (ix - TL) + S * labelMid + (P.width - labelW) / 2;
     const mode = (a && a.mode) || defaultMode[i];
     return `<div class="ms-panel" data-i="${i}" style="left:${TL.toFixed(1)}px;top:${top}px;width:${W.toFixed(1)}px;height:${H}px">
       <div class="ms-frame" style="clip-path:${outer}"></div>
+      <div class="ms-line" style="clip-path:${line}"></div>
       <div class="ms-pic${a ? '' : ' is-empty'}" style="clip-path:${inner}${a ? `;--map-img:url('${mapImage(a.map)}')` : ''}"></div>
-      <div class="ms-label" style="left:${(ix - TL + S * h * 0.88).toFixed(0)}px;bottom:${P.fb + 14}px;width:${P.width - 20}px"><span>Map ${i + 1}</span><strong>${a ? esc(a.map) : 'TBD'}</strong><em>${esc(MODE_SHORT[mode])}</em></div>
+      <div class="ms-label" style="left:${labelLeft.toFixed(1)}px;top:${labelTop}px;width:${labelW}px"><span>Map ${i + 1}</span><strong>${a ? esc(a.map) : 'TBD'}</strong><em>${esc(MODE_SHORT[mode])}</em></div>
     </div>`;
   };
   const banOf = (team, mode) => {
@@ -455,12 +464,15 @@ function mapsetPage(league, m, c) {
   .ms-neon-glow { filter: blur(14px) saturate(1.6); mix-blend-mode: screen; opacity: 0; }
   /* Panels: gold-brown frame + map picture, same slant and size as the artwork's. */
   .ms-panel { position: absolute; opacity: 0; will-change: opacity, transform; }
-  .ms-frame { position: absolute; inset: 0; background: linear-gradient(170deg, #8a6b2e 0%, #5b4416 45%, #3e2e0f 100%); }
+  .ms-frame { position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) calc(100% - 18px), rgba(14,10,4,.94) calc(100% - 18px), rgba(14,10,4,.7) 100%),
+                linear-gradient(172deg, #d8b45a 0%, #a07c34 18%, #6e521e 52%, #463310 100%); }
+  .ms-line { position: absolute; inset: 0; background: #1b1307; }
   .ms-pic { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.85)), var(--map-img) center / cover no-repeat, #1b1c20; }
   .ms-pic.is-empty { background: linear-gradient(160deg, #2a2b30, #141518); }
-  .ms-label { position: absolute; display: grid; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
+  .ms-label { position: absolute; display: grid; justify-items: center; text-align: center; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
   .ms-label span { font-size: 22px; color: #ffcf5a; letter-spacing: .06em; }
-  .ms-label strong { font-size: 38px; color: #fff; white-space: nowrap; overflow: hidden; display: block; }
+  .ms-label strong { font-size: 38px; height: 40px; line-height: 40px; color: #fff; white-space: nowrap; overflow: hidden; display: block; max-width: 100%; }
   .ms-label em { font-style: normal; font-size: 24px; color: #a8f57f; }
   .ms-rec { position: absolute; top: 640px; width: 230px; text-align: center; font-size: 96px; line-height: 1; color: #b9f98f; text-shadow: 0 0 14px rgba(140,255,100,.55), 0 3px 8px rgba(0,0,0,.6); }
   .ms-rec-l { left: 114px; }
