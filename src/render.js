@@ -579,22 +579,34 @@ function mapsetPage(league, m, c) {
     var waits = urls.map(function (src) { return new Promise(function (r) { var i = new Image(); i.onload = i.onerror = r; i.src = src; }); })
       .concat(imgs.map(function (img) { return img.complete ? null : new Promise(function (r) { img.onload = img.onerror = r; }); }));
     var v = video();
-    if (v && v.readyState < 2) waits.push(new Promise(function (r) { v.addEventListener('loadeddata', r, { once: true }); v.addEventListener('error', r, { once: true }); }));
+    if (v && !layerOnly && v.readyState < 2) waits.push(new Promise(function (r) { v.addEventListener('loadeddata', r, { once: true }); v.addEventListener('error', r, { once: true }); }));
     if (document.fonts && document.fonts.ready) waits.push(document.fonts.ready);
     return Promise.all(waits);
   }
 
   // One moment of the whole screen (the video build calls this for every frame).
   window.__msShow = function (t) {
+    lastT = t;
+    if (layerOnly) { panels(t); neon(t); return Promise.resolve(); }
     return seek(t).then(function () { panels(t); neon(t); });
   };
 
   var frameParam = /[?&]frame=([\\d.]+)/.exec(location.search);
-  var t0 = 0, running = false;
+  // ?layer: only this page's layer on a see-through background (the video build puts
+  // it over the original overlay video with ffmpeg).
+  var layerOnly = /[?&]layer\\b/.test(location.search);
+  if (layerOnly) {
+    document.documentElement.style.background = 'transparent';
+    document.body.style.background = 'transparent';
+    var st0 = document.querySelector('[data-ms-stage]'); if (st0) st0.style.background = 'transparent';
+    var vv = document.getElementById('ms-video'); if (vv) { vv.pause(); vv.style.display = 'none'; vv.removeAttribute('src'); vv.load(); }
+  }
+  var t0 = 0, running = false, lastT = 0;
   function tick() {
     var v = video();
     // Panels follow the video's clock; the neon follows time since the screen started.
     var tv = !v ? 99 : v.ended ? 99 : v.currentTime;
+    lastT = tv;
     panels(tv);
     neon((performance.now() - t0) / 1000);
     requestAnimationFrame(tick);
@@ -618,7 +630,15 @@ function mapsetPage(league, m, c) {
     requestAnimationFrame(tick);
   }
   // live.js re-renders the page: the video is kept (data-live-keep), the rest redrawn.
-  document.addEventListener('ajcl:league', function () { setTimeout(function () { fit(); fitLabels(); }, 0); });
+  // Live updates redraw the panels: put them back in their current state.
+  document.addEventListener('ajcl:league', function () {
+    setTimeout(function () {
+      fit(); fitLabels();
+      var t = frameParam ? parseFloat(frameParam[1]) : lastT;
+      panels(t);
+      neon(frameParam ? t : (performance.now() - t0) / 1000);
+    }, 0);
+  });
   fit();
   panels(0); neon(0);
   if (frameParam) { var v0 = video(); if (v0) v0.pause(); }
