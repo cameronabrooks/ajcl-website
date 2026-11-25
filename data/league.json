@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795576496313,
+  "generatedAt": 1795576531523,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -665,6 +665,34 @@
             "team": "kck",
             "slot": 4,
             "map": "Munition"
+          },
+          {
+            "mode": "search_and_destroy",
+            "action": "ban",
+            "team": "kck",
+            "slot": null,
+            "map": "Coal"
+          },
+          {
+            "mode": "search_and_destroy",
+            "action": "ban",
+            "team": "mrd",
+            "slot": null,
+            "map": "Lotus"
+          },
+          {
+            "mode": "search_and_destroy",
+            "action": "pick",
+            "team": "kck",
+            "slot": 2,
+            "map": "Munition"
+          },
+          {
+            "mode": "search_and_destroy",
+            "action": "pick",
+            "team": "mrd",
+            "slot": 5,
+            "map": "Rooftops"
           }
         ]
       }
