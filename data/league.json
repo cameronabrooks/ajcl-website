@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795579892637,
+  "generatedAt": 1795580059609,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1238,47 +1238,47 @@
         2,
         1
       ],
-      "voters": 5,
+      "voters": 6,
       "postedAt": 1795565206281,
       "teams": [
         {
           "team": "atl",
-          "points": 38,
+          "points": 45,
           "firsts": 3
         },
         {
           "team": "hal",
-          "points": 26,
+          "points": 31,
+          "firsts": 1
+        },
+        {
+          "team": "syr",
+          "points": 18,
           "firsts": 1
         },
         {
           "team": "car",
-          "points": 17,
-          "firsts": 0
-        },
-        {
-          "team": "syr",
-          "points": 14,
-          "firsts": 1
-        },
-        {
-          "team": "sfs",
-          "points": 10,
+          "points": 18,
           "firsts": 0
         },
         {
           "team": "tor",
-          "points": 7,
+          "points": 15,
+          "firsts": 1
+        },
+        {
+          "team": "sfs",
+          "points": 12,
           "firsts": 0
         },
         {
           "team": "ccc",
-          "points": 6,
+          "points": 9,
           "firsts": 0
         },
         {
           "team": "sln",
-          "points": 2,
+          "points": 8,
           "firsts": 0
         }
       ]
@@ -2061,10 +2061,10 @@
     {
       "id": "1574939352251768863",
       "title": "🏆 Premier Power Rankings",
-      "text": "@everyone\n\n🥇 Atlanta Firebirds — **38 pts**\n🥈 Halifax Ospreys — **26 pts**\n🥉 Carolina Carnage — **17 pts**\n4️⃣ Syracuse Armadillos — **14 pts**\n5️⃣ Santa Fe Scorpions — **10 pts**\n6️⃣ Toronto Blue Dragons — **7 pts**\n7️⃣ Calgary Cobra Chickens — **6 pts**\n8️⃣ St. Louis Night Stalkers — **2 pts**",
+      "text": "@everyone\n\n🥇 Atlanta Firebirds — **45 pts**\n🥈 Halifax Ospreys — **31 pts**\n🥉 Carolina Carnage — **18 pts**\n4️⃣ Syracuse Armadillos — **18 pts**\n5️⃣ Toronto Blue Dragons — **15 pts**\n6️⃣ Santa Fe Scorpions — **12 pts**\n7️⃣ Calgary Cobra Chickens — **9 pts**\n8️⃣ St. Louis Night Stalkers — **8 pts**",
       "images": [],
       "postedAt": 1795565202535,
-      "editedAt": 1795567577287
+      "editedAt": 1795580047354
     },
     {
       "id": "1574227005648535623",
