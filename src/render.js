@@ -435,7 +435,7 @@ function mapsetPage(league, m, c) {
   /* Covers for the template's sample text/logos. */
   .ms-cover { position: absolute; display: grid; place-items: center; border-radius: 18px;
     background: rgba(12,12,14,.55); -webkit-backdrop-filter: blur(26px); backdrop-filter: blur(26px); }
-  .ms-rec { top: 648px; width: 210px; height: 88px; font-size: 92px; font-weight: 600; line-height: 1; padding-top: 8px; box-sizing: border-box; }
+  .ms-rec { top: 648px; width: 210px; height: 88px; font-size: 92px; font-weight: 600; line-height: 1; padding-top: 8px; box-sizing: border-box; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; text-shadow: 0 3px 10px rgba(0,0,0,.7); }
   .ms-rec-l { left: 123px; }
   .ms-rec-r { left: 1607px; }
   /* Logos sit straight on the template (its sample logos are erased from the image). */
@@ -444,7 +444,8 @@ function mapsetPage(league, m, c) {
   .ms-logo-r { left: 1535px; }
   .ms-logo img { max-width: 300px; max-height: 290px; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,.6)); }
   .ms-abbr { font-size: 120px; color: #fff; }
-  .ms-vetos { left: 566px; top: 838px; width: 830px; height: 216px; border-radius: 6px; background: rgba(150,150,150,.35); align-content: center; gap: 2px; }
+  /* The template already has the grey vetos box (its sample text is erased). */
+  .ms-vetos { left: 566px; top: 838px; width: 830px; height: 216px; border-radius: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; align-content: center; gap: 2px; text-shadow: 0 2px 8px rgba(0,0,0,.55); }
   .ms-row { display: grid; grid-template-columns: 1fr 230px 1fr; width: 100%; text-align: center; font-size: 66px; font-weight: 600; line-height: 1.02; }
   .ms-row span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .ms-status { position: absolute; left: 30px; top: 8px; font-size: 30px; color: #ffcf5a; text-shadow: 0 2px 6px rgba(0,0,0,.9); letter-spacing: .05em; }
