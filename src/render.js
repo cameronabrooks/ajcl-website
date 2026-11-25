@@ -688,25 +688,59 @@ function draftPage(league, c) {
 
 // Searchable list of every rostered player. Filtering is client-side; the search
 // listener is delegated so it survives live.js re-rendering <main>.
+const faLabel = p => (p.freeAgent === 'rfa' ? 'Restricted free agent' : 'Free agent');
+const RANK_ORDER = ['Obsidian', 'Kyanite', 'Amethyst', 'Amber', 'Ruby', 'Emerald'];
+
+// Free agents (F/A and RFA roles), grouped by rank, highest first.
+function freeAgentsPage(league, c) {
+  const fas = league.players.filter(p => p.freeAgent);
+  const rankIdx = p => (p.rank && RANK_ORDER.includes(p.rank) ? RANK_ORDER.indexOf(p.rank) : RANK_ORDER.length);
+  const groups = [...RANK_ORDER, null].map(r => ({ rank: r, players: fas.filter(p => (p.rank || null) === r || (r === null && !RANK_ORDER.includes(p.rank))) }))
+    .filter(g => g.players.length);
+  const card = p => {
+    const g = (p.games || []).find(x => x.total);
+    return `<a class="player-row is-fa" href="${u(`/players/${p.slug}/`)}">
+      <span class="crest crest-sm crest-fallback" aria-hidden="true">${p.freeAgent === 'rfa' ? 'RFA' : 'FA'}</span>
+      <span class="pr-main"><strong>${esc(p.name)}</strong><span class="muted">${esc(faLabel(p))}${g ? ` · ${esc(g.game)} ${esc(g.total.kd || '–')} K/D over ${g.total.maps} maps` : ''}</span></span>
+      ${p.rank ? rankTag(p.rank) : ''}
+    </a>`;
+  };
+  const body = pageHead(c.season || 'Free Agents', 'Free Agents', `${fas.length} player${fas.length === 1 ? '' : 's'} with the F/A or RFA role in the AJCL Discord, by rank.`) + `
+<section class="wrap"><div class="tabs page-tabs"><a class="tab" href="${u('/players/')}">All players</a><a class="tab active" href="${u('/free-agents/')}">Free agents</a></div></section>
+<section class="wrap section">
+  ${groups.length ? groups.map(g => `<div class="fa-group">
+    <div class="section-head"><h2>${g.rank ? rankTag(g.rank) : 'Unranked'}</h2><span class="muted">${g.players.length}</span></div>
+    <div class="player-list">${g.players.sort((a, b) => a.name.localeCompare(b.name)).map(card).join('')}</div>
+  </div>`).join('') : '<p class="muted">No free agents right now.</p>'}
+</section>`;
+  return layout({ title: 'Free Agents', active: 'players', body, c, page: 'free-agents' });
+}
+
 function playersPage(league, c) {
   const byName = (a, b) => a.name.localeCompare(b.name);
-  const current = league.players.filter(p => !p.former).sort(byName);
+  const current = league.players.filter(p => !p.former && !p.freeAgent).sort(byName);
+  const freeAgents = league.players.filter(p => p.freeAgent).sort(byName);
   const former = league.players.filter(p => p.former).sort(byName);
   const row = p => {
     const t = p.teamObj;
     const roleText = (p.roles || []).map(r => ROLE_LABELS[r] || r).join(', ');
-    const sub = t ? `${t.name} · ${roleText}` : `Former player${p.lastTeam ? ` · last played for ${p.lastTeam}` : ''}`;
-    const search = [p.name, p.gamertag, ...(p.aliases || []), t && t.name, t && t.abbr, t && t.division, p.lastTeam, p.former ? 'former' : '', roleText].filter(Boolean).join(' ').toLowerCase();
+    const sub = t ? `${t.name} · ${roleText}`
+      : p.freeAgent ? faLabel(p)
+      : `Former player${p.lastTeam ? ` · last played for ${p.lastTeam}` : ''}`;
+    const search = [p.name, p.gamertag, ...(p.aliases || []), t && t.name, t && t.abbr, t && t.division, p.lastTeam, p.rank,
+      p.former ? 'former' : '', p.freeAgent ? 'free agent fa f/a ' + p.freeAgent : '', roleText].filter(Boolean).join(' ').toLowerCase();
     const best = (p.games || []).map(g => g.game).join(' · ');
-    return `<a class="player-row${p.former ? ' is-former' : ''}" href="${u(`/players/${p.slug}/`)}" data-search="${esc(search)}">
-      ${t ? crest(t, 'sm') : `<span class="crest crest-sm crest-fallback" aria-hidden="true">${esc(p.lastTeam || '—')}</span>`}
+    return `<a class="player-row${p.former ? ' is-former' : ''}${p.freeAgent ? ' is-fa' : ''}" href="${u(`/players/${p.slug}/`)}" data-search="${esc(search)}">
+      ${t ? crest(t, 'sm') : `<span class="crest crest-sm crest-fallback" aria-hidden="true">${esc(p.freeAgent ? 'FA' : (p.lastTeam || '—'))}</span>`}
       <span class="pr-main"><strong>${esc(p.name)}</strong><span class="muted">${esc(sub)}</span></span>
+      ${p.rank ? rankTag(p.rank) : ''}
       ${best ? `<span class="pr-games muted">${esc(best)}</span>` : ''}
       ${p.kd ? `<span class="kd" title="${esc(c.season || 'Season')} K/D">${esc(p.kd)} K/D</span>` : ''}
     </a>`;
   };
-  const list = [...current, ...former];
-  const items = current.map(row).join('') + (former.length ? `<h3 class="sub player-list-head" data-former-head>Former players</h3>${former.map(row).join('')}` : '');
+  const list = [...current, ...freeAgents, ...former];
+  const section = (label, attr, rows) => rows.length ? `<h3 class="sub player-list-head" ${attr}>${label}</h3>${rows.map(row).join('')}` : '';
+  const items = current.map(row).join('') + section('Free agents', 'data-fa-head', freeAgents) + section('Former players', 'data-former-head', former);
   const script = `<script>
 (function () {
   var q = '';
@@ -720,6 +754,8 @@ function playersPage(league, c) {
     if (none) none.hidden = shown !== 0;
     var fh = document.querySelector('[data-former-head]');
     if (fh) fh.hidden = !document.querySelector('.player-row.is-former:not([hidden])');
+    var fah = document.querySelector('[data-fa-head]');
+    if (fah) fah.hidden = !document.querySelector('.player-row.is-fa:not([hidden])');
     var count = document.querySelector('[data-result-count]');
     if (count) count.textContent = shown + (shown === 1 ? ' player' : ' players');
   }
@@ -740,6 +776,7 @@ function playersPage(league, c) {
 })();
 </script>`;
   const body = pageHead(c.season || 'Players', 'Players', 'Search every AJCL player: current rosters and everyone who played in past seasons.') + `
+<section class="wrap"><div class="tabs page-tabs"><a class="tab active" href="${u('/players/')}">All players</a><a class="tab" href="${u('/free-agents/')}">Free agents</a></div></section>
 <section class="wrap section">
   <div class="search-bar">
     <input type="search" class="search-input" data-player-search placeholder="Search by name, gamertag or team…" aria-label="Search players" autocomplete="off">
@@ -846,10 +883,10 @@ function playerPage(league, player, c) {
       <div><strong class="player-role">${esc(roles)}</strong><span>Role</span></div>
     </div>
   </div>` : `
-  <span class="crest crest-xl crest-fallback" aria-hidden="true">${esc(player.lastTeam || '—')}</span>
+  <span class="crest crest-xl crest-fallback" aria-hidden="true">${esc(player.freeAgent ? 'FA' : (player.lastTeam || '—'))}</span>
   <div>
-    <p class="eyebrow"><span class="pill">Former player</span></p>
-    <h1>${esc(player.name)}</h1>
+    <p class="eyebrow"><span class="pill${player.freeAgent ? ' pill-live' : ''}">${player.freeAgent ? esc(faLabel(player)) : 'Former player'}</span></p>
+    <h1>${esc(player.name)}${player.rank ? ` ${rankTag(player.rank)}` : ''}</h1>
     <div class="team-stats">
       ${player.lastTeam ? `<div><strong>${esc(player.lastTeam)}</strong><span>Last team</span></div>` : ''}
       <div><strong>${(player.games || []).reduce((n, g) => n + g.seasons.length, 0)}</strong><span>Seasons played</span></div>
@@ -873,4 +910,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, matchId, matchPage, powerRankingsPage, settingsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, matchId, matchPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };

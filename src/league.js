@@ -27,7 +27,7 @@ function hydrate(raw, hasLogo) {
   // Player profiles (published by the bot); link each to its team object.
   const players = (raw.players || [])
     // Current players need their team; former players (past seasons only) have none.
-    .filter(p => bySlug[p.team] || p.former)
+    .filter(p => bySlug[p.team] || p.former || p.freeAgent)
     .map(p => ({ ...p, teamObj: bySlug[p.team] || null }));
 
   return { ...raw, teams, matches, standings, players };
@@ -43,6 +43,7 @@ function renderPage(render, league, content, page) {
   if (page === 'draft') return render.draftPage(league, content);
   if (page === 'power-rankings') return render.powerRankingsPage(league, content);
   if (page === 'settings') return render.settingsPage(league, content);
+  if (page === 'free-agents') return render.freeAgentsPage(league, content);
   if (page === 'stats') return render.statsPage(league, content);
   if (page === 'join') return render.joinPage(league, content);
   if (page && page.startsWith('match:')) {

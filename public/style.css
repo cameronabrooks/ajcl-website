@@ -477,3 +477,9 @@ html:not(.js) .settings .game-tabs { display: none; }
 .player-solo { max-width: 860px; }
 .player-solo .stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 700px) { .player-solo .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Free agents */
+.player-row .tier { font-size: 12px; padding: 1px 7px 0; }
+.fa-group + .fa-group { margin-top: 28px; }
+.fa-group .section-head h2 .tier { font-size: 18px; padding: 3px 12px 1px; }
+.team-head h1 .tier { vertical-align: middle; }
