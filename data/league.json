@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795567587460,
+  "generatedAt": 1795568448395,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -434,21 +434,18 @@
         "players": [
           "cbass",
           "MaRsH313",
-          "Rogue",
           "Sac"
         ],
         "nonPlaying": [],
         "ranks": {
           "Sac": "Ruby",
           "MaRsH313": "Ruby",
-          "cbass": "Amber",
-          "Rogue": "Amber"
+          "cbass": "Amber"
         },
         "links": {
           "MaRsH313": "marsh313",
           "Sac": "sac",
           "cbass": "cbass",
-          "Rogue": "rogue",
           "Bgolden": "bgolden"
         }
       }
@@ -1637,13 +1634,6 @@
     "5ccc1b9b1c54bdee1b77": {
       "team": "kck",
       "name": "cbass",
-      "roles": [
-        "player"
-      ]
-    },
-    "41d5302bd81a48bee21d": {
-      "team": "kck",
-      "name": "Rogue",
       "roles": [
         "player"
       ]
@@ -3294,15 +3284,6 @@
           ]
         }
       ]
-    },
-    {
-      "slug": "rogue",
-      "name": "Rogue",
-      "team": "kck",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amber"
     },
     {
       "slug": "bgolden",
