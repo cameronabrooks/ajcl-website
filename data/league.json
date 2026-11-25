@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795584351433,
+  "generatedAt": 1795587754989,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2164,39 +2164,48 @@
       "legacy": false,
       "players": [
         {
-          "name": "Jantehhhhh",
-          "rank": "Amber",
-          "rating": 1049,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
-          "name": "Fen",
-          "rank": null,
-          "rating": 1030,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
           "name": "Kain",
           "rank": "Ruby",
-          "rating": 1021,
-          "wins": 2,
+          "rating": 1065,
+          "wins": 3,
           "losses": 1,
-          "winPct": 66.7,
-          "streak": 1
+          "winPct": 75,
+          "streak": 2
         },
         {
           "name": "StrokelySellsSR",
           "rank": null,
-          "rating": 1020,
-          "wins": 1,
+          "rating": 1065,
+          "wins": 2,
           "losses": 1,
-          "winPct": 50,
+          "winPct": 66.7,
+          "streak": 2
+        },
+        {
+          "name": "BBLZaaZaa",
+          "rank": "Amethyst",
+          "rating": 1038,
+          "wins": 11,
+          "losses": 8,
+          "winPct": 57.9,
+          "streak": 1
+        },
+        {
+          "name": "Jantehhhhh",
+          "rank": "Amber",
+          "rating": 1034,
+          "wins": 2,
+          "losses": 1,
+          "winPct": 66.7,
+          "streak": -1
+        },
+        {
+          "name": "Lil'Ceezars",
+          "rank": "Kyanite",
+          "rating": 1019,
+          "wins": 3,
+          "losses": 2,
+          "winPct": 60,
           "streak": 1
         },
         {
@@ -2317,15 +2326,6 @@
           "streak": 0
         },
         {
-          "name": "MaRsH313",
-          "rank": "Ruby",
-          "rating": 1016,
-          "wins": 4,
-          "losses": 1,
-          "winPct": 80,
-          "streak": 0
-        },
-        {
           "name": "Sophellium",
           "rank": null,
           "rating": 1016,
@@ -2434,6 +2434,15 @@
           "streak": 0
         },
         {
+          "name": "Fen",
+          "rank": null,
+          "rating": 1013,
+          "wins": 1,
+          "losses": 1,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
           "name": "Owes Every1 Taco Bell Plu",
           "rank": "Amber",
           "rating": 999,
@@ -2443,12 +2452,12 @@
           "streak": -1
         },
         {
-          "name": "BBLZaaZaa",
-          "rank": "Amethyst",
-          "rating": 998,
-          "wins": 10,
-          "losses": 8,
-          "winPct": 55.6,
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 996,
+          "wins": 4,
+          "losses": 2,
+          "winPct": 66.7,
           "streak": -1
         },
         {
@@ -2578,15 +2587,6 @@
           "streak": 0
         },
         {
-          "name": "Lil'Ceezars",
-          "rank": "Kyanite",
-          "rating": 984,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 0
-        },
-        {
           "name": "Bandit",
           "rank": "Ruby",
           "rating": 984,
@@ -2615,6 +2615,71 @@
         }
       ],
       "results": [
+        {
+          "number": 16,
+          "winner": "B",
+          "at": 1795587744653,
+          "byStaff": false,
+          "format": "All Hardpoint",
+          "maps": [
+            {
+              "map": "Lithium",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Rooftops",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Munition",
+              "mode": "hardpoint"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "Fen",
+              "delta": -17,
+              "rating": 1013
+            },
+            {
+              "name": "2Nasty 🏅",
+              "delta": -19,
+              "rating": 946
+            },
+            {
+              "name": "MaRsH313",
+              "delta": -20,
+              "rating": 996
+            },
+            {
+              "name": "Jantehhhhh",
+              "delta": -15,
+              "rating": 1034
+            }
+          ],
+          "teamB": [
+            {
+              "name": "BBLZaaZaa",
+              "delta": 40,
+              "rating": 1038
+            },
+            {
+              "name": "Lil'Ceezars",
+              "delta": 35,
+              "rating": 1019
+            },
+            {
+              "name": "StrokelySellsSR",
+              "delta": 45,
+              "rating": 1065
+            },
+            {
+              "name": "Kain",
+              "delta": 45,
+              "rating": 1065
+            }
+          ]
+        },
         {
           "number": 15,
           "winner": "B",
