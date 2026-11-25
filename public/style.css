@@ -587,7 +587,7 @@ html:not(.js) .lb-tabs { display: none; }
 .staff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
 .staff-person { display: flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; }
 .staff-person img, .staff-person .acct-initial { width: 36px; height: 36px; border-radius: 50%; flex: none; }
-.staff-person .staff-name { flex: 1; min-width: 0; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.staff-person .staff-name { flex: 1; min-width: 0; font-weight: 600; overflow-wrap: anywhere; line-height: 1.2; }
 .staff-person .tier { font-size: 11px; padding: 1px 6px 0; }
 .modmail-panel { border-color: rgba(244,181,44,.35); }
 .modmail-summary { margin: 0 0 12px; }
