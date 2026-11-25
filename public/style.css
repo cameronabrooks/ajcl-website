@@ -610,5 +610,8 @@ html:not(.js) .lb-tabs { display: none; }
 .map-tile span { font-size: 12px; color: #d6d4cf; text-transform: uppercase; letter-spacing: .08em; }
 .map-chip.has-thumb { display: inline-flex; align-items: center; gap: 8px; padding-left: 4px; }
 .map-chip.has-thumb .ban-thumb { filter: none; width: 40px; height: 24px; border-radius: 4px; background-size: cover; background-position: center; flex: none; }
-a.staff-person { color: inherit; text-decoration: none; transition: border-color .15s, transform .15s; }
-a.staff-person:hover { border-color: var(--gold); transform: translateY(-1px); }
+.staff-person { padding: 0; transition: border-color .15s; }
+.staff-person:hover { border-color: var(--gold); }
+.staff-link { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; padding: 10px 12px; color: inherit; text-decoration: none; }
+.staff-discord { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin-right: 10px; border-radius: 8px; color: #fff; background: #5865f2; opacity: .85; transition: opacity .15s, transform .15s; }
+.staff-discord:hover { opacity: 1; transform: translateY(-1px); }
