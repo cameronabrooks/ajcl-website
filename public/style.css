@@ -676,3 +676,7 @@ html.is-staff .staff-block { display: block; }
 .st-out.is-err { color: #ff6b6b; }
 .btn-danger { border-color: rgba(255,90,90,.5); color: #ff8a8a; }
 .btn-danger:hover { background: rgba(255,90,90,.12); }
+button.btn { font: inherit; cursor: pointer; }
+#staff-tools button.btn, .q-staff button.btn { color: var(--text); background: var(--panel); }
+#staff-tools button.btn:hover, .q-staff button.btn:hover { border-color: var(--gold); }
+#staff-tools button.btn-danger { color: #ff8a8a; }
