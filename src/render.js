@@ -780,6 +780,7 @@ function eightsStaffTools(league) {
   for (const p of league.players || []) if (!p.former) names.add(p.name);
   for (const b of league.eightsLeaderboards || []) for (const r of b.players || []) if (r.name !== 'Former member') names.add(r.name);
   for (const q of league.queues || []) for (const n of q.players || []) names.add(n);
+  for (const n of league.eightsMembers || []) names.add(n); // everyone with the 8mans role
   const btn = (op, label, confirm, cls = '') => `<button type="submit" class="btn btn-sm${cls ? ' ' + cls : ''}" value="${op}"${confirm ? ` data-confirm="${esc(confirm)}"` : ''}>${label}</button>`;
   const playerInput = (name = 'player', ph = 'Player name') => `<input name="${name}" list="st-players" placeholder="${ph}" autocomplete="off" required>`;
   const form = (inner, title) => `<form class="st-form">${title ? `<h5>${title}</h5>` : ''}<div class="st-row">${inner}</div><p class="st-out muted" aria-live="polite"></p></form>`;
@@ -1084,7 +1085,19 @@ ${eightsStaffTools(league)}
     if (sel) { sel.value = b.dataset.stPick; draw(); }
   });
   document.addEventListener('change', function (e) { if (e.target.matches && e.target.matches('[data-st-queue]')) draw(); });
-  document.addEventListener('ajcl:league', function (e) { latest = (e.detail && e.detail.queues) || latest; setTimeout(draw, 0); });
+  document.addEventListener('ajcl:league', function (e) {
+    latest = (e.detail && e.detail.queues) || latest;
+    setTimeout(draw, 0);
+    // Add any new 8mans-role / queue names to the player suggestions.
+    var dl = document.getElementById('st-players');
+    if (dl && e.detail) {
+      var have = {};
+      [].forEach.call(dl.options, function (o) { have[o.value] = 1; });
+      var add = (e.detail.eightsMembers || []).slice();
+      (e.detail.queues || []).forEach(function (q) { add = add.concat(q.players || []); });
+      add.forEach(function (n) { if (n && !have[n]) { var o = document.createElement('option'); o.value = n; dl.appendChild(o); have[n] = 1; } });
+    }
+  });
   draw();
 })();
 </script>`;
