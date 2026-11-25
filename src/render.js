@@ -421,7 +421,7 @@ function mapsetPage(league, m, c) {
 <style>
   html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
   main { position: fixed; inset: 0; }
-  .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; background: url('${u('/mapset/template.webp')}') center / cover no-repeat;
+  .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; background: url('${u('/mapset/template-clean.webp')}') center / cover no-repeat;
     font-family: Teko, 'Arial Narrow', sans-serif; color: #a8f57f; text-transform: uppercase; }
   /* Map pictures over the template's five sky panels (same slant). */
   .ms-panel { position: absolute; top: 50px; width: 290px; height: 512px; overflow: hidden;
@@ -438,7 +438,8 @@ function mapsetPage(league, m, c) {
   .ms-rec { top: 648px; width: 210px; height: 88px; font-size: 92px; font-weight: 600; line-height: 1; padding-top: 8px; box-sizing: border-box; }
   .ms-rec-l { left: 123px; }
   .ms-rec-r { left: 1607px; }
-  .ms-logo { top: 748px; width: 360px; height: 322px; background: rgba(12,12,14,.35); }
+  /* Logos sit straight on the template (its sample logos are erased from the image). */
+  .ms-logo { top: 748px; width: 360px; height: 322px; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; border-radius: 0; }
   .ms-logo-l { left: 44px; }
   .ms-logo-r { left: 1535px; }
   .ms-logo img { max-width: 300px; max-height: 290px; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,.6)); }
