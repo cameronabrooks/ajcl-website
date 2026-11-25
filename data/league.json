@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795567353633,
+  "generatedAt": 1795567587460,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1155,17 +1155,22 @@
   "powerRankings": {
     "Premier": {
       "status": "open",
-      "voters": 4,
+      "voters": 5,
       "postedAt": 1795565206281,
       "teams": [
         {
           "team": "atl",
-          "points": 18,
+          "points": 21,
           "firsts": 3
         },
         {
           "team": "hal",
           "points": 11,
+          "firsts": 1
+        },
+        {
+          "team": "syr",
+          "points": 6,
           "firsts": 1
         },
         {
@@ -1179,7 +1184,7 @@
           "firsts": 0
         },
         {
-          "team": "syr",
+          "team": "ccc",
           "points": 1,
           "firsts": 0
         },
@@ -1190,11 +1195,6 @@
         },
         {
           "team": "sln",
-          "points": 0,
-          "firsts": 0
-        },
-        {
-          "team": "ccc",
           "points": 0,
           "firsts": 0
         }
