@@ -795,6 +795,7 @@ function eightsStaffTools(league) {
         ${form(playerInput() + btn('kick', 'Remove from queue'), 'Remove a player')}
       </div>
       <div class="st-group"><h4>Match</h4>
+        <div class="st-matches" data-st-matches data-queues="${esc(JSON.stringify((league.queues || []).map(q => ({ id: q.id || null, name: q.name, match: q.match }))))}"></div>
         ${form(btn('decide_method', 'Decide captain method') + btn('decide_format', 'Decide format') + btn('end_captain_vote', 'End captain vote') + btn('random_captains', 'Random captains'), 'Votes')}
         ${form('<input type="hidden" name="winner" value="A">' + btn('winner', '🔵 Team 1 won', 'Set Team 1 as the winner in {queue}? This updates ratings and ends the match.'), 'Set winner')}
         ${form('<input type="hidden" name="winner" value="B">' + btn('winner', '🔴 Team 2 won', 'Set Team 2 as the winner in {queue}? This updates ratings and ends the match.'))}
@@ -1040,6 +1041,49 @@ ${eightsStaffTools(league)}
   });
 })();
 </script>`;
+  const matchesScript = `<script>
+(function () {
+  var QUEUES = [["1532249725380591676","Open 8s Queue"],["1532289923141472296","League 8s Queue"],["1532290092096295104","Academy 8s Queue"]];
+  function esc(t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]; }); }
+  // Which queue (channel ID) a live queue entry is: its own ID, else its name.
+  function idOf(q) {
+    if (q.id) return q.id;
+    var hit = QUEUES.filter(function (x) { return x[1].toLowerCase() === String(q.name || '').toLowerCase(); })[0];
+    return hit ? hit[0] : null;
+  }
+  var latest = null;
+  function draw() {
+    var box = document.querySelector('[data-st-matches]');
+    if (!box) return;
+    var queues = latest;
+    if (!queues) { try { queues = JSON.parse(box.dataset.queues || '[]'); } catch (e) { queues = []; } }
+    var sel = document.querySelector('[data-st-queue]');
+    var cur = sel ? sel.value : '';
+    var live = queues.filter(function (q) { return q.match; });
+    if (!live.length) { box.innerHTML = '<p class="muted st-nomatch">No matches going on right now.</p>'; return; }
+    box.innerHTML = '<h5>Active matches</h5>' + live.map(function (q) {
+      var m = q.match, id = idOf(q);
+      var team = function (label, list) { return '<div><strong>' + label + '</strong><span>' + (list && list.length ? list.map(esc).join(', ') : '<em class="muted">Picking...</em>') + '</span></div>'; };
+      return '<button type="button" class="st-match' + (id && id === cur ? ' is-selected' : '') + '" data-st-pick="' + esc(id || '') + '"' + (id ? '' : ' disabled') + '>' +
+        '<span class="st-match-head"><strong>' + esc(q.name) + (m.number ? ' · #' + esc(m.number) : '') + '</strong><span class="pill pill-live">' + esc(m.phase || '') + '</span></span>' +
+        ((m.teamA && m.teamA.length) || (m.teamB && m.teamB.length)
+          ? '<span class="st-match-teams">' + team('🔵 Team 1', m.teamA) + team('🔴 Team 2', m.teamB) + '</span>'
+          : (m.players && m.players.length ? '<span class="st-match-teams"><div><strong>Players</strong><span>' + m.players.map(esc).join(', ') + '</span></div></span>' : '')) +
+        (id && id === cur ? '<span class="st-match-note">Selected: the buttons below act on this match</span>' : '<span class="st-match-note">Click to select this match</span>') +
+        '</button>';
+    }).join('');
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-st-pick]');
+    if (!b || !b.dataset.stPick) return;
+    var sel = document.querySelector('[data-st-queue]');
+    if (sel) { sel.value = b.dataset.stPick; draw(); }
+  });
+  document.addEventListener('change', function (e) { if (e.target.matches && e.target.matches('[data-st-queue]')) draw(); });
+  document.addEventListener('ajcl:league', function (e) { latest = (e.detail && e.detail.queues) || latest; setTimeout(draw, 0); });
+  draw();
+})();
+</script>`;
   const pruneScript = `<script>
 (function () {
   // Staff parts stay hidden until the AJCL server confirms this visitor is staff
@@ -1055,7 +1099,7 @@ ${eightsStaffTools(league)}
   prune();
 })();
 </script>`;
-  return layout({ title: '8s', active: 'eights', body, c, script: (script || '') + staffScript + toolsScript + pruneScript, page: '8s' });
+  return layout({ title: '8s', active: 'eights', body, c, script: (script || '') + staffScript + toolsScript + matchesScript + pruneScript, page: '8s' });
 }
 
 // ---- Staff: public staff list + staff-only modmail ----

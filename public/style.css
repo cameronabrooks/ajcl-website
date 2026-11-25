@@ -680,3 +680,16 @@ button.btn { font: inherit; cursor: pointer; }
 #staff-tools button.btn, .q-staff button.btn { color: var(--text); background: var(--panel); }
 #staff-tools button.btn:hover, .q-staff button.btn:hover { border-color: var(--gold); }
 #staff-tools button.btn-danger { color: #ff8a8a; }
+
+/* 8s staff tools: active matches */
+.st-matches { margin-bottom: 10px; }
+.st-matches h5 { margin: 6px 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted, #9a9aa3); }
+.st-nomatch { margin: 0 0 8px; font-size: 13px; }
+.st-match { display: grid; gap: 6px; width: 100%; text-align: left; margin: 0 0 8px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font: inherit; cursor: pointer; }
+.st-match:hover { border-color: var(--gold); }
+.st-match.is-selected { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+.st-match-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.st-match-teams { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px; }
+.st-match-teams div { display: grid; gap: 2px; }
+.st-match-teams span { color: #d6d4cf; }
+.st-match-note { font-size: 12px; color: var(--gold); }
