@@ -500,3 +500,20 @@ html:not(.js) .settings .game-tabs { display: none; }
 .announce.is-clamped .announce-images { grid-template-columns: 1fr; }
 .announce.is-clamped .announce-images img { max-height: 220px; object-fit: cover; }
 .announce-more { display: inline-block; margin-top: 10px; color: var(--gold); font-size: 14px; font-weight: 600; }
+
+/* Header fit: never let the menu slide under the Discord button.
+   Tighten earlier, and hide the subtitle / account name before anything overlaps. */
+.topbar-inner { gap: 16px; }
+.nav { flex: 1 1 auto; justify-content: flex-end; }
+@media (max-width: 1500px) {
+  .brand small { display: none; }
+  .nav a { padding: 8px 9px 5px; font-size: 17px; }
+}
+@media (max-width: 1360px) {
+  .acct-name { display: none; }
+  .acct-btn { padding: 4px; }
+  .nav a { padding: 8px 7px 5px; font-size: 16px; }
+}
+@media (max-width: 1180px) {
+  .topbar-inner > .btn { display: none; } /* Discord button: the invite is still on Home and Join */
+}
