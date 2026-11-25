@@ -231,6 +231,7 @@ function matchPage(league, m, c) {
       <p class="eyebrow">Casting</p>
       <h3>${esc(m.caster.name)}</h3>
       ${m.caster.stream ? `<a class="btn btn-gold btn-sm" href="${esc(m.caster.stream)}" target="_blank" rel="noopener">Watch the stream ↗</a>` : '<p class="muted">Stream link coming soon.</p>'}
+      <p style="margin:12px 0 0"><a href="${u(`/matches/${matchId(m)}/mapset/`)}" target="_blank" rel="noopener">Mapset screen (for the stream) ↗</a></p>
     </div>` : `
     <div class="panel mp-caster"><p class="eyebrow">Casting</p><p class="muted" style="margin:0">No caster yet.</p></div>`;
 
@@ -367,6 +368,105 @@ function matchPage(league, m, c) {
 })();
 </script>`;
   return layout({ title: `${m.home.abbr} vs ${m.away.abbr}`, active: 'schedule', body, c, script, page: `match:${matchId(m)}` });
+}
+
+// Caster mapset overlay (1920x1080, for OBS): the league template with the five
+// map pictures, both team logos + records, and each team's bans per mode.
+const MODE_SHORT = { hardpoint: 'HP', search_and_destroy: 'SND', hijack: 'Hijack' };
+function mapsetPage(league, m, c) {
+  const p = m.picksBans || null;
+  const left = p && p.teamA === m.away.slug ? m.away : m.home;   // Team A on the left
+  const right = left === m.home ? m.away : m.home;
+  const record = team => {
+    const rows = Object.values(league.standings || {}).flat();
+    const r = rows.find(x => x.team && x.team.slug === team.slug);
+    return r ? `${r.w}-${r.l}` : '0-0';
+  };
+  const picks = p ? p.actions.filter(a => a.action === 'pick') : [];
+  const slots = [1, 2, 3, 4, 5].map(n => picks.find(a => a.slot === n) || null);
+  // Panel geometry measured from the template (top-left x of each slanted panel).
+  const panel = (a, i) => {
+    const x = 23 + 174.6 * i;
+    const style = `left:${x.toFixed(1)}px${a ? `;--map-img:url('${mapImage(a.map)}')` : ''}`;
+    return `<div class="ms-panel${a ? '' : ' is-empty'}" style="${style}">
+      <div class="ms-label"><span>Map ${i + 1}</span><strong>${a ? esc(a.map) : 'TBD'}</strong><em>${esc(MODE_SHORT[(a && a.mode) || ['hardpoint', 'search_and_destroy', 'hijack', 'hardpoint', 'search_and_destroy'][i]])}</em></div>
+    </div>`;
+  };
+  const banOf = (team, mode) => {
+    const b = p ? p.actions.find(a => a.action === 'ban' && a.team === team.slug && a.mode === mode) : null;
+    return b ? esc(b.map) : '–';
+  };
+  const logo = team => team.logo ? `<img src="${esc(u(team.logo))}" alt="${esc(team.name)}">` : `<span class="ms-abbr">${esc(team.abbr)}</span>`;
+  const rows = ['hardpoint', 'search_and_destroy', 'hijack'].map(mode => `<div class="ms-row"><span>${banOf(left, mode)}</span><span class="ms-mode">${MODE_SHORT[mode]}</span><span>${banOf(right, mode)}</span></div>`).join('');
+  const body = `<div class="ms-stage" data-ms-stage>
+    ${slots.map(panel).join('')}
+    <div class="ms-cover ms-rec ms-rec-l">${esc(record(left))}</div>
+    <div class="ms-cover ms-rec ms-rec-r">${esc(record(right))}</div>
+    <div class="ms-cover ms-logo ms-logo-l">${logo(left)}</div>
+    <div class="ms-cover ms-logo ms-logo-r">${logo(right)}</div>
+    <div class="ms-cover ms-vetos">${rows}</div>
+    ${p && p.inProgress ? '<div class="ms-status">Picks &amp; bans in progress</div>' : !p ? '<div class="ms-status">Waiting on picks &amp; bans</div>' : ''}
+  </div>`;
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(m.home.abbr)} vs ${esc(m.away.abbr)} · Mapset · AJCL</title>
+<meta name="ajcl-base" content="${esc(BASE)}">
+<meta name="ajcl-live-url" content="${esc(LIVE_URL)}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  main { position: fixed; inset: 0; display: grid; place-items: center; }
+  .ms-stage { position: relative; width: 1920px; height: 1080px; flex: none; transform-origin: center; background: url('${u('/mapset/template.webp')}') center / cover no-repeat;
+    font-family: Teko, 'Arial Narrow', sans-serif; color: #a8f57f; text-transform: uppercase; }
+  /* Map pictures over the template's five sky panels (same slant). */
+  .ms-panel { position: absolute; top: 50px; width: 290px; height: 512px; overflow: hidden;
+    clip-path: polygon(0 0, 162px 0, 290px 100%, 128px 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.85)), var(--map-img) center / cover no-repeat, #1b1c20; }
+  .ms-panel.is-empty { background: linear-gradient(160deg, #26272c, #121316); }
+  .ms-label { position: absolute; left: 132px; right: 6px; bottom: 14px; display: grid; gap: 0; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
+  .ms-label span { font-size: 22px; color: #ffcf5a; letter-spacing: .06em; }
+  .ms-label strong { font-size: 34px; color: #fff; font-weight: 700; }
+  .ms-label em { font-style: normal; font-size: 24px; color: #a8f57f; }
+  /* Covers for the template's sample text/logos. */
+  .ms-cover { position: absolute; display: grid; place-items: center; border-radius: 18px;
+    background: rgba(12,12,14,.55); -webkit-backdrop-filter: blur(26px); backdrop-filter: blur(26px); }
+  .ms-rec { top: 648px; width: 210px; height: 88px; font-size: 92px; font-weight: 600; line-height: 1; padding-top: 8px; box-sizing: border-box; }
+  .ms-rec-l { left: 123px; }
+  .ms-rec-r { left: 1607px; }
+  .ms-logo { top: 748px; width: 360px; height: 322px; background: rgba(12,12,14,.35); }
+  .ms-logo-l { left: 44px; }
+  .ms-logo-r { left: 1535px; }
+  .ms-logo img { max-width: 300px; max-height: 290px; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,.6)); }
+  .ms-abbr { font-size: 120px; color: #fff; }
+  .ms-vetos { left: 566px; top: 838px; width: 830px; height: 216px; border-radius: 6px; background: rgba(150,150,150,.35); align-content: center; gap: 2px; }
+  .ms-row { display: grid; grid-template-columns: 1fr 230px 1fr; width: 100%; text-align: center; font-size: 66px; font-weight: 600; line-height: 1.02; }
+  .ms-row span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ms-status { position: absolute; left: 30px; top: 8px; font-size: 30px; color: #ffcf5a; text-shadow: 0 2px 6px rgba(0,0,0,.9); letter-spacing: .05em; }
+</style>
+</head>
+<body data-page="mapset:${esc(matchId(m))}">
+<main>${body}</main>
+<script>
+(function () {
+  // Scale the 1920x1080 stage to fit the window (OBS browser source or any screen).
+  function fit() {
+    var st = document.querySelector('[data-ms-stage]');
+    if (st) st.style.transform = 'scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')';
+  }
+  addEventListener('resize', fit);
+  document.addEventListener('ajcl:league', function () { setTimeout(fit, 0); });
+  fit();
+})();
+</script>
+${LIVE_URL ? `<script src="${u('/app.js')}?v=${CSS_VERSION}" defer></script>
+<script src="${u('/live.js')}?v=${CSS_VERSION}" defer></script>` : ''}
+</body>
+</html>`;
 }
 
 function standingsTable(rows, { compact = false } = {}) {
@@ -1521,4 +1621,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, matchId, matchPage, staffPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, matchId, matchPage, mapsetPage, staffPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };

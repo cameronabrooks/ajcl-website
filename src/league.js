@@ -48,6 +48,10 @@ function renderPage(render, league, content, page) {
   if (page === 'free-agents') return render.freeAgentsPage(league, content);
   if (page === 'stats') return render.statsPage(league, content);
   if (page === 'join') return render.joinPage(league, content);
+  if (page && page.startsWith('mapset:')) {
+    const m = league.matches.find(x => render.matchId(x) === page.slice(7));
+    return m ? render.mapsetPage(league, m, content) : null;
+  }
   if (page && page.startsWith('match:')) {
     const m = league.matches.find(x => render.matchId(x) === page.slice(6));
     return m ? render.matchPage(league, m, content) : null;

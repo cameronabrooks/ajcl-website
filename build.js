@@ -83,6 +83,8 @@ window.AJCL = (function () {
   write('announcements/index.html', renderPage(render, league, content, 'announcements'));
   write('free-agents/index.html', renderPage(render, league, content, 'free-agents'));
   for (const m of league.matches) write(`matches/${render.matchId(m)}/index.html`, renderPage(render, league, content, `match:${render.matchId(m)}`));
+  // Mapset screen for casters (matches that have a caster).
+  for (const m of league.matches) if (m.caster) write(`matches/${render.matchId(m)}/mapset/index.html`, renderPage(render, league, content, `mapset:${render.matchId(m)}`));
   for (const player of league.players) write(`players/${player.slug}/index.html`, renderPage(render, league, content, `player:${player.slug}`));
   write('join/index.html', renderPage(render, league, content, 'join'));
   write('stats/index.html', render.statsPage(league, content));
