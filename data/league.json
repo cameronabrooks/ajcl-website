@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795581911301,
+  "generatedAt": 1795582509712,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1347,12 +1347,16 @@
       "members": [
         {
           "name": "Inspire",
+          "slug": "inspire",
+          "discordId": "1563229944190861373",
           "rank": "Amber",
           "hash": "487171bde66caaf9a017",
           "avatar": "https://cdn.discordapp.com/avatars/1563229944190861373/cc9020466c7c65fc8ec8a928cee26d6a.png?size=64"
         },
         {
           "name": "Pizz",
+          "slug": "pizz",
+          "discordId": "462652116666941482",
           "rank": "Ruby",
           "hash": "00e5776d8ebd67070622",
           "avatar": "https://cdn.discordapp.com/avatars/462652116666941482/c6a4480021921fbaef3434ca026992e6.png?size=64"
@@ -1364,12 +1368,16 @@
       "members": [
         {
           "name": "Cam",
+          "slug": "cam",
+          "discordId": "481296445404610560",
           "rank": "Amber",
           "hash": "05602de9aea222d1753e",
           "avatar": "https://cdn.discordapp.com/avatars/481296445404610560/35e5d4bf320ca220c7b1e9e1a5f2d142.png?size=64"
         },
         {
           "name": "MaRsH313",
+          "slug": "marsh313",
+          "discordId": "756741750130999347",
           "rank": "Ruby",
           "hash": "a2a68018498db6357f09",
           "avatar": "https://cdn.discordapp.com/avatars/756741750130999347/df338521673c26935911fd42a0f010b4.png?size=64"
@@ -1381,42 +1389,56 @@
       "members": [
         {
           "name": "🧛🏼OverlordAlucard 🧛🏼",
+          "slug": "overlordalucard",
+          "discordId": "266558189107937280",
           "rank": "Amber",
           "hash": "025feda6b6afba4a90b0",
           "avatar": "https://cdn.discordapp.com/avatars/266558189107937280/a_7d8f1004d324403cc228c4bd54b8b11a.gif?size=64"
         },
         {
           "name": "2Nasty 🏅",
+          "slug": "2nasty",
+          "discordId": "566531015980351499",
           "rank": "Amethyst",
           "hash": "6a7273a203f444e72a8c",
           "avatar": "https://cdn.discordapp.com/avatars/566531015980351499/b65f925c53d5a243f7aab9738df8b8ae.png?size=64"
         },
         {
           "name": "BBLZaaZaa",
+          "slug": "bblzaazaa",
+          "discordId": "473617086808326145",
           "rank": "Amethyst",
           "hash": "e5bff57d28cd2185c135",
           "avatar": "https://cdn.discordapp.com/avatars/473617086808326145/3176d4ca84a04ba93457775ef34023e2.png?size=64"
         },
         {
           "name": "Divi",
+          "slug": "divi",
+          "discordId": "430541542504267777",
           "rank": "Ruby",
           "hash": "53a50678dbe66a4491de",
           "avatar": "https://cdn.discordapp.com/avatars/430541542504267777/8e839b1426c6f1f4cecbcf16dfa934a8.png?size=64"
         },
         {
           "name": "Esca",
+          "slug": "esca",
+          "discordId": "536403923557285898",
           "rank": "Amethyst",
           "hash": "51254f43a277e251b7f2",
           "avatar": "https://cdn.discordapp.com/avatars/536403923557285898/6e131b789a824cf0dec582710dc23bf2.png?size=64"
         },
         {
           "name": "nitsua",
+          "slug": "nitsua",
+          "discordId": "1478045570206666925",
           "rank": "Kyanite",
           "hash": "2157bbb040dac182dbb8",
           "avatar": "https://cdn.discordapp.com/avatars/1478045570206666925/a_21d51a342e36920aaff8b765841f2d9b.gif?size=64"
         },
         {
           "name": "Xerxes",
+          "slug": "xerxes",
+          "discordId": "1028141588641239110",
           "rank": "Amethyst",
           "hash": "4623064ecf744333f6f7",
           "avatar": "https://cdn.discordapp.com/avatars/1028141588641239110/3e06696ee8872a8c03967b3fc84c9bff.png?size=64"
@@ -1426,249 +1448,8 @@
   ],
   "eightsLeaderboards": [
     {
-      "key": "academy-8s-queue",
-      "name": "Academy 8s Queue",
-      "legacy": false,
-      "players": [
-        {
-          "name": "Inspire",
-          "rank": "Amber",
-          "rating": 1063,
-          "wins": 3,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 3
-        },
-        {
-          "name": "MaRsH313",
-          "rank": "Ruby",
-          "rating": 1051,
-          "wins": 3,
-          "losses": 6,
-          "winPct": 33.3,
-          "streak": 1
-        },
-        {
-          "name": "⛧ Ƒëﾑr ツ",
-          "rank": "Ruby",
-          "rating": 1046,
-          "wins": 6,
-          "losses": 3,
-          "winPct": 66.7,
-          "streak": 2
-        },
-        {
-          "name": "Cam",
-          "rank": "Amber",
-          "rating": 1033,
-          "wins": 4,
-          "losses": 2,
-          "winPct": 66.7,
-          "streak": 0
-        },
-        {
-          "name": "Senz",
-          "rank": "Amber",
-          "rating": 1033,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "Faker (Bottzy)",
-          "rank": "Ruby",
-          "rating": 1030,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
-          "name": "Tanji",
-          "rank": "Amber",
-          "rating": 1029,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
-          "name": "2elite",
-          "rank": "Amber",
-          "rating": 1028,
-          "wins": 4,
-          "losses": 3,
-          "winPct": 57.1,
-          "streak": -1
-        },
-        {
-          "name": "Fly Tendencies",
-          "rank": "Amber",
-          "rating": 1017,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "Kentucky",
-          "rank": "Ruby",
-          "rating": 1016,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "shooter",
-          "rank": "Ruby",
-          "rating": 1016,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "ZEUS",
-          "rank": "Ruby",
-          "rating": 1015,
-          "wins": 5,
-          "losses": 5,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "🧛🏼OverlordAlucard 🧛🏼",
-          "rank": "Amber",
-          "rating": 1015,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 1
-        },
-        {
-          "name": "Bandit",
-          "rank": "Ruby",
-          "rating": 1013,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": 1
-        },
-        {
-          "name": "Bruce",
-          "rank": "Amber",
-          "rating": 1011,
-          "wins": 1,
-          "losses": 1,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "Racist Guy Marv",
-          "rank": "Amber",
-          "rating": 1002,
-          "wins": 4,
-          "losses": 1,
-          "winPct": 80,
-          "streak": 0
-        },
-        {
-          "name": "Twizz",
-          "rank": "Amber",
-          "rating": 1000,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 0
-        },
-        {
-          "name": "cbass",
-          "rank": "Amber",
-          "rating": 986,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 0
-        },
-        {
-          "name": "Palsy",
-          "rank": "Ruby",
-          "rating": 985,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -1
-        },
-        {
-          "name": "Pizz",
-          "rank": "Ruby",
-          "rating": 984,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": 0
-        },
-        {
-          "name": "ImAkaii",
-          "rank": "Amber",
-          "rating": 984,
-          "wins": 3,
-          "losses": 3,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "JAYDREAMZ",
-          "rank": "Ruby",
-          "rating": 983,
-          "wins": 0,
-          "losses": 1,
-          "winPct": 0,
-          "streak": -1
-        },
-        {
-          "name": "Esca",
-          "rank": "Amethyst",
-          "rating": 969,
-          "wins": 0,
-          "losses": 2,
-          "winPct": 0,
-          "streak": 0
-        },
-        {
-          "name": "Brimington",
-          "rank": "Ruby",
-          "rating": 969,
-          "wins": 2,
-          "losses": 6,
-          "winPct": 25,
-          "streak": -4
-        },
-        {
-          "name": "Kain",
-          "rank": "Ruby",
-          "rating": 967,
-          "wins": 1,
-          "losses": 7,
-          "winPct": 12.5,
-          "streak": -1
-        },
-        {
-          "name": "SlayFS",
-          "rank": "Amber",
-          "rating": 951,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -1
-        }
-      ]
-    },
-    {
-      "key": "open-8s-queue",
-      "name": "Open 8s Queue",
+      "key": "in-queue",
+      "name": "in-queue",
       "legacy": false,
       "players": [
         {
@@ -2120,6 +1901,247 @@
           "losses": 3,
           "winPct": 25,
           "streak": 0
+        }
+      ]
+    },
+    {
+      "key": "in-queue-2",
+      "name": "in-queue",
+      "legacy": false,
+      "players": [
+        {
+          "name": "Inspire",
+          "rank": "Amber",
+          "rating": 1063,
+          "wins": 3,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 3
+        },
+        {
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1051,
+          "wins": 3,
+          "losses": 6,
+          "winPct": 33.3,
+          "streak": 1
+        },
+        {
+          "name": "⛧ Ƒëﾑr ツ",
+          "rank": "Ruby",
+          "rating": 1046,
+          "wins": 6,
+          "losses": 3,
+          "winPct": 66.7,
+          "streak": 2
+        },
+        {
+          "name": "Cam",
+          "rank": "Amber",
+          "rating": 1033,
+          "wins": 4,
+          "losses": 2,
+          "winPct": 66.7,
+          "streak": 0
+        },
+        {
+          "name": "Senz",
+          "rank": "Amber",
+          "rating": 1033,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "Faker (Bottzy)",
+          "rank": "Ruby",
+          "rating": 1030,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "Tanji",
+          "rank": "Amber",
+          "rating": 1029,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "2elite",
+          "rank": "Amber",
+          "rating": 1028,
+          "wins": 4,
+          "losses": 3,
+          "winPct": 57.1,
+          "streak": -1
+        },
+        {
+          "name": "Fly Tendencies",
+          "rank": "Amber",
+          "rating": 1017,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "Kentucky",
+          "rank": "Ruby",
+          "rating": 1016,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "shooter",
+          "rank": "Ruby",
+          "rating": 1016,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "ZEUS",
+          "rank": "Ruby",
+          "rating": 1015,
+          "wins": 5,
+          "losses": 5,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "🧛🏼OverlordAlucard 🧛🏼",
+          "rank": "Amber",
+          "rating": 1015,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 1
+        },
+        {
+          "name": "Bandit",
+          "rank": "Ruby",
+          "rating": 1013,
+          "wins": 1,
+          "losses": 2,
+          "winPct": 33.3,
+          "streak": 1
+        },
+        {
+          "name": "Bruce",
+          "rank": "Amber",
+          "rating": 1011,
+          "wins": 1,
+          "losses": 1,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "Racist Guy Marv",
+          "rank": "Amber",
+          "rating": 1002,
+          "wins": 4,
+          "losses": 1,
+          "winPct": 80,
+          "streak": 0
+        },
+        {
+          "name": "Twizz",
+          "rank": "Amber",
+          "rating": 1000,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 0
+        },
+        {
+          "name": "cbass",
+          "rank": "Amber",
+          "rating": 986,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 0
+        },
+        {
+          "name": "Palsy",
+          "rank": "Ruby",
+          "rating": 985,
+          "wins": 0,
+          "losses": 3,
+          "winPct": 0,
+          "streak": -1
+        },
+        {
+          "name": "Pizz",
+          "rank": "Ruby",
+          "rating": 984,
+          "wins": 1,
+          "losses": 2,
+          "winPct": 33.3,
+          "streak": 0
+        },
+        {
+          "name": "ImAkaii",
+          "rank": "Amber",
+          "rating": 984,
+          "wins": 3,
+          "losses": 3,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "JAYDREAMZ",
+          "rank": "Ruby",
+          "rating": 983,
+          "wins": 0,
+          "losses": 1,
+          "winPct": 0,
+          "streak": -1
+        },
+        {
+          "name": "Esca",
+          "rank": "Amethyst",
+          "rating": 969,
+          "wins": 0,
+          "losses": 2,
+          "winPct": 0,
+          "streak": 0
+        },
+        {
+          "name": "Brimington",
+          "rank": "Ruby",
+          "rating": 969,
+          "wins": 2,
+          "losses": 6,
+          "winPct": 25,
+          "streak": -4
+        },
+        {
+          "name": "Kain",
+          "rank": "Ruby",
+          "rating": 967,
+          "wins": 1,
+          "losses": 7,
+          "winPct": 12.5,
+          "streak": -1
+        },
+        {
+          "name": "SlayFS",
+          "rank": "Amber",
+          "rating": 951,
+          "wins": 0,
+          "losses": 3,
+          "winPct": 0,
+          "streak": -1
         }
       ]
     }
