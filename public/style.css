@@ -517,3 +517,17 @@ html:not(.js) .settings .game-tabs { display: none; }
 @media (max-width: 1180px) {
   .topbar-inner > .btn { display: none; } /* Discord button: the invite is still on Home and Join */
 }
+
+/* Header: full-width bar, menu scales with the screen so every link is always
+   visible (no scrolling/clipping). Higher specificity overrides earlier tweaks. */
+.topbar .topbar-inner { width: calc(100% - 48px); max-width: 1760px; gap: clamp(10px, 1.2vw, 24px); }
+.topbar .nav { overflow: visible; flex: 1 1 auto; min-width: 0; justify-content: center; gap: 0; }
+.topbar .nav a { padding: 8px clamp(5px, 0.75vw, 14px) 5px; font-size: clamp(14px, 1.22vw, 19px); }
+.topbar .brand small { display: block; }
+@media (max-width: 1250px) { .topbar .brand small { display: none; } }
+.topbar .topbar-inner > .btn { display: inline-flex; }
+@media (max-width: 980px) { .topbar .topbar-inner > .btn { display: none; } }
+@media (max-width: 720px) {
+  .topbar .topbar-inner { width: calc(100% - 24px); }
+  .topbar .nav { overflow-x: auto; justify-content: flex-start; }
+}
