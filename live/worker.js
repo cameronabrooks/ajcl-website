@@ -115,14 +115,20 @@ export class League {
       if (text.length > 1000) return new Response('{"error":"too large"}', { status: 413, headers });
       let body;
       try { body = JSON.parse(text); } catch { return new Response('{"error":"bad json"}', { status: 400, headers }); }
+      // Match actions: picks/bans (sides, map), scheduling (propose, confirm, reschedule),
+      // results (report) and staff fixes. The bot checks who may do each one.
+      const OPS = ['sides', 'map', 'propose', 'confirm', 'reschedule', 'report', 'set_time', 'set_deadline', 'reset_pb', 'start_pb'];
       const op = body && body.op, match = String((body && body.match) || '').slice(0, 120);
-      if (!match || (op !== 'sides' && op !== 'map')) return new Response('{"error":"bad request"}', { status: 400, headers });
+      if (!match || !OPS.includes(op)) return new Response('{"error":"bad request"}', { status: 400, headers });
       if (op === 'sides' && body.side !== 'a' && body.side !== 'b') return new Response('{"error":"bad side"}', { status: 400, headers });
       // One pending request per person at a time.
       if (actions.some(x => x.status === 'pending' && x.type === 'pb' && x.by === userId)) return new Response('{"error":"still working on your last choice"}', { status: 409, headers });
       const action = { id: crypto.randomUUID(), type: 'pb', op, match, by: userId, at: Date.now(), status: 'pending' };
       if (op === 'sides') action.side = body.side;
-      else action.map = String(body.map || '').slice(0, 60);
+      else if (op === 'map') action.map = String(body.map || '').slice(0, 60);
+      for (const k of ['date', 'time', 'tz', 'scoreA', 'scoreB', 'forfeit', 'restart']) {
+        if (body[k] != null) action[k] = typeof body[k] === 'boolean' ? body[k] : String(body[k]).slice(0, 40);
+      }
       actions.push(action);
       await this.state.storage.put('actions', actions.slice(-50));
       return new Response(JSON.stringify({ ok: true, id: action.id }), { headers });

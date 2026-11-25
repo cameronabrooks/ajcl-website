@@ -737,3 +737,23 @@ button.btn { font: inherit; cursor: pointer; }
   50%      { filter: drop-shadow(0 18px 50px rgba(63,182,240,.30)) drop-shadow(0 0 24px rgba(63,182,240,.28)) brightness(1.05); }
 }
 @media (prefers-reduced-motion: reduce) { .hero-logo { animation: none; } }
+
+/* Match page: match tools for GMs and staff */
+.mt-panel { margin-bottom: 16px; border-color: rgba(63,182,240,.45); }
+.mt-panel[hidden] { display: none; }
+.mt-status { margin: 4px 0 10px; }
+.mt-form { margin: 0 0 10px; }
+.mt-form h5 { margin: 8px 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.mt-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.mt-row input, .mt-row select { background: var(--bg-2); color: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; font: inherit; font-size: 13px; color-scheme: dark; }
+.mt-row input[type=number] { width: 58px; text-align: center; }
+.mt-score label { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.mt-check { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; }
+.mt-staff { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 4px; }
+.mt-staff[hidden] { display: none; }
+.mt-panel button.btn { color: var(--text); background: var(--panel-2); font: inherit; cursor: pointer; }
+.mt-panel button.btn-gold { color: #1f0f05; background: linear-gradient(180deg, var(--gold-2), var(--gold)); }
+.mt-panel button.btn-danger { color: #ff8a8a; }
+.mt-out { margin: 6px 0 0; font-size: 13px; }
+.mt-out.is-ok { color: #3ecf8e; }
+.mt-out.is-err { color: #ff6b6b; }

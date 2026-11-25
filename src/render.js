@@ -280,6 +280,40 @@ function matchPage(league, m, c) {
     </div>`;
   }
 
+  // Match tools (GMs of these two teams + staff; the bot checks every action):
+  // scheduling, result reporting and staff fixes, same as the Discord buttons/commands.
+  let tools = '';
+  if (m.key && m.sched) {
+    const sc = m.sched, st = sc.status;
+    const name = slug => (slug === m.home.slug ? m.home.name : m.away.name);
+    const tzSelect = `<select name="tz"><option value="ET">Eastern (ET)</option><option value="CT">Central (CT)</option><option value="MT">Mountain (MT)</option><option value="PT">Pacific (PT)</option></select>`;
+    const status = st === 'completed' ? 'Final — result reported.'
+      : st === 'confirmed' || st === 'auto_scheduled' ? `Scheduled${m.time ? ` for ${timeTag(m.time)}` : ''}${st === 'auto_scheduled' ? ' (auto-scheduled)' : ''}.`
+      : sc.proposal ? `Proposed: ${timeTag(sc.proposal.at)} by ${sc.proposal.by === 'staff' ? 'staff' : esc(name(sc.proposal.by === 'home' ? m.home.slug : m.away.slug))} — waiting on the other team to confirm.`
+      : `Not scheduled yet${sc.deadline ? ` — deadline ${timeTag(sc.deadline)}` : ''}.`;
+    const canSchedule = st === 'awaiting_schedule' || st === 'proposed';
+    const canReport = st === 'confirmed' || st === 'auto_scheduled';
+    tools = `
+    <div class="panel mt-panel" data-pb-controls data-mt data-match="${esc(m.key)}" data-side-a="${esc(m.sideA)}" data-teams="${esc(m.home.slug)},${esc(m.away.slug)}" hidden>
+      <p class="eyebrow">Match tools <span class="muted">· GMs &amp; staff</span></p>
+      <p class="mt-status">${status}</p>
+      ${canSchedule ? `<form class="mt-form" data-op="propose"><h5>Propose a time</h5>
+        <div class="mt-row"><input type="date" name="date" required><input type="time" name="time" required>${tzSelect}<button class="btn btn-sm btn-gold" value="propose">Propose</button></div></form>` : ''}
+      ${canSchedule && sc.proposal ? `<form class="mt-form" data-op="confirm"><div class="mt-row"><button class="btn btn-sm" value="confirm" data-confirm="Confirm this time for both teams?">Confirm proposed time</button></div></form>` : ''}
+      ${st === 'confirmed' ? `<form class="mt-form" data-op="reschedule"><div class="mt-row"><button class="btn btn-sm" value="reschedule" data-confirm="Put this match back up for scheduling?">Reschedule</button></div></form>` : ''}
+      ${canReport ? `<form class="mt-form" data-op="report"><h5>Report the result</h5>
+        <div class="mt-row mt-score"><label>${esc(m.home.abbr)} <input type="number" name="home" min="0" max="9" required></label><span class="muted">–</span><label><input type="number" name="away" min="0" max="9" required> ${esc(m.away.abbr)}</label>
+        <label class="mt-check"><input type="checkbox" name="forfeit"> Forfeit</label><button class="btn btn-sm btn-gold" value="report" data-confirm="Report this result? It posts in Discord and closes the match.">Report</button></div></form>` : ''}
+      <div class="mt-staff" data-mt-staff hidden>
+        <h5>Staff</h5>
+        <form class="mt-form" data-op="set_time"><div class="mt-row"><input type="date" name="date" required><input type="time" name="time" required>${tzSelect}<button class="btn btn-sm" value="set_time" data-confirm="Set this as the confirmed match time?">Set match time</button></div></form>
+        ${st !== 'completed' ? `<form class="mt-form" data-op="set_deadline"><div class="mt-row"><input type="date" name="date" required><button class="btn btn-sm" value="set_deadline">Set scheduling deadline</button></div></form>` : ''}
+        <form class="mt-form" data-op="reset_pb"><div class="mt-row"><label class="mt-check"><input type="checkbox" name="restart" checked> Restart side selection</label><button class="btn btn-sm btn-danger" value="reset_pb" data-confirm="Reset picks & bans for this match?">Reset picks/bans</button></div></form>
+        ${st === 'confirmed' || st === 'auto_scheduled' ? `<form class="mt-form" data-op="start_pb"><div class="mt-row"><button class="btn btn-sm" value="start_pb">Re-send Team A/B choice</button></div></form>` : ''}
+      </div>
+    </div>`;
+  }
+
   // Picks & bans
   let pb = '';
   if (m.picksBans) {
@@ -318,9 +352,53 @@ function matchPage(league, m, c) {
 </div></section>
 <section class="wrap section mp-layout">
   <div>${pb}</div>
-  <div>${caster}</div>
+  <div>${tools}${caster}</div>
 </section>`;
   const script = `<script>
+(function () {
+  // Match tools: staff-only part, and sending the forms to the bot.
+  var staff = document.documentElement.classList.contains('is-staff');
+  function staffParts() { document.querySelectorAll('[data-mt-staff]').forEach(function (el) { el.hidden = !staff; }); }
+  document.addEventListener('ajcl:staff', function (e) { staff = !!e.detail; staffParts(); });
+  document.addEventListener('ajcl:league', function () { setTimeout(staffParts, 0); });
+  staffParts();
+  document.addEventListener('submit', async function (e) {
+    var form = e.target.closest && e.target.closest('form.mt-form');
+    if (!form) return;
+    e.preventDefault();
+    var box = form.closest('[data-mt]');
+    var btn = e.submitter || form.querySelector('button');
+    if (btn && btn.dataset.confirm && !confirm(btn.dataset.confirm)) return;
+    var LIVE = (document.querySelector('meta[name="ajcl-live-url"]') || {}).content || '';
+    var tok = null; try { var t = JSON.parse(localStorage.getItem('ajcl_token')); tok = t && t.exp > Date.now() ? t.t : null; } catch (x) {}
+    var out = form.querySelector('.mt-out') || form.appendChild(Object.assign(document.createElement('p'), { className: 'mt-out muted' }));
+    if (!tok) { out.textContent = 'Log in with Discord first.'; return; }
+    var body = { op: form.dataset.op, match: box.dataset.match };
+    new FormData(form).forEach(function (v, k) { body[k] = v; });
+    form.querySelectorAll('input[type=checkbox]').forEach(function (c) { body[c.name] = c.checked; });
+    if (body.op === 'report') {
+      // Scores are typed per team; the bot wants them as its Team A / Team B.
+      var homeIsA = box.dataset.sideA === 'home';
+      body.scoreA = homeIsA ? body.home : body.away; body.scoreB = homeIsA ? body.away : body.home;
+      delete body.home; delete body.away;
+    }
+    form.querySelectorAll('button').forEach(function (b) { b.disabled = true; });
+    out.className = 'mt-out muted'; out.textContent = 'Sending to the bot…';
+    try {
+      var r = await fetch(LIVE + '/private/pb-action', { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      var d = await r.json().catch(function () { return {}; });
+      if (!r.ok) { out.className = 'mt-out is-err'; out.textContent = r.status === 401 ? 'Your Discord login expired. Log out and back in.' : (d.error || 'Could not send it.'); return; }
+      for (var i = 0; i < 20; i++) {
+        await new Promise(function (res) { setTimeout(res, 2000); });
+        var s = await fetch(LIVE + '/private/pb-action?id=' + encodeURIComponent(d.id), { headers: { Authorization: 'Bearer ' + tok }, cache: 'no-store' }).then(function (x) { return x.json(); }).catch(function () { return {}; });
+        if (s.status && s.status !== 'pending') { out.className = 'mt-out ' + (s.status === 'done' ? 'is-ok' : 'is-err'); out.textContent = s.message || s.status; return; }
+      }
+      out.className = 'mt-out is-err'; out.textContent = 'The bot has not picked it up yet. It may be restarting; try again in a minute.';
+    } catch (err) { out.className = 'mt-out is-err'; out.textContent = 'Could not reach the server. Try again.'; }
+    finally { form.querySelectorAll('button').forEach(function (b) { b.disabled = false; }); }
+  });
+})();
+</script><script>
 (function () {
   var LIVE = (document.querySelector('meta[name="ajcl-live-url"]') || {}).content || '';
   var isStaff = document.documentElement.classList.contains('is-staff');
