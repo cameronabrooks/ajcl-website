@@ -328,6 +328,12 @@ function home(league, c) {
   <div><strong>${league.weeks.length}</strong><span>Regular season weeks</span></div>
   <div><strong>${played}</strong><span>Series played</span></div>
 </section>
+${(league.staff || []).some(g => (g.members || []).length) ? `
+<section class="wrap section">
+  <div class="section-head"><h2>Meet Our Staff</h2><a href="${u('/staff/')}">Staff page →</a></div>
+  <p class="muted staff-intro">The people who keep Average Joe's CoD League running.</p>
+  ${staffGroups(league)}
+</section>` : ''}
 ${(league.announcements || []).length ? `
 <section class="wrap section">
   <div class="section-head"><h2>Announcements</h2><a href="${u('/announcements/')}">All announcements →</a></div>
@@ -369,12 +375,7 @@ ${hasPowerRankings(league) ? `
     </div>
   </div>
 </section>
-${(league.staff || []).some(g => (g.members || []).length) ? `
-<section class="wrap section">
-  <div class="section-head"><h2>Meet Our Staff</h2><a href="${u('/staff/')}">Staff page →</a></div>
-  <p class="muted staff-intro">The people who keep Average Joe's CoD League running.</p>
-  ${staffGroups(league)}
-</section>` : ''}`;
+`;
 
   return layout({ title: '', active: 'home', body, c, page: 'home' });
 }
