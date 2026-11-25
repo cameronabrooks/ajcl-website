@@ -888,7 +888,9 @@ function staffPage(league, c) {
   function ago(ts) { var m = Math.max(0, Math.round((Date.now() - ts) / 60000)); if (m < 1) return 'just now'; if (m < 60) return m + 'm ago'; var h = Math.round(m / 60); if (h < 48) return h + 'h ago'; return Math.round(h / 24) + 'd ago'; }
   function show(html, visible) { box.hidden = !visible; var body = box.querySelector('[data-modmail-body]'); if (body) body.innerHTML = html; }
   async function load() {
-    var token = window.ajclDiscordToken && window.ajclDiscordToken();
+    // Read the saved Discord login directly (account.js loads later, with defer).
+    var token = null;
+    try { var st = JSON.parse(localStorage.getItem('ajcl_token')); token = st && st.exp > Date.now() ? st.t : null; } catch (e) {}
     if (!LIVE) return show('', false);
     if (!token) return show('<p class="muted">Staff: log in with Discord (top right) to see open modmail tickets. If you logged in before this was added, log out and back in once.</p>', true);
     try {
@@ -913,8 +915,9 @@ function staffPage(league, c) {
       show('<p class="muted">Couldn\\'t load modmail right now. It will retry in a moment.</p>', true);
     }
   }
-  load();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', load); else load();
   setInterval(load, 30000);
+  addEventListener('storage', function (e) { if (e.key === 'ajcl_token') load(); });
 })();
 </script>`;
   const body = pageHead('League', 'Staff', "The people who run Average Joe's CoD League.") + `
