@@ -299,6 +299,10 @@ function home(league, c) {
   const week = currentWeek(league);
   const weekMatches = league.matches.filter(m => m.week === week);
   const played = league.matches.filter(m => m.status === 'final').length;
+  // Most recently reported finals first (falls back to latest week), up to 6.
+  const latestResults = league.matches.filter(m => m.status === 'final' && m.result)
+    .sort((x, y) => (y.result.reportedAt || 0) - (x.result.reportedAt || 0) || y.week - x.week)
+    .slice(0, 6);
   const body = `
 <section class="hero">
   <div class="wrap hero-inner">
@@ -329,6 +333,13 @@ ${(league.announcements || []).length ? `
   <div class="section-head"><h2>Announcements</h2><a href="${u('/announcements/')}">All announcements →</a></div>
   <div class="announce-list">${league.announcements.slice(0, 3).map(a => announcementCard(a, { clamp: true })).join('')}</div>
 </section>` : ''}
+
+<section class="wrap section">
+  <div class="section-head"><h2>Latest Results</h2><a href="${u('/schedule/')}">All results →</a></div>
+  ${latestResults.length
+    ? `<div class="match-grid">${latestResults.map(m => matchCard(m)).join('')}</div>`
+    : '<div class="panel"><p class="muted" style="margin:0">No results yet — final scores will show here as matches are reported.</p></div>'}
+</section>
 
 <section class="wrap section">
   <div class="section-head"><h2>Week ${week} Matchups</h2><a href="${u('/schedule/')}#week-${week}">Full schedule →</a></div>
