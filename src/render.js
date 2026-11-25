@@ -421,7 +421,7 @@ function mapsetPage(league, m, c) {
 <style>
   html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
   main { position: fixed; inset: 0; }
-  .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; background: url('${u('/mapset/template-clean.webp')}') center / cover no-repeat;
+  .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; background: url('${u('/mapset/template-clean.webp')}?v=${CSS_VERSION}') center / cover no-repeat;
     font-family: Teko, 'Arial Narrow', sans-serif; color: #a8f57f; text-transform: uppercase; }
   /* Map pictures over the template's five sky panels (same slant). */
   .ms-panel { position: absolute; top: 50px; width: 290px; height: 512px; overflow: hidden;
