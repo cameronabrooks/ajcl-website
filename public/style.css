@@ -631,7 +631,7 @@ html.is-staff .staff-only { display: flex !important; }
 .staff-toast.is-err { border-color: #ff5a5a; }
 
 /* 8s: recent results per queue */
-.qr-title { margin-top: 26px; }
+.qr-title { margin-top: 0; }
 .qr-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
 .qr-card { display: grid; gap: 10px; }
 .qr-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -646,3 +646,8 @@ html.is-staff .staff-only { display: flex !important; }
 .qr-team li em { font-style: normal; font-weight: 600; }
 .pill-win { background: rgba(62,207,142,.15); color: #3ecf8e; border-color: rgba(62,207,142,.4); }
 .qr-none { margin-top: 18px; }
+
+.lb-panel .lb-title { margin-top: 28px; }
+.qr-more { margin-top: 12px; }
+.qr-more summary { cursor: pointer; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+.qr-none { margin: 0 0 8px; }

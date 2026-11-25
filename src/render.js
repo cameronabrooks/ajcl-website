@@ -821,15 +821,21 @@ function eightsPage(league, c) {
       <div class="qr-teams">${side('🔵 Team 1', r.teamA, r.winner === 'A')}${side('🔴 Team 2', r.teamB, r.winner === 'B')}</div>
     </article>`;
   }).join('');
-  const results = b => (b.results || []).length
-    ? `<h3 class="sub qr-title">${esc(b.name)} results <span class="muted">· last ${b.results.length}</span></h3><div class="qr-list">${resultRows(b.results)}</div>`
-    : `<p class="muted qr-none">No finished ${esc(b.name)} matches recorded yet.</p>`;
+  // Newest 6 up front; the rest behind a "Show all" toggle so the leaderboard stays close.
+  const results = b => {
+    const list = b.results || [];
+    if (!list.length) return `<p class="muted qr-none">No finished ${esc(b.name)} matches recorded yet.</p>`;
+    const more = list.slice(6);
+    return `<h3 class="sub qr-title">${esc(b.name)} results <span class="muted">· ${list.length} match${list.length === 1 ? '' : 'es'}</span></h3>
+    <div class="qr-list">${resultRows(list.slice(0, 6))}</div>
+    ${more.length ? `<details class="qr-more"><summary>Show all ${list.length} results</summary><div class="qr-list">${resultRows(more)}</div></details>` : ''}`;
+  };
   const leaderboard = boards.length ? `
   ${boards.length > 1 ? `<div class="tabs lb-tabs">${boards.map(b => `<a class="tab" href="#lb-${esc(b.key)}" data-lb-tab="${esc(b.key)}">${esc(b.name)}</a>`).join('')}</div>` : ''}
   ${boards.map(b => `<div class="lb-panel" data-lb="${esc(b.key)}">
-    <h3 class="sub">${esc(b.name)} leaderboard <span class="muted">· top ${b.players.length} by MMR</span></h3>
-    ${table(b.players)}
     ${results(b)}
+    <h3 class="sub lb-title">${esc(b.name)} leaderboard <span class="muted">· top ${b.players.length} by MMR</span></h3>
+    ${table(b.players)}
   </div>`).join('')}` : '<p class="muted">No ratings yet — play some 8s matches in the AJCL Discord!</p>';
   // Tab switching; delegated + re-applied after live updates re-render the page.
   const script = boards.length > 1 ? `<script>
