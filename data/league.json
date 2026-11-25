@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795565353938,
+  "generatedAt": 1795565415776,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1155,17 +1155,17 @@
   "powerRankings": {
     "Premier": {
       "status": "open",
-      "voters": 3,
+      "voters": 4,
       "postedAt": 1795565206281,
       "teams": [
         {
           "team": "atl",
-          "points": 13,
-          "firsts": 2
+          "points": 18,
+          "firsts": 3
         },
         {
           "team": "hal",
-          "points": 8,
+          "points": 11,
           "firsts": 1
         },
         {
@@ -1179,13 +1179,13 @@
           "firsts": 0
         },
         {
-          "team": "tor",
+          "team": "syr",
           "points": 1,
           "firsts": 0
         },
         {
-          "team": "syr",
-          "points": 0,
+          "team": "tor",
+          "points": 1,
           "firsts": 0
         },
         {
@@ -1202,13 +1202,13 @@
     },
     "Academy": {
       "status": "open",
-      "voters": 4,
+      "voters": 5,
       "postedAt": 1795565229593,
       "teams": [
         {
           "team": "ros",
-          "points": 11,
-          "firsts": 2
+          "points": 16,
+          "firsts": 3
         },
         {
           "team": "omh",
@@ -1217,6 +1217,11 @@
         },
         {
           "team": "nor",
+          "points": 6,
+          "firsts": 0
+        },
+        {
+          "team": "mis",
           "points": 6,
           "firsts": 0
         },
@@ -1231,13 +1236,8 @@
           "firsts": 0
         },
         {
-          "team": "mis",
-          "points": 3,
-          "firsts": 0
-        },
-        {
           "team": "mrd",
-          "points": 0,
+          "points": 1,
           "firsts": 0
         },
         {
