@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795582770860,
+  "generatedAt": 1795582943766,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -245,15 +245,15 @@
         "nonPlaying": [],
         "ranks": {
           "Zylixz": "Kyanite",
-          "BrooksySZN": "Amethyst",
           "Luke": "Amethyst",
-          "Hunna": "Amethyst"
+          "Hunna": "Amethyst",
+          "BrooksySZN": "Amethyst"
         },
         "links": {
-          "BrooksySZN": "brooksyszn",
           "Luke": "luke",
           "Zylixz": "zylixz",
-          "Hunna": "hunna"
+          "Hunna": "hunna",
+          "BrooksySZN": "brooksyszn"
         }
       }
     },
@@ -1448,249 +1448,8 @@
   ],
   "eightsLeaderboards": [
     {
-      "key": "academy-8s-queue",
-      "name": "Academy 8s Queue",
-      "legacy": false,
-      "players": [
-        {
-          "name": "Inspire",
-          "rank": "Amber",
-          "rating": 1063,
-          "wins": 3,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 3
-        },
-        {
-          "name": "MaRsH313",
-          "rank": "Ruby",
-          "rating": 1051,
-          "wins": 3,
-          "losses": 6,
-          "winPct": 33.3,
-          "streak": 1
-        },
-        {
-          "name": "⛧ Ƒëﾑr ツ",
-          "rank": "Ruby",
-          "rating": 1046,
-          "wins": 6,
-          "losses": 3,
-          "winPct": 66.7,
-          "streak": 2
-        },
-        {
-          "name": "Cam",
-          "rank": "Amber",
-          "rating": 1033,
-          "wins": 4,
-          "losses": 2,
-          "winPct": 66.7,
-          "streak": 0
-        },
-        {
-          "name": "Senz",
-          "rank": "Amber",
-          "rating": 1033,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "Faker (Bottzy)",
-          "rank": "Ruby",
-          "rating": 1030,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
-          "name": "Tanji",
-          "rank": "Amber",
-          "rating": 1029,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
-          "name": "2elite",
-          "rank": "Amber",
-          "rating": 1028,
-          "wins": 4,
-          "losses": 3,
-          "winPct": 57.1,
-          "streak": -1
-        },
-        {
-          "name": "Fly Tendencies",
-          "rank": "Amber",
-          "rating": 1017,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "Kentucky",
-          "rank": "Ruby",
-          "rating": 1016,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "shooter",
-          "rank": "Ruby",
-          "rating": 1016,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
-        },
-        {
-          "name": "ZEUS",
-          "rank": "Ruby",
-          "rating": 1015,
-          "wins": 5,
-          "losses": 5,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "🧛🏼OverlordAlucard 🧛🏼",
-          "rank": "Amber",
-          "rating": 1015,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 1
-        },
-        {
-          "name": "Bandit",
-          "rank": "Ruby",
-          "rating": 1013,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": 1
-        },
-        {
-          "name": "Bruce",
-          "rank": "Amber",
-          "rating": 1011,
-          "wins": 1,
-          "losses": 1,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "Racist Guy Marv",
-          "rank": "Amber",
-          "rating": 1002,
-          "wins": 4,
-          "losses": 1,
-          "winPct": 80,
-          "streak": 0
-        },
-        {
-          "name": "Twizz",
-          "rank": "Amber",
-          "rating": 1000,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 0
-        },
-        {
-          "name": "cbass",
-          "rank": "Amber",
-          "rating": 986,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 0
-        },
-        {
-          "name": "Palsy",
-          "rank": "Ruby",
-          "rating": 985,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -1
-        },
-        {
-          "name": "Pizz",
-          "rank": "Ruby",
-          "rating": 984,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": 0
-        },
-        {
-          "name": "ImAkaii",
-          "rank": "Amber",
-          "rating": 984,
-          "wins": 3,
-          "losses": 3,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "JAYDREAMZ",
-          "rank": "Ruby",
-          "rating": 983,
-          "wins": 0,
-          "losses": 1,
-          "winPct": 0,
-          "streak": -1
-        },
-        {
-          "name": "Esca",
-          "rank": "Amethyst",
-          "rating": 969,
-          "wins": 0,
-          "losses": 2,
-          "winPct": 0,
-          "streak": 0
-        },
-        {
-          "name": "Brimington",
-          "rank": "Ruby",
-          "rating": 969,
-          "wins": 2,
-          "losses": 6,
-          "winPct": 25,
-          "streak": -4
-        },
-        {
-          "name": "Kain",
-          "rank": "Ruby",
-          "rating": 967,
-          "wins": 1,
-          "losses": 7,
-          "winPct": 12.5,
-          "streak": -1
-        },
-        {
-          "name": "SlayFS",
-          "rank": "Amber",
-          "rating": 951,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -1
-        }
-      ]
-    },
-    {
-      "key": "open-8s-queue",
-      "name": "Open 8s Queue",
+      "key": "in-queue",
+      "name": "in-queue",
       "legacy": false,
       "players": [
         {
@@ -2144,6 +1903,247 @@
           "streak": 0
         }
       ]
+    },
+    {
+      "key": "in-queue-2",
+      "name": "in-queue",
+      "legacy": false,
+      "players": [
+        {
+          "name": "Inspire",
+          "rank": "Amber",
+          "rating": 1063,
+          "wins": 3,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 3
+        },
+        {
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1051,
+          "wins": 3,
+          "losses": 6,
+          "winPct": 33.3,
+          "streak": 1
+        },
+        {
+          "name": "⛧ Ƒëﾑr ツ",
+          "rank": "Ruby",
+          "rating": 1046,
+          "wins": 6,
+          "losses": 3,
+          "winPct": 66.7,
+          "streak": 2
+        },
+        {
+          "name": "Cam",
+          "rank": "Amber",
+          "rating": 1033,
+          "wins": 4,
+          "losses": 2,
+          "winPct": 66.7,
+          "streak": 0
+        },
+        {
+          "name": "Senz",
+          "rank": "Amber",
+          "rating": 1033,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "Faker (Bottzy)",
+          "rank": "Ruby",
+          "rating": 1030,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "Tanji",
+          "rank": "Amber",
+          "rating": 1029,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "2elite",
+          "rank": "Amber",
+          "rating": 1028,
+          "wins": 4,
+          "losses": 3,
+          "winPct": 57.1,
+          "streak": -1
+        },
+        {
+          "name": "Fly Tendencies",
+          "rank": "Amber",
+          "rating": 1017,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "Kentucky",
+          "rank": "Ruby",
+          "rating": 1016,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "shooter",
+          "rank": "Ruby",
+          "rating": 1016,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 0
+        },
+        {
+          "name": "ZEUS",
+          "rank": "Ruby",
+          "rating": 1015,
+          "wins": 5,
+          "losses": 5,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "🧛🏼OverlordAlucard 🧛🏼",
+          "rank": "Amber",
+          "rating": 1015,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 1
+        },
+        {
+          "name": "Bandit",
+          "rank": "Ruby",
+          "rating": 1013,
+          "wins": 1,
+          "losses": 2,
+          "winPct": 33.3,
+          "streak": 1
+        },
+        {
+          "name": "Bruce",
+          "rank": "Amber",
+          "rating": 1011,
+          "wins": 1,
+          "losses": 1,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "Racist Guy Marv",
+          "rank": "Amber",
+          "rating": 1002,
+          "wins": 4,
+          "losses": 1,
+          "winPct": 80,
+          "streak": 0
+        },
+        {
+          "name": "Twizz",
+          "rank": "Amber",
+          "rating": 1000,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 0
+        },
+        {
+          "name": "cbass",
+          "rank": "Amber",
+          "rating": 986,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 0
+        },
+        {
+          "name": "Palsy",
+          "rank": "Ruby",
+          "rating": 985,
+          "wins": 0,
+          "losses": 3,
+          "winPct": 0,
+          "streak": -1
+        },
+        {
+          "name": "Pizz",
+          "rank": "Ruby",
+          "rating": 984,
+          "wins": 1,
+          "losses": 2,
+          "winPct": 33.3,
+          "streak": 0
+        },
+        {
+          "name": "ImAkaii",
+          "rank": "Amber",
+          "rating": 984,
+          "wins": 3,
+          "losses": 3,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "JAYDREAMZ",
+          "rank": "Ruby",
+          "rating": 983,
+          "wins": 0,
+          "losses": 1,
+          "winPct": 0,
+          "streak": -1
+        },
+        {
+          "name": "Esca",
+          "rank": "Amethyst",
+          "rating": 969,
+          "wins": 0,
+          "losses": 2,
+          "winPct": 0,
+          "streak": 0
+        },
+        {
+          "name": "Brimington",
+          "rank": "Ruby",
+          "rating": 969,
+          "wins": 2,
+          "losses": 6,
+          "winPct": 25,
+          "streak": -4
+        },
+        {
+          "name": "Kain",
+          "rank": "Ruby",
+          "rating": 967,
+          "wins": 1,
+          "losses": 7,
+          "winPct": 12.5,
+          "streak": -1
+        },
+        {
+          "name": "SlayFS",
+          "rank": "Amber",
+          "rating": 951,
+          "wins": 0,
+          "losses": 3,
+          "winPct": 0,
+          "streak": -1
+        }
+      ]
     }
   ],
   "announcements": [
@@ -2538,13 +2538,6 @@
         "player"
       ]
     },
-    "8973811321d65bf3b673": {
-      "team": "tor",
-      "name": "BrooksySZN",
-      "roles": [
-        "player"
-      ]
-    },
     "6a5c63a901b429734107": {
       "team": "tor",
       "name": "Luke",
@@ -2563,6 +2556,13 @@
     "3aad8d4d163311f30e8e": {
       "team": "tor",
       "name": "Hunna",
+      "roles": [
+        "player"
+      ]
+    },
+    "8973811321d65bf3b673": {
+      "team": "tor",
+      "name": "BrooksySZN",
       "roles": [
         "player"
       ]
@@ -2840,6 +2840,7 @@
     {
       "slug": "bblzaazaa",
       "name": "BBLZaaZaa",
+      "discordId": "473617086808326145",
       "team": "atl",
       "roles": [
         "player",
@@ -2881,6 +2882,7 @@
     {
       "slug": "xerxes",
       "name": "Xerxes",
+      "discordId": "1028141588641239110",
       "team": "atl",
       "roles": [
         "player"
@@ -2920,6 +2922,7 @@
     {
       "slug": "reddaza",
       "name": "Reddaza",
+      "discordId": "147141401010765824",
       "team": "atl",
       "roles": [
         "player"
@@ -2929,6 +2932,7 @@
     {
       "slug": "speiddyy",
       "name": "Speiddyy",
+      "discordId": "642876247072047117",
       "team": "atl",
       "roles": [
         "player"
@@ -2938,6 +2942,7 @@
     {
       "slug": "lil-ceezars",
       "name": "Lil'Ceezars",
+      "discordId": "633101005139083264",
       "team": "car",
       "roles": [
         "player",
@@ -2971,6 +2976,7 @@
     {
       "slug": "ny",
       "name": "Ny",
+      "discordId": "397545087317573632",
       "team": "car",
       "roles": [
         "player"
@@ -3010,6 +3016,7 @@
     {
       "slug": "zuko",
       "name": "Zuko",
+      "discordId": "1328219896609243253",
       "team": "car",
       "roles": [
         "player"
@@ -3019,6 +3026,7 @@
     {
       "slug": "007-quay",
       "name": "007 Quay",
+      "discordId": "370917192738537472",
       "team": "car",
       "roles": [
         "player"
@@ -3028,6 +3036,7 @@
     {
       "slug": "butchiehof",
       "name": "butchiehof",
+      "discordId": "534254293000126465",
       "team": "syr",
       "roles": [
         "player",
@@ -3060,6 +3069,7 @@
     {
       "slug": "crouse",
       "name": "Crouse",
+      "discordId": "255847970702884866",
       "team": "syr",
       "roles": [
         "player"
@@ -3091,6 +3101,7 @@
     {
       "slug": "loyal",
       "name": "Loyal",
+      "discordId": "320016996756357122",
       "team": "syr",
       "roles": [
         "player"
@@ -3122,6 +3133,7 @@
     {
       "slug": "nitsua",
       "name": "nitsua",
+      "discordId": "1478045570206666925",
       "team": "syr",
       "roles": [
         "player"
@@ -3161,6 +3173,7 @@
     {
       "slug": "delusions",
       "name": "Delusions",
+      "discordId": "334912435729465346",
       "team": "syr",
       "roles": [
         "coach"
@@ -3199,6 +3212,7 @@
     {
       "slug": "lux",
       "name": "Lux",
+      "discordId": "1013527461524418690",
       "team": "sln",
       "roles": [
         "player"
@@ -3208,6 +3222,7 @@
     {
       "slug": "primo",
       "name": "Primo",
+      "discordId": "686745453911343110",
       "team": "sln",
       "roles": [
         "player"
@@ -3247,6 +3262,7 @@
     {
       "slug": "spyder",
       "name": "Spyder",
+      "discordId": "514556103422509056",
       "team": "sln",
       "roles": [
         "player"
@@ -3256,6 +3272,7 @@
     {
       "slug": "kjay",
       "name": "Kjay",
+      "discordId": "428783865121734656",
       "team": "sln",
       "roles": [
         "player"
@@ -3265,6 +3282,7 @@
     {
       "slug": "k1lla",
       "name": "K1lla",
+      "discordId": "161950474717626369",
       "team": "sln",
       "roles": [
         "gm"
@@ -3273,6 +3291,7 @@
     {
       "slug": "moonerthealcoholic",
       "name": "MoonerTheAlcoholic",
+      "discordId": "695481161945972758",
       "team": "sfs",
       "roles": [
         "player",
@@ -3313,6 +3332,7 @@
     {
       "slug": "vis",
       "name": "vis",
+      "discordId": "680833259801804875",
       "team": "sfs",
       "roles": [
         "player"
@@ -3352,6 +3372,7 @@
     {
       "slug": "ilikefeet",
       "name": "ilikefeet",
+      "discordId": "167386106281590784",
       "team": "sfs",
       "roles": [
         "player"
@@ -3383,6 +3404,7 @@
     {
       "slug": "lakas",
       "name": "Lakas",
+      "discordId": "496946191758786561",
       "team": "sfs",
       "roles": [
         "player"
@@ -3414,6 +3436,7 @@
     {
       "slug": "bambam",
       "name": "BamBam",
+      "discordId": "313830004301496320",
       "team": "ccc",
       "roles": [
         "player"
@@ -3453,6 +3476,7 @@
     {
       "slug": "venom",
       "name": "Venom",
+      "discordId": "662424696934891520",
       "team": "ccc",
       "roles": [
         "player",
@@ -3485,6 +3509,7 @@
     {
       "slug": "crazed",
       "name": "Crazed",
+      "discordId": "348199709879304193",
       "team": "ccc",
       "roles": [
         "player"
@@ -3516,6 +3541,7 @@
     {
       "slug": "freaky",
       "name": "Freaky",
+      "discordId": "356468471669719041",
       "team": "ccc",
       "roles": [
         "player"
@@ -3553,8 +3579,62 @@
       ]
     },
     {
+      "slug": "luke",
+      "name": "Luke",
+      "discordId": "179051320580243457",
+      "team": "tor",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amethyst"
+    },
+    {
+      "slug": "zylixz",
+      "name": "Zylixz",
+      "discordId": "810269935845638174",
+      "team": "tor",
+      "roles": [
+        "player",
+        "gm"
+      ],
+      "rank": "Kyanite",
+      "gamertag": "Zylixz",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.72",
+            "kpm": "14.0",
+            "maps": 11
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "KNX / MIS",
+              "kd": "0.72",
+              "kpm": "14.0",
+              "maps": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "hunna",
+      "name": "Hunna",
+      "discordId": "711011072382861362",
+      "team": "tor",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amethyst"
+    },
+    {
       "slug": "brooksyszn",
       "name": "BrooksySZN",
+      "discordId": "474817270816833536",
       "team": "tor",
       "roles": [
         "player"
@@ -3592,58 +3672,9 @@
       ]
     },
     {
-      "slug": "luke",
-      "name": "Luke",
-      "team": "tor",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amethyst"
-    },
-    {
-      "slug": "zylixz",
-      "name": "Zylixz",
-      "team": "tor",
-      "roles": [
-        "player",
-        "gm"
-      ],
-      "rank": "Kyanite",
-      "gamertag": "Zylixz",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.72",
-            "kpm": "14.0",
-            "maps": 11
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "KNX / MIS",
-              "kd": "0.72",
-              "kpm": "14.0",
-              "maps": 11
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "hunna",
-      "name": "Hunna",
-      "team": "tor",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amethyst"
-    },
-    {
       "slug": "bis",
       "name": "Bis",
+      "discordId": "1002932286427238471",
       "team": "hal",
       "roles": [
         "player"
@@ -3683,6 +3714,7 @@
     {
       "slug": "g-ter",
       "name": "g-ter",
+      "discordId": "599477244595011587",
       "team": "hal",
       "roles": [
         "player"
@@ -3692,6 +3724,7 @@
     {
       "slug": "rynorh",
       "name": "RynoRH",
+      "discordId": "863446447386263552",
       "team": "hal",
       "roles": [
         "player",
@@ -3702,6 +3735,7 @@
     {
       "slug": "moistquackers",
       "name": "MoistQuackers",
+      "discordId": "336960101388779521",
       "team": "hal",
       "roles": [
         "player"
@@ -3733,6 +3767,7 @@
     {
       "slug": "owes-every1-taco-bell-plu",
       "name": "Owes Every1 Taco Bell Plu",
+      "discordId": "676085028131831821",
       "team": "ros",
       "roles": [
         "player"
@@ -3764,6 +3799,7 @@
     {
       "slug": "inspire",
       "name": "Inspire",
+      "discordId": "1563229944190861373",
       "team": "ros",
       "roles": [
         "player"
@@ -3795,6 +3831,7 @@
     {
       "slug": "booshdagoat",
       "name": "BooshDaGoat",
+      "discordId": "1064079588315119667",
       "team": "ros",
       "roles": [
         "player"
@@ -3826,6 +3863,7 @@
     {
       "slug": "e-r",
       "name": "⛧ Ƒëﾑr ツ",
+      "discordId": "241800242326929419",
       "team": "ros",
       "roles": [
         "player",
@@ -3866,6 +3904,7 @@
     {
       "slug": "overlordalucard",
       "name": "🧛🏼OverlordAlucard 🧛🏼",
+      "discordId": "266558189107937280",
       "team": "mrd",
       "roles": [
         "player",
@@ -3914,6 +3953,7 @@
     {
       "slug": "bruce",
       "name": "Bruce",
+      "discordId": "224638598622740483",
       "team": "mrd",
       "roles": [
         "player"
@@ -3953,6 +3993,7 @@
     {
       "slug": "jaydreamz",
       "name": "JAYDREAMZ",
+      "discordId": "1101593605786833026",
       "team": "mrd",
       "roles": [
         "player"
@@ -3992,6 +4033,7 @@
     {
       "slug": "zeus",
       "name": "ZEUS",
+      "discordId": "433424405796880385",
       "team": "mrd",
       "roles": [
         "player"
@@ -4031,6 +4073,7 @@
     {
       "slug": "chrollo",
       "name": "Chrollo",
+      "discordId": "186994375799209985",
       "team": "mrd",
       "roles": [
         "coach"
@@ -4039,6 +4082,7 @@
     {
       "slug": "cam",
       "name": "Cam",
+      "discordId": "481296445404610560",
       "team": "lex",
       "roles": [
         "player"
@@ -4086,6 +4130,7 @@
     {
       "slug": "palsy",
       "name": "Palsy",
+      "discordId": "280814471797014538",
       "team": "lex",
       "roles": [
         "player"
@@ -4095,6 +4140,7 @@
     {
       "slug": "kib",
       "name": "Kib",
+      "discordId": "1089762624176140299",
       "team": "lex",
       "roles": [
         "player",
@@ -4135,6 +4181,7 @@
     {
       "slug": "bandit",
       "name": "Bandit",
+      "discordId": "1211390786973990994",
       "team": "lex",
       "roles": [
         "player"
@@ -4174,6 +4221,7 @@
     {
       "slug": "divi",
       "name": "Divi",
+      "discordId": "430541542504267777",
       "team": "nor",
       "roles": [
         "player"
@@ -4183,6 +4231,7 @@
     {
       "slug": "fly-tendencies",
       "name": "Fly Tendencies",
+      "discordId": "561721438403559426",
       "team": "nor",
       "roles": [
         "player"
@@ -4222,6 +4271,7 @@
     {
       "slug": "tanji",
       "name": "Tanji",
+      "discordId": "626149459910197248",
       "team": "nor",
       "roles": [
         "player"
@@ -4233,6 +4283,7 @@
     {
       "slug": "leisure",
       "name": "Leisure",
+      "discordId": "1442719148345004112",
       "team": "nor",
       "roles": [
         "player",
@@ -4273,6 +4324,7 @@
     {
       "slug": "sac",
       "name": "Sac",
+      "discordId": "254802810565033985",
       "team": "kck",
       "roles": [
         "player",
@@ -4313,6 +4365,7 @@
     {
       "slug": "cbass",
       "name": "cbass",
+      "discordId": "519387476352172052",
       "team": "kck",
       "roles": [
         "player"
@@ -4352,6 +4405,7 @@
     {
       "slug": "marsh313",
       "name": "MaRsH313",
+      "discordId": "756741750130999347",
       "team": "kck",
       "roles": [
         "player"
@@ -4391,6 +4445,7 @@
     {
       "slug": "bgolden",
       "name": "Bgolden",
+      "discordId": "254837112367611905",
       "team": "kck",
       "roles": [
         "coach"
@@ -4429,6 +4484,7 @@
     {
       "slug": "2elite",
       "name": "2elite",
+      "discordId": "1076223401309507595",
       "team": "pit",
       "roles": [
         "player"
@@ -4438,6 +4494,7 @@
     {
       "slug": "brimington",
       "name": "Brimington",
+      "discordId": "802763022728298496",
       "team": "pit",
       "roles": [
         "player"
@@ -4447,6 +4504,7 @@
     {
       "slug": "pizz",
       "name": "Pizz",
+      "discordId": "462652116666941482",
       "team": "pit",
       "roles": [
         "player"
@@ -4478,6 +4536,7 @@
     {
       "slug": "twizz",
       "name": "Twizz",
+      "discordId": "1394934722940899378",
       "team": "pit",
       "roles": [
         "player",
@@ -4518,6 +4577,7 @@
     {
       "slug": "kentucky",
       "name": "Kentucky",
+      "discordId": "788225421443465216",
       "team": "mis",
       "roles": [
         "player"
@@ -4557,6 +4617,7 @@
     {
       "slug": "imakaii",
       "name": "ImAkaii",
+      "discordId": "337302609910038539",
       "team": "mis",
       "roles": [
         "player"
@@ -4566,6 +4627,7 @@
     {
       "slug": "racist-guy-marv",
       "name": "Racist Guy Marv",
+      "discordId": "396870132460290068",
       "team": "mis",
       "roles": [
         "player"
@@ -4597,6 +4659,7 @@
     {
       "slug": "shooter",
       "name": "shooter",
+      "discordId": "902157908580634645",
       "team": "mis",
       "roles": [
         "player",
@@ -4607,6 +4670,7 @@
     {
       "slug": "unholy-draco",
       "name": "unholy draco",
+      "discordId": "1053836165842739241",
       "team": "omh",
       "roles": [
         "player",
@@ -4639,6 +4703,7 @@
     {
       "slug": "revert",
       "name": "Revert",
+      "discordId": "1522443650070483104",
       "team": "omh",
       "roles": [
         "player"
@@ -4648,6 +4713,7 @@
     {
       "slug": "gutta",
       "name": "Gutta",
+      "discordId": "819030003832193024",
       "team": "omh",
       "roles": [
         "player"
@@ -4657,6 +4723,7 @@
     {
       "slug": "slayfs",
       "name": "SlayFS",
+      "discordId": "579424593094115340",
       "team": "omh",
       "roles": [
         "player"
@@ -4696,6 +4763,7 @@
     {
       "slug": "jantehhhhh",
       "name": "Jantehhhhh",
+      "discordId": "593612852544405506",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4704,6 +4772,7 @@
     {
       "slug": "2nasty",
       "name": "2Nasty 🏅",
+      "discordId": "566531015980351499",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4742,6 +4811,7 @@
     {
       "slug": "kain",
       "name": "Kain",
+      "discordId": "450198298888896512",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4772,6 +4842,7 @@
     {
       "slug": "zech",
       "name": "Zech",
+      "discordId": "373133713262903296",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4818,6 +4889,7 @@
     {
       "slug": "faker-bottzy",
       "name": "Faker (Bottzy)",
+      "discordId": "1069726280645353523",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4826,6 +4898,7 @@
     {
       "slug": "zay",
       "name": "Zay",
+      "discordId": "1397082809935335535",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4834,6 +4907,7 @@
     {
       "slug": "krypto",
       "name": "Krypto",
+      "discordId": "382974143915753482",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4842,6 +4916,7 @@
     {
       "slug": "hell",
       "name": "Hell",
+      "discordId": "1256722069698117702",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4850,6 +4925,7 @@
     {
       "slug": "grimothe",
       "name": "Grimothe",
+      "discordId": "1265408898219905086",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4858,6 +4934,7 @@
     {
       "slug": "flythew",
       "name": "FlyTheW",
+      "discordId": "1311150233928859658",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4866,6 +4943,7 @@
     {
       "slug": "trunova",
       "name": "TruNova",
+      "discordId": "771075773955833886",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4896,6 +4974,7 @@
     {
       "slug": "infunyy",
       "name": "Infunyy",
+      "discordId": "1163555787768082525",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4934,6 +5013,7 @@
     {
       "slug": "esca",
       "name": "Esca",
+      "discordId": "536403923557285898",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4942,6 +5022,7 @@
     {
       "slug": "noah",
       "name": "Noah",
+      "discordId": "965585037506523177",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4950,6 +5031,7 @@
     {
       "slug": "inferno",
       "name": "Inferno",
+      "discordId": "106175642407534592",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4958,6 +5040,7 @@
     {
       "slug": "wild420",
       "name": "Wild420",
+      "discordId": "184449034243538945",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4966,6 +5049,7 @@
     {
       "slug": "kreativitytv",
       "name": "KreativityTV",
+      "discordId": "392549601128873986",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -4974,6 +5058,7 @@
     {
       "slug": "tuba",
       "name": "Tuba",
+      "discordId": "1521649661889478872",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5004,6 +5089,7 @@
     {
       "slug": "deadpool",
       "name": "Deadpool",
+      "discordId": "514609482181902346",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5042,6 +5128,7 @@
     {
       "slug": "yuno",
       "name": "Yuno",
+      "discordId": "997969792315166852",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5050,6 +5137,7 @@
     {
       "slug": "mercy",
       "name": "MeRcY",
+      "discordId": "390436940261883916",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5058,6 +5146,7 @@
     {
       "slug": "hidden-illusion",
       "name": "Hidden Illusion",
+      "discordId": "96449963340361728",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5096,6 +5185,7 @@
     {
       "slug": "senz",
       "name": "Senz",
+      "discordId": "1569194325185794134",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5104,6 +5194,7 @@
     {
       "slug": "pollo",
       "name": "Pollo",
+      "discordId": "455475819998085130",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5142,6 +5233,7 @@
     {
       "slug": "253",
       "name": "253",
+      "discordId": "344125740817842207",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5150,6 +5242,7 @@
     {
       "slug": "show",
       "name": "Show",
+      "discordId": "266705687885774850",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5158,6 +5251,7 @@
     {
       "slug": "unfiltered",
       "name": "Unfiltered",
+      "discordId": "1485763633127493705",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5166,6 +5260,7 @@
     {
       "slug": "maddix",
       "name": "Maddix",
+      "discordId": "218192247475273733",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5174,6 +5269,7 @@
     {
       "slug": "spoochfps",
       "name": "spoochfps",
+      "discordId": "666378651662811147",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5182,6 +5278,7 @@
     {
       "slug": "mroptics",
       "name": "MrOptics",
+      "discordId": "829903200688668682",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5190,6 +5287,7 @@
     {
       "slug": "skittles",
       "name": "Skittles",
+      "discordId": "759567943377223680",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5220,6 +5318,7 @@
     {
       "slug": "tactical-reaper",
       "name": "Tactical Reaper",
+      "discordId": "1102674540439539715",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5258,6 +5357,7 @@
     {
       "slug": "kripticshotz",
       "name": "kripticshotz",
+      "discordId": "1215702725652910163",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5266,6 +5366,7 @@
     {
       "slug": "reaper",
       "name": "Reaper",
+      "discordId": "692365838141095966",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5304,6 +5405,7 @@
     {
       "slug": "connor",
       "name": "Connor",
+      "discordId": "1572037258264059935",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5312,6 +5414,7 @@
     {
       "slug": "oglee",
       "name": "OGLee",
+      "discordId": "114601511928987656",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5320,6 +5423,7 @@
     {
       "slug": "washed",
       "name": "Washed",
+      "discordId": "415103922697404416",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5328,6 +5432,7 @@
     {
       "slug": "gmanbtw",
       "name": "GmanBTW",
+      "discordId": "925722867033854052",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5366,6 +5471,7 @@
     {
       "slug": "laser",
       "name": "Laser",
+      "discordId": "556782938340196362",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5374,6 +5480,7 @@
     {
       "slug": "john-cena",
       "name": "John Cena",
+      "discordId": "530939244579913738",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5382,6 +5489,7 @@
     {
       "slug": "gravy-szn",
       "name": "Gravy SZN ʕ͡ټʔ",
+      "discordId": "497895762806439967",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
@@ -5390,6 +5498,7 @@
     {
       "slug": "dizzle",
       "name": "Dizzle",
+      "discordId": "452950382239285258",
       "team": null,
       "freeAgent": "fa",
       "roles": [],
