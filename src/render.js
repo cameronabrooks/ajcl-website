@@ -420,8 +420,8 @@ function mapsetPage(league, m, c) {
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
-  main { position: fixed; inset: 0; display: grid; place-items: center; }
-  .ms-stage { position: relative; width: 1920px; height: 1080px; flex: none; transform-origin: center; background: url('${u('/mapset/template.webp')}') center / cover no-repeat;
+  main { position: fixed; inset: 0; }
+  .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; background: url('${u('/mapset/template.webp')}') center / cover no-repeat;
     font-family: Teko, 'Arial Narrow', sans-serif; color: #a8f57f; text-transform: uppercase; }
   /* Map pictures over the template's five sky panels (same slant). */
   .ms-panel { position: absolute; top: 50px; width: 290px; height: 512px; overflow: hidden;
@@ -456,7 +456,7 @@ function mapsetPage(league, m, c) {
   // Scale the 1920x1080 stage to fit the window (OBS browser source or any screen).
   function fit() {
     var st = document.querySelector('[data-ms-stage]');
-    if (st) st.style.transform = 'scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')';
+    if (st) st.style.transform = 'translate(-50%, -50%) scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')';
   }
   addEventListener('resize', fit);
   document.addEventListener('ajcl:league', function () { setTimeout(fit, 0); });
