@@ -787,14 +787,15 @@ function eightsStaffTools(league) {
   <details class="panel st-panel" open>
     <summary><span>8s staff tools</span><span class="pill">Staff only</span></summary>
     <datalist id="st-players">${[...names].sort((a, b) => a.localeCompare(b)).map(n => `<option value="${esc(n)}">`).join('')}</datalist>
-    <label class="st-queue">Queue <select data-st-queue>${EIGHTS_QUEUES.map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}</select></label>
     <div class="st-grid">
       <div class="st-group"><h4>Queue</h4>
+        <label class="st-queue st-group-queue">Which queue <select data-group-queue>${EIGHTS_QUEUES.map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}</select></label>
         ${form(btn('start', 'Start') + btn('stop', 'Stop', 'Stop {queue}? This removes the queue embed.') + btn('lock', 'Lock') + btn('unlock', 'Unlock') + btn('testmode', 'Test mode on/off') + btn('clear', 'Clear queue', 'Remove everyone from {queue}?'))}
         ${form('<input name="name" placeholder="New queue name" required maxlength="80">' + btn('rename', 'Rename'), 'Rename')}
         ${form(playerInput() + btn('kick', 'Remove from queue'), 'Remove a player')}
       </div>
       <div class="st-group"><h4>Match</h4>
+        <label class="st-queue st-group-queue">Which queue <select data-st-queue>${EIGHTS_QUEUES.map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}</select></label>
         <div class="st-matches" data-st-matches data-queues="${esc(JSON.stringify((league.queues || []).map(q => ({ id: q.id || null, name: q.name, match: q.match }))))}"></div>
         ${form(btn('decide_method', 'Decide captain method') + btn('decide_format', 'Decide format') + btn('end_captain_vote', 'End captain vote') + btn('random_captains', 'Random captains'), 'Votes')}
         ${form('<input type="hidden" name="winner" value="A">' + btn('winner', '🔵 Team 1 won', 'Set Team 1 as the winner in {queue}? This updates ratings and ends the match.'), 'Set winner')}
@@ -806,7 +807,8 @@ function eightsStaffTools(league) {
         ${form(playerInput() + '<input name="reason" placeholder="Reason (optional)" maxlength="300"><input name="duration" type="number" min="1" placeholder="Length"><select name="unit"><option value="">Permanent</option><option value="minutes">Minutes</option><option value="hours">Hours</option><option value="days">Days</option></select>' + btn('ban', 'Ban', 'Ban {player} from 8s?', 'btn-danger'), 'Ban')}
         ${form(playerInput() + btn('unban', 'Unban') + btn('ban_check', 'Check ban'), 'Unban / check')}
       </div>
-      <div class="st-group"><h4>Ratings <span class="muted">(uses the queue above)</span></h4>
+      <div class="st-group"><h4>Ratings</h4>
+        <label class="st-queue st-group-queue">Queue for ratings <select data-group-queue>${EIGHTS_QUEUES.map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}</select></label>
         ${form(playerInput() + btn('view_stats', 'View stats'), 'View')}
         ${form(playerInput() + '<input name="mmr" type="number" step="any" placeholder="MMR"><input name="wins" type="number" placeholder="Wins"><input name="losses" type="number" placeholder="Losses"><input name="streak" type="number" placeholder="Streak (set only)">' + btn('set_stats', 'Set to these') + btn('add_stats', 'Add these'), 'Edit stats')}
         ${form(playerInput() + '<label class="st-check"><input type="checkbox" name="mmrOnly"> MMR only</label>' + btn('reset_player', 'Reset player', "Reset {player}'s rating in {queue}?", 'btn-danger'), 'Reset a player')}
@@ -1009,7 +1011,9 @@ ${eightsStaffTools(league)}
     var op = (btn && btn.value) || form.dataset.op;
     if (!op) return;
     var body = { op: op };
-    var q = panel().querySelector('[data-st-queue]');
+    // A section with its own queue picker (Ratings) uses that; the rest use the top one.
+    var group = form.closest('.st-group');
+    var q = (group && group.querySelector('[data-group-queue]')) || panel().querySelector('[data-st-queue]');
     if (q) body.queue = q.value;
     new FormData(form).forEach(function (v, k) { if (k !== 'op') body[k] = typeof v === 'string' ? v.trim() : v; });
     form.querySelectorAll('input[type=checkbox]').forEach(function (c) { body[c.name] = c.checked; });
