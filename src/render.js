@@ -224,6 +224,43 @@ const MODE_LABELS = { hardpoint: 'Hardpoint', search_and_destroy: 'Search & Dest
 const mapImage = name => u(`/maps/${String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.jpg`);
 
 // Match page: teams + score, time / LIVE status, caster, and picks & bans.
+// Match stats from cod-stats (the scraper reads the signed-in scorecard): series MVP,
+// each team's overall scorecard, then one tab per map. Shown once cod-stats has them.
+const SC_LABELS = { KD: 'K/D', DMG: 'DMG', FB: 'FB', HILL: 'Hill', PLANTS: 'Plants', DEFUSES: 'Defuses' };
+function scorecard(m) {
+  const cs = m.codStats;
+  if (!cs || !((cs.overall || []).length || (cs.maps || []).length)) return '';
+  const sides = [m.home, m.away];
+  const teamFor = (block, i) => sides.find(t => String(t.abbr).toLowerCase() === String(block.team || '').toLowerCase()) || sides[i] || { name: block.team, abbr: block.team };
+  const table = (block, i, kdLabel) => {
+    const t = teamFor(block, i);
+    const head = (block.headers || []).map(h => `<th class="num">${esc(SC_LABELS[h] || h)}</th>`).join('');
+    const rows = (block.rows || []).map(r => `<tr><td class="left">${esc(r[0])}</td>${r.slice(1).map(v => `<td class="num">${esc(v)}</td>`).join('')}</tr>`).join('');
+    const total = block.total ? `<tr class="sc-total"><td class="left">Total</td>${block.total.map(v => `<td class="num">${esc(v)}</td>`).join('')}</tr>` : '';
+    return `<div class="sc-team">
+      <div class="sc-team-head">${t.slug ? crest(t, 'sm') : ''}<strong>${esc(t.name || block.team)}</strong><span class="muted">${kdLabel} <b>${esc(block.kd || '–')}</b></span></div>
+      <div class="sc-scroll"><table class="standings sc-data"><thead><tr><th class="left">Player</th>${head}</tr></thead><tbody>${rows}${total}</tbody></table></div>
+    </div>`;
+  };
+  const views = [];
+  if ((cs.overall || []).length) views.push({ label: 'Series', html: `<div class="sc-teams">${cs.overall.map((x, i) => table(x, i, 'Series K/D')).join('')}</div>` });
+  for (const mp of cs.maps || []) {
+    const win = mp.home > mp.away ? 0 : mp.away > mp.home ? 1 : -1;
+    views.push({
+      label: `M${mp.num} · ${mp.map}`,
+      html: `<p class="sc-map-head"><span class="pill">${esc(String(mp.mode || '').toLowerCase().replace(/\b\w/g, ch => ch.toUpperCase()))}</span> <strong class="${win === 0 ? 'pos' : ''}">${esc(m.home.abbr)} ${esc(mp.home)}</strong> – <strong class="${win === 1 ? 'pos' : ''}">${esc(mp.away)} ${esc(m.away.abbr)}</strong> <span class="muted">on ${esc(mp.map)}</span></p>
+        <div class="sc-teams">${(mp.teams || []).map((x, i) => table(x, i, 'Team K/D')).join('')}</div>`,
+    });
+  }
+  const mvp = cs.mvp ? `<div class="sc-mvp"><span class="eyebrow">Series MVP</span><strong>${esc(cs.mvp.name)}</strong><span class="muted">${esc(cs.mvp.team || '')}</span><span>${esc(cs.mvp.kills)} K · ${esc(cs.mvp.deaths)} D · <b>${esc(cs.mvp.kd)} K/D</b></span></div>` : '';
+  const tabs = views.length > 1 ? `<div class="tabs sc-tabs" role="tablist">${views.map((v, i) => `<button type="button" class="tab tab-sm${i ? '' : ' active'}" data-sc-tab="${i}" role="tab" aria-selected="${i ? 'false' : 'true'}">${esc(v.label)}</button>`).join('')}</div>` : '';
+  return `<section class="wrap section sc-section" id="scorecard">
+  <div class="section-head"><h2>Match stats</h2>${cs.url ? `<a class="btn btn-sm" href="${esc(cs.url)}" target="_blank" rel="noopener">View on cod-stats</a>` : ''}</div>
+  <div class="panel sc-panel">${mvp}${tabs}${views.map((v, i) => `<div class="sc-view" data-sc-view="${i}"${i ? ' hidden' : ''}>${v.html}</div>`).join('')}</div>
+  <p class="muted sc-note">Stats from cod-stats.com${cs.date ? ` · played ${esc(cs.date)}` : ''}.</p>
+</section>`;
+}
+
 function matchPage(league, m, c) {
   const r = m.result;
   const bySlug = Object.fromEntries(league.teams.map(t => [t.slug, t]));
@@ -353,9 +390,17 @@ function matchPage(league, m, c) {
 <section class="wrap section mp-layout">
   <div>${pb}</div>
   <div>${tools}${caster}</div>
-</section>`;
+</section>${scorecard(m)}`;
   const script = `<script>
 (function () {
+  // Match stats tabs (overall / each map).
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('[data-sc-tab]');
+    if (!t) return;
+    var box = t.closest('.sc-panel');
+    box.querySelectorAll('[data-sc-tab]').forEach(function (b) { var on = b === t; b.classList.toggle('active', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+    box.querySelectorAll('[data-sc-view]').forEach(function (v) { v.hidden = v.dataset.scView !== t.dataset.scTab; });
+  });
   // Match tools: staff-only part, and sending the forms to the bot.
   var staff = document.documentElement.classList.contains('is-staff');
   function staffParts() { document.querySelectorAll('[data-mt-staff]').forEach(function (el) { el.hidden = !staff; }); }
