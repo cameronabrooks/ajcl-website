@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795565239896,
+  "generatedAt": 1795565256128,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1155,17 +1155,32 @@
   "powerRankings": {
     "Premier": {
       "status": "open",
-      "voters": 0,
+      "voters": 2,
       "postedAt": 1795565206281,
       "teams": [
         {
           "team": "atl",
-          "points": 0,
+          "points": 10,
+          "firsts": 2
+        },
+        {
+          "team": "sfs",
+          "points": 3,
+          "firsts": 0
+        },
+        {
+          "team": "hal",
+          "points": 3,
           "firsts": 0
         },
         {
           "team": "car",
-          "points": 0,
+          "points": 1,
+          "firsts": 0
+        },
+        {
+          "team": "tor",
+          "points": 1,
           "firsts": 0
         },
         {
@@ -1179,22 +1194,7 @@
           "firsts": 0
         },
         {
-          "team": "sfs",
-          "points": 0,
-          "firsts": 0
-        },
-        {
           "team": "ccc",
-          "points": 0,
-          "firsts": 0
-        },
-        {
-          "team": "tor",
-          "points": 0,
-          "firsts": 0
-        },
-        {
-          "team": "hal",
           "points": 0,
           "firsts": 0
         }
