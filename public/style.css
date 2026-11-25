@@ -599,3 +599,4 @@ html:not(.js) .lb-tabs { display: none; }
 .ticket-preview { margin: 0; font-size: 14px; overflow-wrap: anywhere; }
 .ticket-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; flex-wrap: wrap; }
 .acct-menu a.acct-staff { color: var(--ember); }
+.staff-intro { margin: -6px 0 16px; }

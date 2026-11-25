@@ -368,7 +368,14 @@ ${hasPowerRankings(league) ? `
       <a class="btn" href="${u('/join/')}">How to join</a>
     </div>
   </div>
-</section>`;
+</section>
+${(league.staff || []).some(g => (g.members || []).length) ? `
+<section class="wrap section">
+  <div class="section-head"><h2>Meet Our Staff</h2><a href="${u('/staff/')}">Staff page →</a></div>
+  <p class="muted staff-intro">The people who keep Average Joe's CoD League running.</p>
+  ${staffGroups(league)}
+</section>` : ''}`;
+
   return layout({ title: '', active: 'home', body, c, page: 'home' });
 }
 
@@ -845,16 +852,21 @@ function eightsPage(league, c) {
 // The modmail section is filled in the browser, only for staff: it asks the AJCL
 // Worker with the visitor's Discord login, and the Worker checks they're staff.
 // Ticket data is never part of the public site data.
-function staffPage(league, c) {
-  const groups = league.staff || [];
+// MFIC → Commissioners → Staff (each person once, under their highest role).
+function staffGroups(league) {
+  const groups = (league.staff || []).filter(g => (g.members || []).length);
   const person = m => `<div class="staff-person">
     ${m.avatar ? `<img src="${esc(m.avatar)}" alt="" loading="lazy">` : `<span class="acct-initial">${esc(String(m.name).charAt(0))}</span>`}
     <span class="staff-name">${esc(m.name)}</span>${m.rank ? rankTag(m.rank) : ''}
   </div>`;
-  const list = groups.length ? groups.map(g => `<div class="staff-group">
+  return groups.length ? groups.map(g => `<div class="staff-group">
     <h3 class="sub">${esc(g.title === 'Commissioner' ? 'Commissioners' : g.title)}</h3>
     <div class="staff-grid">${g.members.map(person).join('')}</div>
   </div>`).join('') : '<p class="muted">The staff list will appear here shortly.</p>';
+}
+
+function staffPage(league, c) {
+  const list = staffGroups(league);
   const script = `<script>
 (function () {
   var box = document.querySelector('[data-modmail]');
