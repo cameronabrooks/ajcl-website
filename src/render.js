@@ -509,16 +509,23 @@ function settingsPage(league, c) {
   const tabs = modes.map(m => `<a class="tab" href="#${keyOf(m.mode)}" data-mode-tab="${keyOf(m.mode)}">${esc(m.mode)}</a>`).join('');
   const panels = modes.map(m => `<div class="mode-panel" data-mode="${keyOf(m.mode)}">
     <h2 class="sub">${esc(m.mode)}</h2>
-    ${poolFor(m.mode).length ? `<div class="panel mode-maps"><h4>Map pool</h4><div class="map-chips">${poolFor(m.mode).map(x => `<span class="map-chip">${esc(x)}</span>`).join('')}</div></div>` : ''}
+    ${poolFor(m.mode).length ? `<div class="panel mode-maps"><h4>Map pool</h4><div class="map-chips">${poolFor(m.mode).map(x => `<span class="map-chip has-thumb"><span class="ban-thumb" style="background-image:url('${mapImage(x)}')"></span>${esc(x)}</span>`).join('')}</div></div>` : ''}
     <div class="settings-grid">${m.sections.map(s => `<div class="panel settings-card">
       <h4>${esc(s.name)}</h4>
       <dl>${s.settings.map(x => `<div><dt>${esc(x.name)}</dt><dd class="${/^on$/i.test(x.value) ? 'on' : /^off$/i.test(x.value) ? 'off' : ''}">${esc(x.value)}</dd></div>`).join('')}</dl>
     </div>`).join('')}</div>
   </div>`).join('');
-  const poolSummary = Object.keys(pool).length ? `
-  <div class="pool-grid">${Object.entries(pool).map(([mode, maps]) => `<div class="panel">
-    <h4>${esc(mode)}</h4><div class="map-chips">${maps.map(x => `<span class="map-chip">${esc(x)}</span>`).join('')}</div>
-  </div>`).join('')}</div>` : '';
+  // Every map in the pool once, with its picture and the modes it's played in.
+  const allMaps = [];
+  for (const [mode, maps] of Object.entries(pool)) for (const x of maps) {
+    let e = allMaps.find(y => keyOf(y.map) === keyOf(x));
+    if (!e) allMaps.push(e = { map: x, modes: [] });
+    e.modes.push(MODE_LABELS[mode] || mode);
+  }
+  const poolSummary = allMaps.length ? `
+  <div class="map-gallery">${allMaps.map(e => `<figure class="map-tile" style="--map-img:url('${mapImage(e.map)}')">
+    <figcaption><strong>${esc(e.map)}</strong><span>${e.modes.map(esc).join(' · ')}</span></figcaption>
+  </figure>`).join('')}</div>` : '';
   const script = modes.length > 1 ? `<script>
 (function () {
   function apply() {

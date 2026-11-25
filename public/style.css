@@ -600,3 +600,13 @@ html:not(.js) .lb-tabs { display: none; }
 .ticket-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; flex-wrap: wrap; }
 .acct-menu a.acct-staff { color: var(--ember); }
 .staff-intro { margin: -6px 0 16px; }
+
+/* Settings: map pictures */
+.map-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.map-tile { position: relative; margin: 0; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.85)), var(--map-img) center / cover no-repeat, var(--panel); }
+.map-tile figcaption { position: absolute; left: 14px; right: 14px; bottom: 12px; display: grid; gap: 3px; }
+.map-tile strong { font: 700 24px/1 var(--heading); text-transform: uppercase; letter-spacing: .03em; text-shadow: 0 2px 8px rgba(0,0,0,.7); }
+.map-tile span { font-size: 12px; color: #d6d4cf; text-transform: uppercase; letter-spacing: .08em; }
+.map-chip.has-thumb { display: inline-flex; align-items: center; gap: 8px; padding-left: 4px; }
+.map-chip.has-thumb .ban-thumb { filter: none; width: 40px; height: 24px; border-radius: 4px; background-size: cover; background-position: center; flex: none; }
