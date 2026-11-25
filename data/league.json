@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795569199448,
+  "generatedAt": 1795569983627,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1152,94 +1152,114 @@
   "powerRankings": {
     "Premier": {
       "status": "open",
+      "points": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
       "voters": 5,
       "postedAt": 1795565206281,
       "teams": [
         {
           "team": "atl",
-          "points": 21,
+          "points": 38,
           "firsts": 3
         },
         {
           "team": "hal",
-          "points": 11,
+          "points": 26,
           "firsts": 1
         },
         {
+          "team": "car",
+          "points": 17,
+          "firsts": 0
+        },
+        {
           "team": "syr",
-          "points": 6,
+          "points": 14,
           "firsts": 1
         },
         {
           "team": "sfs",
-          "points": 3,
-          "firsts": 0
-        },
-        {
-          "team": "car",
-          "points": 2,
-          "firsts": 0
-        },
-        {
-          "team": "ccc",
-          "points": 1,
+          "points": 10,
           "firsts": 0
         },
         {
           "team": "tor",
-          "points": 1,
+          "points": 7,
+          "firsts": 0
+        },
+        {
+          "team": "ccc",
+          "points": 6,
           "firsts": 0
         },
         {
           "team": "sln",
-          "points": 0,
+          "points": 2,
           "firsts": 0
         }
       ]
     },
     "Academy": {
       "status": "open",
+      "points": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
       "voters": 11,
       "postedAt": 1795565229593,
       "teams": [
         {
           "team": "ros",
-          "points": 28,
+          "points": 63,
           "firsts": 4
         },
         {
           "team": "omh",
-          "points": 18,
-          "firsts": 2
-        },
-        {
-          "team": "pit",
-          "points": 16,
+          "points": 54,
           "firsts": 2
         },
         {
           "team": "nor",
-          "points": 14,
+          "points": 40,
           "firsts": 1
         },
         {
+          "team": "pit",
+          "points": 38,
+          "firsts": 2
+        },
+        {
           "team": "mrd",
-          "points": 7,
+          "points": 36,
           "firsts": 0
         },
         {
           "team": "mis",
-          "points": 6,
+          "points": 29,
           "firsts": 0
         },
         {
-          "team": "lex",
-          "points": 5,
+          "team": "kck",
+          "points": 17,
           "firsts": 1
         },
         {
-          "team": "kck",
-          "points": 5,
+          "team": "lex",
+          "points": 14,
           "firsts": 1
         }
       ]
@@ -3793,6 +3813,14 @@
       "rank": "Amber"
     },
     {
+      "slug": "faker-bottzy",
+      "name": "Faker (Bottzy)",
+      "team": null,
+      "freeAgent": "fa",
+      "roles": [],
+      "rank": "Ruby"
+    },
+    {
       "slug": "kain",
       "name": "Kain",
       "team": null,
@@ -3867,14 +3895,6 @@
           ]
         }
       ]
-    },
-    {
-      "slug": "faker-bottzy",
-      "name": "Faker (Bottzy)",
-      "team": null,
-      "freeAgent": "fa",
-      "roles": [],
-      "rank": "Ruby"
     },
     {
       "slug": "zay",
