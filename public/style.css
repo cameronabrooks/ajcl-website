@@ -531,3 +531,18 @@ html:not(.js) .settings .game-tabs { display: none; }
   .topbar .topbar-inner { width: calc(100% - 24px); }
   .topbar .nav { overflow-x: auto; justify-content: flex-start; }
 }
+
+/* Mapset with map pictures */
+.mapset { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.mapset li.map-card { position: relative; display: flex; align-items: flex-end; gap: 14px; min-height: 112px; padding: 14px 16px;
+  border: 1px solid var(--line); border-top: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  background: linear-gradient(90deg, rgba(8,8,10,.92) 0%, rgba(8,8,10,.55) 55%, rgba(8,8,10,.25) 100%), var(--map-img) center / cover no-repeat, var(--panel-2); }
+.mapset li.map-card:first-child { border-top: 1px solid var(--line); }
+.map-card .map-slot { width: auto; color: var(--gold); font-size: 15px; align-self: flex-start; position: absolute; top: 12px; left: 16px; letter-spacing: .1em; }
+.map-card .map-name { flex: 1; }
+.map-card .map-name strong { font: 700 26px/1 var(--heading); text-transform: uppercase; letter-spacing: .03em; text-shadow: 0 2px 8px rgba(0,0,0,.7); }
+.map-card .map-name span { font-size: 13px; color: #d6d4cf; text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
+.map-card .map-by { font-size: 13px; color: #e6e4df; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.12); padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.mp-bans li { align-items: center; }
+.ban-thumb { flex: none; width: 56px; height: 24px; border-radius: 4px; background: var(--panel-2) center / cover no-repeat; filter: grayscale(.85) brightness(.7); border: 1px solid var(--line); }
+.ban-map { flex: 1; text-decoration: line-through; text-decoration-color: rgba(255,107,107,.7); }

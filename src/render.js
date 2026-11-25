@@ -206,6 +206,8 @@ function matchCard(m, { showDivision = true } = {}) {
 }
 
 const MODE_LABELS = { hardpoint: 'Hardpoint', search_and_destroy: 'Search & Destroy', hijack: 'Hijack' };
+// Map pictures: public/maps/<map-name>.jpg (e.g. "Reactor U92" -> reactor-u92.jpg).
+const mapImage = name => u(`/maps/${String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.jpg`);
 
 // Match page: teams + score, time / LIVE status, caster, and picks & bans.
 function matchPage(league, m, c) {
@@ -240,16 +242,14 @@ function matchPage(league, m, c) {
     const label = slug => (slug === p.teamA ? 'Team A' : slug === p.teamB ? 'Team B' : '');
     pb = `
     <h2 class="panel-title">Picks &amp; bans${p.inProgress ? ' <span class="pill pill-live">In progress</span>' : ''}</h2>
-    <div class="panel mp-maps">
-      <ol class="mapset">${picks.map(a => `<li>
-        <span class="map-slot">Map ${a.slot || '?'}</span>
-        <span class="map-name"><strong>${esc(a.map)}</strong><span class="muted">${esc(MODE_LABELS[a.mode] || a.mode)}</span></span>
-        <span class="map-by muted">${a.team ? `${esc(teamName(a.team))} pick` : 'Decider'}</span>
-      </li>`).join('') || '<li class="muted">No maps picked yet.</li>'}</ol>
-    </div>
+    <ol class="mapset">${picks.map(a => `<li class="map-card" style="--map-img:url('${mapImage(a.map)}')">
+      <span class="map-slot">Map ${a.slot || '?'}</span>
+      <span class="map-name"><strong>${esc(a.map)}</strong><span>${esc(MODE_LABELS[a.mode] || a.mode)}</span></span>
+      <span class="map-by">${a.team ? `${esc(teamName(a.team))} pick` : 'Decider'}</span>
+    </li>`).join('') || '<li class="panel muted">No maps picked yet.</li>'}</ol>
     <div class="mp-bans">${[p.teamA, p.teamB].map(t => `<div class="panel">
       <h4>${esc(teamName(t))} bans <span class="muted">(${label(t)})</span></h4>
-      <ul>${bans(t).map(a => `<li><span>${esc(a.map)}</span><span class="muted">${esc(MODE_LABELS[a.mode] || a.mode)}</span></li>`).join('') || '<li class="muted">None yet</li>'}</ul>
+      <ul>${bans(t).map(a => `<li><span class="ban-thumb" style="background-image:url('${mapImage(a.map)}')"></span><span class="ban-map">${esc(a.map)}</span><span class="muted">${esc(MODE_LABELS[a.mode] || a.mode)}</span></li>`).join('') || '<li class="muted">None yet</li>'}</ul>
     </div>`).join('')}</div>`;
   } else {
     pb = `
