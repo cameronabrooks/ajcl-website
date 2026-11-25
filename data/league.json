@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795579438440,
+  "generatedAt": 1795579605486,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -625,9 +625,14 @@
       "division": "Academy",
       "home": "mrd",
       "away": "kck",
-      "status": "scheduled",
-      "time": 1795576500000,
-      "result": null,
+      "status": "final",
+      "time": null,
+      "result": {
+        "winner": "mrd",
+        "homeMaps": 3,
+        "awayMaps": 0,
+        "forfeit": false
+      },
       "deadline": 1796273999000,
       "caster": {
         "name": "nitsua",
