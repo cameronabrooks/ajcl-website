@@ -374,8 +374,8 @@ function matchPage(league, m, c) {
   return layout({ title: `${m.home.abbr} vs ${m.away.abbr}`, active: 'schedule', body, c, script, page: `match:${matchId(m)}` });
 }
 
-// Caster mapset screen (1920x1080, for OBS): the AJCL overlay artwork (with its
-// sample text erased) plus the five map panels, team logos + records and each team's
+// Caster mapset screen (1920x1080, for OBS): the AJCL stream overlay video (its
+// sample text covered by clean pieces of the same artwork) plus the five map panels, team logos + records and each team's
 // bans. The panels come in one by one like the stream overlay video and the AJCL
 // logo flickers on like a neon sign. ?frame=<seconds> shows one moment of the
 // animation (the build uses it to render the downloadable MP4).
@@ -415,9 +415,8 @@ function mapsetPage(league, m, c) {
     const labelMid = P.ft + h - 58 - P.ft;
     const labelLeft = (ix - TL) + S * labelMid + (P.width - labelW) / 2;
     const mode = (a && a.mode) || defaultMode[i];
+    // The overlay video draws the panel frames itself; this only adds the picture and name.
     return `<div class="ms-panel" data-i="${i}" style="left:${TL.toFixed(1)}px;top:${top}px;width:${W.toFixed(1)}px;height:${H}px">
-      <div class="ms-frame" style="clip-path:${outer}"></div>
-      <div class="ms-line" style="clip-path:${line}"></div>
       <div class="ms-pic${a ? '' : ' is-empty'}" style="clip-path:${inner}${a ? `;--map-img:url('${mapImage(a.map)}')` : ''}"></div>
       <div class="ms-label" style="left:${labelLeft.toFixed(1)}px;top:${labelTop}px;width:${labelW}px"><span>Map ${i + 1}</span><strong>${a ? esc(a.map) : 'TBD'}</strong><em>${esc(MODE_SHORT[mode])}</em></div>
     </div>`;
@@ -430,6 +429,8 @@ function mapsetPage(league, m, c) {
   const rows = ['hardpoint', 'search_and_destroy', 'hijack'].map(mode => `<div class="ms-row"><span>${banOf(left, mode)}</span><span>${MODE_SHORT[mode]}</span><span>${banOf(right, mode)}</span></div>`).join('');
   const neon = `${u('/mapset/neon.webp')}?v=${CSS_VERSION}`;
   const body = `<div class="ms-stage" data-ms-stage>
+    <video class="ms-video" id="ms-video" data-live-keep src="${u('/mapset/overlay.mp4')}?v=${CSS_VERSION}" muted autoplay playsinline preload="auto"></video>
+    <img class="ms-patches" src="${u('/mapset/patches.png')}?v=${CSS_VERSION}" alt="">
     <div class="ms-neon" data-ms-neon><img class="ms-neon-glow" src="${neon}" alt=""><img class="ms-neon-base" src="${neon}" alt=""></div>
     ${slots.map(panel).join('')}
     <div class="ms-rec ms-rec-l">${esc(record(left))}</div>
@@ -456,19 +457,17 @@ function mapsetPage(league, m, c) {
   html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
   main { position: fixed; inset: 0; }
   .ms-stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%); transform-origin: center; overflow: hidden;
-    background: #000 url('${u('/mapset/plate.webp')}?v=${CSS_VERSION}') center / cover no-repeat;
+    background: #000;
     font-family: Agdasima, 'Arial Narrow', sans-serif; font-weight: 700; font-variant: small-caps; color: #a8f57f; }
+  .ms-video, .ms-patches { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; display: block; }
+  .ms-video { object-fit: cover; }
   /* AJCL logo as a neon sign: same picture on top, brightness + glow driven by the timeline. */
   .ms-neon { position: absolute; left: 1500px; top: 8px; width: 360px; height: 300px; pointer-events: none;
     -webkit-mask-image: radial-gradient(ellipse 62% 60% at 50% 48%, #000 62%, transparent 100%); mask-image: radial-gradient(ellipse 62% 60% at 50% 48%, #000 62%, transparent 100%); }
   .ms-neon img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .ms-neon-glow { filter: blur(14px) saturate(1.6); mix-blend-mode: screen; opacity: 0; }
-  /* Panels: gold-brown frame + map picture, same slant and size as the artwork's. */
-  .ms-panel { position: absolute; opacity: 0; will-change: opacity, transform; }
-  .ms-frame { position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) calc(100% - 18px), rgba(14,10,4,.94) calc(100% - 18px), rgba(14,10,4,.7) 100%),
-                linear-gradient(172deg, #d8b45a 0%, #a07c34 18%, #6e521e 52%, #463310 100%); }
-  .ms-line { position: absolute; inset: 0; background: #1b1307; }
+  /* Map pictures inside the video's panel frames (same slant and size), faded in with them. */
+  .ms-panel { position: absolute; opacity: 0; will-change: opacity; }
   .ms-pic { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.85)), var(--map-img) center / cover no-repeat, #1b1c20; }
   .ms-pic.is-empty { background: linear-gradient(160deg, #2a2b30, #141518); }
   .ms-label { position: absolute; display: grid; justify-items: center; text-align: center; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
@@ -505,20 +504,21 @@ function mapsetPage(league, m, c) {
   }
   addEventListener('resize', fit);
 
-  // The panels come in one by one, like the stream overlay video: panel 1 at 0.2s,
-  // then every 0.2s, each sliding in from the left while fading in.
-  var FIRST = 0.2, STEP = 0.2, IN = 0.16, SLIDE = 40;
-  var ease = function (x) { return 1 - Math.pow(1 - x, 3); };
-  function show(t) {
-    neon(t);
+  // The overlay video's own panel fade, measured from the video at 30 frames a second:
+  // panel 1 starts at 0s, each next panel 0.2s later. Map pictures copy it exactly.
+  var CURVE = [0, .10, .10, .32, .42, .42, .61, .68, .68, .82, .88, .88, .95, .97, .97, 1];
+  var STEP = 0.2;
+  function fade(t) {
+    if (t <= 0) return 0;
+    var f = t * 30, i = Math.floor(f);
+    if (i >= CURVE.length - 1) return 1;
+    return CURVE[i] + (CURVE[i + 1] - CURVE[i]) * (f - i);
+  }
+  function panels(t) {
     document.querySelectorAll('.ms-panel').forEach(function (el) {
-      var i = +el.dataset.i || 0;
-      var k = Math.max(0, Math.min(1, (t - (FIRST + STEP * i)) / IN)), e = ease(k);
-      el.style.opacity = e.toFixed(3);
-      el.style.transform = 'translateX(' + (-(1 - e) * SLIDE).toFixed(1) + 'px)';
+      el.style.opacity = fade(t - STEP * (+el.dataset.i || 0)).toFixed(3);
     });
   }
-  var DONE = FIRST + STEP * 4 + IN;
 
   // AJCL logo as a neon sign: dim until 1.3s, flickers on like a fluorescent tube,
   // then keeps a soft hum with a quick dip every few seconds.
@@ -530,8 +530,7 @@ function mapsetPage(league, m, c) {
     for (var i = 0; i < FLICKER.length; i++) if (r >= FLICKER[i][0]) lvl = FLICKER[i][1];
     if (r > 0.5) {
       lvl = 0.94 + 0.06 * Math.sin(t * 9.0);
-      var c = (t - NEON_ON) % 4.7;
-      if (c > 4.6) lvl = 0.55;
+      if ((t - NEON_ON) % 4.7 > 4.6) lvl = 0.55;
     }
     return lvl;
   }
@@ -553,42 +552,76 @@ function mapsetPage(league, m, c) {
     });
   }
 
-  // Everything the screen shows must be loaded before the intro starts.
+  function video() { return document.getElementById('ms-video'); }
+  function videoEnd(v) { return Math.max(0, (v && v.duration || 5) - 0.02); }
+  // Put the video at time t (held on its last frame after it ends).
+  function seek(t) {
+    var v = video();
+    if (!v) return Promise.resolve();
+    var target = Math.min(t, videoEnd(v));
+    if (Math.abs(v.currentTime - target) < 0.001) return Promise.resolve();
+    return new Promise(function (res) {
+      var done = function () { v.removeEventListener('seeked', done); res(); };
+      v.addEventListener('seeked', done);
+      v.currentTime = target;
+      setTimeout(done, 3000);
+    });
+  }
+
+  // Everything the screen shows must be loaded first.
   function loaded() {
-    var imgs = [].slice.call(document.querySelectorAll('.ms-logo img'));
     var urls = [];
     document.querySelectorAll('.ms-pic').forEach(function (el) {
       var m = /url\\(["']?([^"')]+)["']?\\)/.exec(el.style.getPropertyValue('--map-img') || '');
       if (m) urls.push(m[1]);
     });
-    var st = document.querySelector('[data-ms-stage]');
-    var bg = /url\\(["']?([^"')]+)["']?\\)/.exec(getComputedStyle(st).backgroundImage || '');
-    if (bg) urls.push(bg[1]);
+    var imgs = [].slice.call(document.querySelectorAll('.ms-stage img'));
     var waits = urls.map(function (src) { return new Promise(function (r) { var i = new Image(); i.onload = i.onerror = r; i.src = src; }); })
       .concat(imgs.map(function (img) { return img.complete ? null : new Promise(function (r) { img.onload = img.onerror = r; }); }));
+    var v = video();
+    if (v && v.readyState < 2) waits.push(new Promise(function (r) { v.addEventListener('loadeddata', r, { once: true }); v.addEventListener('error', r, { once: true }); }));
     if (document.fonts && document.fonts.ready) waits.push(document.fonts.ready);
     return Promise.all(waits);
   }
 
+  // One moment of the whole screen (the video build calls this for every frame).
+  window.__msShow = function (t) {
+    return seek(t).then(function () { panels(t); neon(t); });
+  };
+
   var frameParam = /[?&]frame=([\\d.]+)/.exec(location.search);
-  var started = false, t0 = 0;
+  var t0 = 0, running = false;
   function tick() {
-    var t = (performance.now() - t0) / 1000;
-    show(t);
+    var v = video();
+    // Panels follow the video's clock; the neon follows time since the screen started.
+    var tv = !v ? 99 : v.ended ? 99 : v.currentTime;
+    panels(tv);
+    neon((performance.now() - t0) / 1000);
     requestAnimationFrame(tick);
   }
   function start() {
     fit(); fitLabels();
-    window.__msShow = show;                   // the video build steps through the timeline
-    if (frameParam) { show(parseFloat(frameParam[1])); window.__msReady = true; return; }
-    if (started) return;                      // live update: the timeline keeps running
-    started = true; t0 = performance.now();
+    var v = video();
+    if (frameParam) {
+      if (v) { v.pause(); v.removeAttribute('autoplay'); }
+      window.__msShow(parseFloat(frameParam[1])).then(function () { window.__msReady = true; });
+      return;
+    }
+    if (running) return;
+    running = true; t0 = performance.now();
+    if (v) {
+      var p = v.play && v.play();
+      // Autoplay blocked: show the finished screen.
+      if (p && p.catch) p.catch(function () { seek(99); });
+      v.addEventListener('error', function () { panels(99); });
+    }
     requestAnimationFrame(tick);
   }
-  // live.js re-renders the page with new data: show the finished state right away.
-  document.addEventListener('ajcl:league', function () { setTimeout(function () { fit(); fitLabels(); show(frameParam ? parseFloat(frameParam[1]) : (performance.now() - t0) / 1000); }, 0); });
+  // live.js re-renders the page: the video is kept (data-live-keep), the rest redrawn.
+  document.addEventListener('ajcl:league', function () { setTimeout(function () { fit(); fitLabels(); }, 0); });
   fit();
-  show(0);
+  panels(0); neon(0);
+  if (frameParam) { var v0 = video(); if (v0) v0.pause(); }
   loaded().then(start);
 })();
 </script>

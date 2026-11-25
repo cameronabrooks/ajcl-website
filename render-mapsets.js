@@ -60,7 +60,9 @@ function serve() {
           await page.waitForFunction('window.__msReady === true', { timeout: 30000 });
         } else {
           // Same page, next moment of the animation.
-          await page.evaluate(tt => { history.replaceState(null, '', '?frame=' + tt); window.__msShow && window.__msShow(+tt); }, t);
+          // Same page, next moment: the overlay video seeks to this time (waits for the frame).
+          await page.evaluate(tt => window.__msShow ? window.__msShow(+tt) : null, t);
+          await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
         }
         const jpg = await page.screenshot({ type: 'jpeg', quality: 92, clip: { x: 0, y: 0, width: 1920, height: 1080 } });
         if (!ff.stdin.write(jpg)) await new Promise(r => ff.stdin.once('drain', r));
@@ -68,7 +70,8 @@ function serve() {
       ff.stdin.end();
       await done;
       // Still picture of the finished screen (logo lit, all panels in).
-      await page.evaluate(() => { window.__msShow && window.__msShow(4); });
+      await page.evaluate(() => window.__msShow ? window.__msShow(6) : null);
+      await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
       await page.screenshot({ type: 'png', path: path.join(DIST, 'matches', id, 'mapset.png'), clip: { x: 0, y: 0, width: 1920, height: 1080 } });
       await page.close();
       console.log('mapset video + picture:', id, (fs.statSync(out).size / 1024 / 1024).toFixed(1) + ' MB');

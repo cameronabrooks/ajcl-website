@@ -61,7 +61,7 @@ window.AJCL = (function () {
 
   // Cache-busting tag covering every script and the stylesheet.
   const assetHash = crypto.createHash('sha1');
-  for (const f of ['style.css', 'account.js', 'live.js', 'mapset/template-clean.webp', 'mapset/overlay.mp4', 'ajcl-logo.png', 'mapset/plate.webp', 'mapset/neon.webp']) assetHash.update(fs.readFileSync(path.join(PUBLIC, f)));
+  for (const f of ['style.css', 'account.js', 'live.js', 'mapset/template-clean.webp', 'mapset/overlay.mp4', 'ajcl-logo.png', 'mapset/plate.webp', 'mapset/neon.webp', 'mapset/patches.png']) assetHash.update(fs.readFileSync(path.join(PUBLIC, f)));
   assetHash.update(appJs);
   render.configure({ ...settings, cssVersion: assetHash.digest('hex').slice(0, 8) });
 
