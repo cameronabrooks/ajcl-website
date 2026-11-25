@@ -873,6 +873,157 @@ function teamsPage(league, c) {
   return layout({ title: 'Teams', active: 'teams', body, c, page: 'teams' });
 }
 
+// ── GM / staff / player roster tools ──────────────────────────────────────────
+// Every button runs the matching Discord command in the bot (same rules, posts
+// and DMs). Shown only to the people who can use them; the bot checks again.
+const RANK_CHOICES = ['Emerald', 'Ruby', 'Amethyst', 'Kyanite', 'Amber', 'Unranked'];
+function rtOption(p) { return `<option value="${esc(p.discordId)}">${esc(p.name)}${p.rank ? ` — ${esc(p.rank)}` : ''}</option>`; }
+function rtForm(cmd, inner, title, confirm) {
+  return `<form class="rt-form" data-cmd="${cmd}"${confirm ? ` data-confirm="${esc(confirm)}"` : ''}>${title ? `<h5>${title}</h5>` : ''}<div class="mt-row">${inner}</div><p class="mt-out muted"></p></form>`;
+}
+
+function teamTools(league, team) {
+  if (!team.roleId) return '';
+  const byName = (a, b) => a.name.localeCompare(b.name);
+  const withId = p => p.discordId;
+  const fas = league.players.filter(p => p.freeAgent && withId(p)).sort(byName);
+  const mine = league.players.filter(p => p.team === team.slug && !p.former && withId(p)).sort(byName);
+  const others = league.teams.filter(t => t.slug !== team.slug && t.roleId);
+  const rosterOf = {};
+  for (const t of others) rosterOf[t.slug] = league.players.filter(p => p.team === t.slug && !p.former && withId(p)).sort(byName).map(p => ({ id: p.discordId, name: p.name }));
+  const moves = league.rosterMoves || [];
+  const incoming = moves.filter(x => x.type === 'trade' && x.to === team.slug);
+  const outgoing = moves.filter(x => x.type === 'trade' && x.from === team.slug);
+  const offers = moves.filter(x => x.type === 'offer' && x.team === team.slug);
+  const teamName = slug => (league.teams.find(t => t.slug === slug) || {}).name || slug;
+  const faSelect = `<select name="player" required><option value="">Pick a free agent…</option>${fas.map(rtOption).join('')}</select>`;
+  const mineSelect = name => `<select name="${name}" required><option value="">Pick a player…</option>${mine.map(rtOption).join('')}</select>`;
+  const dropFlags = `<label class="mt-check"><input type="checkbox" name="self_drop"> Player asked to leave (self-drop)</label><label class="mt-check"><input type="checkbox" name="rerank"> Re-rank the player</label>`;
+  const moveRow = (x, buttons) => `<div class="rt-move"><span>${x.type === 'trade' ? `${esc(teamName(x.from))} gives <strong>${esc(x.give)}</strong> for <strong>${esc(x.get)}</strong> (${esc(teamName(x.to))})` : `Offer to <strong>${esc(x.player)}</strong>`}</span>${buttons || ''}</div>`;
+  const pending = (incoming.length || outgoing.length || offers.length) ? `<div class="rt-pending">
+      ${incoming.length ? `<h5>Trade offers for you</h5>${incoming.map(x => moveRow(x, `<form class="rt-form rt-inline" data-cmd="trade_accept" data-confirm="Accept this trade? Players switch teams right away."><input type="hidden" name="move" value="${esc(x.id)}"><button class="btn btn-sm btn-gold">Accept</button><p class="mt-out muted"></p></form><form class="rt-form rt-inline" data-cmd="trade_decline"><input type="hidden" name="move" value="${esc(x.id)}"><button class="btn btn-sm">Decline</button><p class="mt-out muted"></p></form>`)).join('')}` : ''}
+      ${outgoing.length ? `<h5>Your trade proposals (waiting)</h5>${outgoing.map(x => moveRow(x)).join('')}` : ''}
+      ${offers.length ? `<h5>Contract offers sent (waiting on the player)</h5>${offers.map(x => moveRow(x)).join('')}` : ''}
+    </div>` : '';
+  return `<section class="wrap section rt-section" data-rt-team="${esc(team.slug)}">
+  <div class="panel rt-panel" data-rt-gm hidden>
+    <p class="eyebrow">GM tools · ${esc(team.name)}</p>
+    ${pending}
+    <div class="rt-grid">
+      ${rtForm('offer', faSelect + '<input name="notes" placeholder="Notes (optional)" maxlength="200"><button class="btn btn-sm btn-gold">Send offer</button>', 'Offer a free agent', 'Send this contract offer?')}
+      ${rtForm('drop', mineSelect('player') + dropFlags + '<button class="btn btn-sm btn-danger">Drop</button>', 'Drop a player', 'Drop this player from the roster?')}
+      <form class="rt-form" data-cmd="trade" data-confirm="Send this trade proposal?" data-rosters="${esc(JSON.stringify(rosterOf))}"><h5>Propose a trade</h5><div class="mt-row">
+        ${mineSelect('your_player')}<span class="muted">for</span>
+        <select data-rt-team-pick required><option value="">Their team…</option>${others.map(t => `<option value="${esc(t.slug)}">${esc(t.name)}</option>`).join('')}</select>
+        <select name="their_player" required><option value="">Their player…</option></select>
+        <input name="notes" placeholder="Notes (optional)" maxlength="200"><button class="btn btn-sm btn-gold">Propose</button></div><p class="mt-out muted"></p></form>
+      ${rtForm('esub', `<select name="rank" required>${RANK_CHOICES.map(r => `<option>${r}</option>`).join('')}</select><select name="league" required><option${team.division === 'Premier' ? ' selected' : ''}>Premier</option><option${team.division === 'Academy' ? ' selected' : ''}>Academy</option></select><input name="datetime" placeholder="When? e.g. Tonight 9 PM ET" required maxlength="80"><input type="hidden" name="team" value="${esc(team.roleId)}"><button class="btn btn-sm">Post request</button>`, 'Emergency sub request', 'Post this emergency sub request in free-agent-chat?')}
+    </div>
+  </div>
+  <div class="panel rt-panel rt-staff" data-rt-staff hidden>
+    <p class="eyebrow">Staff tools · ${esc(team.name)}</p>
+    <div class="rt-grid">
+      ${rtForm('commoffer', faSelect + `<input type="hidden" name="team" value="${esc(team.roleId)}"><input name="notes" placeholder="Notes (optional)" maxlength="200"><button class="btn btn-sm btn-gold">Offer to ${esc(team.abbr)}</button>`, 'Offer a free agent to this team', `Offer this player to ${team.name}?`)}
+      ${rtForm('commdrop', mineSelect('player') + `<input type="hidden" name="team" value="${esc(team.roleId)}">` + dropFlags + '<button class="btn btn-sm btn-danger">Drop</button>', 'Drop a player from this team', 'Drop this player from the team?')}
+      ${rtForm('clearteamneeds', `<input type="hidden" name="team" value="${esc(team.roleId)}"><button class="btn btn-sm">Clear rank requirement</button>`, 'Pending rank requirement', `Clear ${team.name}'s pending rank requirement?`)}
+      ${rtForm('removesuspension', `<select name="player" required><option value="">Pick a player…</option>${fas.map(rtOption).join('')}</select><button class="btn btn-sm">Remove suspension</button>`, 'Remove a self-drop suspension', 'Remove this player\'s self-drop suspension?')}
+    </div>
+  </div>
+</section>`;
+}
+
+// Free Agents page: emergency sub requests (accept / back out) and the logged-in
+// player's own contract offers (accept / decline).
+function playerTools(league) {
+  const subs = league.esubs || [];
+  const offers = (league.rosterMoves || []).filter(x => x.type === 'offer');
+  const teamName = slug => (league.teams.find(t => t.slug === slug) || {}).name || slug;
+  const sub = s => `<div class="panel rt-sub${s.accepted ? ' is-taken' : ''}">
+      <div><strong>${esc(s.teamName || teamName(s.team))}</strong> needs a <strong>${esc(s.rank)}</strong> sub · ${esc(s.league)}<br><span class="muted">${esc(s.datetime)}</span></div>
+      ${s.accepted
+        ? `<div class="rt-sub-side"><span class="pill">Taken by ${esc(s.accepted)}</span><form class="rt-form rt-inline" data-cmd="esub_backout" data-mine-hash="${esc(s.acceptedHash || '')}" data-confirm="Back out of this sub request?" hidden><input type="hidden" name="request" value="${esc(s.id)}"><button class="btn btn-sm">Back out</button><p class="mt-out muted"></p></form></div>`
+        : `<form class="rt-form rt-inline" data-cmd="esub_accept" data-login data-confirm="Accept this sub request? You'll get the team's role for the match."><input type="hidden" name="request" value="${esc(s.id)}"><button class="btn btn-sm btn-gold">Accept</button><p class="mt-out muted"></p></form>`}
+    </div>`;
+  return `<section class="wrap section rt-section">
+  <div class="rt-player-offers" data-rt-offers hidden>
+    <h2 class="panel-title">Your contract offers</h2>
+    ${offers.map(o => `<div class="panel rt-sub" data-mine-hash="${esc(o.playerHash || '')}" hidden><div><strong>${esc(teamName(o.team))}</strong> offered you a contract.</div>
+      <div class="rt-sub-side"><form class="rt-form rt-inline" data-cmd="offer_accept" data-confirm="Accept this offer and join the team?"><input type="hidden" name="move" value="${esc(o.id)}"><button class="btn btn-sm btn-gold">Accept</button><p class="mt-out muted"></p></form>
+      <form class="rt-form rt-inline" data-cmd="offer_decline"><input type="hidden" name="move" value="${esc(o.id)}"><button class="btn btn-sm">Decline</button><p class="mt-out muted"></p></form></div></div>`).join('')}
+  </div>
+  <h2 class="panel-title">Emergency sub requests</h2>
+  <p class="muted">Free agents with the requested rank can accept. Log in with Discord first.</p>
+  ${subs.length ? `<div class="rt-subs">${subs.map(sub).join('')}</div>` : '<div class="panel"><p class="muted" style="margin:0">No sub requests right now.</p></div>'}
+</section>`;
+}
+
+const ROSTER_TOOLS_SCRIPT = `<script>
+(function () {
+  // Who's looking: staff (checked by the AJCL server), Team GM of which team, and
+  // their member hash (to find their own offers / accepted subs).
+  var html = document.documentElement;
+  var staff = html.classList.contains('is-staff');
+  function me() { try { return JSON.parse(localStorage.getItem('ajcl_user') || 'null'); } catch (e) { return null; } }
+  function token() { try { var t = JSON.parse(localStorage.getItem('ajcl_token')); return t && t.exp > Date.now() ? t.t : null; } catch (e) { return null; } }
+  function apply() {
+    var u = me(), myHash = u && u.hash, loggedIn = !!token();
+    var myTeam = html.dataset.myTeam || '', gm = html.dataset.teamGm === '1';
+    document.querySelectorAll('[data-rt-team]').forEach(function (sec) {
+      var g = sec.querySelector('[data-rt-gm]'); if (g) g.hidden = !(loggedIn && gm && myTeam === sec.dataset.rtTeam);
+      var s = sec.querySelector('[data-rt-staff]'); if (s) s.hidden = !(loggedIn && staff);
+    });
+    var anyOffer = false;
+    document.querySelectorAll('[data-mine-hash]').forEach(function (el) {
+      var mine = loggedIn && myHash && el.dataset.mineHash === myHash;
+      el.hidden = !mine; if (mine && el.closest('[data-rt-offers]')) anyOffer = true;
+    });
+    var box = document.querySelector('[data-rt-offers]'); if (box) box.hidden = !anyOffer;
+  }
+  // Trade form: their team -> their roster.
+  document.addEventListener('change', function (e) {
+    var pick = e.target.closest && e.target.closest('[data-rt-team-pick]');
+    if (!pick) return;
+    var form = pick.closest('form'), sel = form.querySelector('[name="their_player"]');
+    var rosters = {}; try { rosters = JSON.parse(form.dataset.rosters || '{}'); } catch (x) {}
+    sel.innerHTML = '<option value="">Their player…</option>' + (rosters[pick.value] || []).map(function (p) {
+      var o = document.createElement('option'); o.value = p.id; o.textContent = p.name; return o.outerHTML;
+    }).join('');
+  });
+  document.addEventListener('submit', async function (e) {
+    var form = e.target.closest && e.target.closest('form.rt-form');
+    if (!form) return;
+    e.preventDefault();
+    if (form.dataset.confirm && !confirm(form.dataset.confirm)) return;
+    var out = form.querySelector('.mt-out');
+    var say = function (t, k) { if (out) { out.className = 'mt-out ' + (k || 'muted'); out.textContent = t; } };
+    var tok = token();
+    if (!tok) return say('Log in with Discord first.', 'is-err');
+    var options = {};
+    new FormData(form).forEach(function (v, k) { if (v !== '') options[k] = v; });
+    form.querySelectorAll('input[type=checkbox]').forEach(function (c) { options[c.name] = c.checked; });
+    var LIVE = (document.querySelector('meta[name="ajcl-live-url"]') || {}).content || '';
+    form.querySelectorAll('button').forEach(function (b) { b.disabled = true; });
+    say('Sending to the bot…');
+    try {
+      var r = await fetch(LIVE + '/private/pb-action', { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' }, body: JSON.stringify({ op: 'cmd', command: form.dataset.cmd, options: options }) });
+      var d = await r.json().catch(function () { return {}; });
+      if (!r.ok) return say(r.status === 401 ? 'Your Discord login expired. Log out and back in.' : (d.error || 'Could not send it.'), 'is-err');
+      for (var i = 0; i < 20; i++) {
+        await new Promise(function (res) { setTimeout(res, 2000); });
+        var s = await fetch(LIVE + '/private/pb-action?id=' + encodeURIComponent(d.id), { headers: { Authorization: 'Bearer ' + tok }, cache: 'no-store' }).then(function (x) { return x.json(); }).catch(function () { return {}; });
+        if (s.status && s.status !== 'pending') return say(s.message || s.status, s.status === 'done' ? 'is-ok' : 'is-err');
+      }
+      say('The bot has not picked it up yet. It may be restarting; try again in a minute.', 'is-err');
+    } catch (err) { say('Could not reach the server. Try again.', 'is-err'); }
+    finally { form.querySelectorAll('button').forEach(function (b) { b.disabled = false; }); }
+  });
+  document.addEventListener('ajcl:staff', function (e) { staff = !!e.detail; apply(); });
+  document.addEventListener('ajcl:me', apply);
+  document.addEventListener('ajcl:league', function () { setTimeout(apply, 0); });
+  apply();
+})();
+</script>`;
+
 function teamPage(league, team, c) {
   const rows = league.standings[team.division];
   const row = rows.find(r => r.team.slug === team.slug);
@@ -919,8 +1070,9 @@ function teamPage(league, team, c) {
     <h2 class="panel-title">Schedule</h2>
     <div class="match-list">${games.map(m => matchCard(m, { showDivision: false })).join('')}</div>
   </div>
-</section>`;
-  return layout({ title: team.name, active: 'teams', body, c, page: `team:${team.slug}` });
+</section>
+${teamTools(league, team)}`;
+  return layout({ title: team.name, active: 'teams', body, c, script: ROSTER_TOOLS_SCRIPT, page: `team:${team.slug}` });
 }
 
 // Static page holding every week; a small script shows one week + division at a time.
@@ -1695,8 +1847,9 @@ function freeAgentsPage(league, c) {
     <div class="section-head"><h2>${g.rank ? rankTag(g.rank) : 'Unranked'}</h2><span class="muted">${g.players.length}</span></div>
     <div class="player-list">${g.players.sort((a, b) => a.name.localeCompare(b.name)).map(card).join('')}</div>
   </div>`).join('') : '<p class="muted">No free agents right now.</p>'}
-</section>`;
-  return layout({ title: 'Free Agents', active: 'players', body, c, page: 'free-agents' });
+</section>
+${playerTools(league)}`;
+  return layout({ title: 'Free Agents', active: 'players', body, c, script: ROSTER_TOOLS_SCRIPT, page: 'free-agents' });
 }
 
 function playersPage(league, c) {

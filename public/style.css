@@ -757,3 +757,24 @@ button.btn { font: inherit; cursor: pointer; }
 .mt-out { margin: 6px 0 0; font-size: 13px; }
 .mt-out.is-ok { color: #3ecf8e; }
 .mt-out.is-err { color: #ff6b6b; }
+
+/* Roster tools: GM / staff panels on team pages, player section on Free Agents */
+.rt-section .rt-panel { border-color: rgba(63,182,240,.45); margin-bottom: 14px; }
+.rt-section .rt-panel[hidden], .rt-section [hidden] { display: none !important; }
+.rt-staff { border-color: rgba(240,120,47,.5) !important; }
+.rt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px 18px; }
+.rt-form h5 { margin: 6px 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.rt-form select, .rt-form input[type=text], .rt-form input:not([type]) { background: var(--bg-2); color: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; font: inherit; font-size: 13px; max-width: 100%; color-scheme: dark; }
+.rt-form select { min-width: 160px; }
+.rt-form button.btn { color: var(--text); background: var(--panel-2); font: inherit; cursor: pointer; }
+.rt-form button.btn-gold { color: #1f0f05; background: linear-gradient(180deg, var(--gold-2), var(--gold)); }
+.rt-form button.btn-danger { color: #ff8a8a; }
+.rt-inline { display: inline-flex; flex-direction: column; gap: 2px; margin: 0 4px 0 0; }
+.rt-pending { margin-bottom: 12px; }
+.rt-move { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.rt-move > span { flex: 1 1 260px; }
+.rt-subs { display: grid; gap: 10px; }
+.rt-sub { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.rt-sub.is-taken { opacity: .75; }
+.rt-sub-side { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.rt-player-offers { margin-bottom: 22px; }

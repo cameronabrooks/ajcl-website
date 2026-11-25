@@ -117,9 +117,13 @@ export class League {
       try { body = JSON.parse(text); } catch { return new Response('{"error":"bad json"}', { status: 400, headers }); }
       // Match actions: picks/bans (sides, map), scheduling (propose, confirm, reschedule),
       // results (report) and staff fixes. The bot checks who may do each one.
-      const OPS = ['sides', 'map', 'propose', 'confirm', 'reschedule', 'report', 'set_time', 'set_deadline', 'reset_pb', 'start_pb'];
-      const op = body && body.op, match = String((body && body.match) || '').slice(0, 120);
+      const OPS = ['sides', 'map', 'propose', 'confirm', 'reschedule', 'report', 'set_time', 'set_deadline', 'reset_pb', 'start_pb', 'cmd'];
+      // 'cmd' = GM / staff / player roster tools; the bot runs the real Discord command.
+      const CMDS = ['offer', 'drop', 'trade', 'esub', 'commoffer', 'commdrop', 'clearteamneeds', 'removesuspension',
+        'trade_accept', 'trade_decline', 'offer_accept', 'offer_decline', 'esub_accept', 'esub_backout'];
+      const op = body && body.op, match = String((body && body.match) || (op === 'cmd' ? 'roster' : '')).slice(0, 120);
       if (!match || !OPS.includes(op)) return new Response('{"error":"bad request"}', { status: 400, headers });
+      if (op === 'cmd' && !CMDS.includes(body.command)) return new Response('{"error":"unknown tool"}', { status: 400, headers });
       if (op === 'sides' && body.side !== 'a' && body.side !== 'b') return new Response('{"error":"bad side"}', { status: 400, headers });
       // One pending request per person at a time.
       if (actions.some(x => x.status === 'pending' && x.type === 'pb' && x.by === userId)) return new Response('{"error":"still working on your last choice"}', { status: 409, headers });
@@ -128,6 +132,12 @@ export class League {
       else if (op === 'map') action.map = String(body.map || '').slice(0, 60);
       for (const k of ['date', 'time', 'tz', 'scoreA', 'scoreB', 'forfeit', 'restart']) {
         if (body[k] != null) action[k] = typeof body[k] === 'boolean' ? body[k] : String(body[k]).slice(0, 40);
+      }
+      if (op === 'cmd') {
+        action.command = body.command;
+        const opts = JSON.stringify(body.options && typeof body.options === 'object' ? body.options : {});
+        if (opts.length > 1500) return new Response('{"error":"too large"}', { status: 413, headers });
+        action.options = opts;
       }
       actions.push(action);
       await this.state.storage.put('actions', actions.slice(-50));
