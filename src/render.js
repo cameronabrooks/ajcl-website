@@ -864,6 +864,9 @@ function eightsPage(league, c) {
   addEventListener('hashchange', showChosen);
   // Clicking a link to the tab that's already in the address bar doesn't fire hashchange.
   document.addEventListener('click', function (e) {
+    // The queue tabs themselves just switch in place (no jump to the leaderboard).
+    var tab = e.target.closest && e.target.closest('[data-lb-tab]');
+    if (tab) { e.preventDefault(); history.replaceState(null, '', '#lb-' + tab.dataset.lbTab); apply(); return; }
     var a = e.target.closest && e.target.closest('a[href^="#lb-"]');
     if (a && a.getAttribute('href') === location.hash) { e.preventDefault(); showChosen(); }
   });
