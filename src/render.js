@@ -323,6 +323,11 @@ function home(league, c) {
   <div><strong>${league.weeks.length}</strong><span>Regular season weeks</span></div>
   <div><strong>${played}</strong><span>Series played</span></div>
 </section>
+${(league.announcements || []).length ? `
+<section class="wrap section">
+  <div class="section-head"><h2>Announcements</h2><a href="${u('/announcements/')}">All announcements →</a></div>
+  <div class="announce-list">${league.announcements.slice(0, 3).map(a => announcementCard(a, { clamp: true })).join('')}</div>
+</section>` : ''}
 
 <section class="wrap section">
   <div class="section-head"><h2>Week ${week} Matchups</h2><a href="${u('/schedule/')}#week-${week}">Full schedule →</a></div>
@@ -688,6 +693,46 @@ function draftPage(league, c) {
 
 // Searchable list of every rostered player. Filtering is client-side; the search
 // listener is delegated so it survives live.js re-rendering <main>.
+// ---- League announcements (the bot's posts in #league-announcements) ----
+// Safe mini-markdown: escape first, then **bold**, *italic*/_italic_, __underline__,
+// ~~strike~~, [text](url), bare links, "# heading" lines, "- " bullets, line breaks.
+function discordMarkdown(text) {
+  let s = esc(text || '');
+  s = s.replace(/\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  s = s.replace(/(^|[\s(])(https?:\/\/[^\s<]+)/g, '$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+  s = s.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
+       .replace(/__([^_\n]+)__/g, '<u>$1</u>')
+       .replace(/~~([^~\n]+)~~/g, '<s>$1</s>')
+       .replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>')
+       .replace(/(^|[\s(])_([^_\n]+)_/g, '$1<em>$2</em>');
+  return s.split('\n').map(line => {
+    const h = /^#{1,3} (.+)$/.exec(line);
+    if (h) return `<strong class="ann-h">${h[1]}</strong>`;
+    if (/^[-•*] /.test(line)) return `<span class="ann-li">• ${line.slice(2)}</span>`;
+    return line;
+  }).join('<br>');
+}
+
+function announcementCard(a, { clamp = false } = {}) {
+  const when = `<time datetime="${new Date(a.postedAt).toISOString()}">${esc(fmtDate(a.postedAt, { month: 'short', day: 'numeric', year: 'numeric' }))}</time>`;
+  return `<article class="panel announce${clamp ? ' is-clamped' : ''}">
+    <p class="announce-date muted">${when}</p>
+    ${a.title ? `<h3>${esc(a.title)}</h3>` : ''}
+    ${a.text ? `<div class="announce-text">${discordMarkdown(a.text)}</div>` : ''}
+    ${(a.images || []).length ? `<div class="announce-images">${a.images.map(src => `<img src="${esc(src)}" alt="" loading="lazy">`).join('')}</div>` : ''}
+    ${clamp ? `<a class="announce-more" href="${u('/announcements/')}#${esc(a.id)}">Read more →</a>` : ''}
+  </article>`;
+}
+
+function announcementsPage(league, c) {
+  const list = league.announcements || [];
+  const body = pageHead('League', 'Announcements', 'The latest from #league-announcements in the AJCL Discord.') + `
+<section class="wrap section">
+  <div class="announce-list announce-full">${list.map(a => `<div id="${esc(a.id)}">${announcementCard(a)}</div>`).join('') || '<p class="muted">No announcements yet.</p>'}</div>
+</section>`;
+  return layout({ title: 'Announcements', active: 'home', body, c, page: 'announcements' });
+}
+
 const faLabel = p => (p.freeAgent === 'rfa' ? 'Restricted free agent' : 'Free agent');
 const RANK_ORDER = ['Obsidian', 'Kyanite', 'Amethyst', 'Amber', 'Ruby', 'Emerald'];
 
@@ -910,4 +955,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, matchId, matchPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, matchId, matchPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
