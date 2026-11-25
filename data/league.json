@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795568448395,
+  "generatedAt": 1795568546231,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -61,8 +61,8 @@
         },
         "links": {
           "Xerxes": "xerxes",
-          "BBLZaaZaa": "bblzaazaa",
           "Reddaza": "reddaza",
+          "BBLZaaZaa": "bblzaazaa",
           "Speiddyy": "speiddyy"
         }
       }
@@ -119,15 +119,15 @@
         "nonPlaying": [],
         "ranks": {
           "butchiehof": "Amethyst",
-          "nitsua": "Kyanite",
           "Crouse": "Amethyst",
-          "Loyal": "Amethyst"
+          "Loyal": "Amethyst",
+          "nitsua": "Kyanite"
         },
         "links": {
-          "nitsua": "nitsua",
           "butchiehof": "butchiehof",
           "Crouse": "crouse",
           "Loyal": "loyal",
+          "nitsua": "nitsua",
           "Delusions": "delusions"
         }
       }
@@ -245,15 +245,15 @@
         "nonPlaying": [],
         "ranks": {
           "Zylixz": "Kyanite",
-          "BrooksySZN": "Amethyst",
           "Luke": "Amethyst",
-          "Hunna": "Amethyst"
+          "Hunna": "Amethyst",
+          "BrooksySZN": "Amethyst"
         },
         "links": {
-          "BrooksySZN": "brooksyszn",
           "Luke": "luke",
           "Zylixz": "zylixz",
-          "Hunna": "hunna"
+          "Hunna": "hunna",
+          "BrooksySZN": "brooksyszn"
         }
       }
     },
@@ -313,9 +313,9 @@
         },
         "links": {
           "Inspire": "inspire",
+          "⛧ Ƒëﾑr ツ": "e-r",
           "Owes Every1 Taco Bell Plu": "owes-every1-taco-bell-plu",
-          "BooshDaGoat": "booshdagoat",
-          "⛧ Ƒëﾑr ツ": "e-r"
+          "BooshDaGoat": "booshdagoat"
         }
       }
     },
@@ -372,15 +372,15 @@
         "nonPlaying": [],
         "ranks": {
           "Kib": "Amber",
+          "Bandit": "Ruby",
           "Cam": "Amber",
-          "Palsy": "Ruby",
-          "Bandit": "Ruby"
+          "Palsy": "Ruby"
         },
         "links": {
+          "Bandit": "bandit",
           "Cam": "cam",
           "Palsy": "palsy",
-          "Kib": "kib",
-          "Bandit": "bandit"
+          "Kib": "kib"
         }
       }
     },
@@ -406,14 +406,14 @@
         "ranks": {
           "Leisure": "Ruby",
           "Lil'Ceezars": "Kyanite",
+          "Tanji": "Amber",
           "Divi": "Ruby",
-          "Fly Tendencies": "Amber",
-          "Tanji": "Amber"
+          "Fly Tendencies": "Amber"
         },
         "links": {
+          "Tanji": "tanji",
           "Divi": "divi",
           "Fly Tendencies": "fly-tendencies",
-          "Tanji": "tanji",
           "Leisure": "leisure",
           "Lil'Ceezars": "lil-ceezars"
         }
@@ -500,13 +500,13 @@
         "nonPlaying": [],
         "ranks": {
           "shooter": "Ruby",
-          "Kentucky": "Ruby",
           "ImAkaii": "Amber",
+          "Kentucky": "Ruby",
           "Racist Guy Marv": "Amber"
         },
         "links": {
-          "Kentucky": "kentucky",
           "ImAkaii": "imakaii",
+          "Kentucky": "kentucky",
           "Racist Guy Marv": "racist-guy-marv",
           "shooter": "shooter"
         }
@@ -534,15 +534,15 @@
         "ranks": {
           "unholy draco": "Ruby",
           "BBLZaaZaa": "Amethyst",
+          "SlayFS": "Amber",
           "Revert": "Ruby",
-          "Gutta": "Amber",
-          "SlayFS": "Amber"
+          "Gutta": "Amber"
         },
         "links": {
+          "SlayFS": "slayfs",
           "unholy draco": "unholy-draco",
           "Revert": "revert",
           "Gutta": "gutta",
-          "SlayFS": "slayfs",
           "BBLZaaZaa": "bblzaazaa"
         }
       }
@@ -1245,10 +1245,219 @@
       ]
     }
   },
+  "announcements": [
+    {
+      "id": "1574939448813162603",
+      "title": "🏆 Academy Power Rankings",
+      "text": "@everyone\n\n🥇 Roswell Aliens — **51 pts**\n🥈 Omaha Bandits — **40 pts**\n🥉 New Orleans Reapers — **31 pts**\n4️⃣ Montreal Red Dragons — **26 pts**\n5️⃣ Pittsburgh Nocturnal — **23 pts**\n6️⃣ Michigan Samurai — **23 pts**\n7️⃣ Kansas City Kings — **14 pts**\n8️⃣ Lexington Majestic — **11 pts**",
+      "images": [],
+      "postedAt": 1795565225557,
+      "editedAt": 1795567343531
+    },
+    {
+      "id": "1574939352251768863",
+      "title": "🏆 Premier Power Rankings",
+      "text": "@everyone\n\n🥇 Atlanta Firebirds — **38 pts**\n🥈 Halifax Ospreys — **26 pts**\n🥉 Carolina Carnage — **17 pts**\n4️⃣ Syracuse Armadillos — **14 pts**\n5️⃣ Santa Fe Scorpions — **10 pts**\n6️⃣ Toronto Blue Dragons — **7 pts**\n7️⃣ Calgary Cobra Chickens — **6 pts**\n8️⃣ St. Louis Night Stalkers — **2 pts**",
+      "images": [],
+      "postedAt": 1795565202535,
+      "editedAt": 1795567577287
+    },
+    {
+      "id": "1574227005648535623",
+      "title": "✅ Academy Draft Complete",
+      "text": "@everyone\n\n**Omaha Bandits (OMH)**\n👑 @unholy draco *(ruby)* *(GM)*\n@Gutta (amber)\n@SlayFS (amber)\n@Revert (ruby)\n\n**Michigan Samurai (MIS)**\n👑 @shooter *(ruby)* *(GM)*\n@Racist Guy Marv (amber)\n@ImAkaii (amber)\n@Kentucky (ruby)\n\n**Lexington Majestic (LEX)**\n👑 @Kib *(GM)* (amber)\n@Cam (amber)\n@Palsy (ruby)\n@Bandit (ruby)\n\n**Roswell Aliens (ROS)**\n👑 @⛧ Ƒëﾑr ツ *(ruby)* *(GM)*\n@Inspire (amber)\n@Owes Every1 Taco Bell Plu (amber)\n@BooshDaGoat (ruby)\n\n**Montreal Red Dragons (MRD)**\n👑 @🧛🏼OverlordAlucard 🧛🏼 *(amber)* *(GM)*\n@JAYDREAMZ (ruby)\n@ZEUS (ruby)\n@Bruce (amber)\n\n**Kansas City Kings (KCK)**\n👑 @Sac *(ruby)* *(GM)*\n@cbass (amber)\n@MaRsH313 (ruby)\n@member (amber)\n\n**New Orleans Reapers (NOR)**\n👑 @Leisure *(ruby)* *(GM)*\n@Fly Tendencies (amber)\n@Tanji (amber)\n@Divi (ruby)\n\n**Pittsburgh Nocturnal (PIT)**\n👑 @Twizz *(amber)* *(GM)*\n@Brimington (ruby)\n@2elite (amber)\n@Ranked Incorrectly (ruby)",
+      "images": [],
+      "postedAt": 1795395365870,
+      "editedAt": 1795395608888
+    },
+    {
+      "id": "1574220604591186072",
+      "title": "✅ Premier Draft Complete",
+      "text": "@everyone\n\n**Syracuse Armadillos (SYR)**\n👑 @butchiehof *(amethyst)* *(GM)*\n@nitsua (kyanite)\n@Crouse (amethyst)\n@Loyal (amethyst)\n\n**Atlanta Firebirds (ATL)**\n👑 @BBLZaaZaa *(amethyst)* *(GM)*\n@Reddaza (kyanite)\n@Speiddyy (amethyst)\n@Xerxes (amethyst)\n\n**Halifax Ospreys (HAL)**\n👑 @RynoRH *(amethyst)* *(GM)*\n@g-ter (kyanite)\n@Bis (amethyst)\n@MoistQuackers (amethyst)\n\n**Carolina Carnage (CAR)**\n👑 @Lil'Ceezars *(kyanite)* *(GM)*\n@Zuko (amethyst)\n@007 Quay (amethyst)\n@Ny (amethyst)\n\n**Santa Fe Scorpions (SFS)**\n👑 @MoonerTheAlcoholic *(kyanite)* *(GM)*\n@Lakas (amethyst)\n@ilikefeet (amethyst)\n@vis (amethyst)\n\n**Calgary Cobra Chickens (CCC)**\n👑 @Venom *(amethyst)* *(GM)*\n@BamBam (kyanite)\n@Freaky (amethyst)\n@Crazed (amethyst)\n\n**Toronto Blue Dragons (TOR)**\n👑 @Zylixz *(kyanite)* *(GM)*\n@BrooksySZN (amethyst)\n@Luke (amethyst)\n@Hunna (amethyst)\n\n**St. Louis Nightstalkers (SLN)**\n👑 @K1lla *(GM)*\n@Kjay (amethyst)\n@Lux (kyanite)\n@Primo (amethyst)\n@Spyder (amethyst)",
+      "images": [],
+      "postedAt": 1795393839739,
+      "editedAt": 1795393994517
+    },
+    {
+      "id": "1573922026488467547",
+      "title": null,
+      "text": "Here is your draft order going into the draft!\n\nReminder the SZN X Draft is starting at 7 EST tomorrow with the Premier Draft, so GM's don't be late or let staff (who are not GM's preferably) know you will not be there.\n\n@everyone",
+      "images": [],
+      "postedAt": 1795322653172,
+      "editedAt": 1795322834055
+    },
+    {
+      "id": "1573158480053932103",
+      "title": null,
+      "text": "@everyone\nHey all, ranks are rolling out very soon! \n\nThe season makeup is 1 Kyanite and 3 Amethysts for Premier, 2 Ambers and 2 Ruby’s for Academy\n\nWe are still looking for GM’s alongside the GM’s we already selected. We do need 2 more GM’s for Premier and 1 for Academy, you can fill out an application in #applications-and-szn-registration.\n\nThe GM's we have approved\n\nPremier GM's\nMooner\nVenom\nCeez (Snow)\nK1lla (Non-Playing)\nZylixz\nButchie\nRyno\nZaaZaa\n\nAcademy GM's\nTwizz\nGrimothe\nSac\nChristian\nFear\nShooter\nLeisure\nUnholy Draco\n\nThe team name selection and draft order will be on Saturday 11/21 at 8 EST\n\nThe draft will be on Sunday at 7 EST",
+      "images": [],
+      "postedAt": 1795140609516,
+      "editedAt": 1795285176260
+    },
+    {
+      "id": "1572053295386595400",
+      "title": null,
+      "text": "We are still looking for GM's! \nApply here:\n#applications-and-szn-registration",
+      "images": [],
+      "postedAt": 1794877112958,
+      "editedAt": null
+    },
+    {
+      "id": "1571983972601176236",
+      "title": null,
+      "text": "@everyone\nReminder TODAY is the last day of combines! If you need them get in them!",
+      "images": [],
+      "postedAt": 1794860585118,
+      "editedAt": null
+    },
+    {
+      "id": "1570864409772036160",
+      "title": null,
+      "text": "@everyone\nWe're still in need of GM's! Make sure you put your application in if you haven't already!\nApply here #applications-and-szn-registration\n\nAlso it is the last weekend for combines so make sure you get your maps in!",
+      "images": [],
+      "postedAt": 1794593660539,
+      "editedAt": 1794593700873
+    },
+    {
+      "id": "1570114168466448508",
+      "title": null,
+      "text": "@everyone\nWe are still looking for GM's! Make sure you put your application in!\nApply here #applications-and-szn-registration",
+      "images": [],
+      "postedAt": 1794414789073,
+      "editedAt": null
+    },
+    {
+      "id": "1569501950163288105",
+      "title": "AJCL MW4 GA List",
+      "text": "@everyone\nOur MW4 GA List\n*THIS LIST IS SUBJECT TO CHANGE\nhttps://docs.google.com/spreadsheets/d/1PZxYglj_BJvRwPxdjfRjUqYJ94mF2IjgsMH9vtI2yKI/edit?usp=sharing",
+      "images": [],
+      "postedAt": 1794268824855,
+      "editedAt": null
+    },
+    {
+      "id": "1569445308889571472",
+      "title": null,
+      "text": "@everyone #reaction-roles #applications-and-szn-registration\nReminder that combines end on 11/16, in 1 week. That being said make you get all 25 of your maps (5 full combines) finished before then and if you need the role make sure to get it from the channel linked above! \n\nAnother thing, we are still looking for GM's for SZN X so make sure you put in your application if you haven't already!",
+      "images": [],
+      "postedAt": 1794255320523,
+      "editedAt": 1794264433618
+    },
+    {
+      "id": "1567695392726851677",
+      "title": null,
+      "text": "#applications-and-szn-registration\nAnother thing we  are opening up GM Applications! If you would like the chance to be one make sure you put in an application for it!",
+      "images": [],
+      "postedAt": 1793838107998,
+      "editedAt": null
+    },
+    {
+      "id": "1567693760140152966",
+      "title": null,
+      "text": "@everyone #reaction-roles #applications-and-szn-registration\nMake you register for the season and get your combine roles so you can participate in Season X! Combines will officially finish on the 16th, so make sure you get in there and get your 25 maps done!",
+      "images": [],
+      "postedAt": 1793837718759,
+      "editedAt": null
+    },
+    {
+      "id": "1565184494170804274",
+      "title": "COD Stats - Call of Duty Stats Tracker, CDL Standings & Leagues",
+      "text": "@everyone\nHey all, we just wanted to let you know you can now track how many maps you played on the COD-Stats website! This link should take you right to it.\n\nWe also do recommend making an account for easier access, that way you can use the COD-Stats bot to see your stats in season straight from discord without having to go to the website.\n\nIf you do make an account make sure you use one of these referral codes:\nPizz, itz_inspire, MaRsH313, or Cam\n\nhttps://cod-stats.com/amateur-leagues/average-joes-cod-league?season=__combines__&combine=5db987e0-947d-47db-9649-a41da6535dbf\n\nFree Call of Duty stats tracker: CDL player K/D, live standings and results, plus amateur leagues, tournaments and Stat TrackR for competitive CoD.",
+      "images": [],
+      "postedAt": 1793239463132,
+      "editedAt": 1793247520207
+    },
+    {
+      "id": "1564762056492851371",
+      "title": null,
+      "text": "@everyone\nReminder to everyone make sure you register for the season and get your combine roles in the reaction role channel to be able to participate in Season X!\n\n#applications-and-szn-registration \n#reaction-roles",
+      "images": [],
+      "postedAt": 1793138746141,
+      "editedAt": 1793138835099
+    },
+    {
+      "id": "1564094196338393100",
+      "title": null,
+      "text": "@everyone\nCombines for the next season will start tomorrow !\n5 combines (25 maps) to get ranked\nMake sure you have your combine role and come get ranked\n#reaction-roles",
+      "images": [],
+      "postedAt": 1792979515872,
+      "editedAt": 1793012363960
+    },
+    {
+      "id": "1564002214593437827",
+      "title": null,
+      "text": "@everyone #applications-and-szn-registration\nHey all! Season X registration is now OPEN! The link to the channel is above.\n\nOnce you get to the channel click on the dropdown and select \"Season Registration\". After you click on that you will receive a dm from the bot and just answer the questions. Once all the questions are answered you will will get one last dm from the bot saying you were registered and you will receive the registered role in the server. \n\nWe cannot wait to see what MW4 has in store for us!\n\nThanks\n-AJCL Staff",
+      "images": [],
+      "postedAt": 1792957585715,
+      "editedAt": null
+    },
+    {
+      "id": "1544105014887186593",
+      "title": null,
+      "text": "@everyone\nThe playoffs for the mini szn will be Sept. 3-6\nWR1 starts Thursday 8est\nWR2 and LR1 starts Friday 8est\nWF and LR2 up to LF starts Saturday 7est\nGF starts 8est Sunday and will be a BO7\nWR1 match ups will be posted shortly",
+      "images": [],
+      "postedAt": 1788213723633,
+      "editedAt": null
+    },
+    {
+      "id": "1539037820977676288",
+      "title": null,
+      "text": "@everyone\nNew Reranks\n\nDelusions moved to Amethyst\nZech moved to Amethyst\nNy (amorae) moved to Amethyst\nBgolden moved to Amber\nKib moved to Ruby\nFreaky moved to Kyanite\n\nIncoming Ranks\nInspire is Amber (Substitute Only)",
+      "images": [],
+      "postedAt": 1787005610461,
+      "editedAt": null
+    },
+    {
+      "id": "1534255514672697415",
+      "title": null,
+      "text": "@everyone\nExposure is now out of the map pool for overload. https://x.com/CODLeague/status/2084682271252963554?s=20\n\nExposure has been removed from the Map Pool for \\#EWC26 🗺️❌",
+      "images": [],
+      "postedAt": 1785865419787,
+      "editedAt": null
+    },
+    {
+      "id": "1533592392249376829",
+      "title": null,
+      "text": "@everyone\nHey all, we're going to be doing the Draft TONIGHT starting at 6 EST with the wheel spins!\n\nThat being said we would like to announce the GM's for both leagues.\n\nAcademy:\nConnor\nBerry\nSac\nShisui\nSophie\nDelusions\nK1lla\nChristian\n\nPremier:\nNoVa\nMooner\nDeadpool\nSnow\nStokely\nK1lla\nCam\nInspire",
+      "images": [],
+      "postedAt": 1785707319081,
+      "editedAt": null
+    },
+    {
+      "id": "1533526764951699558",
+      "title": null,
+      "text": "@everyone @Cam #applications-and-szn-registration\nStill needing about 4 GM’s for Premier (Uppers)! If you’re ranked amethyst or kyanite put in an application!\nAnother thing if you register but are not ranked but would like to be DM Cam or submit a ticket by DMing the bot.",
+      "images": [],
+      "postedAt": 1785691672314,
+      "editedAt": null
+    },
+    {
+      "id": "1532935273044906015",
+      "title": "Want to play some throwback 8s?",
+      "text": "@everyone\n\nThrowback 8s Discord if anyone wants to dabble\nhttps://discord.gg/A455Hcjpe",
+      "images": [],
+      "postedAt": 1785550649654,
+      "editedAt": null
+    },
+    {
+      "id": "1532888950807592960",
+      "title": null,
+      "text": "@everyone #applications-and-szn-registration\nWe're still looking for GM's! \nWe need 2-3 for lowers and 4 for uppers!\nIf you want to GM make sure you put in your application if you haven't already! The channel is linked above :-)",
+      "images": [],
+      "postedAt": 1785539605572,
+      "editedAt": null
+    }
+  ],
   "members": {
     "4623064ecf744333f6f7": {
       "team": "atl",
       "name": "Xerxes",
+      "roles": [
+        "player"
+      ]
+    },
+    "c1fd90bf17d65a2f054c": {
+      "team": "atl",
+      "name": "Reddaza",
       "roles": [
         "player"
       ]
@@ -1260,13 +1469,6 @@
         "player",
         "gm",
         "coach"
-      ]
-    },
-    "c1fd90bf17d65a2f054c": {
-      "team": "atl",
-      "name": "Reddaza",
-      "roles": [
-        "player"
       ]
     },
     "663def3148f4cbbb5268": {
@@ -1306,13 +1508,6 @@
         "player"
       ]
     },
-    "2157bbb040dac182dbb8": {
-      "team": "syr",
-      "name": "nitsua",
-      "roles": [
-        "player"
-      ]
-    },
     "56c8e1ef5dfbfd83acb8": {
       "team": "syr",
       "name": "butchiehof",
@@ -1331,6 +1526,13 @@
     "498e3024effcd57afd25": {
       "team": "syr",
       "name": "Loyal",
+      "roles": [
+        "player"
+      ]
+    },
+    "2157bbb040dac182dbb8": {
+      "team": "syr",
+      "name": "nitsua",
       "roles": [
         "player"
       ]
@@ -1435,13 +1637,6 @@
         "player"
       ]
     },
-    "8973811321d65bf3b673": {
-      "team": "tor",
-      "name": "BrooksySZN",
-      "roles": [
-        "player"
-      ]
-    },
     "6a5c63a901b429734107": {
       "team": "tor",
       "name": "Luke",
@@ -1460,6 +1655,13 @@
     "3aad8d4d163311f30e8e": {
       "team": "tor",
       "name": "Hunna",
+      "roles": [
+        "player"
+      ]
+    },
+    "8973811321d65bf3b673": {
+      "team": "tor",
+      "name": "BrooksySZN",
       "roles": [
         "player"
       ]
@@ -1500,6 +1702,14 @@
         "player"
       ]
     },
+    "456afdd22adc0c988950": {
+      "team": "ros",
+      "name": "⛧ Ƒëﾑr ツ",
+      "roles": [
+        "player",
+        "gm"
+      ]
+    },
     "6eba674a89096a099f7d": {
       "team": "ros",
       "name": "Owes Every1 Taco Bell Plu",
@@ -1512,14 +1722,6 @@
       "name": "BooshDaGoat",
       "roles": [
         "player"
-      ]
-    },
-    "456afdd22adc0c988950": {
-      "team": "ros",
-      "name": "⛧ Ƒëﾑr ツ",
-      "roles": [
-        "player",
-        "gm"
       ]
     },
     "025feda6b6afba4a90b0": {
@@ -1558,6 +1760,13 @@
         "coach"
       ]
     },
+    "f4294a759be3d312000b": {
+      "team": "lex",
+      "name": "Bandit",
+      "roles": [
+        "player"
+      ]
+    },
     "05602de9aea222d1753e": {
       "team": "lex",
       "name": "Cam",
@@ -1580,9 +1789,9 @@
         "gm"
       ]
     },
-    "f4294a759be3d312000b": {
-      "team": "lex",
-      "name": "Bandit",
+    "a93d644f8a3489d5cba0": {
+      "team": "nor",
+      "name": "Tanji",
       "roles": [
         "player"
       ]
@@ -1597,13 +1806,6 @@
     "c3d683d275a73cb633f0": {
       "team": "nor",
       "name": "Fly Tendencies",
-      "roles": [
-        "player"
-      ]
-    },
-    "a93d644f8a3489d5cba0": {
-      "team": "nor",
-      "name": "Tanji",
       "roles": [
         "player"
       ]
@@ -1674,16 +1876,16 @@
         "gm"
       ]
     },
-    "c3efec830c56393e5d6b": {
+    "d917fafee7d5e1d39edf": {
       "team": "mis",
-      "name": "Kentucky",
+      "name": "ImAkaii",
       "roles": [
         "player"
       ]
     },
-    "d917fafee7d5e1d39edf": {
+    "c3efec830c56393e5d6b": {
       "team": "mis",
-      "name": "ImAkaii",
+      "name": "Kentucky",
       "roles": [
         "player"
       ]
@@ -1701,6 +1903,13 @@
       "roles": [
         "player",
         "gm"
+      ]
+    },
+    "dd16af1b1141a43c70d7": {
+      "team": "omh",
+      "name": "SlayFS",
+      "roles": [
+        "player"
       ]
     },
     "1e795f51e1222c271558": {
@@ -1721,13 +1930,6 @@
     "fb185ee08814ed68a4a9": {
       "team": "omh",
       "name": "Gutta",
-      "roles": [
-        "player"
-      ]
-    },
-    "dd16af1b1141a43c70d7": {
-      "team": "omh",
-      "name": "SlayFS",
       "roles": [
         "player"
       ]
@@ -1774,6 +1976,15 @@
       ]
     },
     {
+      "slug": "reddaza",
+      "name": "Reddaza",
+      "team": "atl",
+      "roles": [
+        "player"
+      ],
+      "rank": "Kyanite"
+    },
+    {
       "slug": "bblzaazaa",
       "name": "BBLZaaZaa",
       "team": "atl",
@@ -1813,15 +2024,6 @@
           ]
         }
       ]
-    },
-    {
-      "slug": "reddaza",
-      "name": "Reddaza",
-      "team": "atl",
-      "roles": [
-        "player"
-      ],
-      "rank": "Kyanite"
     },
     {
       "slug": "speiddyy",
@@ -1923,45 +2125,6 @@
       "rank": "Amethyst"
     },
     {
-      "slug": "nitsua",
-      "name": "nitsua",
-      "team": "syr",
-      "roles": [
-        "player"
-      ],
-      "rank": "Kyanite",
-      "gamertag": "nitsua",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.27",
-            "kpm": "23.7",
-            "maps": 38
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "SLN",
-              "kd": "1.31",
-              "kpm": "23.6",
-              "maps": 29
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "SLN",
-              "kd": "1.16",
-              "kpm": "24.0",
-              "maps": 9
-            }
-          ]
-        }
-      ]
-    },
-    {
       "slug": "butchiehof",
       "name": "butchiehof",
       "team": "syr",
@@ -2050,6 +2213,45 @@
               "kd": "1.25",
               "kpm": "23.4",
               "maps": 28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nitsua",
+      "name": "nitsua",
+      "team": "syr",
+      "roles": [
+        "player"
+      ],
+      "rank": "Kyanite",
+      "gamertag": "nitsua",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.27",
+            "kpm": "23.7",
+            "maps": 38
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.31",
+              "kpm": "23.6",
+              "maps": 29
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.16",
+              "kpm": "24.0",
+              "maps": 9
             }
           ]
         }
@@ -2450,45 +2652,6 @@
       ]
     },
     {
-      "slug": "brooksyszn",
-      "name": "BrooksySZN",
-      "team": "tor",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amethyst",
-      "gamertag": "BrooksySZN",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.88",
-            "kpm": "18.9",
-            "maps": 38
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "KNX",
-              "kd": "0.86",
-              "kpm": "18.6",
-              "maps": 30
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "IMK / SPS",
-              "kd": "0.96",
-              "kpm": "20.0",
-              "maps": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
       "slug": "luke",
       "name": "Luke",
       "team": "tor",
@@ -2537,6 +2700,45 @@
         "player"
       ],
       "rank": "Amethyst"
+    },
+    {
+      "slug": "brooksyszn",
+      "name": "BrooksySZN",
+      "team": "tor",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amethyst",
+      "gamertag": "BrooksySZN",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.88",
+            "kpm": "18.9",
+            "maps": 38
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "KNX",
+              "kd": "0.86",
+              "kpm": "18.6",
+              "maps": 30
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "IMK / SPS",
+              "kd": "0.96",
+              "kpm": "20.0",
+              "maps": 8
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "bis",
@@ -2659,6 +2861,46 @@
       ]
     },
     {
+      "slug": "e-r",
+      "name": "⛧ Ƒëﾑr ツ",
+      "team": "ros",
+      "roles": [
+        "player",
+        "gm"
+      ],
+      "rank": "Ruby",
+      "gamertag": "当 Feムrツ",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.02",
+            "kpm": "19.4",
+            "maps": 36
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "OMH / WAS / AUS / MAN",
+              "kd": "1.07",
+              "kpm": "19.8",
+              "maps": 32
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "KCK",
+              "kd": "0.71",
+              "kpm": "16.5",
+              "maps": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "owes-every1-taco-bell-plu",
       "name": "Owes Every1 Taco Bell Plu",
       "team": "ros",
@@ -2715,46 +2957,6 @@
               "kd": "1.08",
               "kpm": "17.2",
               "maps": 26
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "e-r",
-      "name": "⛧ Ƒëﾑr ツ",
-      "team": "ros",
-      "roles": [
-        "player",
-        "gm"
-      ],
-      "rank": "Ruby",
-      "gamertag": "当 Feムrツ",
-      "gamertagSource": "linked",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.02",
-            "kpm": "19.4",
-            "maps": 36
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "OMH / WAS / AUS / MAN",
-              "kd": "1.07",
-              "kpm": "19.8",
-              "maps": 32
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "KCK",
-              "kd": "0.71",
-              "kpm": "16.5",
-              "maps": 4
             }
           ]
         }
@@ -2934,6 +3136,45 @@
       ]
     },
     {
+      "slug": "bandit",
+      "name": "Bandit",
+      "team": "lex",
+      "roles": [
+        "player"
+      ],
+      "rank": "Ruby",
+      "gamertag": "Bandit",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.98",
+            "kpm": "21.2",
+            "maps": 44
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "AUS / CHP",
+              "kd": "1.03",
+              "kpm": "21.8",
+              "maps": 36
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "DEL",
+              "kd": "0.77",
+              "kpm": "18.6",
+              "maps": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "cam",
       "name": "Cam",
       "team": "lex",
@@ -3030,43 +3271,15 @@
       ]
     },
     {
-      "slug": "bandit",
-      "name": "Bandit",
-      "team": "lex",
+      "slug": "tanji",
+      "name": "Tanji",
+      "team": "nor",
       "roles": [
         "player"
       ],
-      "rank": "Ruby",
-      "gamertag": "Bandit",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.98",
-            "kpm": "21.2",
-            "maps": 44
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "AUS / CHP",
-              "kd": "1.03",
-              "kpm": "21.8",
-              "maps": 36
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "DEL",
-              "kd": "0.77",
-              "kpm": "18.6",
-              "maps": 8
-            }
-          ]
-        }
-      ]
+      "rank": "Amber",
+      "gamertag": "arrmie",
+      "gamertagSource": "linked"
     },
     {
       "slug": "divi",
@@ -3115,17 +3328,6 @@
           ]
         }
       ]
-    },
-    {
-      "slug": "tanji",
-      "name": "Tanji",
-      "team": "nor",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amber",
-      "gamertag": "arrmie",
-      "gamertagSource": "linked"
     },
     {
       "slug": "leisure",
@@ -3413,6 +3615,15 @@
       ]
     },
     {
+      "slug": "imakaii",
+      "name": "ImAkaii",
+      "team": "mis",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amber"
+    },
+    {
       "slug": "kentucky",
       "name": "Kentucky",
       "team": "mis",
@@ -3450,15 +3661,6 @@
           ]
         }
       ]
-    },
-    {
-      "slug": "imakaii",
-      "name": "ImAkaii",
-      "team": "mis",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amber"
     },
     {
       "slug": "racist-guy-marv",
@@ -3500,6 +3702,45 @@
         "gm"
       ],
       "rank": "Ruby"
+    },
+    {
+      "slug": "slayfs",
+      "name": "SlayFS",
+      "team": "omh",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amber",
+      "gamertag": "SlayFS",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.16",
+            "kpm": "23.8",
+            "maps": 39
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "KCK",
+              "kd": "1.19",
+              "kpm": "24.3",
+              "maps": 35
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "DEL",
+              "kd": "0.90",
+              "kpm": "19.5",
+              "maps": 4
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "unholy-draco",
@@ -3552,77 +3793,30 @@
       "rank": "Amber"
     },
     {
-      "slug": "slayfs",
-      "name": "SlayFS",
-      "team": "omh",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amber",
-      "gamertag": "SlayFS",
+      "slug": "kain",
+      "name": "Kain",
+      "team": null,
+      "freeAgent": "fa",
+      "roles": [],
+      "rank": "Ruby",
+      "gamertag": "Kain",
       "gamertagSource": "name",
       "games": [
         {
           "game": "BO7",
           "total": {
-            "kd": "1.16",
-            "kpm": "23.8",
-            "maps": 39
+            "kd": "0.86",
+            "kpm": "20.1",
+            "maps": 20
           },
           "seasons": [
             {
               "name": "Season 9 Academy",
               "current": false,
-              "team": "KCK",
-              "kd": "1.19",
-              "kpm": "24.3",
-              "maps": 35
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "DEL",
-              "kd": "0.90",
-              "kpm": "19.5",
-              "maps": 4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "2nasty",
-      "name": "2Nasty 🏅",
-      "team": null,
-      "freeAgent": "fa",
-      "roles": [],
-      "rank": "Amethyst",
-      "gamertag": "2Nasty 🏅",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.09",
-            "kpm": "21.3",
-            "maps": 42
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "SFS",
-              "kd": "1.13",
-              "kpm": "21.7",
-              "maps": 35
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "CAR / ATL",
-              "kd": "0.91",
-              "kpm": "19.3",
-              "maps": 7
+              "team": "AUS / OMH / KCK",
+              "kd": "0.86",
+              "kpm": "20.1",
+              "maps": 20
             }
           ]
         }
@@ -3669,36 +3863,6 @@
               "kd": "1.54",
               "kpm": "29.8",
               "maps": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "kain",
-      "name": "Kain",
-      "team": null,
-      "freeAgent": "fa",
-      "roles": [],
-      "rank": "Ruby",
-      "gamertag": "Kain",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.86",
-            "kpm": "20.1",
-            "maps": 20
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "AUS / OMH / KCK",
-              "kd": "0.86",
-              "kpm": "20.1",
-              "maps": 20
             }
           ]
         }
@@ -3951,6 +4115,44 @@
       "freeAgent": "fa",
       "roles": [],
       "rank": "Amber"
+    },
+    {
+      "slug": "2nasty",
+      "name": "2Nasty 🏅",
+      "team": null,
+      "freeAgent": "fa",
+      "roles": [],
+      "rank": "Amethyst",
+      "gamertag": "2Nasty 🏅",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.09",
+            "kpm": "21.3",
+            "maps": 42
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SFS",
+              "kd": "1.13",
+              "kpm": "21.7",
+              "maps": 35
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "CAR / ATL",
+              "kd": "0.91",
+              "kpm": "19.3",
+              "maps": 7
+            }
+          ]
+        }
+      ]
     },
     {
       "slug": "hidden-illusion",
