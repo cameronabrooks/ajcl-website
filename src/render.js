@@ -833,10 +833,14 @@ function eightsPage(league, c) {
   const leaderboard = boards.length ? `
   ${boards.length > 1 ? `<div class="tabs lb-tabs">${boards.map(b => `<a class="tab" href="#lb-${esc(b.key)}" data-lb-tab="${esc(b.key)}">${esc(b.name)}</a>`).join('')}</div>` : ''}
   ${boards.map(b => `<div class="lb-panel" data-lb="${esc(b.key)}">
-    ${results(b)}
-    <h3 class="sub lb-title">${esc(b.name)} leaderboard <span class="muted">· top ${b.players.length} by MMR</span></h3>
+    <h3 class="sub">${esc(b.name)} leaderboard <span class="muted">· top ${b.players.length} by MMR</span></h3>
     ${table(b.players)}
   </div>`).join('')}` : '<p class="muted">No ratings yet — play some 8s matches in the AJCL Discord!</p>';
+  // Results section (right under the live queues). Same queue tabs: they share the
+  // data-lb keys, so picking a queue in either section switches both.
+  const resultsSection = boards.length ? `
+  ${boards.length > 1 ? `<div class="tabs qr-tabs">${boards.map(b => `<a class="tab" href="#lb-${esc(b.key)}" data-lb-tab="${esc(b.key)}">${esc(b.name)}</a>`).join('')}</div>` : ''}
+  ${boards.map(b => `<div class="qr-panel" data-lb="${esc(b.key)}">${results(b)}</div>`).join('')}` : '<p class="muted">No finished matches yet.</p>';
   // Tab switching; delegated + re-applied after live updates re-render the page.
   const script = boards.length > 1 ? `<script>
 (function () {
@@ -875,6 +879,10 @@ function eightsPage(league, c) {
   ${queues === undefined ? '<p class="muted" data-queues-loading>Connecting to the live queue…</p>'
     : queues.length ? `<div class="queue-grid">${queues.map(queueCard).join('')}</div>`
     : '<div class="panel"><p class="muted" style="margin:0">No 8s queues are running right now.</p></div>'}
+</section>
+<section class="wrap section" id="results">
+  <div class="section-head"><h2>Queue results</h2><span class="muted">${boards.length > 1 ? 'Pick a queue' : ''}</span></div>
+  ${resultsSection}
 </section>
 <section class="wrap section">
   <div class="section-head"><h2>Leaderboards</h2><span class="muted">${boards.length > 1 ? 'Pick a queue' : ''}</span></div>

@@ -651,3 +651,4 @@ html.is-staff .staff-only { display: flex !important; }
 .qr-more { margin-top: 12px; }
 .qr-more summary { cursor: pointer; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
 .qr-none { margin: 0 0 8px; }
+.qr-tabs { margin-bottom: 16px; }
