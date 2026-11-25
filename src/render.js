@@ -1529,7 +1529,7 @@ function staffGroups(league) {
   const person = m => {
     const slug = slugFor(m);
     const inner = `${m.avatar ? `<img src="${esc(m.avatar)}" alt="" loading="lazy">` : `<span class="acct-initial">${esc(String(m.name).charAt(0))}</span>`}
-    <span class="staff-name">${esc(m.name)}</span>${m.rank ? rankTag(m.rank) : ''}`;
+    <span class="staff-name">${esc(m.name)}</span>`;
     const discord = /^\d{15,22}$/.test(String(m.discordId || '')) ? `<a class="staff-discord" href="https://discord.com/users/${m.discordId}" target="_blank" rel="noopener" title="${esc(m.name)} on Discord" aria-label="${esc(m.name)} on Discord">${DISCORD_SVG}</a>` : '';
     return `<div class="staff-person">${slug ? `<a class="staff-link" href="${u(`/players/${slug}/`)}">${inner}</a>` : `<span class="staff-link">${inner}</span>`}${discord}</div>`;
   };
