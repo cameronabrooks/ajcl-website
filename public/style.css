@@ -572,3 +572,8 @@ html:not(.js) .settings .game-tabs { display: none; }
 .lb-table .lb-name { font-weight: 600; }
 .lb-1 .rank { color: var(--gold); } .lb-2 .rank { color: #d4d8e2; } .lb-3 .rank { color: #d08b52; }
 @media (max-width: 560px) { .queue-grid { grid-template-columns: 1fr; } .q-maps { grid-template-columns: 1fr; } }
+
+.q-lb-link { color: var(--gold); font-size: 14px; font-weight: 600; justify-self: start; }
+.lb-tabs { margin-bottom: 4px; }
+.lb-panel h3.sub { margin: 16px 0 10px; }
+html:not(.js) .lb-tabs { display: none; }

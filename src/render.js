@@ -755,6 +755,7 @@ function eightsPage(league, c) {
       </div>
       <div class="q-bar"><span style="width:${pct}%"></span></div>
       <div class="q-players">${q.players.map(n => `<span class="map-chip">${esc(n)}</span>`).join('') || '<span class="muted">Queue is empty — join in the AJCL Discord.</span>'}</div>
+      ${(league.eightsLeaderboards || []).some(b => b.key === keyOf(q.name)) ? `<a class="q-lb-link" href="#lb-${esc(keyOf(q.name))}">View ${esc(q.name)} leaderboard →</a>` : ''}
       ${m ? `<div class="q-match">
         <div class="q-match-head"><strong>Match ${m.number ? `#${esc(m.number)}` : ''}</strong><span class="pill pill-live">${esc(m.phase)}</span>${m.format ? `<span class="muted">${esc(m.format)}</span>` : ''}</div>
         ${m.maps ? `<div class="q-maps">${m.maps.map((x, i) => `<div class="q-map" style="--map-img:url('${mapImage(x.map)}')"><span>Map ${i + 1}</span><strong>${esc(x.map)}</strong><em>${esc(MODE_LABELS[x.mode] || x.mode || '')}</em></div>`).join('')}</div>` : ''}
@@ -763,9 +764,10 @@ function eightsPage(league, c) {
     </article>`;
   };
 
-  const lb = league.eightsLeaderboard || [];
+  // One leaderboard per queue (the bot rates each queue separately), shown as tabs.
+  const boards = league.eightsLeaderboards || (league.eightsLeaderboard ? [{ key: '8s', name: '8s', players: league.eightsLeaderboard }] : []);
   const streak = s => (s > 0 ? `<span class="pos">W${s}</span>` : s < 0 ? `<span class="neg">L${-s}</span>` : '<span class="muted">–</span>');
-  const leaderboard = lb.length ? `<div class="panel table-wrap"><table class="standings lb-table">
+  const table = lb => `<div class="panel table-wrap"><table class="standings lb-table">
     <thead><tr><th>#</th><th class="left">Player</th><th>MMR</th><th>W-L</th><th>Win %</th><th>Streak</th></tr></thead>
     <tbody>${lb.map((r, i) => `<tr class="${i < 3 ? `lb-top lb-${i + 1}` : ''}">
       <td class="rank">${i + 1}</td>
@@ -775,7 +777,30 @@ function eightsPage(league, c) {
       <td>${r.winPct}%</td>
       <td>${streak(r.streak)}</td>
     </tr>`).join('')}</tbody>
-  </table></div>` : '<p class="muted">No ratings yet — play some 8s matches in the AJCL Discord!</p>';
+  </table></div>`;
+  const leaderboard = boards.length ? `
+  ${boards.length > 1 ? `<div class="tabs lb-tabs">${boards.map(b => `<a class="tab" href="#lb-${esc(b.key)}" data-lb-tab="${esc(b.key)}">${esc(b.name)}</a>`).join('')}</div>` : ''}
+  ${boards.map(b => `<div class="lb-panel" data-lb="${esc(b.key)}">
+    <h3 class="sub">${esc(b.name)} leaderboard <span class="muted">· top ${b.players.length} by MMR</span></h3>
+    ${table(b.players)}
+  </div>`).join('')}` : '<p class="muted">No ratings yet — play some 8s matches in the AJCL Discord!</p>';
+  // Tab switching; delegated + re-applied after live updates re-render the page.
+  const script = boards.length > 1 ? `<script>
+(function () {
+  function apply() {
+    var keys = [].map.call(document.querySelectorAll('[data-lb-tab]'), function (t) { return t.dataset.lbTab; });
+    if (!keys.length) return;
+    var want = location.hash.replace(/^#lb-/, '');
+    var cur = keys.indexOf(want) >= 0 ? want : keys[0];
+    document.querySelectorAll('[data-lb]').forEach(function (p) { p.hidden = p.dataset.lb !== cur; });
+    document.querySelectorAll('[data-lb-tab]').forEach(function (t) { t.classList.toggle('active', t.dataset.lbTab === cur); });
+  }
+  document.documentElement.classList.add('js');
+  addEventListener('hashchange', apply);
+  document.addEventListener('ajcl:league', function () { setTimeout(apply, 0); });
+  apply();
+})();
+</script>` : '';
 
   const body = pageHead('8s', '8s Queue', 'Live queues from the AJCL Discord and the 8s leaderboard. Updates live.') + `
 <section class="wrap section">
@@ -785,10 +810,10 @@ function eightsPage(league, c) {
     : '<div class="panel"><p class="muted" style="margin:0">No 8s queues are running right now.</p></div>'}
 </section>
 <section class="wrap section">
-  <div class="section-head"><h2>Leaderboard</h2><span class="muted">Top ${lb.length || 50} by MMR</span></div>
+  <div class="section-head"><h2>Leaderboards</h2><span class="muted">${boards.length > 1 ? 'Pick a queue' : ''}</span></div>
   ${leaderboard}
 </section>`;
-  return layout({ title: '8s', active: 'eights', body, c, page: '8s' });
+  return layout({ title: '8s', active: 'eights', body, c, script, page: '8s' });
 }
 
 const faLabel = p => (p.freeAgent === 'rfa' ? 'Restricted free agent' : 'Free agent');
