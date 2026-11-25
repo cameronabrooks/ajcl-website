@@ -438,7 +438,7 @@ function mapsetPage(league, m, c) {
     clip-path: polygon(0 0, 162px 0, 290px 100%, 128px 100%);
     background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.85)), var(--map-img) center / cover no-repeat, #1b1c20; }
   .ms-panel.is-empty { background: linear-gradient(160deg, #26272c, #121316); }
-  .ms-label { position: absolute; left: 132px; right: 14px; bottom: 14px; display: grid; gap: 0; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
+  .ms-label { position: absolute; left: 132px; right: 34px; bottom: 14px; display: grid; gap: 0; line-height: .95; text-shadow: 0 3px 8px rgba(0,0,0,.9); }
   .ms-label span { font-size: 22px; color: #ffcf5a; letter-spacing: .06em; }
   .ms-label strong { font-size: 38px; color: #fff; font-weight: 700; white-space: nowrap; overflow: hidden; display: block; }
   .ms-label em { font-style: normal; font-size: 24px; color: #a8f57f; }
