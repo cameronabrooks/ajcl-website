@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795580059609,
+  "generatedAt": 1795580164662,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1295,47 +1295,47 @@
         2,
         1
       ],
-      "voters": 11,
+      "voters": 12,
       "postedAt": 1795565229593,
       "teams": [
         {
           "team": "ros",
-          "points": 63,
-          "firsts": 4
+          "points": 71,
+          "firsts": 5
         },
         {
           "team": "omh",
-          "points": 54,
+          "points": 56,
           "firsts": 2
         },
         {
           "team": "nor",
-          "points": 40,
+          "points": 45,
           "firsts": 1
         },
         {
           "team": "pit",
-          "points": 38,
+          "points": 42,
           "firsts": 2
         },
         {
           "team": "mrd",
-          "points": 36,
+          "points": 42,
           "firsts": 0
         },
         {
           "team": "mis",
-          "points": 29,
+          "points": 32,
           "firsts": 0
         },
         {
-          "team": "kck",
-          "points": 17,
+          "team": "lex",
+          "points": 21,
           "firsts": 1
         },
         {
-          "team": "lex",
-          "points": 14,
+          "team": "kck",
+          "points": 18,
           "firsts": 1
         }
       ]
@@ -2053,10 +2053,10 @@
     {
       "id": "1574939448813162603",
       "title": "🏆 Academy Power Rankings",
-      "text": "@everyone\n\n🥇 Roswell Aliens — **63 pts**\n🥈 Omaha Bandits — **54 pts**\n🥉 New Orleans Reapers — **40 pts**\n4️⃣ Pittsburgh Nocturnal — **38 pts**\n5️⃣ Montreal Red Dragons — **36 pts**\n6️⃣ Michigan Samurai — **29 pts**\n7️⃣ Kansas City Kings — **17 pts**\n8️⃣ Lexington Majestic — **14 pts**",
+      "text": "@everyone\n\n🥇 Roswell Aliens — **71 pts**\n🥈 Omaha Bandits — **56 pts**\n🥉 New Orleans Reapers — **45 pts**\n4️⃣ Pittsburgh Nocturnal — **42 pts**\n5️⃣ Montreal Red Dragons — **42 pts**\n6️⃣ Michigan Samurai — **32 pts**\n7️⃣ Lexington Majestic — **21 pts**\n8️⃣ Kansas City Kings — **18 pts**",
       "images": [],
       "postedAt": 1795565225557,
-      "editedAt": 1795569187257
+      "editedAt": 1795580152503
     },
     {
       "id": "1574939352251768863",
