@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795649312735,
+  "generatedAt": 1795654082297,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2589,6 +2589,33 @@
       "legacy": false,
       "players": [
         {
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1093,
+          "wins": 4,
+          "losses": 6,
+          "winPct": 40,
+          "streak": 2
+        },
+        {
+          "name": "⛧ Ƒëﾑr ツ",
+          "rank": "Ruby",
+          "rating": 1093,
+          "wins": 7,
+          "losses": 3,
+          "winPct": 70,
+          "streak": 3
+        },
+        {
+          "name": "Cam",
+          "rank": "Amber",
+          "rating": 1068,
+          "wins": 5,
+          "losses": 2,
+          "winPct": 71.4,
+          "streak": 1
+        },
+        {
           "name": "Inspire",
           "rank": "Amber",
           "rating": 1063,
@@ -2598,31 +2625,13 @@
           "streak": 3
         },
         {
-          "name": "MaRsH313",
+          "name": "Divi",
           "rank": "Ruby",
-          "rating": 1051,
-          "wins": 3,
-          "losses": 6,
-          "winPct": 33.3,
+          "rating": 1036,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
           "streak": 1
-        },
-        {
-          "name": "⛧ Ƒëﾑr ツ",
-          "rank": "Ruby",
-          "rating": 1046,
-          "wins": 6,
-          "losses": 3,
-          "winPct": 66.7,
-          "streak": 2
-        },
-        {
-          "name": "Cam",
-          "rank": "Amber",
-          "rating": 1033,
-          "wins": 4,
-          "losses": 2,
-          "winPct": 66.7,
-          "streak": 0
         },
         {
           "name": "Senz",
@@ -2760,24 +2769,6 @@
           "streak": -1
         },
         {
-          "name": "Pizz",
-          "rank": "Ruby",
-          "rating": 984,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": 0
-        },
-        {
-          "name": "ImAkaii",
-          "rank": "Amber",
-          "rating": 984,
-          "wins": 3,
-          "losses": 3,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
           "name": "JAYDREAMZ",
           "rank": "Ruby",
           "rating": 983,
@@ -2796,21 +2787,21 @@
           "streak": 0
         },
         {
-          "name": "Brimington",
-          "rank": "Ruby",
-          "rating": 969,
-          "wins": 2,
-          "losses": 6,
-          "winPct": 25,
-          "streak": -4
+          "name": "ImAkaii",
+          "rank": "Amber",
+          "rating": 966,
+          "wins": 3,
+          "losses": 4,
+          "winPct": 42.9,
+          "streak": -2
         },
         {
-          "name": "Kain",
+          "name": "Pizz",
           "rank": "Ruby",
-          "rating": 967,
+          "rating": 965,
           "wins": 1,
-          "losses": 7,
-          "winPct": 12.5,
+          "losses": 3,
+          "winPct": 25,
           "streak": -1
         },
         {
@@ -2821,6 +2812,24 @@
           "losses": 3,
           "winPct": 0,
           "streak": -1
+        },
+        {
+          "name": "Brimington",
+          "rank": "Ruby",
+          "rating": 950,
+          "wins": 2,
+          "losses": 7,
+          "winPct": 22.2,
+          "streak": -5
+        },
+        {
+          "name": "Kain",
+          "rank": "Ruby",
+          "rating": 947,
+          "wins": 1,
+          "losses": 8,
+          "winPct": 11.1,
+          "streak": -2
         }
       ],
       "results": [
