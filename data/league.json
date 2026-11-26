@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795657520823,
+  "generatedAt": 1795667289394,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2598,22 +2598,13 @@
           "streak": 4
         },
         {
-          "name": "MaRsH313",
-          "rank": "Ruby",
-          "rating": 1078,
-          "wins": 4,
-          "losses": 7,
-          "winPct": 36.4,
-          "streak": -1
-        },
-        {
-          "name": "Cam",
+          "name": "Inspire",
           "rank": "Amber",
-          "rating": 1068,
-          "wins": 5,
-          "losses": 2,
-          "winPct": 71.4,
-          "streak": 1
+          "rating": 1117,
+          "wins": 4,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 4
         },
         {
           "name": "2elite",
@@ -2625,13 +2616,31 @@
           "streak": 1
         },
         {
-          "name": "Inspire",
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1060,
+          "wins": 4,
+          "losses": 8,
+          "winPct": 33.3,
+          "streak": -2
+        },
+        {
+          "name": "Fly Tendencies",
           "rank": "Amber",
-          "rating": 1063,
+          "rating": 1056,
           "wins": 3,
           "losses": 0,
           "winPct": 100,
-          "streak": 3
+          "streak": 1
+        },
+        {
+          "name": "Cam",
+          "rank": "Amber",
+          "rating": 1052,
+          "wins": 5,
+          "losses": 3,
+          "winPct": 62.5,
+          "streak": -1
         },
         {
           "name": "Senz",
@@ -2670,13 +2679,13 @@
           "streak": -1
         },
         {
-          "name": "Fly Tendencies",
-          "rank": "Amber",
+          "name": "Brimington",
+          "rank": "Ruby",
           "rating": 1017,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 0
+          "wins": 4,
+          "losses": 7,
+          "winPct": 36.4,
+          "streak": 2
         },
         {
           "name": "Kentucky",
@@ -2704,6 +2713,15 @@
           "losses": 5,
           "winPct": 50,
           "streak": -1
+        },
+        {
+          "name": "Palsy",
+          "rank": "Ruby",
+          "rating": 1015,
+          "wins": 1,
+          "losses": 3,
+          "winPct": 25,
+          "streak": 1
         },
         {
           "name": "🧛🏼OverlordAlucard 🧛🏼",
@@ -2760,15 +2778,6 @@
           "streak": 0
         },
         {
-          "name": "Palsy",
-          "rank": "Ruby",
-          "rating": 985,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -1
-        },
-        {
           "name": "JAYDREAMZ",
           "rank": "Ruby",
           "rating": 983,
@@ -2778,24 +2787,6 @@
           "streak": -1
         },
         {
-          "name": "SlayFS",
-          "rank": "Amber",
-          "rating": 981,
-          "wins": 1,
-          "losses": 3,
-          "winPct": 25,
-          "streak": 1
-        },
-        {
-          "name": "Brimington",
-          "rank": "Ruby",
-          "rating": 980,
-          "wins": 3,
-          "losses": 7,
-          "winPct": 30,
-          "streak": 1
-        },
-        {
           "name": "Esca",
           "rank": "Amethyst",
           "rating": 969,
@@ -2803,6 +2794,15 @@
           "losses": 2,
           "winPct": 0,
           "streak": 0
+        },
+        {
+          "name": "SlayFS",
+          "rank": "Amber",
+          "rating": 966,
+          "wins": 1,
+          "losses": 4,
+          "winPct": 20,
+          "streak": -1
         },
         {
           "name": "ImAkaii",
@@ -2825,14 +2825,79 @@
         {
           "name": "Kain",
           "rank": "Ruby",
-          "rating": 930,
+          "rating": 914,
           "wins": 1,
-          "losses": 9,
-          "winPct": 10,
-          "streak": -3
+          "losses": 10,
+          "winPct": 9.1,
+          "streak": -4
         }
       ],
       "results": [
+        {
+          "number": 19,
+          "winner": "A",
+          "at": 1795667279064,
+          "byStaff": false,
+          "format": "Mixed (HP / S&D / Hijack)",
+          "maps": [
+            {
+              "map": "Munition",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Reactor U92",
+              "mode": "search_and_destroy"
+            },
+            {
+              "map": "Lotus",
+              "mode": "hijack"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "Inspire",
+              "delta": 54,
+              "rating": 1117
+            },
+            {
+              "name": "Fly Tendencies",
+              "delta": 40,
+              "rating": 1056
+            },
+            {
+              "name": "Palsy",
+              "delta": 30,
+              "rating": 1015
+            },
+            {
+              "name": "Brimington",
+              "delta": 38,
+              "rating": 1017
+            }
+          ],
+          "teamB": [
+            {
+              "name": "Cam",
+              "delta": -16,
+              "rating": 1052
+            },
+            {
+              "name": "SlayFS",
+              "delta": -15,
+              "rating": 966
+            },
+            {
+              "name": "Kain",
+              "delta": -16,
+              "rating": 914
+            },
+            {
+              "name": "MaRsH313",
+              "delta": -18,
+              "rating": 1060
+            }
+          ]
+        },
         {
           "number": 18,
           "winner": "A",
