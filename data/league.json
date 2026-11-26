@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795669487684,
+  "generatedAt": 1795669505843,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1339,7 +1339,7 @@
       "sideA": "home",
       "sched": {
         "status": "awaiting_schedule",
-        "deadline": 1793681999000,
+        "deadline": 1796273999000,
         "proposal": null,
         "sidesSet": false
       }
