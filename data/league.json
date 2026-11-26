@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795669141222,
+  "generatedAt": 1795669419532,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -121,15 +121,15 @@
         "nonPlaying": [],
         "ranks": {
           "butchiehof": "Amethyst",
-          "nitsua": "Kyanite",
           "Crouse": "Amethyst",
-          "Loyal": "Amethyst"
+          "Loyal": "Amethyst",
+          "nitsua": "Kyanite"
         },
         "links": {
-          "nitsua": "nitsua",
           "butchiehof": "butchiehof",
           "Crouse": "crouse",
           "Loyal": "loyal",
+          "nitsua": "nitsua",
           "Delusions": "delusions"
         }
       },
@@ -251,15 +251,15 @@
         "nonPlaying": [],
         "ranks": {
           "Zylixz": "Kyanite",
-          "BrooksySZN": "Amethyst",
           "Luke": "Amethyst",
-          "Hunna": "Amethyst"
+          "Hunna": "Amethyst",
+          "BrooksySZN": "Amethyst"
         },
         "links": {
-          "BrooksySZN": "brooksyszn",
           "Luke": "luke",
           "Zylixz": "zylixz",
-          "Hunna": "hunna"
+          "Hunna": "hunna",
+          "BrooksySZN": "brooksyszn"
         }
       },
       "roleId": "1069798029290389645"
@@ -315,15 +315,15 @@
         "nonPlaying": [],
         "ranks": {
           "⛧ Ƒëﾑr ツ": "Ruby",
-          "Inspire": "Amber",
           "Owes Every1 Taco Bell Plu": "Amber",
+          "Inspire": "Amber",
           "BooshDaGoat": "Ruby"
         },
         "links": {
-          "Inspire": "inspire",
           "Owes Every1 Taco Bell Plu": "owes-every1-taco-bell-plu",
-          "⛧ Ƒëﾑr ツ": "e-r",
-          "BooshDaGoat": "booshdagoat"
+          "Inspire": "inspire",
+          "BooshDaGoat": "booshdagoat",
+          "⛧ Ƒëﾑr ツ": "e-r"
         }
       },
       "roleId": "1103093877633712198"
@@ -2584,8 +2584,8 @@
   ],
   "eightsLeaderboards": [
     {
-      "key": "academy-8s-queue",
-      "name": "Academy 8s Queue",
+      "key": "8s-queue",
+      "name": "8s queue",
       "legacy": false,
       "players": [
         {
@@ -3564,8 +3564,8 @@
       ]
     },
     {
-      "key": "open-8s-queue",
-      "name": "Open 8s Queue",
+      "key": "in-queue",
+      "name": "in-queue",
       "legacy": false,
       "players": [
         {
@@ -6251,13 +6251,6 @@
         "gm"
       ]
     },
-    "2157bbb040dac182dbb8": {
-      "team": "syr",
-      "name": "nitsua",
-      "roles": [
-        "player"
-      ]
-    },
     "8e3cfea2d2f5ec7336e3": {
       "team": "syr",
       "name": "Crouse",
@@ -6268,6 +6261,13 @@
     "498e3024effcd57afd25": {
       "team": "syr",
       "name": "Loyal",
+      "roles": [
+        "player"
+      ]
+    },
+    "2157bbb040dac182dbb8": {
+      "team": "syr",
+      "name": "nitsua",
       "roles": [
         "player"
       ]
@@ -6384,13 +6384,6 @@
         "gm"
       ]
     },
-    "8973811321d65bf3b673": {
-      "team": "tor",
-      "name": "BrooksySZN",
-      "roles": [
-        "player"
-      ]
-    },
     "6a5c63a901b429734107": {
       "team": "tor",
       "name": "Luke",
@@ -6401,6 +6394,13 @@
     "3aad8d4d163311f30e8e": {
       "team": "tor",
       "name": "Hunna",
+      "roles": [
+        "player"
+      ]
+    },
+    "8973811321d65bf3b673": {
+      "team": "tor",
+      "name": "BrooksySZN",
       "roles": [
         "player"
       ]
@@ -6444,16 +6444,16 @@
         "gm"
       ]
     },
-    "487171bde66caaf9a017": {
+    "6eba674a89096a099f7d": {
       "team": "ros",
-      "name": "Inspire",
+      "name": "Owes Every1 Taco Bell Plu",
       "roles": [
         "player"
       ]
     },
-    "6eba674a89096a099f7d": {
+    "487171bde66caaf9a017": {
       "team": "ros",
-      "name": "Owes Every1 Taco Bell Plu",
+      "name": "Inspire",
       "roles": [
         "player"
       ]
@@ -6905,49 +6905,6 @@
       "dropStaff": true
     },
     {
-      "slug": "nitsua",
-      "name": "nitsua",
-      "discordId": "1478045570206666925",
-      "avatar": "https://cdn.discordapp.com/avatars/1478045570206666925/a_21d51a342e36920aaff8b765841f2d9b.gif?size=128",
-      "team": "syr",
-      "roles": [
-        "player"
-      ],
-      "rank": "Kyanite",
-      "gamertag": "nitsua",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.27",
-            "kpm": "23.7",
-            "maps": 38
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "SLN",
-              "kd": "1.31",
-              "kpm": "23.6",
-              "maps": 29
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "SLN",
-              "kd": "1.16",
-              "kpm": "24.0",
-              "maps": 9
-            }
-          ]
-        }
-      ],
-      "dropGm": true,
-      "dropStaff": true
-    },
-    {
       "slug": "butchiehof",
       "name": "butchiehof",
       "discordId": "534254293000126465",
@@ -7046,6 +7003,49 @@
               "kd": "1.25",
               "kpm": "23.4",
               "maps": 28
+            }
+          ]
+        }
+      ],
+      "dropGm": true,
+      "dropStaff": true
+    },
+    {
+      "slug": "nitsua",
+      "name": "nitsua",
+      "discordId": "1478045570206666925",
+      "avatar": "https://cdn.discordapp.com/avatars/1478045570206666925/a_21d51a342e36920aaff8b765841f2d9b.gif?size=128",
+      "team": "syr",
+      "roles": [
+        "player"
+      ],
+      "rank": "Kyanite",
+      "gamertag": "nitsua",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.27",
+            "kpm": "23.7",
+            "maps": 38
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.31",
+              "kpm": "23.6",
+              "maps": 29
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "SLN",
+              "kd": "1.16",
+              "kpm": "24.0",
+              "maps": 9
             }
           ]
         }
@@ -7504,49 +7504,6 @@
       "dropStaff": true
     },
     {
-      "slug": "brooksyszn",
-      "name": "BrooksySZN",
-      "discordId": "474817270816833536",
-      "avatar": "https://cdn.discordapp.com/avatars/474817270816833536/e332a1c9d9b943c4a93d5e7426807e84.png?size=128",
-      "team": "tor",
-      "roles": [
-        "player"
-      ],
-      "rank": "Amethyst",
-      "gamertag": "BrooksySZN",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.88",
-            "kpm": "18.9",
-            "maps": 38
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Premier",
-              "current": false,
-              "team": "KNX",
-              "kd": "0.86",
-              "kpm": "18.6",
-              "maps": 30
-            },
-            {
-              "name": "Premier Mini SZN",
-              "current": false,
-              "team": "IMK / SPS",
-              "kd": "0.96",
-              "kpm": "20.0",
-              "maps": 8
-            }
-          ]
-        }
-      ],
-      "dropGm": true,
-      "dropStaff": true
-    },
-    {
       "slug": "luke",
       "name": "Luke",
       "discordId": "179051320580243457",
@@ -7605,6 +7562,49 @@
         "player"
       ],
       "rank": "Amethyst",
+      "dropGm": true,
+      "dropStaff": true
+    },
+    {
+      "slug": "brooksyszn",
+      "name": "BrooksySZN",
+      "discordId": "474817270816833536",
+      "avatar": "https://cdn.discordapp.com/avatars/474817270816833536/e332a1c9d9b943c4a93d5e7426807e84.png?size=128",
+      "team": "tor",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amethyst",
+      "gamertag": "BrooksySZN",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.88",
+            "kpm": "18.9",
+            "maps": 38
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Premier",
+              "current": false,
+              "team": "KNX",
+              "kd": "0.86",
+              "kpm": "18.6",
+              "maps": 30
+            },
+            {
+              "name": "Premier Mini SZN",
+              "current": false,
+              "team": "IMK / SPS",
+              "kd": "0.96",
+              "kpm": "20.0",
+              "maps": 8
+            }
+          ]
+        }
+      ],
       "dropGm": true,
       "dropStaff": true
     },
@@ -7714,6 +7714,41 @@
       "dropStaff": true
     },
     {
+      "slug": "owes-every1-taco-bell-plu",
+      "name": "Owes Every1 Taco Bell Plu",
+      "discordId": "676085028131831821",
+      "avatar": "https://cdn.discordapp.com/avatars/676085028131831821/8f1487c0f20513d043b8587ef9677f75.png?size=128",
+      "team": "ros",
+      "roles": [
+        "player"
+      ],
+      "rank": "Amber",
+      "gamertag": "DinnerTime",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.46",
+            "kpm": "22.3",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR",
+              "kd": "1.46",
+              "kpm": "22.3",
+              "maps": 3
+            }
+          ]
+        }
+      ],
+      "dropGm": true,
+      "dropStaff": true
+    },
+    {
       "slug": "inspire",
       "name": "Inspire",
       "discordId": "1563229944190861373",
@@ -7749,33 +7784,33 @@
       "dropStaff": true
     },
     {
-      "slug": "owes-every1-taco-bell-plu",
-      "name": "Owes Every1 Taco Bell Plu",
-      "discordId": "676085028131831821",
-      "avatar": "https://cdn.discordapp.com/avatars/676085028131831821/8f1487c0f20513d043b8587ef9677f75.png?size=128",
+      "slug": "booshdagoat",
+      "name": "BooshDaGoat",
+      "discordId": "1064079588315119667",
+      "avatar": "https://cdn.discordapp.com/avatars/1064079588315119667/9abd36df78fb1ca5fadb86f2d90cabd0.png?size=128",
       "team": "ros",
       "roles": [
         "player"
       ],
-      "rank": "Amber",
-      "gamertag": "DinnerTime",
-      "gamertagSource": "linked",
+      "rank": "Ruby",
+      "gamertag": "BooshDaGoat",
+      "gamertagSource": "name",
       "games": [
         {
           "game": "BO7",
           "total": {
-            "kd": "1.46",
-            "kpm": "22.3",
-            "maps": 3
+            "kd": "1.08",
+            "kpm": "17.2",
+            "maps": 26
           },
           "seasons": [
             {
-              "name": "Academy Mini SZN",
+              "name": "Season 9 Academy",
               "current": false,
-              "team": "SYR",
-              "kd": "1.46",
-              "kpm": "22.3",
-              "maps": 3
+              "team": "WAS",
+              "kd": "1.08",
+              "kpm": "17.2",
+              "maps": 26
             }
           ]
         }
@@ -7825,41 +7860,6 @@
         }
       ],
       "dropGm": false,
-      "dropStaff": true
-    },
-    {
-      "slug": "booshdagoat",
-      "name": "BooshDaGoat",
-      "discordId": "1064079588315119667",
-      "avatar": "https://cdn.discordapp.com/avatars/1064079588315119667/9abd36df78fb1ca5fadb86f2d90cabd0.png?size=128",
-      "team": "ros",
-      "roles": [
-        "player"
-      ],
-      "rank": "Ruby",
-      "gamertag": "BooshDaGoat",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.08",
-            "kpm": "17.2",
-            "maps": 26
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "WAS",
-              "kd": "1.08",
-              "kpm": "17.2",
-              "maps": 26
-            }
-          ]
-        }
-      ],
-      "dropGm": true,
       "dropStaff": true
     },
     {
@@ -8953,46 +8953,6 @@
       "dropStaff": true
     },
     {
-      "slug": "tactical-reaper",
-      "name": "Tactical Reaper",
-      "discordId": "1102674540439539715",
-      "avatar": "https://cdn.discordapp.com/avatars/1102674540439539715/d432d36a9475eecb35f9c4be1119667c.png?size=128",
-      "team": null,
-      "freeAgent": "fa",
-      "roles": [],
-      "rank": "Ruby",
-      "gamertag": "Tactical Reaper",
-      "gamertagSource": "name",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.98",
-            "kpm": "18.9",
-            "maps": 35
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "OMH",
-              "kd": "1.01",
-              "kpm": "19.3",
-              "maps": 27
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "PIT / KCK",
-              "kd": "0.88",
-              "kpm": "17.6",
-              "maps": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
       "slug": "zech",
       "name": "Zech",
       "discordId": "373133713262903296",
@@ -9592,6 +9552,46 @@
               "kd": "0.76",
               "kpm": "16.3",
               "maps": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tactical-reaper",
+      "name": "Tactical Reaper",
+      "discordId": "1102674540439539715",
+      "avatar": "https://cdn.discordapp.com/avatars/1102674540439539715/d432d36a9475eecb35f9c4be1119667c.png?size=128",
+      "team": null,
+      "freeAgent": "fa",
+      "roles": [],
+      "rank": "Ruby",
+      "gamertag": "Tactical Reaper",
+      "gamertagSource": "name",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.98",
+            "kpm": "18.9",
+            "maps": 35
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "OMH",
+              "kd": "1.01",
+              "kpm": "19.3",
+              "maps": 27
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "PIT / KCK",
+              "kd": "0.88",
+              "kpm": "17.6",
+              "maps": 8
             }
           ]
         }
