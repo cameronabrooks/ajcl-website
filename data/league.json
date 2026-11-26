@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795669790826,
+  "generatedAt": 1795669810512,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2584,8 +2584,8 @@
   ],
   "eightsLeaderboards": [
     {
-      "key": "8s-queue",
-      "name": "8s queue",
+      "key": "academy-8s-queue",
+      "name": "Academy 8s Queue",
       "legacy": false,
       "players": [
         {
@@ -3564,8 +3564,8 @@
       ]
     },
     {
-      "key": "in-queue",
-      "name": "in-queue",
+      "key": "open-8s-queue",
+      "name": "Open 8s Queue",
       "legacy": false,
       "players": [
         {
