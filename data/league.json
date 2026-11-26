@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795667289394,
+  "generatedAt": 1795668659764,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -5914,6 +5914,14 @@
   ],
   "announcements": [
     {
+      "id": "1575373221820235827",
+      "title": null,
+      "text": "If you're coming in and wanting to get ranked whether you're new to the league or a returning player but you didn't play combines, you MUST play 8s and submit 8 map screenshots of your stats (max of 4 8s lobbies) to @AJCL Bot (by DMing) which opens a ModMail ticket and after Week 2 you will be ranked during our rerank/new ranks meeting and eligible to be picked up for the rest of the season. \n\nIf you need to get the role for 8s you can go here #reaction-roles. \n\n@everyone",
+      "images": [],
+      "postedAt": 1795668645101,
+      "editedAt": null
+    },
+    {
       "id": "1574962963113054249",
       "title": "Average Joe's CoD League",
       "text": "We wanted to announce the release of our website! In the website you can see everything you need to know, including game settings for each mode! You can login with your discord and see your stats for the season via the COD-Stats website still or you can see the basic stats on the website itself.\n\nThe website shows schedules and updates in real time!\n\n\nhttps://averagejoescodleague.com/\n\n@everyone\n\nAverage Joe's is a COD league designed to give lesser skilled or new players a chance to compete in a competitive environment away from higher skilled players.",
@@ -6103,14 +6111,6 @@
       "text": "@everyone @Cam #applications-and-szn-registration\nStill needing about 4 GM’s for Premier (Uppers)! If you’re ranked amethyst or kyanite put in an application!\nAnother thing if you register but are not ranked but would like to be DM Cam or submit a ticket by DMing the bot.",
       "images": [],
       "postedAt": 1785691672314,
-      "editedAt": null
-    },
-    {
-      "id": "1532935273044906015",
-      "title": "Want to play some throwback 8s?",
-      "text": "@everyone\n\nThrowback 8s Discord if anyone wants to dabble\nhttps://discord.gg/A455Hcjpe",
-      "images": [],
-      "postedAt": 1785550649654,
       "editedAt": null
     }
   ],
