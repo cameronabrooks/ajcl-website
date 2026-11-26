@@ -198,7 +198,7 @@ const RANK_ICON_DEFAULTS = {
 };
 let RANK_ICONS = RANK_ICON_DEFAULTS;
 function setRankIcons(icons) { RANK_ICONS = { ...RANK_ICON_DEFAULTS, ...(icons || {}) }; }
-const rankIcon = r => (RANK_ICONS[r] && /^https:\/\/cdn\.discordapp\.com\//.test(RANK_ICONS[r]) ? `<img class="tier-icon" src="${esc(RANK_ICONS[r])}" alt="" width="16" height="16" loading="lazy">` : '');
+const rankIcon = r => (RANK_ICONS[r] && /^https:\/\/cdn\.discordapp\.com\//.test(RANK_ICONS[r]) ? `<img class="tier-icon" src="${esc(RANK_ICONS[r])}" alt="" width="16" height="16" decoding="async">` : '');
 const rankTag = r => `<span class="tier tier-${esc(String(r).toLowerCase())}" title="${esc(r)} rank">${rankIcon(r)}${esc(r)}</span>`;
 
 // Stable id/URL for a match: /matches/w1-atl-sfs/
