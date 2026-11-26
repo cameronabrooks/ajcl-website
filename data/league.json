@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795654082297,
+  "generatedAt": 1795654092438,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2833,6 +2833,71 @@
         }
       ],
       "results": [
+        {
+          "number": 17,
+          "winner": "A",
+          "at": 1795654082119,
+          "byStaff": false,
+          "format": "All Hardpoint",
+          "maps": [
+            {
+              "map": "Rooftops",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Munition",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Sentry",
+              "mode": "hardpoint"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "Cam",
+              "delta": 35,
+              "rating": 1068
+            },
+            {
+              "name": "Divi",
+              "delta": 36,
+              "rating": 1036
+            },
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": 46,
+              "rating": 1093
+            },
+            {
+              "name": "MaRsH313",
+              "delta": 42,
+              "rating": 1093
+            }
+          ],
+          "teamB": [
+            {
+              "name": "ImAkaii",
+              "delta": -18,
+              "rating": 966
+            },
+            {
+              "name": "Brimington",
+              "delta": -19,
+              "rating": 950
+            },
+            {
+              "name": "Kain",
+              "delta": -20,
+              "rating": 947
+            },
+            {
+              "name": "Pizz",
+              "delta": -19,
+              "rating": 965
+            }
+          ]
+        },
         {
           "number": 14,
           "winner": "A",
