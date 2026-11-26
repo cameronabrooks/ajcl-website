@@ -816,3 +816,7 @@ button.btn { font: inherit; cursor: pointer; }
 .mp-obs summary { cursor: pointer; color: var(--gold-2); }
 .mp-obs p { margin: 8px 0; }
 .mp-obs-link { width: 100%; box-sizing: border-box; font: 13px/1.4 ui-monospace, monospace; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg-2); color: var(--text); }
+
+/* Rank role icon (from Discord) inside the rank tag */
+.tier { display: inline-flex; align-items: center; gap: 5px; }
+.tier-icon { width: 1.15em; height: 1.15em; object-fit: contain; margin: -2px 0 0 -2px; flex: none; }

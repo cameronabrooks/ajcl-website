@@ -35,6 +35,7 @@ function hydrate(raw, hasLogo) {
 
 // Which page builder renders a given page key (also used in the browser).
 function renderPage(render, league, content, page) {
+  if (render.setRankIcons) render.setRankIcons(league.rankIcons);
   if (page === 'home') return render.home(league, content);
   if (page === 'schedule') return render.schedulePage(league, content);
   if (page === 'standings') return render.standingsPage(league, content);

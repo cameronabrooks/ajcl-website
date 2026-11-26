@@ -186,7 +186,20 @@ function pageHead(eyebrow, title, sub) {
 }
 
 // Rank role badge (Obsidian, Kyanite, Amethyst, Amber, Ruby, Emerald).
-const rankTag = r => `<span class="tier tier-${esc(String(r).toLowerCase())}" title="Rank">${esc(r)}</span>`;
+// Rank role icons from Discord (the bot sends them as league.rankIcons; these are the
+// current ones, used until it does).
+const RANK_ICON_DEFAULTS = {
+  Obsidian: 'https://cdn.discordapp.com/role-icons/1119046708672860160/71ee4fd8f7f7fa28fd505c4f6fcdf951.png?size=64',
+  Kyanite: 'https://cdn.discordapp.com/role-icons/1090620742602866698/9c960bc5c059ce949dcee671791643f3.png?size=64',
+  Amethyst: 'https://cdn.discordapp.com/role-icons/1072231400658436177/e286ed811e2692c41de56f2f2a26023b.png?size=64',
+  Amber: 'https://cdn.discordapp.com/role-icons/1176328117476917339/40effcbb67d0ea1f4b46e1d93f3c6724.png?size=64',
+  Ruby: 'https://cdn.discordapp.com/role-icons/1072231347369803828/8cf80c99c519b33e4cea0b07a80fadbd.png?size=64',
+  Emerald: 'https://cdn.discordapp.com/role-icons/1072231312649355285/4a2962b593174a8528ca0c540c00e588.png?size=64',
+};
+let RANK_ICONS = RANK_ICON_DEFAULTS;
+function setRankIcons(icons) { RANK_ICONS = { ...RANK_ICON_DEFAULTS, ...(icons || {}) }; }
+const rankIcon = r => (RANK_ICONS[r] && /^https:\/\/cdn\.discordapp\.com\//.test(RANK_ICONS[r]) ? `<img class="tier-icon" src="${esc(RANK_ICONS[r])}" alt="" width="16" height="16" loading="lazy">` : '');
+const rankTag = r => `<span class="tier tier-${esc(String(r).toLowerCase())}" title="${esc(r)} rank">${rankIcon(r)}${esc(r)}</span>`;
 
 // Stable id/URL for a match: /matches/w1-atl-sfs/
 const matchId = m => `w${m.week}-${m.home.slug}-${m.away.slug}`;
@@ -992,7 +1005,7 @@ function playerTools(league) {
   const offers = (league.rosterMoves || []).filter(x => x.type === 'offer');
   const teamName = slug => (league.teams.find(t => t.slug === slug) || {}).name || slug;
   const sub = s => `<div class="panel rt-sub${s.accepted ? ' is-taken' : ''}">
-      <div><strong>${esc(s.teamName || teamName(s.team))}</strong> needs a <strong>${esc(s.rank)}</strong> sub · ${esc(s.league)}<br><span class="muted">${esc(s.datetime)}</span></div>
+      <div><strong>${esc(s.teamName || teamName(s.team))}</strong> needs a ${rankTag(s.rank)} sub · ${esc(s.league)}<br><span class="muted">${esc(s.datetime)}</span></div>
       ${s.accepted
         ? `<div class="rt-sub-side"><span class="pill">Taken by ${esc(s.accepted)}</span><form class="rt-form rt-inline" data-cmd="esub_backout" data-mine-hash="${esc(s.acceptedHash || '')}" data-confirm="Back out of this sub request?" hidden><input type="hidden" name="request" value="${esc(s.id)}"><button class="btn btn-sm">Back out</button><p class="mt-out muted"></p></form></div>`
         : `<form class="rt-form rt-inline" data-cmd="esub_accept" data-login data-confirm="Accept this sub request? You'll get the team's role for the match."><input type="hidden" name="request" value="${esc(s.id)}"><button class="btn btn-sm btn-gold">Accept</button><p class="mt-out muted"></p></form>`}
@@ -2257,4 +2270,4 @@ function notFound(c) {
   return layout({ title: 'Not found', active: '', body, c });
 }
 
-module.exports = { configure, overlayPage, matchId, matchPage, mapsetPage, mapsetVideoReady, MAPSET_SECONDS, staffPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
+module.exports = { configure, setRankIcons, overlayPage, matchId, matchPage, mapsetPage, mapsetVideoReady, MAPSET_SECONDS, staffPage, eightsPage, announcementsPage, powerRankingsPage, settingsPage, freeAgentsPage, home, teamsPage, teamPage, playerPage, playersPage, draftPage, schedulePage, standingsPage, statsPage, joinPage, authPage, notFound };
