@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795669810512,
+  "generatedAt": 1795669886631,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -423,13 +423,13 @@
         "ranks": {
           "Leisure": "Ruby",
           "Lil'Ceezars": "Kyanite",
-          "Divi": "Ruby",
           "Fly Tendencies": "Amber",
+          "Divi": "Ruby",
           "Tanji": "Amber"
         },
         "links": {
-          "Divi": "divi",
           "Fly Tendencies": "fly-tendencies",
+          "Divi": "divi",
           "Tanji": "tanji",
           "Leisure": "leisure",
           "Lil'Ceezars": "lil-ceezars"
@@ -2584,8 +2584,8 @@
   ],
   "eightsLeaderboards": [
     {
-      "key": "academy-8s-queue",
-      "name": "Academy 8s Queue",
+      "key": "8s-queue",
+      "name": "8s queue",
       "legacy": false,
       "players": [
         {
@@ -3564,8 +3564,8 @@
       ]
     },
     {
-      "key": "open-8s-queue",
-      "name": "Open 8s Queue",
+      "key": "in-queue",
+      "name": "in-queue",
       "legacy": false,
       "players": [
         {
@@ -6541,16 +6541,16 @@
         "gm"
       ]
     },
-    "53a50678dbe66a4491de": {
+    "c3d683d275a73cb633f0": {
       "team": "nor",
-      "name": "Divi",
+      "name": "Fly Tendencies",
       "roles": [
         "player"
       ]
     },
-    "c3d683d275a73cb633f0": {
+    "53a50678dbe66a4491de": {
       "team": "nor",
-      "name": "Fly Tendencies",
+      "name": "Divi",
       "roles": [
         "player"
       ]
@@ -8283,49 +8283,6 @@
       "dropStaff": true
     },
     {
-      "slug": "divi",
-      "name": "Divi",
-      "discordId": "430541542504267777",
-      "avatar": "https://cdn.discordapp.com/guilds/1069723212025450548/users/430541542504267777/avatars/a893290f8d54b6dcd4d16e5a974dcdd4.png?size=128",
-      "team": "nor",
-      "roles": [
-        "player"
-      ],
-      "rank": "Ruby",
-      "gamertag": "jdot",
-      "gamertagSource": "linked",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "0.99",
-            "kpm": "18.2",
-            "maps": 33
-          },
-          "seasons": [
-            {
-              "name": "Season 9 Academy",
-              "current": false,
-              "team": "KCK",
-              "kd": "1.05",
-              "kpm": "19.3",
-              "maps": 26
-            },
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "SYR",
-              "kd": "0.78",
-              "kpm": "13.9",
-              "maps": 7
-            }
-          ]
-        }
-      ],
-      "dropGm": true,
-      "dropStaff": true
-    },
-    {
       "slug": "fly-tendencies",
       "name": "Fly Tendencies",
       "discordId": "561721438403559426",
@@ -8361,6 +8318,49 @@
               "kd": "1.01",
               "kpm": "20.0",
               "maps": 4
+            }
+          ]
+        }
+      ],
+      "dropGm": true,
+      "dropStaff": true
+    },
+    {
+      "slug": "divi",
+      "name": "Divi",
+      "discordId": "430541542504267777",
+      "avatar": "https://cdn.discordapp.com/guilds/1069723212025450548/users/430541542504267777/avatars/a893290f8d54b6dcd4d16e5a974dcdd4.png?size=128",
+      "team": "nor",
+      "roles": [
+        "player"
+      ],
+      "rank": "Ruby",
+      "gamertag": "jdot",
+      "gamertagSource": "linked",
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "0.99",
+            "kpm": "18.2",
+            "maps": 33
+          },
+          "seasons": [
+            {
+              "name": "Season 9 Academy",
+              "current": false,
+              "team": "KCK",
+              "kd": "1.05",
+              "kpm": "19.3",
+              "maps": 26
+            },
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR",
+              "kd": "0.78",
+              "kpm": "13.9",
+              "maps": 7
             }
           ]
         }
