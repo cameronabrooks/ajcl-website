@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795656278185,
+  "generatedAt": 1795657098451,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2589,22 +2589,22 @@
       "legacy": false,
       "players": [
         {
-          "name": "MaRsH313",
-          "rank": "Ruby",
-          "rating": 1093,
-          "wins": 4,
-          "losses": 6,
-          "winPct": 40,
-          "streak": 2
-        },
-        {
           "name": "⛧ Ƒëﾑr ツ",
           "rank": "Ruby",
-          "rating": 1093,
-          "wins": 7,
+          "rating": 1141,
+          "wins": 8,
           "losses": 3,
-          "winPct": 70,
-          "streak": 3
+          "winPct": 72.7,
+          "streak": 4
+        },
+        {
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1078,
+          "wins": 4,
+          "losses": 7,
+          "winPct": 36.4,
+          "streak": -1
         },
         {
           "name": "Cam",
@@ -2616,6 +2616,15 @@
           "streak": 1
         },
         {
+          "name": "2elite",
+          "rank": "Amber",
+          "rating": 1064,
+          "wins": 5,
+          "losses": 3,
+          "winPct": 62.5,
+          "streak": 1
+        },
+        {
           "name": "Inspire",
           "rank": "Amber",
           "rating": 1063,
@@ -2623,15 +2632,6 @@
           "losses": 0,
           "winPct": 100,
           "streak": 3
-        },
-        {
-          "name": "Divi",
-          "rank": "Ruby",
-          "rating": 1036,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
         },
         {
           "name": "Senz",
@@ -2661,12 +2661,12 @@
           "streak": 1
         },
         {
-          "name": "2elite",
-          "rank": "Amber",
-          "rating": 1028,
-          "wins": 4,
-          "losses": 3,
-          "winPct": 57.1,
+          "name": "Divi",
+          "rank": "Ruby",
+          "rating": 1020,
+          "wins": 1,
+          "losses": 1,
+          "winPct": 50,
           "streak": -1
         },
         {
@@ -2778,6 +2778,24 @@
           "streak": -1
         },
         {
+          "name": "SlayFS",
+          "rank": "Amber",
+          "rating": 981,
+          "wins": 1,
+          "losses": 3,
+          "winPct": 25,
+          "streak": 1
+        },
+        {
+          "name": "Brimington",
+          "rank": "Ruby",
+          "rating": 980,
+          "wins": 3,
+          "losses": 7,
+          "winPct": 30,
+          "streak": 1
+        },
+        {
           "name": "Esca",
           "rank": "Amethyst",
           "rating": 969,
@@ -2798,41 +2816,88 @@
         {
           "name": "Pizz",
           "rank": "Ruby",
-          "rating": 965,
+          "rating": 947,
           "wins": 1,
-          "losses": 3,
-          "winPct": 25,
-          "streak": -1
-        },
-        {
-          "name": "SlayFS",
-          "rank": "Amber",
-          "rating": 951,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -1
-        },
-        {
-          "name": "Brimington",
-          "rank": "Ruby",
-          "rating": 950,
-          "wins": 2,
-          "losses": 7,
-          "winPct": 22.2,
-          "streak": -5
+          "losses": 4,
+          "winPct": 20,
+          "streak": -2
         },
         {
           "name": "Kain",
           "rank": "Ruby",
-          "rating": 947,
+          "rating": 930,
           "wins": 1,
-          "losses": 8,
-          "winPct": 11.1,
-          "streak": -2
+          "losses": 9,
+          "winPct": 10,
+          "streak": -3
         }
       ],
       "results": [
+        {
+          "number": 18,
+          "winner": "A",
+          "at": 1795657088112,
+          "byStaff": false,
+          "format": "Mixed (HP / S&D / Hijack)",
+          "maps": [
+            {
+              "map": "Munition",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Rooftops",
+              "mode": "search_and_destroy"
+            },
+            {
+              "map": "Lotus",
+              "mode": "hijack"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "SlayFS",
+              "delta": 30,
+              "rating": 981
+            },
+            {
+              "name": "2elite",
+              "delta": 36,
+              "rating": 1064
+            },
+            {
+              "name": "Brimington",
+              "delta": 30,
+              "rating": 980
+            },
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": 49,
+              "rating": 1141
+            }
+          ],
+          "teamB": [
+            {
+              "name": "Kain",
+              "delta": -17,
+              "rating": 930
+            },
+            {
+              "name": "MaRsH313",
+              "delta": -15,
+              "rating": 1078
+            },
+            {
+              "name": "Divi",
+              "delta": -16,
+              "rating": 1020
+            },
+            {
+              "name": "Pizz",
+              "delta": -18,
+              "rating": 947
+            }
+          ]
+        },
         {
           "number": 17,
           "winner": "A",
