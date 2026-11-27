@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795738117020,
+  "generatedAt": 1795740282846,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1340,21 +1340,23 @@
       "division": "Academy",
       "home": "lex",
       "away": "omh",
-      "status": "unscheduled",
-      "time": null,
+      "status": "scheduled",
+      "time": 1796004000000,
       "result": null,
       "deadline": 1796273999000,
       "key": "Academy::1141495563888627722-1103094404593491988",
       "sideA": "home",
       "sched": {
-        "status": "proposed",
+        "status": "confirmed",
         "deadline": 1796273999000,
-        "proposal": {
-          "at": 1796004000000,
-          "by": "staff"
-        },
+        "proposal": null,
         "sidesSet": false
-      }
+      },
+      "pbSides": {
+        "home": "lex",
+        "away": "omh"
+      },
+      "pbKey": "Academy::1141495563888627722-1103094404593491988"
     },
     {
       "week": 1,
