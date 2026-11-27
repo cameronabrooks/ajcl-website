@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795773200928,
+  "generatedAt": 1795792963893,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2087,7 +2087,7 @@
           "discordId": "1478045570206666925",
           "rank": "Kyanite",
           "hash": "2157bbb040dac182dbb8",
-          "avatar": "https://cdn.discordapp.com/avatars/1478045570206666925/a_21d51a342e36920aaff8b765841f2d9b.gif?size=64"
+          "avatar": "https://cdn.discordapp.com/avatars/1478045570206666925/a_fc82bceff689e22343d5a77200ac4c38.gif?size=64"
         },
         {
           "name": "Xerxes",
@@ -7378,7 +7378,7 @@
       "slug": "nitsua",
       "name": "nitsua",
       "discordId": "1478045570206666925",
-      "avatar": "https://cdn.discordapp.com/avatars/1478045570206666925/a_21d51a342e36920aaff8b765841f2d9b.gif?size=128",
+      "avatar": "https://cdn.discordapp.com/avatars/1478045570206666925/a_fc82bceff689e22343d5a77200ac4c38.gif?size=128",
       "team": "syr",
       "roles": [
         "player"
