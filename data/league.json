@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795746072224,
+  "generatedAt": 1795746562201,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -310,17 +310,17 @@
           "⛧ Ƒëﾑr ツ",
           "BooshDaGoat",
           "Inspire",
-          "Owes Every1 Taco Bell Plu"
+          "PluWitDaFlu"
         ],
         "nonPlaying": [],
         "ranks": {
           "⛧ Ƒëﾑr ツ": "Ruby",
-          "Owes Every1 Taco Bell Plu": "Amber",
+          "PluWitDaFlu": "Amber",
           "Inspire": "Amber",
           "BooshDaGoat": "Ruby"
         },
         "links": {
-          "Owes Every1 Taco Bell Plu": "owes-every1-taco-bell-plu",
+          "PluWitDaFlu": "pluwitdaflu",
           "Inspire": "inspire",
           "BooshDaGoat": "booshdagoat",
           "⛧ Ƒëﾑr ツ": "e-r"
@@ -3724,7 +3724,7 @@
           "streak": -1
         },
         {
-          "name": "Owes Every1 Taco Bell Plu",
+          "name": "PluWitDaFlu",
           "rank": "Amber",
           "rating": 980,
           "wins": 0,
@@ -3783,7 +3783,7 @@
               "rating": 980
             },
             {
-              "name": "Owes Every1 Taco Bell Plu",
+              "name": "PluWitDaFlu",
               "delta": -20,
               "rating": 980
             },
@@ -4095,7 +4095,7 @@
           "streak": -1
         },
         {
-          "name": "Owes Every1 Taco Bell Plu",
+          "name": "PluWitDaFlu",
           "rank": "Amber",
           "rating": 999,
           "wins": 1,
@@ -4407,7 +4407,7 @@
               "rating": 965
             },
             {
-              "name": "Owes Every1 Taco Bell Plu",
+              "name": "PluWitDaFlu",
               "delta": -17,
               "rating": 999
             },
@@ -4533,7 +4533,7 @@
               "rating": null
             },
             {
-              "name": "Owes Every1 Taco Bell Plu",
+              "name": "PluWitDaFlu",
               "delta": -16,
               "rating": null
             },
@@ -4585,7 +4585,7 @@
               "rating": null
             },
             {
-              "name": "Owes Every1 Taco Bell Plu",
+              "name": "PluWitDaFlu",
               "delta": 15,
               "rating": null
             },
@@ -6683,7 +6683,7 @@
     },
     "6eba674a89096a099f7d": {
       "team": "ros",
-      "name": "Owes Every1 Taco Bell Plu",
+      "name": "PluWitDaFlu",
       "roles": [
         "player"
       ]
@@ -7951,8 +7951,8 @@
       "dropStaff": true
     },
     {
-      "slug": "owes-every1-taco-bell-plu",
-      "name": "Owes Every1 Taco Bell Plu",
+      "slug": "pluwitdaflu",
+      "name": "PluWitDaFlu",
       "discordId": "676085028131831821",
       "avatar": "https://cdn.discordapp.com/avatars/676085028131831821/8f1487c0f20513d043b8587ef9677f75.png?size=128",
       "team": "ros",
@@ -7960,28 +7960,6 @@
         "player"
       ],
       "rank": "Amber",
-      "gamertag": "DinnerTime",
-      "gamertagSource": "linked",
-      "games": [
-        {
-          "game": "BO7",
-          "total": {
-            "kd": "1.46",
-            "kpm": "22.3",
-            "maps": 3
-          },
-          "seasons": [
-            {
-              "name": "Academy Mini SZN",
-              "current": false,
-              "team": "SYR",
-              "kd": "1.46",
-              "kpm": "22.3",
-              "maps": 3
-            }
-          ]
-        }
-      ],
       "dropGm": true,
       "dropStaff": true
     },
@@ -10573,6 +10551,38 @@
               "kd": "1.04",
               "kpm": "21.6",
               "maps": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dinnertime",
+      "name": "DinnerTime",
+      "team": null,
+      "former": true,
+      "lastTeam": "SYR",
+      "roles": [],
+      "gamertag": "DinnerTime",
+      "aliases": [
+        "DinnerTime"
+      ],
+      "games": [
+        {
+          "game": "BO7",
+          "total": {
+            "kd": "1.46",
+            "kpm": "22.3",
+            "maps": 3
+          },
+          "seasons": [
+            {
+              "name": "Academy Mini SZN",
+              "current": false,
+              "team": "SYR",
+              "kd": "1.46",
+              "kpm": "22.3",
+              "maps": 3
             }
           ]
         }
