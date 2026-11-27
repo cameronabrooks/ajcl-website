@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795750615611,
+  "generatedAt": 1795752790369,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1350,15 +1350,33 @@
         "status": "confirmed",
         "deadline": 1796273999000,
         "proposal": null,
-        "sidesSet": false
+        "sidesSet": true
       },
       "caster": {
         "name": "nitsua",
         "stream": "https://www.twitch.tv/nitsuafps"
       },
-      "pbSides": {
-        "home": "lex",
-        "away": "omh"
+      "picksBans": {
+        "teamA": "lex",
+        "teamB": "omh",
+        "inProgress": true,
+        "actions": [],
+        "next": {
+          "team": "lex",
+          "action": "ban",
+          "mode": "hardpoint",
+          "desc": "Team A bans one Hardpoint map",
+          "step": 1,
+          "steps": 10,
+          "available": [
+            "Lotus",
+            "Lithium",
+            "Munition",
+            "Reactor U92",
+            "Rooftops",
+            "Sentry"
+          ]
+        }
       },
       "pbKey": "Academy::1141495563888627722-1103094404593491988"
     },
