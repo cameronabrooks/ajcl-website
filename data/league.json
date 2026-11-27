@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795746562201,
+  "generatedAt": 1795747219207,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -633,7 +633,7 @@
         "status": "proposed",
         "deadline": 1796273999000,
         "proposal": {
-          "at": 1795658400000,
+          "at": 1796004000000,
           "by": "away"
         },
         "sidesSet": false
