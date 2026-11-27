@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795749138126,
+  "generatedAt": 1795750615611,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -3663,38 +3663,38 @@
         {
           "name": "Inspire",
           "rank": "Amber",
-          "rating": 1069,
+          "rating": 1114,
+          "wins": 3,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 3
+        },
+        {
+          "name": "Jantehhhhh",
+          "rank": "Amber",
+          "rating": 1068,
           "wins": 2,
           "losses": 0,
           "winPct": 100,
           "streak": 2
         },
         {
-          "name": "Fly Tendencies",
-          "rank": "Amber",
-          "rating": 1034,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
-          "name": "Jantehhhhh",
-          "rank": "Amber",
-          "rating": 1030,
-          "wins": 1,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 1
-        },
-        {
-          "name": "MaRsH313",
+          "name": "Kain",
           "rank": "Ruby",
-          "rating": 1023,
-          "wins": 1,
+          "rating": 1058,
+          "wins": 2,
           "losses": 1,
-          "winPct": 50,
-          "streak": -1
+          "winPct": 66.7,
+          "streak": 2
+        },
+        {
+          "name": "PluWitDaFlu",
+          "rank": "Amber",
+          "rating": 1055,
+          "wins": 2,
+          "losses": 1,
+          "winPct": 66.7,
+          "streak": 2
         },
         {
           "name": "Xerxes",
@@ -3706,43 +3706,108 @@
           "streak": -1
         },
         {
-          "name": "PluWitDaFlu",
+          "name": "Fly Tendencies",
           "rank": "Amber",
-          "rating": 1016,
-          "wins": 1,
-          "losses": 1,
-          "winPct": 50,
-          "streak": 1
-        },
-        {
-          "name": "Kain",
-          "rank": "Ruby",
           "rating": 1014,
           "wins": 1,
           "losses": 1,
           "winPct": 50,
-          "streak": 1
+          "streak": -1
+        },
+        {
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1008,
+          "wins": 1,
+          "losses": 2,
+          "winPct": 33.3,
+          "streak": -2
         },
         {
           "name": "Brimington",
           "rank": "Ruby",
-          "rating": 966,
+          "rating": 949,
           "wins": 0,
-          "losses": 2,
+          "losses": 3,
           "winPct": 0,
-          "streak": -2
+          "streak": -3
         },
         {
           "name": "BrooksySZN",
           "rank": "Amethyst",
-          "rating": 964,
+          "rating": 944,
           "wins": 0,
-          "losses": 2,
+          "losses": 3,
           "winPct": 0,
-          "streak": -2
+          "streak": -3
         }
       ],
       "results": [
+        {
+          "number": 4,
+          "winner": "B",
+          "at": 1795750605237,
+          "byStaff": false,
+          "format": "All Hardpoint",
+          "maps": [
+            {
+              "map": "Sentry",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Lithium",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Rooftops",
+              "mode": "hardpoint"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "Fly Tendencies",
+              "delta": -20,
+              "rating": 1014
+            },
+            {
+              "name": "BrooksySZN",
+              "delta": -20,
+              "rating": 944
+            },
+            {
+              "name": "Brimington",
+              "delta": -17,
+              "rating": 949
+            },
+            {
+              "name": "MaRsH313",
+              "delta": -15,
+              "rating": 1008
+            }
+          ],
+          "teamB": [
+            {
+              "name": "Inspire",
+              "delta": 45,
+              "rating": 1114
+            },
+            {
+              "name": "PluWitDaFlu",
+              "delta": 39,
+              "rating": 1055
+            },
+            {
+              "name": "Jantehhhhh",
+              "delta": 38,
+              "rating": 1068
+            },
+            {
+              "name": "Kain",
+              "delta": 43,
+              "rating": 1058
+            }
+          ]
+        },
         {
           "number": 3,
           "winner": "B",
