@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795678520767,
+  "generatedAt": 1795738076405,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -674,18 +674,24 @@
             "team": "sln",
             "slot": null,
             "map": "Rooftops"
+          },
+          {
+            "mode": "hardpoint",
+            "action": "pick",
+            "team": "tor",
+            "slot": 1,
+            "map": "Lithium"
           }
         ],
         "next": {
-          "team": "tor",
+          "team": "sln",
           "action": "pick",
           "mode": "hardpoint",
-          "desc": "Team A picks Map 1 — Game 1 Hardpoint",
-          "step": 3,
+          "desc": "Team B picks Map 4 — Game 4 Hardpoint",
+          "step": 4,
           "steps": 10,
           "available": [
             "Lotus",
-            "Lithium",
             "Reactor U92",
             "Sentry"
           ]
