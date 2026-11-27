@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795738086670,
+  "generatedAt": 1795738117020,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -651,9 +651,12 @@
       "key": "Premier::1069798029290389645-1185792927235047524",
       "sideA": "home",
       "sched": {
-        "status": "awaiting_schedule",
+        "status": "proposed",
         "deadline": 1796273999000,
-        "proposal": null,
+        "proposal": {
+          "at": 1795919400000,
+          "by": "away"
+        },
         "sidesSet": true
       },
       "picksBans": {
