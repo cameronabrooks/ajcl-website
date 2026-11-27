@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795740282846,
+  "generatedAt": 1795740798447,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1351,6 +1351,10 @@
         "deadline": 1796273999000,
         "proposal": null,
         "sidesSet": false
+      },
+      "caster": {
+        "name": "nitsua",
+        "stream": "https://www.twitch.tv/nitsuafps"
       },
       "pbSides": {
         "home": "lex",
