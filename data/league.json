@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795740798447,
+  "generatedAt": 1795746072224,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -3650,6 +3650,152 @@
               "name": "Palsy",
               "delta": -16,
               "rating": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "league-8s-queue",
+      "name": "League 8s Queue",
+      "legacy": false,
+      "players": [
+        {
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1040,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "Xerxes",
+          "rank": "Amethyst",
+          "rating": 1037,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "Inspire",
+          "rank": "Amber",
+          "rating": 1032,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "Jantehhhhh",
+          "rank": "Amber",
+          "rating": 1030,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 1
+        },
+        {
+          "name": "Kain",
+          "rank": "Ruby",
+          "rating": 983,
+          "wins": 0,
+          "losses": 1,
+          "winPct": 0,
+          "streak": -1
+        },
+        {
+          "name": "Brimington",
+          "rank": "Ruby",
+          "rating": 981,
+          "wins": 0,
+          "losses": 1,
+          "winPct": 0,
+          "streak": -1
+        },
+        {
+          "name": "BrooksySZN",
+          "rank": "Amethyst",
+          "rating": 980,
+          "wins": 0,
+          "losses": 1,
+          "winPct": 0,
+          "streak": -1
+        },
+        {
+          "name": "Owes Every1 Taco Bell Plu",
+          "rank": "Amber",
+          "rating": 980,
+          "wins": 0,
+          "losses": 1,
+          "winPct": 0,
+          "streak": -1
+        }
+      ],
+      "results": [
+        {
+          "number": 1,
+          "winner": "A",
+          "at": 1795746061892,
+          "byStaff": false,
+          "format": "Mixed (HP / S&D / Hijack)",
+          "maps": [
+            {
+              "map": "Rooftops",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Coal",
+              "mode": "search_and_destroy"
+            },
+            {
+              "map": "Munition",
+              "mode": "hijack"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "Inspire",
+              "delta": 32,
+              "rating": 1032
+            },
+            {
+              "name": "Xerxes",
+              "delta": 37,
+              "rating": 1037
+            },
+            {
+              "name": "Jantehhhhh",
+              "delta": 30,
+              "rating": 1030
+            },
+            {
+              "name": "MaRsH313",
+              "delta": 40,
+              "rating": 1040
+            }
+          ],
+          "teamB": [
+            {
+              "name": "BrooksySZN",
+              "delta": -20,
+              "rating": 980
+            },
+            {
+              "name": "Owes Every1 Taco Bell Plu",
+              "delta": -20,
+              "rating": 980
+            },
+            {
+              "name": "Brimington",
+              "delta": -19,
+              "rating": 981
+            },
+            {
+              "name": "Kain",
+              "delta": -17,
+              "rating": 983
             }
           ]
         }
