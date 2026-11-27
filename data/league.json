@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795738076405,
+  "generatedAt": 1795738086670,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -644,14 +644,14 @@
       "division": "Premier",
       "home": "sln",
       "away": "tor",
-      "status": "scheduled",
-      "time": 1795912200000,
+      "status": "unscheduled",
+      "time": null,
       "result": null,
       "deadline": 1796273999000,
       "key": "Premier::1069798029290389645-1185792927235047524",
       "sideA": "home",
       "sched": {
-        "status": "confirmed",
+        "status": "awaiting_schedule",
         "deadline": 1796273999000,
         "proposal": null,
         "sidesSet": true
