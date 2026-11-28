@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795829996396,
+  "generatedAt": 1795831061617,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1395,11 +1395,29 @@
         "status": "confirmed",
         "deadline": 1796273999000,
         "proposal": null,
-        "sidesSet": false
+        "sidesSet": true
       },
-      "pbSides": {
-        "home": "pit",
-        "away": "nor"
+      "picksBans": {
+        "teamA": "pit",
+        "teamB": "nor",
+        "inProgress": true,
+        "actions": [],
+        "next": {
+          "team": "pit",
+          "action": "ban",
+          "mode": "hardpoint",
+          "desc": "Team A bans one Hardpoint map",
+          "step": 1,
+          "steps": 10,
+          "available": [
+            "Lotus",
+            "Lithium",
+            "Munition",
+            "Reactor U92",
+            "Rooftops",
+            "Sentry"
+          ]
+        }
       },
       "pbKey": "Academy::1185796369496162314-1309752190578982932"
     },
