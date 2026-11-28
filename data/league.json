@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795839829219,
+  "generatedAt": 1795842798617,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1961,7 +1961,7 @@
       ]
     },
     "Academy": {
-      "status": "open",
+      "status": "closed",
       "points": [
         8,
         7,
@@ -6487,11 +6487,11 @@
     },
     {
       "id": "1574939448813162603",
-      "title": "🏆 Academy Power Rankings",
+      "title": "🏆 Academy Power Rankings — Final",
       "text": "@everyone\n\n🥇 Roswell Aliens — **78 pts**\n🥈 Omaha Bandits — **62 pts**\n🥉 New Orleans Reapers — **50 pts**\n4️⃣ Pittsburgh Nocturnal — **46 pts**\n5️⃣ Montreal Red Dragons — **45 pts**\n6️⃣ Michigan Samurai — **40 pts**\n7️⃣ Lexington Majestic — **23 pts**\n8️⃣ Kansas City Kings — **19 pts**",
       "images": [],
       "postedAt": 1795565225557,
-      "editedAt": 1795761826671
+      "editedAt": 1795842792439
     },
     {
       "id": "1574939352251768863",
@@ -7272,7 +7272,7 @@
       "slug": "speiddyy",
       "name": "Speiddyy",
       "discordId": "642876247072047117",
-      "avatar": "https://cdn.discordapp.com/avatars/642876247072047117/a_47e8044c0ce5842bc6a86c74930ce47d.gif?size=128",
+      "avatar": "https://cdn.discordapp.com/avatars/642876247072047117/f919b59f095113c7aabb1bc65847a10a.png?size=128",
       "team": "atl",
       "roles": [
         "player"
