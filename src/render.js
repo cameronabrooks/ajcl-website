@@ -854,10 +854,7 @@ function home(league, c) {
         <a class="btn btn-ghost" href="${u('/join/')}">How to Join →</a>
       </div>
     </div>
-    <figure class="hero-logo-wrap">
-      <img class="hero-logo" src="${u('/ajcl-logo.png')}?v=${CSS_VERSION}" alt="Average Joe's CoD League logo">
-      <a class="hero-logo-dl" href="${u('/ajcl-logo-animated.gif')}" download="AJCL-logo-animated.gif">Download animated logo (GIF)</a>
-    </figure>
+    <img class="hero-logo" src="${u('/ajcl-logo.png')}?v=${CSS_VERSION}" alt="Average Joe's CoD League logo">
   </div>
 </section>
 
