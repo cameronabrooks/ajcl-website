@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795843098593,
+  "generatedAt": 1795843787678,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -4078,13 +4078,22 @@
           "streak": 2
         },
         {
+          "name": "nitsua",
+          "rank": "Kyanite",
+          "rating": 1053,
+          "wins": 4,
+          "losses": 1,
+          "winPct": 80,
+          "streak": 1
+        },
+        {
           "name": "Jantehhhhh",
           "rank": "Amber",
-          "rating": 1064,
+          "rating": 1045,
           "wins": 3,
-          "losses": 1,
-          "winPct": 75,
-          "streak": 1
+          "losses": 2,
+          "winPct": 60,
+          "streak": -1
         },
         {
           "name": "Fen",
@@ -4093,6 +4102,15 @@
           "wins": 2,
           "losses": 1,
           "winPct": 66.7,
+          "streak": 1
+        },
+        {
+          "name": "JAYDREAMZ",
+          "rank": "Ruby",
+          "rating": 1032,
+          "wins": 1,
+          "losses": 0,
+          "winPct": 100,
           "streak": 1
         },
         {
@@ -4240,15 +4258,6 @@
           "streak": 0
         },
         {
-          "name": "nitsua",
-          "rank": "Kyanite",
-          "rating": 1016,
-          "wins": 3,
-          "losses": 1,
-          "winPct": 75,
-          "streak": 0
-        },
-        {
           "name": "NovaSZN",
           "rank": null,
           "rating": 1016,
@@ -4337,6 +4346,24 @@
           "losses": 0,
           "winPct": 100,
           "streak": 0
+        },
+        {
+          "name": "SlayFS",
+          "rank": "Amber",
+          "rating": 1015,
+          "wins": 2,
+          "losses": 2,
+          "winPct": 50,
+          "streak": 1
+        },
+        {
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1011,
+          "wins": 5,
+          "losses": 3,
+          "winPct": 62.5,
+          "streak": 1
         },
         {
           "name": "Lil'Ceezars",
@@ -4481,36 +4508,74 @@
           "losses": 3,
           "winPct": 25,
           "streak": 0
-        },
-        {
-          "name": "BlackRose_Akuma",
-          "rank": null,
-          "rating": 984,
-          "wins": 0,
-          "losses": 1,
-          "winPct": 0,
-          "streak": 0
-        },
-        {
-          "name": "Freaky",
-          "rank": "Amethyst",
-          "rating": 984,
-          "wins": 0,
-          "losses": 1,
-          "winPct": 0,
-          "streak": 0
-        },
-        {
-          "name": "Hunna",
-          "rank": "Amethyst",
-          "rating": 984,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": 0
         }
       ],
       "results": [
+        {
+          "number": 18,
+          "winner": "B",
+          "at": 1795843777316,
+          "byStaff": false,
+          "format": "All Hardpoint",
+          "maps": [
+            {
+              "map": "Sentry",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Munition",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Reactor U92",
+              "mode": "hardpoint"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "BrooksySZN",
+              "delta": -19,
+              "rating": 981
+            },
+            {
+              "name": "Washed Trav",
+              "delta": -19,
+              "rating": 961
+            },
+            {
+              "name": "Jantehhhhh",
+              "delta": -19,
+              "rating": 1045
+            },
+            {
+              "name": "Fly Tendencies",
+              "delta": -18,
+              "rating": 965
+            }
+          ],
+          "teamB": [
+            {
+              "name": "nitsua",
+              "delta": 37,
+              "rating": 1053
+            },
+            {
+              "name": "SlayFS",
+              "delta": 31,
+              "rating": 1015
+            },
+            {
+              "name": "JAYDREAMZ",
+              "delta": 32,
+              "rating": 1032
+            },
+            {
+              "name": "MaRsH313",
+              "delta": 31,
+              "rating": 1011
+            }
+          ]
+        },
         {
           "number": 17,
           "winner": "A",
