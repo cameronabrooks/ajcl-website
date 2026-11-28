@@ -820,3 +820,10 @@ button.btn { font: inherit; cursor: pointer; }
 /* Rank role icon (from Discord) inside the rank tag */
 .tier { display: inline-flex; align-items: center; gap: 5px; }
 .tier-icon { width: 1.15em; height: 1.15em; object-fit: contain; margin: -2px 0 0 -2px; flex: none; }
+
+/* Homepage logo + its animated GIF download link */
+.hero-logo-wrap { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; justify-self: center; width: min(380px, 100%); }
+.hero-logo-wrap .hero-logo { width: 100%; }
+.hero-logo-dl { color: var(--muted); font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+.hero-logo-dl:hover { color: var(--gold); }
+@media (max-width: 900px) { .hero-logo-wrap { width: 220px; grid-row: 1; } }
