@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795829952464,
+  "generatedAt": 1795829996396,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1385,21 +1385,23 @@
       "division": "Academy",
       "home": "pit",
       "away": "nor",
-      "status": "unscheduled",
-      "time": null,
+      "status": "scheduled",
+      "time": 1796432400000,
       "result": null,
       "deadline": 1796273999000,
       "key": "Academy::1185796369496162314-1309752190578982932",
       "sideA": "home",
       "sched": {
-        "status": "proposed",
+        "status": "confirmed",
         "deadline": 1796273999000,
-        "proposal": {
-          "at": 1796432400000,
-          "by": "away"
-        },
+        "proposal": null,
         "sidesSet": false
-      }
+      },
+      "pbSides": {
+        "home": "pit",
+        "away": "nor"
+      },
+      "pbKey": "Academy::1185796369496162314-1309752190578982932"
     },
     {
       "week": 2,
