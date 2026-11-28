@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795838023510,
+  "generatedAt": 1795839722856,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2656,6 +2656,15 @@
       "legacy": false,
       "players": [
         {
+          "name": "⛧ Ƒëﾑr ツ",
+          "rank": "Ruby",
+          "rating": 1197,
+          "wins": 9,
+          "losses": 3,
+          "winPct": 75,
+          "streak": 5
+        },
+        {
           "name": "Inspire",
           "rank": "Amber",
           "rating": 1177,
@@ -2674,15 +2683,6 @@
           "streak": 3
         },
         {
-          "name": "⛧ Ƒëﾑr ツ",
-          "rank": "Ruby",
-          "rating": 1141,
-          "wins": 8,
-          "losses": 3,
-          "winPct": 72.7,
-          "streak": 4
-        },
-        {
           "name": "MaRsH313",
           "rank": "Ruby",
           "rating": 1134,
@@ -2694,29 +2694,20 @@
         {
           "name": "Cam",
           "rank": "Amber",
-          "rating": 1052,
-          "wins": 5,
+          "rating": 1087,
+          "wins": 6,
           "losses": 3,
-          "winPct": 62.5,
-          "streak": -1
-        },
-        {
-          "name": "Brimington",
-          "rank": "Ruby",
-          "rating": 1035,
-          "wins": 5,
-          "losses": 8,
-          "winPct": 38.5,
+          "winPct": 66.7,
           "streak": 1
         },
         {
           "name": "Senz",
           "rank": "Amber",
-          "rating": 1033,
-          "wins": 2,
+          "rating": 1072,
+          "wins": 3,
           "losses": 0,
           "winPct": 100,
-          "streak": 0
+          "streak": 1
         },
         {
           "name": "Faker (Bottzy)",
@@ -2752,6 +2743,24 @@
           "wins": 1,
           "losses": 1,
           "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "SlayFS",
+          "rank": "Amber",
+          "rating": 1020,
+          "wins": 3,
+          "losses": 5,
+          "winPct": 37.5,
+          "streak": 1
+        },
+        {
+          "name": "Brimington",
+          "rank": "Ruby",
+          "rating": 1017,
+          "wins": 5,
+          "losses": 9,
+          "winPct": 35.7,
           "streak": -1
         },
         {
@@ -2791,15 +2800,6 @@
           "streak": 1
         },
         {
-          "name": "Bandit",
-          "rank": "Ruby",
-          "rating": 1013,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": 1
-        },
-        {
           "name": "Bruce",
           "rank": "Amber",
           "rating": 1011,
@@ -2818,21 +2818,21 @@
           "streak": 0
         },
         {
-          "name": "Twizz",
-          "rank": "Amber",
-          "rating": 1000,
-          "wins": 2,
-          "losses": 2,
-          "winPct": 50,
-          "streak": 0
-        },
-        {
           "name": "Palsy",
           "rank": "Ruby",
           "rating": 996,
           "wins": 1,
           "losses": 4,
           "winPct": 20,
+          "streak": -1
+        },
+        {
+          "name": "Bandit",
+          "rank": "Ruby",
+          "rating": 994,
+          "wins": 1,
+          "losses": 3,
+          "winPct": 25,
           "streak": -1
         },
         {
@@ -2845,12 +2845,12 @@
           "streak": 0
         },
         {
-          "name": "SlayFS",
+          "name": "Twizz",
           "rank": "Amber",
-          "rating": 984,
+          "rating": 985,
           "wins": 2,
-          "losses": 5,
-          "winPct": 28.6,
+          "losses": 3,
+          "winPct": 40,
           "streak": -1
         },
         {
@@ -2901,14 +2901,79 @@
         {
           "name": "Kain",
           "rank": "Ruby",
-          "rating": 926,
+          "rating": 911,
           "wins": 2,
-          "losses": 11,
-          "winPct": 15.4,
-          "streak": 1
+          "losses": 12,
+          "winPct": 14.3,
+          "streak": -1
         }
       ],
       "results": [
+        {
+          "number": 22,
+          "winner": "A",
+          "at": 1795839712549,
+          "byStaff": false,
+          "format": "Mixed (HP / S&D / Hijack)",
+          "maps": [
+            {
+              "map": "Sentry",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Silkworm",
+              "mode": "search_and_destroy"
+            },
+            {
+              "map": "Lotus",
+              "mode": "hijack"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "Cam",
+              "delta": 35,
+              "rating": 1087
+            },
+            {
+              "name": "Senz",
+              "delta": 40,
+              "rating": 1072
+            },
+            {
+              "name": "SlayFS",
+              "delta": 36,
+              "rating": 1020
+            },
+            {
+              "name": "⛧ Ƒëﾑr ツ",
+              "delta": 56,
+              "rating": 1197
+            }
+          ],
+          "teamB": [
+            {
+              "name": "Twizz",
+              "delta": -15,
+              "rating": 985
+            },
+            {
+              "name": "Brimington",
+              "delta": -18,
+              "rating": 1017
+            },
+            {
+              "name": "Kain",
+              "delta": -15,
+              "rating": 911
+            },
+            {
+              "name": "Bandit",
+              "delta": -19,
+              "rating": 994
+            }
+          ]
+        },
         {
           "number": 21,
           "winner": "A",
