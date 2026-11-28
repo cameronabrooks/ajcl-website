@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795828140282,
+  "generatedAt": 1795829952464,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1392,9 +1392,12 @@
       "key": "Academy::1185796369496162314-1309752190578982932",
       "sideA": "home",
       "sched": {
-        "status": "awaiting_schedule",
+        "status": "proposed",
         "deadline": 1796273999000,
-        "proposal": null,
+        "proposal": {
+          "at": 1796432400000,
+          "by": "away"
+        },
         "sidesSet": false
       }
     },
