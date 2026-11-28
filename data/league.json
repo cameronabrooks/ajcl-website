@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795831061617,
+  "generatedAt": 1795831565396,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -309,6 +309,7 @@
         "players": [
           "⛧ Ƒëﾑr ツ",
           "BooshDaGoat",
+          "Brimington",
           "Inspire",
           "PluWitDaFlu"
         ],
@@ -316,12 +317,14 @@
         "ranks": {
           "⛧ Ƒëﾑr ツ": "Ruby",
           "PluWitDaFlu": "Amber",
+          "Brimington": "Ruby",
           "Inspire": "Amber",
           "BooshDaGoat": "Ruby"
         },
         "links": {
           "⛧ Ƒëﾑr ツ": "e-r",
           "PluWitDaFlu": "pluwitdaflu",
+          "Brimington": "brimington",
           "Inspire": "inspire",
           "BooshDaGoat": "booshdagoat"
         }
@@ -6876,6 +6879,13 @@
         "player"
       ]
     },
+    "484f010b69343c22efe4": {
+      "team": "ros",
+      "name": "Brimington",
+      "roles": [
+        "player"
+      ]
+    },
     "487171bde66caaf9a017": {
       "team": "ros",
       "name": "Inspire",
@@ -7029,13 +7039,6 @@
     "f792d0a1a59ee39e8741": {
       "team": "pit",
       "name": "2elite",
-      "roles": [
-        "player"
-      ]
-    },
-    "484f010b69343c22efe4": {
-      "team": "pit",
-      "name": "Brimington",
       "roles": [
         "player"
       ]
@@ -8038,6 +8041,19 @@
       "dropStaff": true
     },
     {
+      "slug": "brimington",
+      "name": "Brimington",
+      "discordId": "802763022728298496",
+      "avatar": "https://cdn.discordapp.com/avatars/802763022728298496/df446dc58adb053c6437ce823b2bb7f0.png?size=128",
+      "team": "ros",
+      "roles": [
+        "player"
+      ],
+      "rank": "Ruby",
+      "dropGm": false,
+      "dropStaff": true
+    },
+    {
       "slug": "inspire",
       "name": "Inspire",
       "discordId": "1563229944190861373",
@@ -8702,19 +8718,6 @@
         "player"
       ],
       "rank": "Amber",
-      "dropGm": true,
-      "dropStaff": true
-    },
-    {
-      "slug": "brimington",
-      "name": "Brimington",
-      "discordId": "802763022728298496",
-      "avatar": "https://cdn.discordapp.com/avatars/802763022728298496/df446dc58adb053c6437ce823b2bb7f0.png?size=128",
-      "team": "pit",
-      "roles": [
-        "player"
-      ],
-      "rank": "Ruby",
       "dropGm": true,
       "dropStaff": true
     },
