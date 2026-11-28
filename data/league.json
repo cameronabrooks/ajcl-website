@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795827946669,
+  "generatedAt": 1795828120281,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -2026,7 +2026,7 @@
           "discordId": "481296445404610560",
           "rank": "Amber",
           "hash": "05602de9aea222d1753e",
-          "avatar": "https://cdn.discordapp.com/avatars/481296445404610560/35e5d4bf320ca220c7b1e9e1a5f2d142.png?size=64"
+          "avatar": "https://cdn.discordapp.com/avatars/481296445404610560/a_a7df35fdf81d8b4d3e90aca88f00fdb6.gif?size=64"
         },
         {
           "name": "MaRsH313",
@@ -2628,8 +2628,8 @@
   ],
   "eightsLeaderboards": [
     {
-      "key": "academy-8s-queue",
-      "name": "Academy 8s Queue",
+      "key": "8s-queue",
+      "name": "8s queue",
       "legacy": false,
       "players": [
         {
@@ -3682,293 +3682,8 @@
       ]
     },
     {
-      "key": "league-8s-queue",
-      "name": "League 8s Queue",
-      "legacy": false,
-      "players": [
-        {
-          "name": "Inspire",
-          "rank": "Amber",
-          "rating": 1114,
-          "wins": 3,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 3
-        },
-        {
-          "name": "Jantehhhhh",
-          "rank": "Amber",
-          "rating": 1068,
-          "wins": 2,
-          "losses": 0,
-          "winPct": 100,
-          "streak": 2
-        },
-        {
-          "name": "Kain",
-          "rank": "Ruby",
-          "rating": 1058,
-          "wins": 2,
-          "losses": 1,
-          "winPct": 66.7,
-          "streak": 2
-        },
-        {
-          "name": "PluWitDaFlu",
-          "rank": "Amber",
-          "rating": 1055,
-          "wins": 2,
-          "losses": 1,
-          "winPct": 66.7,
-          "streak": 2
-        },
-        {
-          "name": "Xerxes",
-          "rank": "Amethyst",
-          "rating": 1020,
-          "wins": 1,
-          "losses": 1,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "Fly Tendencies",
-          "rank": "Amber",
-          "rating": 1014,
-          "wins": 1,
-          "losses": 1,
-          "winPct": 50,
-          "streak": -1
-        },
-        {
-          "name": "MaRsH313",
-          "rank": "Ruby",
-          "rating": 1008,
-          "wins": 1,
-          "losses": 2,
-          "winPct": 33.3,
-          "streak": -2
-        },
-        {
-          "name": "Brimington",
-          "rank": "Ruby",
-          "rating": 949,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -3
-        },
-        {
-          "name": "BrooksySZN",
-          "rank": "Amethyst",
-          "rating": 944,
-          "wins": 0,
-          "losses": 3,
-          "winPct": 0,
-          "streak": -3
-        }
-      ],
-      "results": [
-        {
-          "number": 4,
-          "winner": "B",
-          "at": 1795750605237,
-          "byStaff": false,
-          "format": "All Hardpoint",
-          "maps": [
-            {
-              "map": "Sentry",
-              "mode": "hardpoint"
-            },
-            {
-              "map": "Lithium",
-              "mode": "hardpoint"
-            },
-            {
-              "map": "Rooftops",
-              "mode": "hardpoint"
-            }
-          ],
-          "teamA": [
-            {
-              "name": "Fly Tendencies",
-              "delta": -20,
-              "rating": 1014
-            },
-            {
-              "name": "BrooksySZN",
-              "delta": -20,
-              "rating": 944
-            },
-            {
-              "name": "Brimington",
-              "delta": -17,
-              "rating": 949
-            },
-            {
-              "name": "MaRsH313",
-              "delta": -15,
-              "rating": 1008
-            }
-          ],
-          "teamB": [
-            {
-              "name": "Inspire",
-              "delta": 45,
-              "rating": 1114
-            },
-            {
-              "name": "PluWitDaFlu",
-              "delta": 39,
-              "rating": 1055
-            },
-            {
-              "name": "Jantehhhhh",
-              "delta": 38,
-              "rating": 1068
-            },
-            {
-              "name": "Kain",
-              "delta": 43,
-              "rating": 1058
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "winner": "B",
-          "at": 1795749127784,
-          "byStaff": false,
-          "format": "Mixed (HP / S&D / Hijack)",
-          "maps": [
-            {
-              "map": "Reactor U92",
-              "mode": "hardpoint"
-            },
-            {
-              "map": "Lotus",
-              "mode": "search_and_destroy"
-            },
-            {
-              "map": "Lithium",
-              "mode": "hijack"
-            }
-          ],
-          "teamA": [
-            {
-              "name": "Xerxes",
-              "delta": -17,
-              "rating": 1020
-            },
-            {
-              "name": "BrooksySZN",
-              "delta": -16,
-              "rating": 964
-            },
-            {
-              "name": "MaRsH313",
-              "delta": -17,
-              "rating": 1023
-            },
-            {
-              "name": "Brimington",
-              "delta": -15,
-              "rating": 966
-            }
-          ],
-          "teamB": [
-            {
-              "name": "Inspire",
-              "delta": 36,
-              "rating": 1069
-            },
-            {
-              "name": "PluWitDaFlu",
-              "delta": 36,
-              "rating": 1016
-            },
-            {
-              "name": "Fly Tendencies",
-              "delta": 34,
-              "rating": 1034
-            },
-            {
-              "name": "Kain",
-              "delta": 31,
-              "rating": 1014
-            }
-          ]
-        },
-        {
-          "number": 1,
-          "winner": "A",
-          "at": 1795746061892,
-          "byStaff": false,
-          "format": "Mixed (HP / S&D / Hijack)",
-          "maps": [
-            {
-              "map": "Rooftops",
-              "mode": "hardpoint"
-            },
-            {
-              "map": "Coal",
-              "mode": "search_and_destroy"
-            },
-            {
-              "map": "Munition",
-              "mode": "hijack"
-            }
-          ],
-          "teamA": [
-            {
-              "name": "Inspire",
-              "delta": 32,
-              "rating": 1032
-            },
-            {
-              "name": "Xerxes",
-              "delta": 37,
-              "rating": 1037
-            },
-            {
-              "name": "Jantehhhhh",
-              "delta": 30,
-              "rating": 1030
-            },
-            {
-              "name": "MaRsH313",
-              "delta": 40,
-              "rating": 1040
-            }
-          ],
-          "teamB": [
-            {
-              "name": "BrooksySZN",
-              "delta": -20,
-              "rating": 980
-            },
-            {
-              "name": "PluWitDaFlu",
-              "delta": -20,
-              "rating": 980
-            },
-            {
-              "name": "Brimington",
-              "delta": -19,
-              "rating": 981
-            },
-            {
-              "name": "Kain",
-              "delta": -17,
-              "rating": 983
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "open-8s-queue",
-      "name": "Open 8s Queue",
+      "key": "in-queue",
+      "name": "in-queue",
       "legacy": false,
       "players": [
         {
@@ -6006,6 +5721,291 @@
               "name": "Skittles",
               "delta": 16,
               "rating": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "in-queue-2",
+      "name": "in-queue",
+      "legacy": false,
+      "players": [
+        {
+          "name": "Inspire",
+          "rank": "Amber",
+          "rating": 1114,
+          "wins": 3,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 3
+        },
+        {
+          "name": "Jantehhhhh",
+          "rank": "Amber",
+          "rating": 1068,
+          "wins": 2,
+          "losses": 0,
+          "winPct": 100,
+          "streak": 2
+        },
+        {
+          "name": "Kain",
+          "rank": "Ruby",
+          "rating": 1058,
+          "wins": 2,
+          "losses": 1,
+          "winPct": 66.7,
+          "streak": 2
+        },
+        {
+          "name": "PluWitDaFlu",
+          "rank": "Amber",
+          "rating": 1055,
+          "wins": 2,
+          "losses": 1,
+          "winPct": 66.7,
+          "streak": 2
+        },
+        {
+          "name": "Xerxes",
+          "rank": "Amethyst",
+          "rating": 1020,
+          "wins": 1,
+          "losses": 1,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "Fly Tendencies",
+          "rank": "Amber",
+          "rating": 1014,
+          "wins": 1,
+          "losses": 1,
+          "winPct": 50,
+          "streak": -1
+        },
+        {
+          "name": "MaRsH313",
+          "rank": "Ruby",
+          "rating": 1008,
+          "wins": 1,
+          "losses": 2,
+          "winPct": 33.3,
+          "streak": -2
+        },
+        {
+          "name": "Brimington",
+          "rank": "Ruby",
+          "rating": 949,
+          "wins": 0,
+          "losses": 3,
+          "winPct": 0,
+          "streak": -3
+        },
+        {
+          "name": "BrooksySZN",
+          "rank": "Amethyst",
+          "rating": 944,
+          "wins": 0,
+          "losses": 3,
+          "winPct": 0,
+          "streak": -3
+        }
+      ],
+      "results": [
+        {
+          "number": 4,
+          "winner": "B",
+          "at": 1795750605237,
+          "byStaff": false,
+          "format": "All Hardpoint",
+          "maps": [
+            {
+              "map": "Sentry",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Lithium",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Rooftops",
+              "mode": "hardpoint"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "Fly Tendencies",
+              "delta": -20,
+              "rating": 1014
+            },
+            {
+              "name": "BrooksySZN",
+              "delta": -20,
+              "rating": 944
+            },
+            {
+              "name": "Brimington",
+              "delta": -17,
+              "rating": 949
+            },
+            {
+              "name": "MaRsH313",
+              "delta": -15,
+              "rating": 1008
+            }
+          ],
+          "teamB": [
+            {
+              "name": "Inspire",
+              "delta": 45,
+              "rating": 1114
+            },
+            {
+              "name": "PluWitDaFlu",
+              "delta": 39,
+              "rating": 1055
+            },
+            {
+              "name": "Jantehhhhh",
+              "delta": 38,
+              "rating": 1068
+            },
+            {
+              "name": "Kain",
+              "delta": 43,
+              "rating": 1058
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "winner": "B",
+          "at": 1795749127784,
+          "byStaff": false,
+          "format": "Mixed (HP / S&D / Hijack)",
+          "maps": [
+            {
+              "map": "Reactor U92",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Lotus",
+              "mode": "search_and_destroy"
+            },
+            {
+              "map": "Lithium",
+              "mode": "hijack"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "Xerxes",
+              "delta": -17,
+              "rating": 1020
+            },
+            {
+              "name": "BrooksySZN",
+              "delta": -16,
+              "rating": 964
+            },
+            {
+              "name": "MaRsH313",
+              "delta": -17,
+              "rating": 1023
+            },
+            {
+              "name": "Brimington",
+              "delta": -15,
+              "rating": 966
+            }
+          ],
+          "teamB": [
+            {
+              "name": "Inspire",
+              "delta": 36,
+              "rating": 1069
+            },
+            {
+              "name": "PluWitDaFlu",
+              "delta": 36,
+              "rating": 1016
+            },
+            {
+              "name": "Fly Tendencies",
+              "delta": 34,
+              "rating": 1034
+            },
+            {
+              "name": "Kain",
+              "delta": 31,
+              "rating": 1014
+            }
+          ]
+        },
+        {
+          "number": 1,
+          "winner": "A",
+          "at": 1795746061892,
+          "byStaff": false,
+          "format": "Mixed (HP / S&D / Hijack)",
+          "maps": [
+            {
+              "map": "Rooftops",
+              "mode": "hardpoint"
+            },
+            {
+              "map": "Coal",
+              "mode": "search_and_destroy"
+            },
+            {
+              "map": "Munition",
+              "mode": "hijack"
+            }
+          ],
+          "teamA": [
+            {
+              "name": "Inspire",
+              "delta": 32,
+              "rating": 1032
+            },
+            {
+              "name": "Xerxes",
+              "delta": 37,
+              "rating": 1037
+            },
+            {
+              "name": "Jantehhhhh",
+              "delta": 30,
+              "rating": 1030
+            },
+            {
+              "name": "MaRsH313",
+              "delta": 40,
+              "rating": 1040
+            }
+          ],
+          "teamB": [
+            {
+              "name": "BrooksySZN",
+              "delta": -20,
+              "rating": 980
+            },
+            {
+              "name": "PluWitDaFlu",
+              "delta": -20,
+              "rating": 980
+            },
+            {
+              "name": "Brimington",
+              "delta": -19,
+              "rating": 981
+            },
+            {
+              "name": "Kain",
+              "delta": -17,
+              "rating": 983
             }
           ]
         }
