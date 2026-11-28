@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795836170994,
+  "generatedAt": 1795838023510,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -309,7 +309,6 @@
         "players": [
           "⛧ Ƒëﾑr ツ",
           "BooshDaGoat",
-          "Brimington",
           "Inspire",
           "PluWitDaFlu"
         ],
@@ -317,13 +316,11 @@
         "ranks": {
           "⛧ Ƒëﾑr ツ": "Ruby",
           "Inspire": "Amber",
-          "Brimington": "Ruby",
           "PluWitDaFlu": "Amber",
           "BooshDaGoat": "Ruby"
         },
         "links": {
           "Inspire": "inspire",
-          "Brimington": "brimington",
           "PluWitDaFlu": "pluwitdaflu",
           "⛧ Ƒëﾑr ツ": "e-r",
           "BooshDaGoat": "booshdagoat"
@@ -6880,13 +6877,6 @@
         "player"
       ]
     },
-    "484f010b69343c22efe4": {
-      "team": "ros",
-      "name": "Brimington",
-      "roles": [
-        "player"
-      ]
-    },
     "6eba674a89096a099f7d": {
       "team": "ros",
       "name": "PluWitDaFlu",
@@ -7035,6 +7025,13 @@
         "pickban",
         "player",
         "gm"
+      ]
+    },
+    "484f010b69343c22efe4": {
+      "team": "pit",
+      "name": "Brimington",
+      "roles": [
+        "player"
       ]
     },
     "f792d0a1a59ee39e8741": {
@@ -8006,19 +8003,6 @@
       "dropStaff": true
     },
     {
-      "slug": "brimington",
-      "name": "Brimington",
-      "discordId": "802763022728298496",
-      "avatar": "https://cdn.discordapp.com/avatars/802763022728298496/df446dc58adb053c6437ce823b2bb7f0.png?size=128",
-      "team": "ros",
-      "roles": [
-        "player"
-      ],
-      "rank": "Ruby",
-      "dropGm": false,
-      "dropStaff": true
-    },
-    {
       "slug": "pluwitdaflu",
       "name": "PluWitDaFlu",
       "discordId": "676085028131831821",
@@ -8743,6 +8727,19 @@
         }
       ],
       "dropGm": false,
+      "dropStaff": true
+    },
+    {
+      "slug": "brimington",
+      "name": "Brimington",
+      "discordId": "802763022728298496",
+      "avatar": "https://cdn.discordapp.com/avatars/802763022728298496/df446dc58adb053c6437ce823b2bb7f0.png?size=128",
+      "team": "pit",
+      "roles": [
+        "player"
+      ],
+      "rank": "Ruby",
+      "dropGm": true,
       "dropStaff": true
     },
     {
