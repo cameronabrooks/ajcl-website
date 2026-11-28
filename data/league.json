@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795842798617,
+  "generatedAt": 1795842923954,
   "version": 1,
   "rostersLive": true,
   "discordClientId": "1515789275961098291",
@@ -1904,7 +1904,7 @@
   ],
   "powerRankings": {
     "Premier": {
-      "status": "open",
+      "status": "closed",
       "points": [
         8,
         7,
@@ -6495,11 +6495,11 @@
     },
     {
       "id": "1574939352251768863",
-      "title": "🏆 Premier Power Rankings",
+      "title": "🏆 Premier Power Rankings — Final",
       "text": "@everyone\n\n🥇 Atlanta Firebirds — **45 pts**\n🥈 Halifax Ospreys — **31 pts**\n🥉 Carolina Carnage — **18 pts**\n4️⃣ Syracuse Armadillos — **18 pts**\n5️⃣ Toronto Blue Dragons — **15 pts**\n6️⃣ Santa Fe Scorpions — **12 pts**\n7️⃣ Calgary Cobra Chickens — **9 pts**\n8️⃣ St. Louis Night Stalkers — **8 pts**",
       "images": [],
       "postedAt": 1795565202535,
-      "editedAt": 1795580047354
+      "editedAt": 1795842911324
     },
     {
       "id": "1574227005648535623",
